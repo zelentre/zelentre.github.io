@@ -1,0 +1,3510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis学习">
+<meta property="og:url" content="http://example.com/2020/07/08/Redis/index.html">
+<meta property="og:site_name" content="笔记">
+<meta property="og:description" content="Redis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200303174922.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200303180006.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304092708.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304093255.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304093712.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304094433.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304100658.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304100959.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304101031.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304105306.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304173232.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304105824.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110033.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110127.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110526.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110712.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110829.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304111007.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304111055.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304112932.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304140640.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304141413.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304141813.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304142116.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304142451.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143253.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143346.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143927.png">
+<meta property="og:image" content="https://gitee.com//zelentre/IMG/raw/master/PicGo/20200304151748.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304170522.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304170853.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171046.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304172437.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171152.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171244.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162534.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162814.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171507.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171550.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171732.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171823.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171858.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175609.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175636.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175926.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304180239.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103327.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103100.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305112446.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305114023.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135110.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135214.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135306.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135333.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135928.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135957.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140613.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140650.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140841.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141347.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141420.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141755.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141650.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141914.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142058.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142200.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142257.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142400.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142501.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143135.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143523.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143628.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143723.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305144302.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305144821.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305150055.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305164445.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170048.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170220.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170414.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170705.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170743.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170840.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174533.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174633.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171233.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171320.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171437.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172209.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172314.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172429.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174255.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174339.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173811.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173929.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173949.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306103814.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306103935.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306113555.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306113844.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306134849.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306141709.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306142536.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306144528.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309095118.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309095543.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171244.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171152.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309103325.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309103738.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309111739.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112125.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112203.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112241.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112346.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112429.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112608.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309113011.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143205.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143831.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143926.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144012.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144120.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144549.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144651.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151432.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151656.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151922.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152004.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152029.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152309.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152422.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152513.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152538.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152646.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309154132.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309154714.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155136.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155204.png">
+<meta property="og:image" content="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155246.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164147.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164246.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164333.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164353.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165036.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165940.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173446.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173612.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173720.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173807.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174020.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174135.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174219.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174304.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174657.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309175535.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309175607.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180145.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180238.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180304.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180622.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310114122.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134905.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134922.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134939.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310140307.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310140451.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310141243.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310141458.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310152018.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160012.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160740.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160902.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310161840.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310173149.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310173236.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160902.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311092857.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311093130.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311093208.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162522.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162637.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162829.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165122.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165212.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165229.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165336.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165359.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312113712.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312134718.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312153224.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312165933.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313101436.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313110955.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313111241.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313111241.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313134742.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313135502.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313140707.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313141030.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142046.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142530.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142550.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142550.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151106.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151255.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151145.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313161429.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313161916.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313162242.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316135757.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316140616.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316143153.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316144823.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152159.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152247.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152428.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152657.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152940.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316153110.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316154352.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171442.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171622.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171711.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316172031.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091147.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091350.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091506.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317094316.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317094419.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317104154.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317112845.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318155735.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318161322.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318164417.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318165903.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318174658.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318175519.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318175933.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318180917.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200320115804.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200320120059.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200325164844.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200325171234.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200327170152.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200327171733.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200406111455.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200406165541.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200414141528.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416101537.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416105846.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416110647.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112157.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112353.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112914.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416134820.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416135534.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420154633.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420155255.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416110647.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420172448.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420184749.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100545.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100624.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100655.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100750.png">
+<meta property="article:published_time" content="2020-07-08T10:01:31.000Z">
+<meta property="article:modified_time" content="2021-06-14T08:29:58.363Z">
+<meta property="article:author" content="zelentre">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/20200303174922.png">
+
+
+<link rel="canonical" href="http://example.com/2020/07/08/Redis/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;Redis&#x2F;&quot;,&quot;path&quot;:&quot;2020&#x2F;07&#x2F;08&#x2F;Redis&#x2F;&quot;,&quot;title&quot;:&quot;Redis学习&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Redis学习 | 笔记</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">笔记</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Redis%E5%88%9D%E5%A7%8B"><span class="nav-number">1.1.</span> <span class="nav-text">一、Redis初始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.1.</span> <span class="nav-text">redis特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redis典型应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.3.</span> <span class="nav-text">redis安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.4.</span> <span class="nav-text">redis常用配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81API%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">二、API的理解和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">通用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">哈希类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">列表类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.5.</span> <span class="nav-text">集合类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">有序集合类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Redis%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">三、Redis客户端的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9AJedis"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java客户端：Jedis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Redis%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="nav-number">1.4.</span> <span class="nav-text">四、Redis其他功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.4.1.</span> <span class="nav-text">慢查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pipeline"><span class="nav-number">1.4.2.</span> <span class="nav-text">pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-number">1.4.3.</span> <span class="nav-text">发布订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitmap"><span class="nav-number">1.4.4.</span> <span class="nav-text">Bitmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HyperLogLog"><span class="nav-number">1.4.5.</span> <span class="nav-text">HyperLogLog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GEO"><span class="nav-number">1.4.6.</span> <span class="nav-text">GEO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81Redis%E6%8C%81%E4%B9%85%E5%8C%96%E7%9A%84%E5%8F%96%E8%88%8D%E5%92%8C%E9%80%89%E6%8B%A9"><span class="nav-number">1.5.</span> <span class="nav-text">五、Redis持久化的取舍和选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">持久化的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB"><span class="nav-number">1.5.2.</span> <span class="nav-text">RDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF"><span class="nav-number">1.5.3.</span> <span class="nav-text">AOF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDB%E5%92%8CAOF%E7%9A%84%E6%8A%89%E6%8B%A9"><span class="nav-number">1.5.4.</span> <span class="nav-text">RDB和AOF的抉择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.</span> <span class="nav-text">六、常见的持久化开发运维问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fork%E6%93%8D%E4%BD%9C"><span class="nav-number">1.6.1.</span> <span class="nav-text">fork操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%BC%80%E9%94%80%E5%92%8C%E4%BC%98%E5%8C%96"><span class="nav-number">1.6.2.</span> <span class="nav-text">子进程开销和优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF%E8%BF%BD%E5%8A%A0%E9%98%BB%E5%A1%9E"><span class="nav-number">1.6.3.</span> <span class="nav-text">AOF追加阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81Redis%E5%A4%8D%E5%88%B6%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">1.7.</span> <span class="nav-text">七、Redis复制的原理与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-number">1.7.1.</span> <span class="nav-text">什么是主从复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.2.</span> <span class="nav-text">复制的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6%E5%92%8C%E9%83%A8%E5%88%86%E5%A4%8D%E5%88%B6"><span class="nav-number">1.7.3.</span> <span class="nav-text">全量复制和部分复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86"><span class="nav-number">1.7.4.</span> <span class="nav-text">故障处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.7.5.</span> <span class="nav-text">开发运维常见问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81Redis-Sentinel"><span class="nav-number">1.8.</span> <span class="nav-text">八、Redis Sentinel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E9%AB%98%E5%8F%AF%E7%94%A8%EF%BC%9F"><span class="nav-number">1.8.1.</span> <span class="nav-text">主从复制高可用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="nav-number">1.8.2.</span> <span class="nav-text">架构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-number">1.8.3.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.8.4.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.8.5.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-1"><span class="nav-number">1.8.6.</span> <span class="nav-text">开发运维常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.8.7.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81Redis-Cluster"><span class="nav-number">1.9.</span> <span class="nav-text">九、Redis Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BC%E5%94%A4%E9%9B%86%E7%BE%A4"><span class="nav-number">1.9.1.</span> <span class="nav-text">呼唤集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="nav-number">1.9.2.</span> <span class="nav-text">数据分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4"><span class="nav-number">1.9.3.</span> <span class="nav-text">搭建集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E4%BC%B8%E7%BC%A9"><span class="nav-number">1.9.4.</span> <span class="nav-text">集群伸缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B7%AF%E7%94%B1"><span class="nav-number">1.9.5.</span> <span class="nav-text">客户端路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="nav-number">1.9.6.</span> <span class="nav-text">故障转移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.7.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">1.9.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">1.10.</span> <span class="nav-text">十、缓存设计与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%9A%84%E5%8F%97%E7%9B%8A%E4%B8%8E%E6%88%90%E6%9C%AC"><span class="nav-number">1.10.1.</span> <span class="nav-text">缓存的受益与成本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E8%B7%9F%E6%96%B0%E7%AD%96%E7%95%A5"><span class="nav-number">1.10.2.</span> <span class="nav-text">缓存跟新策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%B2%92%E5%BA%A6%E6%8E%A7%E5%88%B6"><span class="nav-number">1.10.3.</span> <span class="nav-text">缓存粒度控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E4%BC%98%E5%8C%96"><span class="nav-number">1.10.4.</span> <span class="nav-text">缓存穿透优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%BA%95%E6%B4%9E%E9%97%AE%E9%A2%98%E4%BC%98%E5%8C%96"><span class="nav-number">1.10.5.</span> <span class="nav-text">无底洞问题优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E4%BC%98%E5%8C%96"><span class="nav-number">1.10.6.</span> <span class="nav-text">缓存雪崩优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%AD%E7%82%B9key%E9%87%8D%E5%BB%BA%E4%BC%98%E5%8C%96"><span class="nav-number">1.10.7.</span> <span class="nav-text">热点key重建优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="nav-number">1.10.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Redis%E4%BA%91%E5%B9%B3%E5%8F%B0CacheCloud"><span class="nav-number">1.11.</span> <span class="nav-text">十一、Redis云平台CacheCloud</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E8%A7%84%E6%A8%A1%E5%8C%96%E8%BF%90%E7%BB%B4"><span class="nav-number">1.11.1.</span> <span class="nav-text">Redis规模化运维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">1.11.2.</span> <span class="nav-text">机器部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5"><span class="nav-number">1.11.3.</span> <span class="nav-text">应用接入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%B0%8F%E7%BB%93"><span class="nav-number">1.12.</span> <span class="nav-text">十二、小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81Redis%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.13.</span> <span class="nav-text">十三、Redis布隆过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%87%BA%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.13.1.</span> <span class="nav-text">引出布隆过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.13.2.</span> <span class="nav-text">布隆过滤器原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E8%AF%AF%E5%B7%AE%E7%8E%87"><span class="nav-number">1.13.3.</span> <span class="nav-text">布隆过滤器误差率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.13.4.</span> <span class="nav-text">本地布隆过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E5%8D%95%E6%9C%BA%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.13.5.</span> <span class="nav-text">Redis单机布隆过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E5%88%86%E5%B8%83%E5%BC%8F%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.13.6.</span> <span class="nav-text">Redis分布式布隆过滤器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81Redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="nav-number">1.14.</span> <span class="nav-text">十四、Redis开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key%E5%90%8D%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.14.1.</span> <span class="nav-text">Key名设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Value%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.14.2.</span> <span class="nav-text">Value设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">1.14.3.</span> <span class="nav-text">命令使用技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="nav-number">1.14.4.</span> <span class="nav-text">Java客户端优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">1.15.</span> <span class="nav-text">十五、内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B6%88%E8%80%97"><span class="nav-number">1.15.1.</span> <span class="nav-text">内存消耗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%BC%93%E5%86%B2"><span class="nav-number">1.15.2.</span> <span class="nav-text">内存缓冲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">1.15.3.</span> <span class="nav-text">内存管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96"><span class="nav-number">1.15.4.</span> <span class="nav-text">内存优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-3"><span class="nav-number">1.15.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E9%82%A3%E4%BA%9B%E5%9D%91"><span class="nav-number">1.16.</span> <span class="nav-text">十六、开发运维那些坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E5%86%85%E6%A0%B8%E4%BC%98%E5%8C%96"><span class="nav-number">1.16.1.</span> <span class="nav-text">Linux内核优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%9A%84Redis"><span class="nav-number">1.16.2.</span> <span class="nav-text">安全的Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%AD%E7%82%B9key%E5%8F%91%E7%8E%B0"><span class="nav-number">1.16.3.</span> <span class="nav-text">热点key发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-4"><span class="nav-number">1.16.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zelentre</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/08/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-08 18:01:31" itemprop="dateCreated datePublished" datetime="2020-07-08T18:01:31+08:00">2020-07-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-06-14 16:29:58" itemprop="dateModified" datetime="2021-06-14T16:29:58+08:00">2021-06-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>32k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>29 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a><strong>Redis</strong></h1><span id="more"></span>
+
+<h2 id="一、Redis初始"><a href="#一、Redis初始" class="headerlink" title="一、Redis初始"></a>一、Redis初始</h2><h3 id="redis特性"><a href="#redis特性" class="headerlink" title="redis特性"></a>redis特性</h3><ol>
+<li><p>速度快</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200303174922.png" alt="内存"></p>
+<ul>
+<li>10W OPS（每秒可以实现10万次读写 官方数字）</li>
+<li>数据存在内存中</li>
+<li>用C语言编程（50000 line）</li>
+<li>单线程模型</li>
+</ul>
+</li>
+<li><p>持久化（断电不丢数据）</p>
+<ul>
+<li>Redis所有数据保存在内存中，对数据的更新将异步地保存到磁盘上</li>
+</ul>
+</li>
+<li><p>多种数据结构</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200303180006.png" alt="数据结构"></p>
+<ul>
+<li>BitMaps：位图</li>
+<li>HyperLogLog：超小内存唯一值计数</li>
+<li>GEO：地理信息定位</li>
+<li>BitMaps、HyperLogLog本质是字符串</li>
+</ul>
+</li>
+<li><p>支持多种语言（Java、PHP、python、ruby、lua、node）</p>
+</li>
+<li><p>功能丰富</p>
+<ul>
+<li>发布订阅</li>
+<li>lua脚本</li>
+<li>事务</li>
+<li>pipeline</li>
+</ul>
+</li>
+<li><p>简单</p>
+<ul>
+<li>23000 line c code redis3 集群 （核心代码）</li>
+<li>不依赖外部库</li>
+<li>单线程模型</li>
+</ul>
+</li>
+<li><p>主从复制</p>
+</li>
+<li><p>高可用、分布式</p>
+<ul>
+<li>Redis-Sentinel（V2.8）支持高可用</li>
+<li>Redis-Cluster（V3.0）支持分布式</li>
+</ul>
+</li>
+</ol>
+<h3 id="Redis典型应用场景"><a href="#Redis典型应用场景" class="headerlink" title="Redis典型应用场景"></a>Redis典型应用场景</h3><ol>
+<li>缓存系统<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304092708.png" alt="缓存"> 当redis中有data时直接返回data，当redis中无data–&gt;storage,storage–&gt;appserver、storage–&gt;redis,以便下次访问直接走redis</li>
+</ul>
+</li>
+<li>计数器<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304093255.png" alt="计数">转发数、评论数用缓存计数，还有视频播放数等等</li>
+</ul>
+</li>
+<li>消息队列系统</li>
+<li>排行榜</li>
+<li>社交网络<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304093712.png" alt="img"> 粉丝数、共同关注数。。</li>
+</ul>
+</li>
+<li>实时系统<ul>
+<li>垃圾邮件系统</li>
+</ul>
+</li>
+</ol>
+<h3 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h3><ol>
+<li><p>redis安装</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304094433.png" alt="安装"></li>
+<li><strong>创建redis的软连接，方便以后升级</strong>     <code> ln -s redis-3.0.7 redis</code> </li>
+</ul>
+</li>
+<li><p>可执行文件说明</p>
+<ul>
+<li>redis-server —&gt; Redis服务器</li>
+<li>redis-cli —&gt; redis命令行客户端</li>
+<li>redis-benchmark —&gt; 性能测试</li>
+<li>redis-check-aof —&gt; AOF文件修复工具</li>
+<li>redis-check-dump —&gt; RDB文件修复工具</li>
+<li>redis-sentinel —&gt; Sentinel服务器（2.8以后）</li>
+</ul>
+</li>
+<li><p>三种启动方法</p>
+<ul>
+<li><p>默认启动</p>
+<ul>
+<li><p>redis-server</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br><span class="line">netstat -antpl | grep redis</span><br><span class="line">redis-cli -h ip -p port ping</span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>动态参数启动</p>
+<ul>
+<li><strong>端口随意指定</strong>   <code>redis-server --port 6380  </code></li>
+</ul>
+</li>
+<li><p>配置文件启动</p>
+<ul>
+<li>redis-server configpath (configpath 配置文件的路径)</li>
+</ul>
+</li>
+<li><p>比较</p>
+<ul>
+<li>生产环境选择配置启动</li>
+<li>单机多实例配置文件可以用端口区分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>简单的客户端连接</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304100658.png" alt="img"></li>
+</ul>
+</li>
+<li><p>redis客户端返回值</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304100959.png" alt="img"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304101031.png" alt="img"></li>
+</ul>
+</li>
+</ol>
+<h3 id="redis常用配置"><a href="#redis常用配置" class="headerlink" title="redis常用配置"></a>redis常用配置</h3><ul>
+<li>daemonize —&gt; 是否是守护进程（no|yes）</li>
+<li>port —&gt; redis对外端口号（默认6379）</li>
+<li>logfile —&gt; redis系统日志</li>
+<li>dir —&gt; redis工作目录</li>
+</ul>
+<h2 id="二、API的理解和使用"><a href="#二、API的理解和使用" class="headerlink" title="二、API的理解和使用"></a>二、API的理解和使用</h2><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><ul>
+<li><p>通用命令</p>
+<ul>
+<li><p>keys（redis里的所有的键）<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304105306.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304173232.png" alt="img"></p>
+</li>
+<li><p> <strong>keys命令一般不再生产环境使用</strong> <strong>keys*怎么用 1.热备从节点 2.scan</strong></p>
+</li>
+<li><p>dbsize（计算数据库大小） </p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304105824.png" alt="img"></p>
+</li>
+<li><p>exists key（键是否存在） </p>
+</li>
+</ul>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110033.png" alt="img"></p>
+<ul>
+<li><p>del key [key …]（删除key，可以多个） </p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110127.png" alt="img"></p>
+</li>
+<li><p>expire key seconds（设置过期时间） <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110526.png" alt="img"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110712.png" alt="img"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110829.png" alt="img"></p>
+</li>
+<li><p>type key（key类型） <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304111007.png" alt="img"><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304111055.png" alt="img"></p>
+</li>
+<li><p><strong>时间复杂度大部分是O(1)</strong></p>
+</li>
+</ul>
+</li>
+<li><p>数据结构和内部编码</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304112932.png" alt="img"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304140640.png" alt="img"></p>
+</li>
+<li><p>单线程架构 <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304141413.png" alt="redis同一时间只会执行一个命令"><strong>单线程快的原因</strong></p>
+<ul>
+<li>纯内存</li>
+<li>非阻塞IO<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304141813.png" alt="img"></li>
+<li>避免线程切换和竞态消耗 <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304142116.png" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ul>
+<li><p>结构和命令</p>
+<ul>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304142451.png" alt="img"><strong>建议在100KB以内</strong></p>
+</li>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143253.png" alt="img"><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143346.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304143927.png" alt="img"><img src="https://gitee.com//zelentre/IMG/raw/master/PicGo/20200304151748.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304170522.png" alt="img"><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304170853.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171046.png" alt="img"><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304172437.png" alt="img"></p>
+<p> <img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171152.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171244.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>快速实战</p>
+<ul>
+<li><p>实现：记录网址每个用户个人主页的访问量？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr userid:pageview（单线程无竞争）</span><br></pre></td></tr></table></figure></li>
+<li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> VideoInfo <span class="title">get</span><span class="params">(<span class="keyword">long</span> id)</span></span>&#123;</span><br><span class="line">    String redisKey = redisPrefix + id;</span><br><span class="line">    VideoInfo videoInfo = redis.get(redisKey);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="keyword">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//序列化</span></span><br><span class="line">        redis.set(redisKey,serialize(videoInfo));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>实现：分布式id生成器 <img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162534.png" alt="img"><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162814.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>内部编码</p>
+</li>
+<li><p>查漏补缺</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171507.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171550.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171732.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171823.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171858.png" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="哈希类型"><a href="#哈希类型" class="headerlink" title="哈希类型"></a>哈希类型</h3><ul>
+<li><p>特点</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175609.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175636.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304175926.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>重要API</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304180239.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset user:1:info age 23</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt;  hget user:1:info age</span><br><span class="line">&quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hset user:1:info name ronaldo</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;23&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; hdel user:1:info age</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103327.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hexists user:1:info name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hlen user:1:info</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103100.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:2:info age 30 name kaka page 50</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hlen user:2:info</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; hmget user:2:info age name</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305112446.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;30&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;kaka&quot;</span><br><span class="line">5) &quot;page&quot;</span><br><span class="line">6) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hvals user:2:info</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br><span class="line">3) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hkeys user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;name&quot;</span><br><span class="line">3) &quot;page&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>小心使用hgetall，牢记redis是单线程（耗时问题）</strong></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305114023.png" alt="img"></p>
+</li>
+<li><p>实现：记录网站每个用户个人主页的访问量<code>hincrby user:1:info pageview count</code></p>
+</li>
+<li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> VideoInfo <span class="title">get</span><span class="params">(<span class="keyword">long</span> id)</span></span>&#123;</span><br><span class="line">    String redisKey = redisPrefix + id;</span><br><span class="line">    Map&lt;String,String&gt; hashMap = redis.hgetAll(redisKey);</span><br><span class="line">    VideoInfo videoInfo = transferMapToVideo(hashMap);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="keyword">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        redis.hmset(redisKey,transferVideoToMap(hashMap));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135110.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135214.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135306.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135333.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>hash vs string</p>
+</li>
+<li><p>查漏补缺</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135928.png" alt="img"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135957.png" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h3 id="列表类型"><a href="#列表类型" class="headerlink" title="列表类型"></a>列表类型</h3><ul>
+<li><p>特点</p>
+<ul>
+<li><strong>有序、可以重复、左右两边插入弹出</strong></li>
+</ul>
+</li>
+<li><p>重要API</p>
+<ul>
+<li><p><strong>增</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140613.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140650.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305140841.png" alt="img"></p>
+</li>
+<li><p><strong>删</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141347.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141420.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141755.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141650.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305141914.png" alt="img"></p>
+</li>
+<li><p><strong>查</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142058.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142200.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142257.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142400.png" alt="img"></p>
+</li>
+<li><p><strong>改</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305142501.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush listkey a b c</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;a&quot;</span><br><span class="line">2) &quot;b&quot;</span><br><span class="line">3) &quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; lpush listkey 0</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;a&quot;</span><br><span class="line">3) &quot;b&quot;</span><br><span class="line">4) &quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop listkey</span><br><span class="line">&quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;a&quot;</span><br><span class="line">3) &quot;b&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实战</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143135.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143523.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>查漏补缺</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143628.png" alt="img"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305143723.png" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h3 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h3><ul>
+<li><p>特点</p>
+<ul>
+<li><strong>不能插入重复元素，<code> srem key music</code>删除元素</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305144302.png" alt="img"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305144821.png" alt="img"></li>
+<li><strong>无序、无重复、集合间操作</strong></li>
+</ul>
+</li>
+<li><p>集合内API</p>
+<ul>
+<li><p><strong>S开头</strong></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305150055.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305164445.png" alt="img"></p>
+</li>
+<li><p><strong>smembers：无序、小心使用</strong></p>
+</li>
+<li><p><strong>srandmember和spop：spop从集合弹出、srandmember不会破坏集合</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd user:1:follow it news his sports</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;news&quot;</span><br><span class="line">4) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; spop user:1:follow </span><br><span class="line">&quot;news&quot;</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; scard user:1:follow</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sismember user:1:follow entertainment</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure></li>
+<li><p>实现：抽奖系统（can be spop）</p>
+</li>
+<li><p>实现：Like、赞、踩</p>
+</li>
+<li><p>实现：标签（同事务）</p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170048.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>集合间API</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170220.png" alt="img"></li>
+<li>实现：共同关注（sinter）</li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170414.png" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h3 id="有序集合类型"><a href="#有序集合类型" class="headerlink" title="有序集合类型"></a>有序集合类型</h3><ul>
+<li><p>特点</p>
+<ul>
+<li>结构<img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170705.png" alt="img"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170743.png" alt="img"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305170840.png" alt="img"></li>
+</ul>
+</li>
+<li><p>重要API</p>
+<ul>
+<li><p><strong>以Z开头</strong></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174533.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174633.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171233.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171320.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305171437.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172209.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172314.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305172429.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174255.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305174339.png" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zadd player:rank 1000 ronaldo 900 messi 800 c-ronaldo 600 kaka</span><br><span class="line">  (integer) 4</span><br><span class="line">  127.0.0.1:6379&gt; zscore player:rank kaka</span><br><span class="line">  &quot;600&quot;</span><br><span class="line">  127.0.0.1:6379&gt; zcard player:rank</span><br><span class="line">  (integer) 4</span><br><span class="line">  127.0.0.1:6379&gt; zrank player:rank ronaldo</span><br><span class="line">  (integer) 3</span><br><span class="line">  127.0.0.1:6379&gt; zrem player:rank messi</span><br><span class="line">  (integer) 1</span><br><span class="line">  127.0.0.1:6379&gt; zrange player:rank 0 -1 withscores</span><br><span class="line">  1) &quot;kaka&quot;</span><br><span class="line">  2) &quot;600&quot;</span><br><span class="line">  3) &quot;c-ronaldo&quot;</span><br><span class="line">  4) &quot;800&quot;</span><br><span class="line">  5) &quot;ronaldo&quot;</span><br><span class="line">  6) &quot;1000&quot;</span><br><span class="line">  127.0.0.1:6379&gt; zadd player:rank 800 c-ronaldo</span><br><span class="line">  (integer) 0</span><br><span class="line">  127.0.0.1:6379&gt; zadd player:rank 900 messi</span><br><span class="line">  (integer) 1</span><br><span class="line">  127.0.0.1:6379&gt; zrange player:rank 0 -1</span><br><span class="line">  1) &quot;kaka&quot;</span><br><span class="line">  2) &quot;c-ronaldo&quot;</span><br><span class="line">  3) &quot;messi&quot;</span><br><span class="line">  4) &quot;ronaldo&quot;</span><br><span class="line">  127.0.0.1:6379&gt; zcount player:rank 700 901</span><br><span class="line">  (integer) 2</span><br><span class="line">  127.0.0.1:6379&gt; zrangebyscore player:rank 700 901</span><br><span class="line">  1) &quot;c-ronaldo&quot;</span><br><span class="line">  2) &quot;messi&quot;</span><br><span class="line">  127.0.0.1:6379&gt; zremrangebyrank player:rank 0 1</span><br><span class="line">  (integer) 2</span><br><span class="line">  127.0.0.1:6379&gt; zrange player:rank 0 -1</span><br><span class="line">  1) &quot;messi&quot;</span><br><span class="line">  2) &quot;ronaldo&quot;</span><br><span class="line">  127.0.0.1:6379&gt; zrange player:rank 0 -1 withscores</span><br><span class="line">  1) &quot;messi&quot;</span><br><span class="line">  2) &quot;900&quot;</span><br><span class="line">  3) &quot;ronaldo&quot;</span><br><span class="line">  4) &quot;1000&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实战</p>
+<ul>
+<li>实现：排行榜<img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173811.png" alt="img"></li>
+</ul>
+</li>
+<li><p>查漏补缺</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173929.png" alt="img"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305173949.png" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、Redis客户端的使用"><a href="#三、Redis客户端的使用" class="headerlink" title="三、Redis客户端的使用"></a>三、Redis客户端的使用</h2><h3 id="Java客户端：Jedis"><a href="#Java客户端：Jedis" class="headerlink" title="Java客户端：Jedis"></a>Java客户端：Jedis</h3><ul>
+<li><p>获取jedis</p>
+<ul>
+<li><p>shell（redis-cli）  Java（jedis）</p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306103814.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306103935.png"></p>
+</li>
+<li><p>Jedis直连</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.生成一个Jedis对象，这个对象负责和指定redis节点进行通信</span></span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="comment">// 2.jedis执行set操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 3.jedis执行get操作，value=&quot;world&quot;</span></span><br><span class="line">    String value = jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>Jedis(String host, int port, int connectionTimeout, int soTimeout)</strong></p>
+<ul>
+<li>host：Redis节点的所在机器的IP</li>
+<li>port：Redis节点的端口</li>
+<li>connectionTimeout：客户端连接超时</li>
+<li>soTimeout：客户端读写超时</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>jedis的基本使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.String</span></span><br><span class="line"><span class="comment">// 输出结果：ok</span></span><br><span class="line">jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：world</span></span><br><span class="line">jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：1</span></span><br><span class="line">jedis.incr(<span class="string">&quot;counter&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.hash</span></span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f1&quot;</span>,<span class="string">&quot;v1&quot;</span>);</span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f2&quot;</span>,<span class="string">&quot;v2&quot;</span>)；</span><br><span class="line"><span class="comment">// 输出结果：&#123;f1=v1, f2=v2&#125;</span></span><br><span class="line">jedis.hgetall(<span class="string">&quot;myhash&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.list</span></span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;1&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;2&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;3&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[1,2,3]</span></span><br><span class="line">jedis.lrange(<span class="string">&quot;mylist&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.set</span></span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[b, a]</span></span><br><span class="line">jedis.smembers(<span class="string">&quot;myset&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.zset</span></span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">99</span>,<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">66</span>,<span class="string">&quot;peter&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">33</span>,<span class="string">&quot;james&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[[[&quot;james&quot;],33.0],[[&quot;peter&quot;],66.0],[[&quot;tom&quot;],99.0]]</span></span><br><span class="line">jedis.zrangeWithScores(<span class="string">&quot;myzset&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>jedis连接池使用</p>
+<ul>
+<li><p>Jedis直连</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306113555.png"></li>
+</ul>
+</li>
+<li><p>Jedis连接池</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306113844.png"></li>
+</ul>
+</li>
+<li><p>方案对比</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306134849.png"></li>
+</ul>
+</li>
+<li><p>JedisPool使用</p>
+<ul>
+<li><p>初始化Jedis连接池，通常来讲JedisPool是单例的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GenericObjectPoolConfig poolConfig = <span class="keyword">new</span> GenericObjectPoolConfig();</span><br><span class="line">JedisPool jedisPool = <span class="keyword">new</span> JedisPool(poolConfig,<span class="string">&quot;127.0.0.1&quot;</span>,<span class="string">&quot;6379&quot;</span>);</span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 1.从连接池获取jedis对象</span></span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">// 2.执行操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="comment">// Logger logger = LoggerFactory.getLogger(getClass().getName());</span></span><br><span class="line">    <span class="comment">//logger.error(e.getMessage(),e);</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)</span><br><span class="line">        <span class="comment">// 如果使用JedisPool，close操作不是关闭连接，代表归还连接池</span></span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Jedis配置优化</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306141709.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306142536.png"></li>
+<li>适合的maxTotal（比较难确定）<ul>
+<li>命令平均执行时间 0.1ms = 0.001s。</li>
+<li>业务需要50000 QPS。</li>
+<li>maxTotal理论值 = 0.001*50000 = 50个。实际值要偏大一些。</li>
+</ul>
+</li>
+<li>maxTotal（需要考虑）<ul>
+<li>业务希望redis并发量</li>
+<li>客户端执行命令时间</li>
+<li>redis资源：例如 nodes（例如应用个数）* maxTotal 是不能超过redis的最大连接数。（config get maxclients）</li>
+</ul>
+</li>
+<li>适合的maxIdle和minIdle<ul>
+<li>建议maxIdle = maxTotal<ul>
+<li>减少创建新连接的开销</li>
+</ul>
+</li>
+<li>建议预热minIdle<ul>
+<li>减少第一次启动后的新连接开销</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常见问题<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306144528.png"></li>
+</ul>
+</li>
+<li>解决思路<ul>
+<li>慢查询阻塞：池子连接都被hang住。</li>
+<li>资源池参数不合理：例如QPS高、池子小。</li>
+<li>连接泄密（没有close()）：此类问题比较难定位，例如client list、netstat等，最重要的是代码。</li>
+<li>DNS异常等。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、Redis其他功能"><a href="#四、Redis其他功能" class="headerlink" title="四、Redis其他功能"></a>四、Redis其他功能</h2><h3 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h3><ol>
+<li><p>生命周期</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309095118.png"></li>
+</ul>
+</li>
+<li><p>两个配置</p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309095543.png"></p>
+<ul>
+<li>slowlog-max-len<ol>
+<li>先进先出队列</li>
+<li>固定长度</li>
+<li>保存在内存内</li>
+</ol>
+</li>
+<li>slowlog-log-slower-than<ol>
+<li>慢查询阈值（单位：微秒）</li>
+<li>slowlog-log-slower-than=0，记录所有命令</li>
+<li>slowlog-log-slower-than&lt;0，不记录任何命令</li>
+</ol>
+</li>
+<li>配置方法<ol>
+<li>默认值<ul>
+<li><code>config get slowlog-max-len = 128</code></li>
+<li><code>config get slowlog-log-slower-than = 10000</code></li>
+</ul>
+</li>
+<li>修改配置文件重启</li>
+<li>动态配置<ul>
+<li><code>config set slowlog-max-len 1000</code></li>
+<li><code>config set slowlog-log-slower-than 1000</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>三个命令</p>
+<ol>
+<li>slowlog get [n]：获取慢查询队列</li>
+<li>slowlog len：获取慢查询队列长度</li>
+<li>slowlog reset：清空慢查询队列</li>
+</ol>
+</li>
+<li><p>运维经验</p>
+<ol>
+<li>slowlog-max-len不要设置过大，默认10ms，通常设置1ms</li>
+<li>slowlog-log-slower-than不要设置国国小，通常设置1000左右</li>
+<li>理解命令生命周期</li>
+<li>定期持久化慢查询</li>
+</ol>
+</li>
+</ol>
+<h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><ul>
+<li><p>什么是流水线</p>
+<ul>
+<li><p><strong>一次网路命令通信模型</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171244.png" alt="img"></p>
+</li>
+<li><p><strong>批量网络命令通信模型</strong><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304171152.png" alt="img"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309103325.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309103738.png"></p>
+</li>
+</ul>
+</li>
+<li><p>客户端使用</p>
+<ul>
+<li><p>没有pipeline</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    jedis.hset(<span class="string">&quot;hashKey:&quot;</span>+i, <span class="string">&quot;field&quot;</span>+i, <span class="string">&quot;value&quot;</span>+i);</span><br><span class="line">    <span class="comment">// 1W hset ---&gt; 50s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用pipeline</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    Pipeline pipeline = jedis.pipelined();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i*<span class="number">100</span>; j &lt; (i+<span class="number">1</span>)*<span class="number">100</span>; j++)&#123;</span><br><span class="line">        pipeline.hset(<span class="string">&quot;hashKey:&quot;</span>+j, <span class="string">&quot;field&quot;</span>+j, <span class="string">&quot;value&quot;</span>+j);</span><br><span class="line">    &#125;</span><br><span class="line">    pipeline.syncAndReturnAll();</span><br><span class="line">    <span class="comment">//1W hset ---&gt; 0.7s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>与原生操作对比</p>
+<ul>
+<li><strong>与原生相比 pipeline是非原子</strong></li>
+</ul>
+</li>
+<li><p>使用建议</p>
+<ol>
+<li>注意每次pipeline携带数据量</li>
+<li>pipeline每次只能作用在一个Redis节点上</li>
+<li>M操作与pipeline区别</li>
+</ol>
+</li>
+</ul>
+<h3 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h3><ul>
+<li><p>角色</p>
+<ul>
+<li>发布者（publisher）</li>
+<li>订阅者（subscriber）</li>
+<li>频道（channel）</li>
+</ul>
+</li>
+<li><p>模型</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309111739.png"></li>
+<li><strong>订阅这可以订阅多个频道</strong></li>
+</ul>
+</li>
+<li><p>API</p>
+<ul>
+<li><p>publish</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112125.png"></li>
+</ul>
+</li>
+<li><p>subscribe</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112203.png"></li>
+</ul>
+</li>
+<li><p>unsubscribe</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112241.png"></li>
+</ul>
+</li>
+<li><p>其他</p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112346.png"></p>
+</li>
+</ul>
+</li>
+<li><p>发布订阅与消息队列</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112429.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309112608.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Bitmap"><a href="#Bitmap" class="headerlink" title="Bitmap"></a>Bitmap</h3><ul>
+<li><p>位图</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309113011.png"></li>
+</ul>
+</li>
+<li><p>相关命令</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143205.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143831.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309143926.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144012.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144120.png"></li>
+</ul>
+</li>
+<li><p>独立用户统计</p>
+<ol>
+<li>使用set和Bitmap</li>
+<li>1亿用户，5千万独立</li>
+</ol>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144549.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144651.png"></li>
+<li><strong>使用经验</strong><ul>
+<li><ol>
+<li>type=string，最大512MB</li>
+<li>注意setbit时的偏移量，可能有较大耗时</li>
+<li>位图不是绝对好。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="HyperLogLog"><a href="#HyperLogLog" class="headerlink" title="HyperLogLog"></a>HyperLogLog</h3><ul>
+<li><p>新的数据结构？</p>
+<ol>
+<li><p>基于HyperLogLog算法：极小空间完成独立数量统计</p>
+</li>
+<li><p>本质还是字符串</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; type hyperloglog_key</span><br><span class="line">string</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>三个命令</p>
+<ol>
+<li><code>pfadd key element [element ...]</code>：向hyperloglog添加元素</li>
+<li><code>pfcount key [key ...]</code>：计算hyperloglog的独立总数</li>
+<li><code>pfmerge destkey sourcekey [sourcekey ...]</code>：合并多个hyperloglog</li>
+</ol>
+</li>
+<li><p>内存消耗</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151432.png"></li>
+</ul>
+</li>
+<li><p>使用经验</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151656.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3><ul>
+<li><p>GEO是什么</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309151922.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152004.png"></li>
+</ul>
+</li>
+<li><p>5个城市经纬度</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152029.png"></li>
+</ul>
+</li>
+<li><p>相关命令</p>
+<ul>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152309.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152422.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152513.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152538.png"></p>
+<p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309152646.png"></p>
+</li>
+</ul>
+</li>
+<li><p>相关说明</p>
+<ol>
+<li>since 3.2+</li>
+<li>type geoKey = zset</li>
+<li>没有删除API：zrem key member</li>
+</ol>
+</li>
+</ul>
+<h2 id="五、Redis持久化的取舍和选择"><a href="#五、Redis持久化的取舍和选择" class="headerlink" title="五、Redis持久化的取舍和选择"></a>五、Redis持久化的取舍和选择</h2><h3 id="持久化的作用"><a href="#持久化的作用" class="headerlink" title="持久化的作用"></a>持久化的作用</h3><ul>
+<li>什么是持久化<ul>
+<li>redis所有数据保持在内存中，对数据的更新将异步地保存到磁盘上</li>
+</ul>
+</li>
+<li>持久化的实现方式<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309154132.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3><ul>
+<li><p>什么是RDB</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309154714.png"></li>
+</ul>
+</li>
+<li><p>触发机制-主要三种方式</p>
+<ul>
+<li><p>save（同步）</p>
+<ul>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155136.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155204.png"></li>
+<li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309155246.png"></li>
+</ul>
+</li>
+<li><p>bgsave（异步）</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164147.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164246.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164333.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309164353.png"></li>
+</ul>
+</li>
+<li><p>自动</p>
+<ul>
+<li><p><strong>自动生成RDB</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165036.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置文件</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line">dir ./</span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">rdbchecksum yes</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165940.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>触发机制-不容忽视方式</p>
+<ol>
+<li>全量复制</li>
+<li>debug reload</li>
+<li>shutdown</li>
+</ol>
+</li>
+<li><p>总结</p>
+<ol>
+<li>RDB是Redis内存到硬盘的快照，用于持久化</li>
+<li>save通常会阻塞Redis</li>
+<li>bgsave不会阻塞Redis，但是会fork新进程</li>
+<li>save自动配置满足任一就会被执行</li>
+<li>有些触发机制不容忽视</li>
+</ol>
+</li>
+</ul>
+<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><ul>
+<li>RDB现存问题<ul>
+<li>耗时、耗性能<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173446.png"></li>
+</ul>
+</li>
+<li>不可控、丢失数据<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173612.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>什么是AOF<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173720.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309173807.png"></li>
+</ul>
+</li>
+<li>AOF三种策略<ul>
+<li>always<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174020.png"></li>
+</ul>
+</li>
+<li>everysec<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174135.png"></li>
+</ul>
+</li>
+<li>no<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174219.png"></li>
+</ul>
+</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174304.png"></li>
+</ul>
+</li>
+<li>AOF重写<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309174657.png"></li>
+<li>作用：<ul>
+<li>减少硬盘占用量</li>
+<li>加速恢复速度</li>
+</ul>
+</li>
+<li>AOF重写实现两种方式<ul>
+<li>bgrewriteaof<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309175535.png"></li>
+</ul>
+</li>
+<li>AOF重写配置<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309175607.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180145.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180238.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180304.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309180622.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RDB和AOF的抉择"><a href="#RDB和AOF的抉择" class="headerlink" title="RDB和AOF的抉择"></a>RDB和AOF的抉择</h3><ul>
+<li><p>RDB和AOF比较</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">RDB</th>
+<th align="center">AOF</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">启动优先级</td>
+<td align="center">低</td>
+<td align="center">高</td>
+</tr>
+<tr>
+<td align="center">体积</td>
+<td align="center">小</td>
+<td align="center">大</td>
+</tr>
+<tr>
+<td align="center">恢复速度</td>
+<td align="center">快</td>
+<td align="center">慢</td>
+</tr>
+<tr>
+<td align="center">数据安全性</td>
+<td align="center">丢数据</td>
+<td align="center">根据策略决定</td>
+</tr>
+<tr>
+<td align="center">轻重</td>
+<td align="center">重</td>
+<td align="center">轻</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>RDB最佳策略</p>
+<ul>
+<li>“关”</li>
+<li>集中管理</li>
+<li>主从，从开？</li>
+</ul>
+</li>
+<li><p>AOF最佳策略</p>
+<ul>
+<li>“开”：缓存和存储</li>
+<li>AOF重写集中管理</li>
+<li>everysec</li>
+</ul>
+</li>
+<li><p>最佳策略</p>
+<ul>
+<li>小分片</li>
+<li>缓存或者存储</li>
+<li>监控（硬盘、内存、负载、网络）</li>
+<li>足够的内存</li>
+</ul>
+</li>
+</ul>
+<h2 id="六、常见的持久化开发运维问题"><a href="#六、常见的持久化开发运维问题" class="headerlink" title="六、常见的持久化开发运维问题"></a>六、常见的持久化开发运维问题</h2><h3 id="fork操作"><a href="#fork操作" class="headerlink" title="fork操作"></a>fork操作</h3><ol>
+<li>同步操作</li>
+<li>与内存量息息相关：内存越大,耗时越长（与机器类型有关）</li>
+<li>info：latest_fork_usec</li>
+</ol>
+<ul>
+<li>改善fork<ol>
+<li>优先使用物理机或者高效支持fork操作的虚拟化技术</li>
+<li>控制Redis实例最大可用内存：maxmemory</li>
+<li>合理配置Linux内存分配策略：vm.overcommit_memory = 1</li>
+<li>降低fork频率：例如放宽AOF重写自动触发时机，不必要的全量复制</li>
+</ol>
+</li>
+</ul>
+<h3 id="子进程开销和优化"><a href="#子进程开销和优化" class="headerlink" title="子进程开销和优化"></a>子进程开销和优化</h3><ol>
+<li>CPU：<ul>
+<li>开销：RDB和AOF文件生成，属于CPU密集型</li>
+<li>优化：不做CPU绑定，不和CPU密集型部署</li>
+</ul>
+</li>
+<li>内存<ul>
+<li>开销：fork内存开销，copy-on-write</li>
+<li>优化：echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</li>
+</ul>
+</li>
+<li>硬盘<ul>
+<li>开销：AOF和RDB文件写入，可以结合iostat，iotop分析</li>
+<li>优化：<ol>
+<li>不要和高硬盘负载服务部署一起：存储服务、消息队列等</li>
+<li>no-appendfsync-on-rewrite = yes</li>
+<li>根据写入量决定磁盘类型：例如ssd</li>
+<li>单机多实例持久化文件目录可以考虑分盘</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="AOF追加阻塞"><a href="#AOF追加阻塞" class="headerlink" title="AOF追加阻塞"></a>AOF追加阻塞</h3><ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310114122.png"></li>
+<li>AOF阻塞定位<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134905.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134922.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310134939.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="七、Redis复制的原理与优化"><a href="#七、Redis复制的原理与优化" class="headerlink" title="七、Redis复制的原理与优化"></a>七、Redis复制的原理与优化</h2><h3 id="什么是主从复制"><a href="#什么是主从复制" class="headerlink" title="什么是主从复制"></a>什么是主从复制</h3><ul>
+<li><p>单机问题：</p>
+<ul>
+<li>机器故障</li>
+<li>容量瓶颈</li>
+<li>QPS瓶颈</li>
+</ul>
+</li>
+<li><p>主从复制的作用</p>
+<ul>
+<li><p><strong>一主一从</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310140307.png"></p>
+</li>
+<li><p><strong>一主多从</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310140451.png"></p>
+</li>
+<li><p><strong>作用</strong></p>
+<ul>
+<li>数据副本</li>
+<li>扩展读性能</li>
+</ul>
+</li>
+<li><p><strong>总结</strong></p>
+<ol>
+<li>一个master可以有多个slave</li>
+<li>一个slave只能有一个master</li>
+<li>数据流向是单向的，master到slave</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="复制的配置"><a href="#复制的配置" class="headerlink" title="复制的配置"></a>复制的配置</h3><ul>
+<li><p>slaveof命令</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310141243.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310141458.png"></li>
+</ul>
+</li>
+<li><p>配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof ip port</span><br><span class="line">slave-read-only yes</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>比较</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">方式</th>
+<th align="center">命令</th>
+<th align="center">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">优点</td>
+<td align="center">无需重启</td>
+<td align="center">统一配置</td>
+</tr>
+<tr>
+<td align="center">缺点</td>
+<td align="center">不便于管理</td>
+<td align="center">需要重启</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="全量复制和部分复制"><a href="#全量复制和部分复制" class="headerlink" title="全量复制和部分复制"></a>全量复制和部分复制</h3><ul>
+<li><p><strong>全量复制</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310152018.png"></p>
+</li>
+<li><p><strong>全量复制开销</strong></p>
+<ol>
+<li>bgsave时间</li>
+<li>RDB文件网络传输时间</li>
+<li>从节点清空数据时间</li>
+<li>从节点加载RDB的时间</li>
+<li>可能的AOF重写时间</li>
+</ol>
+</li>
+<li><p><strong>部分复制</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160012.png"></p>
+</li>
+</ul>
+<h3 id="故障处理"><a href="#故障处理" class="headerlink" title="故障处理"></a>故障处理</h3><ul>
+<li><p><strong>主从结构-故障转移</strong></p>
+<ul>
+<li><p>slave宕掉</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160740.png"></p>
+</li>
+<li><p>master宕掉</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160902.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="开发运维常见问题"><a href="#开发运维常见问题" class="headerlink" title="开发运维常见问题"></a>开发运维常见问题</h3><ol>
+<li><p>读写分离</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310161840.png"></p>
+<ol>
+<li>读流量分摊到从节点</li>
+<li>可能遇到的问题：<ul>
+<li>复制数据延迟（发生阻塞）</li>
+<li>读到过期数据<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zmflying8177/article/details/104215634">删除过期数据的策略</a><ol>
+<li>懒惰性策略（操作key时才会检查key是否过期，过期才删除，然后返回null）</li>
+<li>定时删除策略（定时扫描所有键值对，发现过期数据立即删除）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>从节点故障</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>主从配置不一致</p>
+<ol>
+<li>例如maxmemory不一致：丢失数据</li>
+<li>例如数据结构优化参数（例如hash-max-ziplist-entries）：内存不一致</li>
+</ol>
+</li>
+<li><p>规避全量复制</p>
+<ol>
+<li>第一次全量复制<ul>
+<li>第一次不可避免</li>
+<li>小主节点、低峰</li>
+</ul>
+</li>
+<li>节点运行ID不匹配<ul>
+<li>主节点重启（运行ID变化）</li>
+<li>故障转移，例如哨兵或集群</li>
+</ul>
+</li>
+<li>复制积压缓冲区不足<ul>
+<li>网络中断，部分复制无法满足</li>
+<li>增大复制缓冲区配置rel_backlog_size，网络“增强”</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>规避复制风暴</p>
+<ol>
+<li><p>单主节点复制风暴：</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310173149.png"></p>
+<ul>
+<li>问题：主节点重启，多从节点复制</li>
+<li>解决：更换复制拓扑</li>
+</ul>
+</li>
+<li><p>单机器复制风暴</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310173236.png"></p>
+<ul>
+<li>机器宕机后，大量全量复制</li>
+<li>主节点分散多机器</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="八、Redis-Sentinel"><a href="#八、Redis-Sentinel" class="headerlink" title="八、Redis Sentinel"></a>八、Redis Sentinel</h2><h3 id="主从复制高可用？"><a href="#主从复制高可用？" class="headerlink" title="主从复制高可用？"></a>主从复制高可用？</h3><ul>
+<li><p>手动故障转移</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200310160902.png"></p>
+</li>
+<li><p>写能力和存储能力受限</p>
+</li>
+</ul>
+<h3 id="架构说明"><a href="#架构说明" class="headerlink" title="架构说明"></a>架构说明</h3><ul>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311092857.png"></p>
+</li>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311093130.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311093208.png"></p>
+</li>
+</ul>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><ol>
+<li>配置开启主从节点<ul>
+<li>主节点</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162522.png"></li>
+<li>从节点</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162637.png"></li>
+<li>主要配置</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311162829.png"></li>
+</ul>
+</li>
+<li>配置开启sentinel监控主节点。（sentinel是特殊的redis）</li>
+<li>实际应该多机器</li>
+<li>详细配置节点</li>
+</ol>
+<h3 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h3><ul>
+<li><p>请求流程</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165122.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165212.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165229.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165336.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200311165359.png"></li>
+<li><strong>客户端接入流程：</strong><ol>
+<li>Sentinel地址集合</li>
+<li>masterName</li>
+<li>不是代理模式</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>jedis</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">JedisSentinelPool sentinelPool = <span class="keyword">new</span> JedisSentinelPool(masterName,sentinelSet,poolConfig,timeout);</span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// jedis command</span></span><br><span class="line">    jedis = sentinelPool.getResource();</span><br><span class="line">&#125; <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    logger.error(e.getMessage(),e);</span><br><span class="line">&#125; <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)&#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><ul>
+<li><p>故障转移演练</p>
+<ol>
+<li><p>客户端高可用观察</p>
+</li>
+<li><p>服务端日志分析：数据节点和sentinel节点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Logger logger =</span><br><span class="line">        LoggerFactory.getLogger(RedisSentinelTest.class);</span><br><span class="line"></span><br><span class="line">    String masterName = <span class="string">&quot;myMaster&quot;</span>;</span><br><span class="line">    Set&lt;String&gt; sentinels = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26379&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26380&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26381&quot;</span>);</span><br><span class="line"></span><br><span class="line">    JedisSentinelPool jedisSentinelPool = <span class="keyword">new</span></span><br><span class="line">        JedisSentinelPool(masterName,sentinels);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">        counter++;</span><br><span class="line">        Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            jedis = jedisSentinelPool.getResource();</span><br><span class="line">            <span class="keyword">int</span> index = <span class="keyword">new</span> Random().nextInt(<span class="number">100000</span>);</span><br><span class="line">            String key = <span class="string">&quot;k-&quot;</span> + index;</span><br><span class="line">            String value = <span class="string">&quot;v-&quot;</span> + index;</span><br><span class="line">            jedis.set(key,value);</span><br><span class="line">            <span class="keyword">if</span>(counter % <span class="number">100</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                logger.info(<span class="string">&quot;&#123;&#125; value is &#123;&#125;&quot;</span>, key, jedis.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">            TimeUnit.MILLISECONDS.sleep(<span class="number">10</span>);</span><br><span class="line">         &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            logger.error(e.getMessage(),e);</span><br><span class="line">         &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)&#123;</span><br><span class="line">                jedis.close();&#125;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>三个定时任务</p>
+<ol>
+<li><p>每10秒每个sentinel对master和slave执行info</p>
+<ul>
+<li>发现slave节点</li>
+<li>确认主从关系</li>
+</ul>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312113712.png"></p>
+</li>
+<li><p>每2秒每个sentinel通过master节点的channel交换信息（pub/sub）</p>
+<ul>
+<li>通过 <code>_sentinel_:hello</code>频道交换</li>
+<li>交换对节点的“看法”和自身信息</li>
+</ul>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312134718.png"></p>
+</li>
+<li><p>每1秒每个sentinel对其他sentinel和redis执行ping</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312153224.png"></p>
+</li>
+</ol>
+</li>
+<li><p>主观下线和客观下线</p>
+<ul>
+<li><p>配置示例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor &lt;masterName&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br><span class="line">sentinel monitor myMaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds &lt;masterName&gt; &lt;timeout&gt;</span><br><span class="line">sentinel down-after-milliseconds myMaster 30000</span><br></pre></td></tr></table></figure></li>
+<li><p>主观下线：每个sentinel节点对Redis节点失败的“偏见”</p>
+</li>
+<li><p>客观下线：所有sentinel节点对Redis节点失败“达成共识”（超过quorum个统一）</p>
+<p><code>sentinel is-master-down-by-addr</code></p>
+</li>
+</ul>
+</li>
+<li><p>领导者选举</p>
+<ul>
+<li>原因：只有一个sentinel节点完成故障转移</li>
+<li>选举：通过<code>sentinel is-master-down-by-addr</code>命令都希望成为领导者<ol>
+<li>每个做主观下线的sentinel节点向其他sentinel节点发送命令，要求将它设置为领导者</li>
+<li>收到命令的sentinel节点如果没有同意通过其他sentinel节点发送的命令，那么将同意该请求，否则拒绝</li>
+<li>如果该sentinel节点发现自己的票数已经超过sentinel集合半数且超过quorum，那么它将成为领导者</li>
+<li>如果此过程有多个sentinel节点成为了领导者，那么将等待一段时间重新进行选举</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>故障转移（sentinel领导者节点完成）</p>
+<ol>
+<li>从slave节点中选出一个“合适”节点作为新的master节点</li>
+<li>对上面的slave节点执行slaveof no one 命令让其成为master节点</li>
+<li>向剩余的slave节点发送命令，让它们成为新master节点的slave节点，复制规则和parallel-syncs参数有关</li>
+<li>更新对原来master节点配置为slave，并保持着对其“关注”，当其恢复后命令它去复制新的master节点</li>
+</ol>
+</li>
+<li><p>选择“合适的”slave节点</p>
+<ol>
+<li>选择slave-priority（slave节点优先级）最高的slave节点，如果存在则返回，不存在则继续</li>
+<li>选择复制偏移量最大的slave节点（复制的最完整），如果存在则返回，不存在则继续</li>
+<li>选择runId最小的slave节点</li>
+</ol>
+</li>
+</ul>
+<h3 id="开发运维常见问题-1"><a href="#开发运维常见问题-1" class="headerlink" title="开发运维常见问题"></a>开发运维常见问题</h3><ul>
+<li><p>节点运维</p>
+<ul>
+<li><p>节点下线</p>
+<ul>
+<li><p>主节点</p>
+<p><code>sentinel failover &lt;masterName&gt;</code></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312165933.png"></p>
+</li>
+<li><p>从节点：临时下线还是永久下线，例如是否做一些清理工作，但是要考虑读写分离的情况</p>
+</li>
+<li><p>sentinel节点：类同于从节点</p>
+</li>
+<li><p>机器下线：例如过保等情况</p>
+</li>
+<li><p>机器性能不足：例如CPU、内存、硬盘、网络等</p>
+</li>
+<li><p>机器自身故障：例如服务不稳定等</p>
+</li>
+</ul>
+</li>
+<li><p>节点上线</p>
+<ul>
+<li>主节点：sentinel failover进行替换</li>
+<li>从节点：slaveof即可，sentinel节点可以感知</li>
+<li>sentinel节点：参考其他sentinel节点启动即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>高可用读写分离</p>
+<ul>
+<li>从节点的作用<ol>
+<li>副本：高可用的基础</li>
+<li>扩展：读能力</li>
+</ol>
+</li>
+<li>三个“消息”<ul>
+<li>+switch-master：切换主节点（从节点晋升主节点）</li>
+<li>+convert-to-slave：切换从节点（原主节点降为从节点）</li>
+<li>+sdown：主观下线</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>redis sentinel是redis的高可用实现方案：故障发现、故障自动转移、配置中心、客户端通知</li>
+<li>redis sentinel从redis2.8版本开始才正式生产可用，之前版本生产不可用</li>
+<li>尽可能在不同物理机上部署redis sentinel所有节点</li>
+<li>redis sentinel中的sentinel节点个数应该大于等于3且最好为奇数</li>
+<li>redis sentinel中的数据节点与普通数据节点没有区别</li>
+<li>客户端初始化时连接的是sentinel节点集合，不再是具体的redis节点，但sentinel只是配置中心不是代理</li>
+<li>redis sentinel 通过三个定时任务实现了sentinel节点对于主节点、从节点、其余sentinel节点的监控</li>
+<li>redis sentinel在对节点做失败判定时分为主观下线和客观下线</li>
+<li>看懂redis sentinel故障转移日志对于redis sentinel以及问题排查非常有帮助</li>
+<li>redis sentinel实现读写分离高可用可以依赖sentinel节点的消息通知，获取redis数据节点的状态变化</li>
+</ul>
+<h2 id="九、Redis-Cluster"><a href="#九、Redis-Cluster" class="headerlink" title="九、Redis Cluster"></a>九、Redis Cluster</h2><h3 id="呼唤集群"><a href="#呼唤集群" class="headerlink" title="呼唤集群"></a>呼唤集群</h3><ul>
+<li><p><strong>扩容最好翻倍扩容</strong></p>
+</li>
+<li><p>使用集群原因：</p>
+<ol>
+<li>并发量：最大10W/s，业务需求更多呢</li>
+<li>数据量：机器内存有限，业务需求大呢</li>
+</ol>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li>配置强悍的机器（×）</li>
+<li>分布式：简单的认为 加机器</li>
+</ul>
+</li>
+<li><p>集群：规模化需求</p>
+<ul>
+<li>并发量：QPS</li>
+<li>数据量</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h3><ul>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313101436.png"></p>
+</li>
+<li><p>顺序分布和哈希分布</p>
+<ul>
+<li><p>顺序分布</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313110955.png"></p>
+</li>
+<li><p>哈希分布（例如节点取模）</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313111241.png"></p>
+</li>
+</ul>
+</li>
+<li><p>数据分布对比</p>
+<table>
+<thead>
+<tr>
+<th align="center">分布方式</th>
+<th align="center">特点</th>
+<th align="center">典型产品</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">哈希分布</td>
+<td align="center">数据分散度高  键值分布业务无关  无法顺序访问  支持批量操作</td>
+<td align="center">一致性哈希Memcache Redis Cluster 其他缓存产品</td>
+</tr>
+<tr>
+<td align="center">顺序分布</td>
+<td align="center">数据分散度易倾斜  键值业务相关  可顺序访问  支持批量操作</td>
+<td align="center">BigTable   HBase</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>哈希分布</p>
+<ul>
+<li><p>节点取余分区：hash(Key)%nodes</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313111241.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313134742.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313135502.png"></p>
+</li>
+<li><p>节点取余：</p>
+<ul>
+<li>客户端分片：哈希+取余</li>
+<li>节点伸缩：数据节点关系变化，导致数据迁移</li>
+<li>迁移数量和添加节点数量有关：建议翻倍扩容</li>
+</ul>
+</li>
+<li><p>一致性哈希分区</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313140707.png"></p>
+<ul>
+<li><p>n1 和 n2之间的key的数据将偏移到n5</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313141030.png"></p>
+</li>
+<li><p>一致性哈希</p>
+<ul>
+<li>客户端分片：哈希+顺时针（优化取余）</li>
+<li>节点伸缩：只影响邻近节点，但是还是有数据迁移</li>
+<li>翻倍伸缩：保证最小迁移数据和负载均衡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>虚拟槽分区</p>
+<ul>
+<li><p>预设虚拟槽：每个槽映射一个数据子集，一般比节点数大</p>
+</li>
+<li><p>良好的哈希函数：例如CRC16</p>
+</li>
+<li><p>服务端管理节点、槽、数据：例如Redis Cluster</p>
+</li>
+<li><p>虚拟槽分配</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142046.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h3><ul>
+<li><p>基本架构</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142530.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142550.png"></li>
+</ul>
+</li>
+<li><p>Redis Cluster架构</p>
+<ul>
+<li><p>节点</p>
+<ul>
+<li><p>cluster-enabled:yes  即集群启动</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313142550.png"></p>
+</li>
+</ul>
+</li>
+<li><p>meet</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151106.png"></p>
+</li>
+<li><p>指派槽</p>
+<ul>
+<li><p>客户端与指派槽</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151255.png"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313151145.png"></p>
+</li>
+<li><p>复制</p>
+</li>
+<li><p>特性</p>
+<ul>
+<li>复制</li>
+<li>高可用</li>
+<li>分片</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Redis Cluster安装</p>
+<ul>
+<li><p>原生命令安装</p>
+<ol>
+<li><p>配置开启节点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">port $&#123;port&#125;</span><br><span class="line">daemonize yes</span><br><span class="line">dir &quot;/opt/redis/redis/data/&quot;</span><br><span class="line">dbfilename &quot;dump-$&#123;port&#125;.db&quot;</span><br><span class="line">logfile &quot;$&#123;port&#125;.log&quot;</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes-$&#123;port&#125;.conf</span><br><span class="line"></span><br><span class="line">redis-server redis-7000.conf</span><br><span class="line">redis-server redis-7001.conf</span><br><span class="line">redis-server redis-7002.conf</span><br><span class="line">redis-server redis-7003.conf</span><br><span class="line">redis-server redis-7004.conf</span><br><span class="line">redis-server redis-7005.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>cluster节点主要配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cluster-enabled yes</span><br><span class="line">cluster-node-timeout 15000</span><br><span class="line">cluster-config-file &quot;nodes.conf&quot;</span><br><span class="line">cluster-require-full-coverage yes</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>meet</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313161429.png"></li>
+</ul>
+</li>
+<li><p>指派槽</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313161916.png"></li>
+</ul>
+</li>
+<li><p>主从</p>
+<ul>
+<li><p>设置主从</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200313162242.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li>理解redis cluster架构</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>生产环境不使用</p>
+</li>
+<li><p>官方工具安装</p>
+<ul>
+<li><p>可以查看这个博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cqming/p/11191079.html">Redis-cluster集群</a></p>
+</li>
+<li><p>高效、准确</p>
+</li>
+</ul>
+</li>
+<li><p>生产环境可以使用</p>
+</li>
+<li><p>其他：可视化部署</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="集群伸缩"><a href="#集群伸缩" class="headerlink" title="集群伸缩"></a>集群伸缩</h3><ul>
+<li><p>伸缩原理</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316135757.png"></li>
+</ul>
+</li>
+<li><p>扩容集群</p>
+<ul>
+<li><p>准备新节点</p>
+<ul>
+<li><p>集群模式</p>
+</li>
+<li><p>配置和其他节点统一</p>
+</li>
+<li><p>启动后是孤儿节点</p>
+<p><code>redis-server conf/redis-6385.conf</code></p>
+<p><code>redis-server conf/redis-6386.conf</code></p>
+</li>
+</ul>
+</li>
+<li><p>加入集群</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316140616.png"></li>
+<li>作用：<ul>
+<li>为它迁移槽和数据实习扩容</li>
+<li>作为从节点负责故障转移</li>
+</ul>
+</li>
+<li>加入集群-redis-trib.rb<ul>
+<li><code>redis-trib.rb add-node new_host:new_port existing_host:existing_port --slave --master-id &lt;arg&gt;</code></li>
+<li><code>redis-trib.rb add-node 127.0.0.1:6385 127.0.0.1:6379</code></li>
+<li>建议使用redis-trib.rb能够避免新节点已经加入了其他集群，造成故障</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>迁移槽和数据</p>
+<ul>
+<li>槽迁移计划<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316143153.png"></li>
+</ul>
+</li>
+<li>迁移数据<ol>
+<li>对目标节点发送：<code>cluster setslot &#123;slot&#125; importing &#123;sourceNodeId&#125;</code>命令，让目标节点准备导入槽的数据</li>
+<li>对源节点发送：<code>cluster setslot &#123;slot&#125; migrating &#123;targetNodeId&#125;</code>命令，让源节点准备迁出槽的数据</li>
+<li>源节点循环执行<code>cluster getkeysinslot &#123;slot&#125; &#123;count&#125;</code>命令，每次获取count个属于槽的键</li>
+<li>在源节点上执行<code>migrate &#123;targetId&#125; &#123;targetPort&#125; key 0 &#123;timeout&#125;</code>命令把指定key迁移</li>
+<li>重复执行步骤3~4知道槽下所有的键数据迁移到目标节点</li>
+<li>向集群内所有主节点发送<code>cluster setslot &#123;slot&#125; node &#123;tartgetNodeId&#125;</code>命令，通知槽分配给目标节点 </li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316144823.png"></li>
+</ol>
+</li>
+<li>添加从节点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缩容集群</p>
+</li>
+</ul>
+<h3 id="客户端路由"><a href="#客户端路由" class="headerlink" title="客户端路由"></a>客户端路由</h3><ul>
+<li><p>moved重定向</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152159.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152247.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152428.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152657.png"></li>
+</ul>
+</li>
+<li><p>ask重定向</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316152940.png"></li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316153110.png"></li>
+<li>moved和ask<ul>
+<li>两者都是客户单重定向</li>
+<li>moved：槽已经确定迁移</li>
+<li>ask：槽还在迁移中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>smart客户端</p>
+<ul>
+<li><p>smart客户端原理（追求性能）</p>
+<ol>
+<li>从集群中选一个可运行节点，使用cluster slots初始化槽和节点映射</li>
+<li>将cluster slots的结果映射到本地，为每个节点创建JedisPool</li>
+<li>准备执行命令<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316154352.png"></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>smart客户端使用：JedisCluster</p>
+<ul>
+<li><p>JedisCluster基本使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;HostAndPort&gt; nodeList = <span class="keyword">new</span> HashSet&lt;HostAndPort&gt;();</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT1));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT2));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT3));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT4));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT5));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT6));</span><br><span class="line">JedisCluster redisCluster = <span class="keyword">new</span> JedisCluster(nodeList,timeout,poolConfig);</span><br><span class="line">redisCluster.command ...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用技巧：<ol>
+<li>单例：内置了所有节点的连接池</li>
+<li>无需手动接环连接池</li>
+<li>合理设置commons-pool</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>整合spring</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zelentre/tem/blob/master/src/main/java/com/zelentre/jedis/JedisClusterFactory.java">jedisCluster</a></li>
+</ul>
+</li>
+<li><p>多节点命令实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, JedisPool&gt; jedisPoolMap = jedisCluster.getClusterNodes();</span><br><span class="line"><span class="keyword">for</span>(Entry&lt;String,JedisPool&gt; entry : jedisPoolMap.entrySet())&#123;</span><br><span class="line">    <span class="comment">//获取每个节点的Jedis连接</span></span><br><span class="line">    Jedis jedis = entry.getValue.getResource();</span><br><span class="line">    <span class="comment">//只删除主节点数据</span></span><br><span class="line">    <span class="keyword">if</span>(!isMaster(jedis))&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//finally close</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>批量命令实现</p>
+<ul>
+<li><p>mget mset必须在一个槽上</p>
+</li>
+<li><p>四种批量优化的方法</p>
+<ol>
+<li><p>串行mget</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171442.png"></li>
+</ul>
+</li>
+<li><p>串行IO</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171622.png"></li>
+</ul>
+</li>
+<li><p>并行IO</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316171711.png"></li>
+</ul>
+</li>
+<li><p>hash_tag</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200316172031.png"></li>
+</ul>
+</li>
+<li><p>总结</p>
+<table>
+<thead>
+<tr>
+<th align="center">方案</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+<th align="center">网络IO</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">串行mget</td>
+<td align="center">编程简单  少量keys满足需求</td>
+<td align="center">大量keys请求延迟严重</td>
+<td align="center">O(keys)</td>
+</tr>
+<tr>
+<td align="center">串行IO</td>
+<td align="center">编程简单  少量节点满足需求</td>
+<td align="center">大量node延迟严重</td>
+<td align="center">O(nodes)</td>
+</tr>
+<tr>
+<td align="center">并行IO</td>
+<td align="center">利用并行特性  延迟取决于最慢的节点</td>
+<td align="center">编程复杂  超时定位问题难</td>
+<td align="center">O(max_slow(node))</td>
+</tr>
+<tr>
+<td align="center">hash_tag</td>
+<td align="center">性能最高</td>
+<td align="center">读写增加tag成本  tag分布易出现数据倾斜</td>
+<td align="center">O(1)</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="故障转移"><a href="#故障转移" class="headerlink" title="故障转移"></a>故障转移</h3><ul>
+<li>故障发现<ul>
+<li>通过ping/pong消息实现故障发现：不需要sentinel</li>
+<li>主观下线<ul>
+<li>定义：某个节点认为另一个节点不可用，“偏见”</li>
+<li>流程：<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091147.png"></li>
+</ul>
+</li>
+<li>客观下线<ul>
+<li>定义：当半数以上持有槽的主节点都标记某几点主观下线</li>
+<li>逻辑流程：<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091350.png"></li>
+<li>流程：<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091506.png"><ul>
+<li>通知集群内所有节点标记故障节点为客观下线</li>
+<li>通知故障节点的从节点触发故障转移流程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>故障恢复<ul>
+<li>资格检查<ul>
+<li>每个从节点检查与故障主节点的断线时间</li>
+<li>超过<code>cluster-node-timeout</code>*<code>cluster-slave-validity-factor</code>取消资格（都是默认值得话为150s）</li>
+<li>cluster-slave-validity-factor：默认是10</li>
+</ul>
+</li>
+<li>准备选举时间<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317094316.png"></li>
+</ul>
+</li>
+<li>选举投票<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317094419.png"></li>
+</ul>
+</li>
+<li>替换主节点<ol>
+<li> 当前从节点取消复制变为主节点（slave no one）</li>
+<li>执行clusterDelSlot撤销故障主节点负责的槽，并执行clusterAddSlot把这些槽分配给自己</li>
+<li>向集群广播自己的pong消息，表明已经替换了故障从节点</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>故障转移演练<ul>
+<li>步骤：<ol>
+<li>执行kill -9节点模拟宕机</li>
+<li>观察客户端故障恢复时间</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ul>
+<li>集群完整性<ul>
+<li>cluster-require-full-coverage默认为yes<ul>
+<li>集群中16384个槽全部可用：保证集群完整性</li>
+<li>节点故障或者正在故障转移：（error）CLUSTERDOWN The cluster is down</li>
+</ul>
+</li>
+<li>大多数业务无法容忍，cluster-require-full-coverage建议设置为no</li>
+</ul>
+</li>
+<li>带宽消耗<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317104154.png"></li>
+<li>消息发送频率：节点发现与其他节点最后通信时间超过cluster-node-timeout/2时会直接发送ping消息</li>
+<li>消息数据量：slots槽数组（2KB空间）和整个集群1/10的状态数据（10个节点状态数据约1KB）</li>
+<li>节点部署的机器规模：集群分布的机器越多且每台机器划分的节点数越均匀，则集群内整体的可用带宽越高</li>
+<li>例子：<ul>
+<li>规模：节点200个、20台物理机（每台10个节点）</li>
+<li>cluster-node-timeout = 15000，ping/pong带宽为25ＭB</li>
+<li>cluster-node-timeout = 20000，ping/pong带宽为25ＭB</li>
+</ul>
+</li>
+<li>优化：<ul>
+<li>避免“大”集群：避免多业务使用一个集群，大业务可以多集群</li>
+<li>cluster-node-timeout：带宽和故障转移速度的均衡</li>
+<li>尽量均匀分配到多机器上：保证高可用和带宽</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pub/Sub广播<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317112845.png"></li>
+<li>问题：publish在集群每个节点广播：加重宽带</li>
+<li>解决：单独“走”一套Redis Sentinel</li>
+</ul>
+</li>
+<li>集群倾斜<ul>
+<li>数据倾斜：内存不均<ul>
+<li>节点和槽分配不均<ul>
+<li>redis-trib.rb info ip:port查看节点、槽键值分布</li>
+<li>redis-trib.rb rebalance ip:port进行均衡（谨慎使用）</li>
+</ul>
+</li>
+<li>不同槽对应键值数量差异较大<ul>
+<li>CRC16正常情况下比较均匀</li>
+<li>可能存在hash_tag</li>
+<li>cluster countkeysinslot {slot}获取槽对应键值个数</li>
+</ul>
+</li>
+<li>包含bigkey<ul>
+<li>bigkey：例如大字符串、几百万的元素的hash、set等</li>
+<li>从节点：redis-cli –bigkeys</li>
+<li>优化：优化数据结构</li>
+</ul>
+</li>
+<li>内存相关配置不一致<ul>
+<li>hash-max-ziplist-value、set-max-intset-entries等</li>
+<li>优化：定期“检查”配置一致性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>请求倾斜：热点<ul>
+<li>热点key：重要的key或者bigkey</li>
+<li>优化：<ul>
+<li>避免bigkey</li>
+<li>热键不要用hash_tag</li>
+<li>当一致性不高时，可以用本地缓存+MQ</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>集群读写分离<ul>
+<li>只读连接：集群模式的从节点不接受任何读写请求<ul>
+<li>重定向到负责槽的主节点</li>
+<li>readonly命令可以读：连接级别命令</li>
+</ul>
+</li>
+<li>读写分离：更加复杂<ul>
+<li>同样的问题：复制延迟、读取过期数据、从节点故障</li>
+<li>修改客户端：cluster slave {nodeId}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据迁移（在线/离线）<ul>
+<li>官方迁移工具：redis-trib.rb import<ul>
+<li>只能从单机迁移到集群</li>
+<li>不支持在线迁移：source需要停写</li>
+<li>不支持断点续传</li>
+<li>单线程迁移：影响速度</li>
+</ul>
+</li>
+<li>在线迁移：<ul>
+<li>唯品会 redis-migrate-tool</li>
+<li>豌豆荚 redis-port</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>集群vs单机<ul>
+<li>集群限制<ul>
+<li>key批量操作支持有限：例如mget、mset必须在一个slot</li>
+<li>key事务和Lua支持有限：操作的key必须在一个节点</li>
+<li>key是数据分区的最小粒度：不支持bigkey分区</li>
+<li>不支持多数据库：集群模式下只有一个db 0</li>
+<li>复制只支持一层：不支持树形复制结构</li>
+</ul>
+</li>
+<li>分布式redis不一定好<ol>
+<li>redis cluster：满足容量和性能的扩展，很多业务“不需要”<ul>
+<li>大多数时客户端性能会“降低”</li>
+<li>命令无法跨节点使用：mget、keys、scan、flush、sinter等</li>
+<li>Lua和事务无法跨节点使用</li>
+<li>客户端维护更复杂：SDK和应用本身消耗（例如更多的连接池）</li>
+</ul>
+</li>
+<li>很多场景redis cluster已经足够好了</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>redis cluster数据分区规则采用虚拟槽方式（16384个槽），每个节点负责一部分槽和相关数据，实现数据和请求的负载均衡</li>
+<li>搭建集群划分四个步骤：准备节点、节点握手、分配槽、复制。redis-trib.rb工具用于快速搭建集群</li>
+<li>集群伸缩通过在节点之间移动槽和相关数据实现<ul>
+<li>扩容时根据槽迁移计划把槽从源节点迁移到新节点</li>
+<li>收缩时如果下线的节点有负责的槽需要迁移到其他节点，在通过cluster forget命令让集群内所有节点忘记被下线节点</li>
+</ul>
+</li>
+<li>使用smart客户端操作集群达到通信效率最大化，客户端内部负责计算维护键 -&gt; 槽 -&gt; 节点的映射，用于快速定位到目标节点</li>
+<li>集群自动故障转移过程分为故障发现和节点恢复。节点下线分为主观下线和客观下线，当超过半数主节点认为故障节点为主观下线时标记他为客观下线状态。从节点负责对客观下线的主节点触发故障恢复流程，保证集群的可用性</li>
+<li>开发运维常见问题包括：超大规模集群带宽消耗，pub/sub广播问题，集群倾斜问题，单机和集群对比等</li>
+</ul>
+<h2 id="十、缓存设计与优化"><a href="#十、缓存设计与优化" class="headerlink" title="十、缓存设计与优化"></a>十、缓存设计与优化</h2><h3 id="缓存的受益与成本"><a href="#缓存的受益与成本" class="headerlink" title="缓存的受益与成本"></a>缓存的受益与成本</h3><ul>
+<li>受益<ol>
+<li>加速读写<ul>
+<li>通过缓存加速读写速度：CPU L1/L2/L3 Cache、Linux page Cache加速硬盘读写、浏览器缓存、Ehcache缓存数据库结果</li>
+</ul>
+</li>
+<li>降低后端负载<ul>
+<li>后端服务器通过前端缓存降低负载：业务端使用Redis降低后端MySQL负载等</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>成本<ol>
+<li>数据不一致：缓存层和数据层有时间窗口不一致，和更新策略有关</li>
+<li>代码维护成本：多了一层缓存逻辑</li>
+<li>运维成本：例如Redis Cluster</li>
+</ol>
+</li>
+<li>使用场景<ol>
+<li>降低后端负载<ul>
+<li>对高消耗的SQL：join结果集/分组统计结果缓存</li>
+</ul>
+</li>
+<li>加速请求响应<ul>
+<li>利用Redis/Memcache优化IO响应时间</li>
+</ul>
+</li>
+<li>大量写合并为批量写<ul>
+<li>如计数器先Redis累加在批量写DB</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="缓存跟新策略"><a href="#缓存跟新策略" class="headerlink" title="缓存跟新策略"></a>缓存跟新策略</h3><ol>
+<li><p>LRU/LFU/FIFO算法剔除：例如：maxmemory-policy</p>
+</li>
+<li><p>超时剔除：例如expire</p>
+</li>
+<li><p>主动更新：开发控制生命周期</p>
+</li>
+<li><p>比较：</p>
+<table>
+<thead>
+<tr>
+<th align="center">策略</th>
+<th align="center">一致性</th>
+<th align="center">维护成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LRU/LIRS算法剔除</td>
+<td align="center">最差</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td align="center">超时剔除</td>
+<td align="center">较差</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td align="center">主动更新</td>
+<td align="center">强</td>
+<td align="center">高</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>建议：</p>
+<ol>
+<li>低一致性：最大内存和淘汰策略</li>
+<li>高一致性：超时剔除和主动更新结合，最大内存和淘汰策略兜底</li>
+</ol>
+</li>
+</ol>
+<h3 id="缓存粒度控制"><a href="#缓存粒度控制" class="headerlink" title="缓存粒度控制"></a>缓存粒度控制</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318155735.png"></p>
+<ol>
+<li>从MySQL获取用户信息：<code>select * from user where id=&#123;id&#125;</code></li>
+<li>设置用户信息缓存：<code>set user:&#123;id&#125;</code> <code> select * from user where id=&#123;id&#125;</code></li>
+<li>缓存粒度：<ul>
+<li>全部属性：<code>set user:&#123;id&#125;</code> <code>select*from user where id=&#123;id&#125;</code></li>
+<li>部分重要属性：<code>set user:&#123;id&#125;</code> <code>select importantCoumn1,..importantComnK from user where id=&#123;id&#125;</code></li>
+</ul>
+</li>
+<li>三个角度：<ol>
+<li>通用性：全量属性更好</li>
+<li>占用空间：部分属性更好</li>
+<li>代码维护：表面上全量属性更好</li>
+</ol>
+</li>
+</ol>
+<h3 id="缓存穿透优化"><a href="#缓存穿透优化" class="headerlink" title="缓存穿透优化"></a>缓存穿透优化</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318161322.png"></p>
+<ul>
+<li><p>原因：</p>
+<ol>
+<li>业务代码自身问题</li>
+<li>恶意攻击、爬虫等等</li>
+</ol>
+</li>
+<li><p>发现</p>
+<ol>
+<li>业务的相应时间</li>
+<li>业务本身问题</li>
+<li>相关指标：总调用数、缓存层命中数、存储层命中数</li>
+</ol>
+</li>
+<li><p>解决</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318164417.png"></p>
+</li>
+<li><p>问题：</p>
+<ol>
+<li>需要更多的键</li>
+<li>缓存层和存储层数据“短期”不一致</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassThrough</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">    String cacheValue = cache.get(key);</span><br><span class="line">    <span class="keyword">if</span>(StringUtils.isBlink(cacheValue))&#123;</span><br><span class="line">        String storageValue = storage.get(key);</span><br><span class="line">        cache.set(key,storageValue);</span><br><span class="line">        <span class="comment">//如果存储数据为空，需要设置一个过期时间（300秒）</span></span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlink(storageValue))&#123;</span><br><span class="line">            cache.expire(key,<span class="number">60</span>*<span class="number">5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storageValue;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318165903.png"></li>
+</ul>
+<h3 id="无底洞问题优化"><a href="#无底洞问题优化" class="headerlink" title="无底洞问题优化"></a>无底洞问题优化</h3><ul>
+<li>问题：<ul>
+<li>2010年，Facebook有了3000个Memcache节点</li>
+<li>发现问题：“加”机器性能没能提升，反而下降</li>
+</ul>
+</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318174658.png"></li>
+<li>优化IO的几种方法<ol>
+<li>命令本身优化：例如慢查询keys、hgetall bigkey</li>
+<li>减少网络通信次数</li>
+<li>降低接入成本：例如客户端长连接/连接池、NIO等</li>
+</ol>
+</li>
+</ul>
+<h3 id="缓存雪崩优化"><a href="#缓存雪崩优化" class="headerlink" title="缓存雪崩优化"></a>缓存雪崩优化</h3><ul>
+<li>机器部署<ol>
+<li>机器添加部署脚本：ssh账号、redis安装部署</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sohutv/cachecloud">Cachecloud</a>添加机器</li>
+</ol>
+</li>
+</ul>
+<h3 id="热点key重建优化"><a href="#热点key重建优化" class="headerlink" title="热点key重建优化"></a>热点key重建优化</h3><ul>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318175519.png"></p>
+</li>
+<li><p>三个目标</p>
+<ul>
+<li>减少重缓存的次数</li>
+<li>数据尽可能一致</li>
+<li>减少潜在危险</li>
+</ul>
+</li>
+<li><p>两个解决</p>
+<ul>
+<li><p>互斥锁（mutex key）</p>
+<ul>
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318175933.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">get</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">    String value = redis.get(key);</span><br><span class="line">    <span class="keyword">if</span>(value == <span class="keyword">null</span>)&#123;</span><br><span class="line">        String mutexKey = <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            value = db.get(key);</span><br><span class="line">            redis.set(key,value);</span><br><span class="line">            redis.delete(mutexKey);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//其他线程休息50毫秒后重试</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>永远不过期</p>
+<ol>
+<li><p>缓存层面：没有设置过期时间（没有用expire）</p>
+</li>
+<li><p>功能层面：为每个value添加逻辑过期时间，但发现超过逻辑过期时间后，会使用单独的线程去构建缓存</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318180917.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">get</span><span class="params">(<span class="keyword">final</span> String key)</span></span>&#123;</span><br><span class="line">    V v = redis.get(key);</span><br><span class="line">    String value = redis.get(key);</span><br><span class="line">    <span class="keyword">long</span> logicTimeout = v.getLogicTimeout();</span><br><span class="line">    <span class="keyword">if</span>(logicTimeout &gt;= System.currentTimeMillis())&#123;</span><br><span class="line">        String mutexKey = <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            <span class="comment">//异步更新后台异常执行</span></span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    String dbValue = db.get(key);</span><br><span class="line">            		redis.set(key,(dbValue,newLogicTimeout));</span><br><span class="line">            		redis.delete(keyMutex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>对比</p>
+<table>
+<thead>
+<tr>
+<th align="center">方案</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">互斥锁</td>
+<td align="center">思路简单  保证一致性</td>
+<td align="center">代码复杂度增加  存在死锁的风险</td>
+</tr>
+<tr>
+<td align="center">永不过期</td>
+<td align="center">基本杜绝热点key重建问题</td>
+<td align="center">不保证一致性  逻辑过期时间增加维护成本和内存成本</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>缓存收益：加速读写、降低后端存储负载</li>
+<li>缓存成本：缓存和存储数据不一致性、代码维护成本、运维成本</li>
+<li>推荐结合剔除、超时、主动更新三种方案共同完成</li>
+<li>穿透问题：使用缓存空对象和布隆过滤器来解决，注意它们各自的使用场景和局限性</li>
+<li>无底洞问题：分布式缓存中，有更多的机器不保证有更高的性能。有四种批量操作方式：串行命令、串行IO、并行IO、hash_tag</li>
+</ul>
+<h2 id="十一、Redis云平台CacheCloud"><a href="#十一、Redis云平台CacheCloud" class="headerlink" title="十一、Redis云平台CacheCloud"></a>十一、Redis云平台CacheCloud</h2><h3 id="Redis规模化运维"><a href="#Redis规模化运维" class="headerlink" title="Redis规模化运维"></a>Redis规模化运维</h3><ul>
+<li>问题<ul>
+<li>发布构建繁琐，私搭乱盖</li>
+<li>节点&amp;机器等运维成本</li>
+<li>监控报警初级</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sohutv/cachecloud">CacheCloud</a><ol>
+<li>一键开启Redis（Standalone、Sentinel、Cluster）</li>
+<li>机器、应用、实例监控和报警</li>
+<li>客户端：透明使用、性能上报</li>
+<li>可视化运维：配置、扩容、Failover、机器/应用/实例上下线</li>
+<li>已存在Redis直接接入和数据迁移</li>
+</ol>
+</li>
+<li>场景使用<ol>
+<li>全量视频缓存（视频播放API）：跨机房高可用</li>
+<li>消息队列同步（RedisMQ中间件）</li>
+<li>分布式布隆过滤器（百万QPS）</li>
+<li>计数系统：计数（播放数）</li>
+<li>其他：排行榜、社交（直播）、实时计算（反作弊）等</li>
+</ol>
+</li>
+</ul>
+<h3 id="机器部署"><a href="#机器部署" class="headerlink" title="机器部署"></a>机器部署</h3><ol>
+<li>机器添加部署脚本：ssh账号、Redis安装部署</li>
+<li>Cachecloud添加机器</li>
+</ol>
+<h3 id="应用接入"><a href="#应用接入" class="headerlink" title="应用接入"></a>应用接入</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200320115804.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200320120059.png"></p>
+<h2 id="十二、小结"><a href="#十二、小结" class="headerlink" title="十二、小结"></a>十二、小结</h2><ol>
+<li>Redis初识：单机安装部署（版本选择），边界（使用场景）</li>
+<li>API理解和使用：单线程、5种数据结构使用和选择</li>
+<li>Redis客户端使用：Jedis、redis-py等，客户端很“简单”</li>
+<li>Redis其他功能：慢查询、pipeline、发布订阅、bitmap等</li>
+<li>redis持久化：RDB和AOF的优缺点和最佳实践</li>
+<li>redis复制：配置方法、全量和部分复制、常见运维问题</li>
+<li>redis sentinel：高可用、架构、“新”的客户端、基本原理</li>
+<li>redis cluster：数据分布、架构、安装部署、扩容、客户端、常见问题</li>
+<li>缓存设计与优化：粒度、更新策略、无底洞问题、穿透、雪崩、热点key</li>
+<li>cachecloud：平台化redis开发运维工具</li>
+</ol>
+<h2 id="十三、Redis布隆过滤器"><a href="#十三、Redis布隆过滤器" class="headerlink" title="十三、Redis布隆过滤器"></a>十三、Redis布隆过滤器</h2><h3 id="引出布隆过滤器"><a href="#引出布隆过滤器" class="headerlink" title="引出布隆过滤器"></a>引出布隆过滤器</h3><ul>
+<li>问题：现有50亿个电话号，现有10万个电话号码，要快速准确判断这些电话号是否已经存在<ol>
+<li>通过数据库查询：实现快速有点难</li>
+<li>数据预防在集合中：50亿*8字节≈40GB（内存浪费或不够）</li>
+<li>hyperloglog：准确有点难</li>
+</ol>
+</li>
+<li>类似问题：<ul>
+<li>垃圾邮件过滤</li>
+<li>文件处理软件（例如Word）错误单词检测</li>
+<li>网络爬虫重复URL检测</li>
+<li>Hbase行过滤</li>
+</ul>
+</li>
+</ul>
+<h3 id="布隆过滤器原理"><a href="#布隆过滤器原理" class="headerlink" title="布隆过滤器原理"></a>布隆过滤器原理</h3><ul>
+<li>1970年伯顿.布隆提出，用很小的空间，解决上述类似问题</li>
+<li>实现原理：一个很长的二进制向量和若干个哈希函数</li>
+<li>构建：<ul>
+<li>参数：m个二进制向量，n个预备数据，k个hash函数</li>
+<li>构建布隆过滤器：n个预备数据走一遍上面的过程</li>
+<li>判断元素存在：走一遍上面的过程：如果都是1，则表明存在，反之不存在</li>
+</ul>
+</li>
+</ul>
+<h3 id="布隆过滤器误差率"><a href="#布隆过滤器误差率" class="headerlink" title="布隆过滤器误差率"></a>布隆过滤器误差率</h3><ul>
+<li><p>肯定存在误差：恰好都命中了</p>
+</li>
+<li><p>直观因素：m/n的比率，hash函数的个数</p>
+</li>
+<li><p>实际误差率公式</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200325164844.png"></p>
+<ul>
+<li>m/n与误差率成反比，k与误差率成反比</li>
+</ul>
+</li>
+</ul>
+<h3 id="本地布隆过滤器"><a href="#本地布隆过滤器" class="headerlink" title="本地布隆过滤器"></a>本地布隆过滤器</h3><ul>
+<li>现有库：<a target="_blank" rel="noopener" href="http://ifeve.com/google-guava-hashing/">guava</a></li>
+<li>本地布隆过滤器的问题：<ol>
+<li>容量受限制</li>
+<li>多个应用存在多个布隆过滤器，构建同步复杂</li>
+</ol>
+</li>
+</ul>
+<h3 id="Redis单机布隆过滤器"><a href="#Redis单机布隆过滤器" class="headerlink" title="Redis单机布隆过滤器"></a>Redis单机布隆过滤器</h3><ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200325171234.png"></li>
+<li>实现方法<ul>
+<li>定义布隆过滤器构造参数：m、n、k、误差概率</li>
+<li>定义布隆过滤器操作函数：add和contain</li>
+<li>封装Redis位图操作</li>
+<li>开发测试样例</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redis分布式布隆过滤器"><a href="#Redis分布式布隆过滤器" class="headerlink" title="Redis分布式布隆过滤器"></a>Redis分布式布隆过滤器</h3><ul>
+<li>实现方法：<ul>
+<li>多个布隆过滤器：二次路由</li>
+<li>基于pipeline提高效率</li>
+</ul>
+</li>
+</ul>
+<h2 id="十四、Redis开发规范"><a href="#十四、Redis开发规范" class="headerlink" title="十四、Redis开发规范"></a>十四、Redis开发规范</h2><h3 id="Key名设计"><a href="#Key名设计" class="headerlink" title="Key名设计"></a>Key名设计</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200327170152.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200327171733.png"></p>
+<h3 id="Value设计"><a href="#Value设计" class="headerlink" title="Value设计"></a>Value设计</h3><ul>
+<li><p>拒绝bigkey</p>
+<ul>
+<li><p>强制：</p>
+<ul>
+<li>string类型控制在10kb以内</li>
+<li>hash、list、set、zset元素个数不要超过5000</li>
+<li>反例：一个包含几百万个元素的list、hash等，一个巨大的json字符串</li>
+</ul>
+</li>
+<li><p>bigkey危害</p>
+<ul>
+<li>网络阻塞</li>
+<li>redis阻塞<ul>
+<li>慢查询：hgetall、lrange、zrange</li>
+</ul>
+</li>
+<li>集群节点数据不均衡</li>
+<li>频繁序列化：应用服务器CPU消耗<ol>
+<li>redis客户端本身不负责序列化</li>
+<li>应用频繁序列化和反序列化bigkey：本地缓存或Redis缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>bigkey发现</p>
+<ul>
+<li><p>应用异常</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200406111455.png"></p>
+</li>
+<li><p>redis-cli –bigkeys  <code>redis-cli -h your.ip -p xxx --bigkeys</code></p>
+</li>
+<li><p>scan + debug object</p>
+</li>
+<li><p>主动报警：网络流量监控、客户端监控</p>
+</li>
+<li><p>内核热点key问题优化</p>
+</li>
+</ul>
+</li>
+<li><p>bigkey删除</p>
+<ol>
+<li><p>阻塞：注意隐性删除（过期、rename等）</p>
+<p>删除hash、list、set、sorted set四种数据结构不同数量不同元素大小的耗时</p>
+<table>
+<thead>
+<tr>
+<th align="center">key类型</th>
+<th align="center">10万（8个字节）</th>
+<th align="center">100万（8个字节）</th>
+<th align="center">10万（16个字节）</th>
+<th align="center">100万（16个字节）</th>
+<th align="center">10万（128个字节）</th>
+<th>100万（128个字节）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">hash</td>
+<td align="center">51ms</td>
+<td align="center">950ms</td>
+<td align="center">58ms</td>
+<td align="center">970ms</td>
+<td align="center">96ms</td>
+<td>2000ms</td>
+</tr>
+<tr>
+<td align="center">list</td>
+<td align="center">23ms</td>
+<td align="center">134ms</td>
+<td align="center">23ms</td>
+<td align="center">138ms</td>
+<td align="center">23ms</td>
+<td>266ms</td>
+</tr>
+<tr>
+<td align="center">set</td>
+<td align="center">44ms</td>
+<td align="center">873ms</td>
+<td align="center">58ms</td>
+<td align="center">881ms</td>
+<td align="center">73ms</td>
+<td>1319ms</td>
+</tr>
+<tr>
+<td align="center">sorted set</td>
+<td align="center">51ms</td>
+<td align="center">845ms</td>
+<td align="center">57ms</td>
+<td align="center">859ms</td>
+<td align="center">59ms</td>
+<td>969ms</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>redis4.0：lazy delete（unlink命令）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bigkey 删除方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delBigHash</span><span class="params">(String host, <span class="keyword">int</span> port, String password, String bigHashKey)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(host, port);</span><br><span class="line">        <span class="keyword">if</span> (password != <span class="keyword">null</span> &amp;&amp; <span class="string">&quot;&quot;</span>.equals(password)) &#123;</span><br><span class="line">            jedis.auth(password);</span><br><span class="line">        &#125;</span><br><span class="line">        ScanParams scanParams = <span class="keyword">new</span> ScanParams().count(<span class="number">100</span>);</span><br><span class="line">        String cursor = <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            ScanResult&lt;Map.Entry&lt;String, String&gt;&gt; scanResult = jedis.hscan(bigHashKey, cursor, scanParams);</span><br><span class="line">            List&lt;Map.Entry&lt;String, String&gt;&gt; entryList = scanResult.getResult();</span><br><span class="line">            <span class="keyword">if</span> (entryList != <span class="keyword">null</span> &amp;&amp; !entryList.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : entryList) &#123;</span><br><span class="line">                    jedis.hdel(bigHashKey,entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//cursor = scanResult.getStringCursor();  估计是个老方法  没找到</span></span><br><span class="line">            cursor = scanResult.getCursor();</span><br><span class="line">        &#125; <span class="keyword">while</span> (!<span class="string">&quot;0&quot;</span>.equals(cursor));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除bigkey</span></span><br><span class="line">        jedis.del(bigHashKey);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>bigkey预防</p>
+<ul>
+<li>优化数据结构：例如二级拆分</li>
+<li>物理隔离或者万兆网卡：不是治标方案</li>
+<li>命令优化：例如hgetall -&gt;hmget、hscan</li>
+<li>报警和定期优化</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>bigkey总结</p>
+<ul>
+<li>牢记Redis单线程特性</li>
+<li>选择合理的数据结构和命令</li>
+<li>清楚自身OPS</li>
+<li>了解bigkey的危害</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选择合适的数据结构</p>
+<ul>
+<li><p>例如：实体类型（数据结构内存优化：例如ziplist，注意内存和性能的平衡）</p>
+<ul>
+<li>反例：<code>set user:1:name tom; set user:1:age 19; set user:1:favor football;</code></li>
+<li>正例：<code>hmset user:1 name tom age 19 favor football</code></li>
+</ul>
+</li>
+<li><p>需求：picId =&gt;userId(100万)</p>
+<ul>
+<li><p>方案：</p>
+<ul>
+<li><p>全部string：set picId userId</p>
+</li>
+<li><p>一个hash：hset allPics picId userId</p>
+</li>
+<li><p>若干个小hash：hset picId/100 pic%100 userId</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200406165541.png"></p>
+</li>
+<li><p>三种方案内存分析</p>
+<ul>
+<li>配置（支持动态修改）<ul>
+<li>hash-max-ziplist-entries 512</li>
+<li>hash-max-ziplist-value 64</li>
+</ul>
+</li>
+<li>ziplist<ul>
+<li>连续内存</li>
+<li>读写有指针位移，最坏O(n²)</li>
+<li>新增删除有内存重分配</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对比</p>
+<table>
+<thead>
+<tr>
+<th align="center">方案</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">全String</td>
+<td align="center">编程简单</td>
+<td align="center">浪费内存  全量获取较为复杂</td>
+</tr>
+<tr>
+<td align="center">全hash</td>
+<td align="center">暂无</td>
+<td align="center">浪费内存  bigkey</td>
+</tr>
+<tr>
+<td align="center">分段hash</td>
+<td align="center">节省内存</td>
+<td align="center">编程复杂  超时问题  性能问题  ziplist</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>过期设计</p>
+<ul>
+<li>键值生命周期（redis不是垃圾桶）<ul>
+<li>周期数据需要设置过期时间，object idle time可以找垃圾key-value</li>
+<li>过期时间不宜集中：缓存穿透和雪崩等问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="命令使用技巧"><a href="#命令使用技巧" class="headerlink" title="命令使用技巧"></a>命令使用技巧</h3><ol>
+<li><p>【推荐】O(n)以上命令关注N的数量</p>
+<ul>
+<li>例如：hgetall、lrange、smembers、zrange、sinter等并非不能使用，但需要明确N的值。有遍历的需求可以使用hscan、sscan、zscan代替。</li>
+</ul>
+</li>
+<li><p>【推荐】禁用命令</p>
+<ul>
+<li>禁止线上使用keys、flushall、flushdb等，通过redis的rename机制禁掉命令，或者使用scan的方式渐进式处理</li>
+</ul>
+</li>
+<li><p>【推荐】合理使用select</p>
+<ul>
+<li>redis的多数据库较弱，使用数字进行区分</li>
+<li>很多客户端支持较差</li>
+<li>同时多业务用多数据库实际还是单线程处理，会有干扰</li>
+</ul>
+</li>
+<li><p>【推荐】redis事务功能较弱，不建议过多使用</p>
+<ul>
+<li>redis的事务功能较弱（不支持回滚）</li>
+<li>而且集群版本（自研和官方）要求一次事务操作的key必须在一个slot上（可以使用hashtag功能解决）</li>
+</ul>
+</li>
+<li><p>【推荐】redis集群版本在使用Lua上有特殊要求</p>
+<ul>
+<li>所有key，必须在1个slot上，否则直接返回error</li>
+<li><strong>“-ERR eval/evalsha command keys must in same slot\r\n”</strong></li>
+</ul>
+</li>
+<li><p>【建议】必要情况下使用monitor命令时，要注意不要长时间使用</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200414141528.png"></p>
+</li>
+</ol>
+<h3 id="Java客户端优化"><a href="#Java客户端优化" class="headerlink" title="Java客户端优化"></a>Java客户端优化</h3><ol>
+<li><p>【推荐】</p>
+<ul>
+<li>避免多个应用使用一个Redis实例</li>
+<li>正例：不相干的业务拆分，公共数据做服务化</li>
+</ul>
+</li>
+<li><p>【推荐】</p>
+<ul>
+<li><p>使用连接池，标准使用方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//redisHost为实例的IP，redisPort为实例端口，redisPassword为实例的密码，timeout既是连接超时又是读写超时</span></span><br><span class="line">JedisPool jedisPool = <span class="keyword">new</span> JedisPool(jedisPoolConfig, redisHost, redisPort, timeout, redisPasswor<span class="comment">//d);</span></span><br><span class="line"><span class="comment">//执命令如下</span></span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">//具体的命令</span></span><br><span class="line">    jedis.executeCommand()</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(e.getMessage(), e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//在JedisPool模式下，Jedis会被归还给资源池</span></span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) </span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">参数名</th>
+<th align="center">含义</th>
+<th align="center">默认值</th>
+<th align="center">使用建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">testWhileIdle</td>
+<td align="center">是否开启空闲资源检测</td>
+<td align="center">false</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">timeBetweenEvictionRunsMillis</td>
+<td align="center">空闲资源的检测周期（单位为毫秒）</td>
+<td align="center">-1：不检测</td>
+<td align="center">建议设置，周期自行选样，也可以默认，也可以使用JedisPoolConfig中的配置</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">minEvictableIdleTimeMillis</td>
+<td align="center">资源池中资源最小空闲时间（单位为毫秒），达到此值后空闲资源将被移除</td>
+<td align="center">1000 60 30 =30分钟</td>
+<td align="center">可根据自身业务决定，大部分默认即可，也可以考虑使用JedisPoolConfig中的配置</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">numTestsPerEvictionRun</td>
+<td align="center">做空闲资源检测时，每次的采样数</td>
+<td align="center">3</td>
+<td align="center">可根据自身应用连接数进行微调，如果设置为-1，就是对所有连接做空闲监测</td>
+</tr>
+</tbody></table>
+<p><strong>其中JedisPoolConfig对一些参数的默认设置如下：</strong></p>
+<p><strong>testWhileIdle=true</strong></p>
+<p><strong>minEvictableIdleTimeMills=60000</strong></p>
+<p><strong>timeBetweenEvictionRunsMillis=30000</strong>·</p>
+<p><strong>numTestsPerEvictionRun=-1</strong></p>
+</li>
+<li><p>如何预估最大连接池</p>
+<ul>
+<li>maxTotal怎么设置？maxIdle接近MaxTotal即可<ol>
+<li>考虑因素<ul>
+<li>业务希望Redis并发量</li>
+<li>客户端执行命令时间</li>
+<li>Redis资源：例如node（应用个数）*maxTotal不能超过Redis最大连接数</li>
+<li>资源开销：例如虽然希望控制空闲连接，但是不希望因为连接池的频繁释放创建连接造成不必要开销</li>
+</ul>
+</li>
+<li>例子<ul>
+<li>一次命令时间（borrow|return resource + Jedis执行命令（含网络））的平均耗时约为1ms，一个连接的QPS大约是1000</li>
+<li>业务期望的QPS是50000</li>
+<li>理论的maxTotal = 50000/1000 = 50 个，可以适当伸缩</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="十五、内存管理"><a href="#十五、内存管理" class="headerlink" title="十五、内存管理"></a>十五、内存管理</h2><h3 id="内存消耗"><a href="#内存消耗" class="headerlink" title="内存消耗"></a>内存消耗</h3><ul>
+<li><p>内存使用统计（进入redis-cli 直接输入 info）</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性名</th>
+<th align="left">属性说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>userd_memory</strong></td>
+<td align="left"><strong>Redis分配器分配的内存量，也就是实际存储数据的自存总量</strong></td>
+</tr>
+<tr>
+<td align="left">used_memory_human</td>
+<td align="left">以可读格式返回Redis使用的内存总量</td>
+</tr>
+<tr>
+<td align="left"><strong>used_memory_rss</strong></td>
+<td align="left"><strong>从操作系统的角度，Redis进程占用的总物理内存</strong></td>
+</tr>
+<tr>
+<td align="left">used_memory_peak</td>
+<td align="left">内存分配器分配的最大内存，代表used_memory的历史峰值</td>
+</tr>
+<tr>
+<td align="left">used_memory_peak_human</td>
+<td align="left">以可读的格式显示内存消耗峰值</td>
+</tr>
+<tr>
+<td align="left">used_memory_lua</td>
+<td align="left">Lua引擎所消耗的内存</td>
+</tr>
+<tr>
+<td align="left"><strong>mem_fragmentation_ratio</strong></td>
+<td align="left"><strong>used_memory_rss/used_memory比值，表示内存碎片率</strong></td>
+</tr>
+<tr>
+<td align="left">mem_allocator</td>
+<td align="left">Redis所使用的内存分配器。默认：jemalloc</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416101537.png"></p>
+</li>
+<li><p>内存消耗划分</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416105846.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416110647.png"></p>
+</li>
+</ul>
+<h3 id="内存缓冲"><a href="#内存缓冲" class="headerlink" title="内存缓冲"></a>内存缓冲</h3><ul>
+<li><p>缓冲内存-客户端缓冲区</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112157.png"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112353.png"></p>
+<ul>
+<li><p>普通客户端</p>
+<ol>
+<li><p>默认：<code>client-output-buffer-limit normal 0 0 0</code></p>
+</li>
+<li><p>默认：没有限制客户端缓冲</p>
+</li>
+<li><p>注意：防止大的命令或者monitor</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416112914.png"></p>
+</li>
+</ol>
+</li>
+<li><p>slave客户端</p>
+<ol>
+<li>默认：<code>client-output-buffer-limit slave 256mb 64mb 60</code></li>
+<li>阻塞：主从延迟较高，或者从节点过多</li>
+<li>注意：主从网络，从节点不要超过2个</li>
+</ol>
+</li>
+<li><p>pubsub客户端</p>
+<ol>
+<li>默认：<code>client-output-buffer-limit pubsub 32mb 8mb 60</code></li>
+<li>阻塞：生产大于消费</li>
+<li>注意：根据实际场景适当调试</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>缓冲内存-复制缓冲区</p>
+<ul>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416134820.png"></li>
+<li>缓冲内存-AOF缓冲区<ul>
+<li>注意：AOF重写期间，AOF的缓冲区，没有容量限制</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416135534.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象内存</p>
+<ol>
+<li>key：不要过长，量大不容忽视（Redis3：embstr 39字节）</li>
+<li>value：ziplist、intsetde等优化方式</li>
+</ol>
+</li>
+<li><p>内存碎片</p>
+<ol>
+<li>必然存在：jemalloc</li>
+<li>优化方式：<ul>
+<li>避免频繁更新操作：append、setrange等</li>
+<li>安全重启，例如redis sentinel和redis cluster等</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>子进程内存消耗</p>
+<ol>
+<li>必然存在：fork（bgsave和bgrewriteaof）</li>
+<li>优化方式：<ul>
+<li>去掉THP特性：2.6.38增加的特性</li>
+<li>观察写入量：copy-on-write</li>
+<li>overcommit_memory=1</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><ul>
+<li><p>设置内存上限</p>
+<ul>
+<li><p>注意：定义实例最大内存，便于管理机器内存，一般要预留30%</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420154633.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis &gt; config set maxmemory 6GB</span><br><span class="line">redis &gt; config set maxmemory 2GB</span><br><span class="line">redis &gt; config rewrite</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>动态调整内存上限</p>
+</li>
+<li><p>内存回收策略</p>
+<ul>
+<li><p>删除过期键值</p>
+<ol>
+<li><p>惰性删除：访问key -&gt; expired dict -&gt; del key</p>
+</li>
+<li><p>定时删除：每秒运行10次，采样删除</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420155255.png"></p>
+</li>
+</ol>
+</li>
+<li><p>内存溢出控制策略</p>
+<ul>
+<li>超过maxmemory后触发相应策略，由maxmemory-policy控制<ul>
+<li>Noeviction：默认策略，不会删除任何数据，拒绝所有写入操作并返回端错误信息“（error） OOM command not allowed when userd memory” 此时Redis只响应读操作由maxmemory-policy控制</li>
+<li>Volatile-lru：根据LRU算法删除设置了超时属性（expire）的键，直到腾出足够空间为止。如果没有可删除的键对象，回退到noeviction策略</li>
+<li>Allkeys-lru：根据LRU算法删除键，不管数据有没有设置超时属性，直到腾出足够空间为止</li>
+<li>Allkeys-random：随机删除所有键，直到腾出足够空间为止</li>
+<li>volatile-random：随机删除过期键，直到腾出足够空间为止</li>
+<li>volatile-ttl：根据键值对象的ttl属性，删除最近将要过期数据。如果没有，回退到noeviction策略</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h3><ul>
+<li><p>内存分布</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200416110647.png"></p>
+</li>
+<li><p>合理选择优化数据结构</p>
+<ul>
+<li>需求：计算网站每天独立用户数</li>
+<li>选择：集合、bitmaps、hyperloglog</li>
+<li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420172448.png"></li>
+</ul>
+</li>
+<li><p>客户端内存优化</p>
+<ul>
+<li>结构<ul>
+<li>输入缓冲区：最大1G</li>
+<li>输出缓冲区，支持按类型设置：<ol>
+<li>普通客户端</li>
+<li>发布订阅客户端</li>
+<li>复制客户端</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>一次内存暴增（原因）<ol>
+<li>批量写入</li>
+<li>主从不一致</li>
+</ol>
+</li>
+<li>处理和预防<ol>
+<li>处理：找到对应的业务方直接干掉</li>
+<li>预防：<ol>
+<li>运维层面：线上Redis禁用monitor（rename-command）</li>
+<li>运维层面：适度限制缓冲区大小</li>
+<li>开发层面：理解monitor的原理，也可以短暂寻找热点key（本地执行）</li>
+<li>开发层面：使用CacheCloud可以直接监控</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>其他方法</p>
+<ol>
+<li>不要忽视key长度：一亿个键，一个字节也是节省。（键名：简短明了）<code>user:friends:notify:&#123;id&#125;-----&gt;u:f:n:&#123;id&#125;</code></li>
+<li>序列化和压缩方法：拒绝Java原生，采用portobuf、kryo、snappy等</li>
+</ol>
+</li>
+<li><p>需不需要用Redis？</p>
+<ol>
+<li>数据：大数据、冷数据</li>
+<li>功能性：关系型查询、消息队列</li>
+</ol>
+</li>
+</ul>
+<h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>内存是宝贵资源</li>
+<li>结合场景选择和优化数据结构</li>
+<li>序列化时有成本的</li>
+<li>不要忽视键长度</li>
+</ol>
+<h2 id="十六、开发运维那些坑"><a href="#十六、开发运维那些坑" class="headerlink" title="十六、开发运维那些坑"></a>十六、开发运维那些坑</h2><h3 id="Linux内核优化"><a href="#Linux内核优化" class="headerlink" title="Linux内核优化"></a>Linux内核优化</h3><ul>
+<li><p>vm.overcommit_memory</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">表示内核将检查是否有足够的可用内存。如果有足够的可用内存，内存申请通过，否则内存申请失败，并把错误返回给应用进程</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">表示内核允许超量使用内存直到用完为止</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">表示内核绝不过量（“never overcommit”）使用内存，即系统整个内存地址空间不能超过swap+50%的RAM值，50%时overcommit_ratio默认值，此参数同样支持修改</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>获取和设置</p>
+<ul>
+<li><p>获取：</p>
+<p><code># cat /proc/sys/vm/overcommit_memory   0 </code></p>
+</li>
+<li><p>设置：</p>
+<p><code>echo &quot;vm.overcommit_memory=1&quot; &gt;&gt; /etc/sysctl.conf</code></p>
+<p><code>sysctl vm.overcommit_memory=1</code></p>
+</li>
+</ul>
+</li>
+<li><p>最佳实践</p>
+<ol>
+<li>Redis设置合理的maxmemory，保证机器有20%~30%的闲置内存</li>
+<li>集中化管理AOF重写和RDB的bgsave</li>
+<li>设置vm.overcommit_memory=1,防止极端情况下会造成fork失败</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>swappiness</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">策略</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">Linux3.5及以上：宁愿用OOM killer 也不用swap    Linux3.4及更早：宁愿用swap也不用OOM killer</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">Linux3.5及以上：宁愿用swap也不用OOM killer</td>
+</tr>
+<tr>
+<td align="center">60</td>
+<td align="center">默认值</td>
+</tr>
+<tr>
+<td align="center">100</td>
+<td align="center">操作系统会主动地使用swap</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>设置</p>
+<ol>
+<li>立即生效：<code>echo &#123;bestvalue&#125; &gt; /proc/sys/vm/swappiness</code></li>
+<li>永久生效：<code>echo vm.swappiness=&#123;bestvalue&#125;&gt;&gt;/etc/sysctl.conf</code></li>
+</ol>
+</li>
+<li><p>最佳实践</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200420184749.png"></p>
+</li>
+</ul>
+</li>
+<li><p>THP(Transparent huge page)</p>
+<ul>
+<li><p>作用</p>
+<ol>
+<li><p>作用：加速fork</p>
+</li>
+<li><p>建议：禁用，可能产生更大的内存开销</p>
+</li>
+<li><p>设置方法：<code>echo never&gt;/sys/kernel/mm/transparent_hugepage/enabled</code></p>
+</li>
+<li><p>坑：源码中是绝对路径，注意不同发行版本的区别</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FILE*fp = fopen(<span class="string">&quot;/sys/kernel/mm/transparent_hugepage/enabled&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fb) <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>OOM killer</p>
+<ul>
+<li>该机制会监控那些占用内存过大，尤其是瞬间占用内存很快的进程，然后防止内存耗尽而自动把该进程杀掉。内核检测到系统内存不足、挑选并杀掉某个进程的过程可以参考内核源代码linux/mm/oom_kill.c，当系统内存不足的时候，out_of_memory()被触发，然后调用select_bad_process()选择一个”bad”进程杀掉。如何判断和选择一个”bad进程呢？linux选择”bad”进程是通过调用oom_badness()，挑选的算法和想法都很简单很朴实：最bad的那个进程就是那个最占用内存的进程</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iloli/article/details/6431757">NTP(Net Time Protocol)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/skiwnc/article/details/84100095">ulimit</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Orgliny/p/5780796.html">TCP backlog</a></p>
+</li>
+</ul>
+<h3 id="安全的Redis"><a href="#安全的Redis" class="headerlink" title="安全的Redis"></a>安全的Redis</h3><ul>
+<li><p>全球crackit攻击</p>
+<ul>
+<li>2015年11月，全球35000+个redis主机受到攻击</li>
+<li>被攻击的redis特征<ol>
+<li>Redis所在的机器有外网IP</li>
+<li>Redis以默认端口6379为启动端口，并且是对外网开放的</li>
+<li>Redis是以root用户启动的</li>
+<li>Redis没有设置密码</li>
+<li>Redis的bind设置为0.0.0.0或者””</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Redis安全七法</p>
+<ol>
+<li><p>设置密码</p>
+<ol>
+<li>服务端配置：requirepass和masterauth</li>
+<li>客户端连接：auth命令和-a参数</li>
+<li>相关建议：<ol>
+<li>密码要足够复杂，防止暴力破解</li>
+<li>masterauth不要忘记</li>
+<li>auth还是通过明文传输</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>伪装危险命令</p>
+<ol>
+<li>服务端配置：rename-command为空或者随机字符</li>
+<li>客户端连接：不可用或者使用指定随机字符</li>
+<li>相关建议：<ol>
+<li>不支持config set动态设置</li>
+<li>RDB和AOF如果包含rename-command之前的命令，将无法使用</li>
+<li>config命令本身是在Redis内核会使用到，不建议设置</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>bind</p>
+<ol>
+<li>服务端配置：bind限制的是网卡，并不是客户端ip</li>
+<li>相关建议：<ol>
+<li>bind不支持config set</li>
+<li>bind 127.0.0.1需要谨慎</li>
+<li>如果存在外网网卡尽量屏蔽掉</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>防火墙：杀手锏</p>
+</li>
+<li><p>定期备份</p>
+</li>
+<li><p>不使用默认端口，防止被弱攻击杀掉</p>
+</li>
+<li><p>使用非root用户启动</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="热点key发现"><a href="#热点key发现" class="headerlink" title="热点key发现"></a>热点key发现</h3><ul>
+<li><p>客户端</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100545.png"></p>
+</li>
+<li><p>代理端</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100624.png"></p>
+</li>
+<li><p>服务端</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100655.png"></p>
+</li>
+<li><p>机器收集</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200421100750.png"></p>
+</li>
+</ul>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th align="center">方案</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">客户端</td>
+<td align="center">实现简单</td>
+<td align="center">1. 内存泄漏隐患 2. 维护成本高 3. 只能统计单个客户端</td>
+</tr>
+<tr>
+<td align="center">代理</td>
+<td align="center">代理是客户端和服务端的桥梁，实现最方便最系统</td>
+<td align="center">增加代理端的开发部署成本</td>
+</tr>
+<tr>
+<td align="center">服务端</td>
+<td align="center">实现简单</td>
+<td align="center">1. monitor本身的使用成本和危害，只能短时间使用 2. 只能统计单个redis节点</td>
+</tr>
+<tr>
+<td align="center">机器</td>
+<td align="center">对于客户端和服务端无侵入和影响</td>
+<td align="center">需要专业的运维团队开发，并且增加了机器的部署成本</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Redis/" rel="tag"># Redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/07/07/oauth2/" rel="prev" title="oauth2">
+                  <i class="fa fa-chevron-left"></i> oauth2
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/08/%E5%8A%A8%E6%80%81%E6%95%A3%E8%8A%B1%E4%BB%A3%E7%A0%81/" rel="next" title="动态散花代码">
+                  动态散花代码 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zelentre</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:36</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

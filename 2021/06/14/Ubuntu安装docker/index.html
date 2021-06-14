@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Ubuntu安装docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu安装docker">
+<meta property="og:url" content="http://example.com/2021/06/14/Ubuntu%E5%AE%89%E8%A3%85docker/index.html">
+<meta property="og:site_name" content="笔记">
+<meta property="og:description" content="Ubuntu安装docker">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-14T08:36:27.000Z">
+<meta property="article:modified_time" content="2021-06-14T08:36:30.416Z">
+<meta property="article:author" content="zelentre">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/06/14/Ubuntu%E5%AE%89%E8%A3%85docker/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;06&#x2F;14&#x2F;Ubuntu%E5%AE%89%E8%A3%85docker&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;06&#x2F;14&#x2F;Ubuntu安装docker&#x2F;&quot;,&quot;title&quot;:&quot;Ubuntu安装docker&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Ubuntu安装docker | 笔记</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">笔记</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85docker"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu安装docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E4%B8%8B%E8%BD%BD%E7%9B%B8%E8%BD%AF%E4%BB%B6%E3%80%81%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、准备工作下载相软件、镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BF%AE%E6%94%B9Ubuntu%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">二、修改Ubuntu相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85docker"><span class="nav-number">1.3.</span> <span class="nav-text">三、安装docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E9%95%9C%E5%83%8F%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">docker安装相关镜像及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-number">1.5.</span> <span class="nav-text">相关参考</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zelentre</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Ubuntu%E5%AE%89%E8%A3%85docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu安装docker
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-06-14 16:36:27 / 修改时间：16:36:30" itemprop="dateCreated datePublished" datetime="2021-06-14T16:36:27+08:00">2021-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Ubuntu安装docker"><a href="#Ubuntu安装docker" class="headerlink" title="Ubuntu安装docker"></a>Ubuntu安装docker</h1><span id="more"></span> 
+
+<h2 id="一、准备工作下载相软件、镜像"><a href="#一、准备工作下载相软件、镜像" class="headerlink" title="一、准备工作下载相软件、镜像"></a>一、准备工作下载相软件、镜像</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">下载win10 VMware Workstation Pro</a>如果想下载其他版本请<a target="_blank" rel="noopener" href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">前往</a></li>
+<li><a target="_blank" rel="noopener" href="https://releases.ubuntu.com/20.04.2/ubuntu-20.04.2-live-server-amd64.iso">下载Ubuntu服务器版镜像</a>如果想下载其他版本请<a target="_blank" rel="noopener" href="https://cn.ubuntu.com/download">前往</a></li>
+<li>安装VMware Workstation Pro 激活密钥: <code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code>  安装镜像，此步骤如果不会请<a target="_blank" rel="noopener" href="https://www.baidu.com/s?ie=UTF-8&wd=vmwareworkstationpro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85ubuntu%E9%95%9C%E5%83%8F">百度</a></li>
+</ol>
+<h2 id="二、修改Ubuntu相关配置"><a href="#二、修改Ubuntu相关配置" class="headerlink" title="二、修改Ubuntu相关配置"></a>二、修改Ubuntu相关配置</h2><p><strong><a target="_blank" rel="noopener" href="https://zelen.lanzous.com/ivBGiop8tgh">相关配置文件下载 清华软件源、MySQL配置文件、redis配置文件、docker镜像源配置文件</a></strong></p>
+<p><strong>切换软件源为<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华源</a>根据自己的安装版本选择</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 简单来说就是：apt = apt-get、apt-cache 和 apt-config 中最常用命令选项的集合</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.安装lrzsz工具，方便windows和linux间的文件上传下载</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.备份镜像源 参考 2</span></span><br><span class="line">sudo cp -v /etc/apt/sources.list /etc/apt/sources.list.backup</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.更换镜像源</span></span><br><span class="line">sudo rm -ef /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上传已经编辑好的sources.list到 /etc/apt/ 目录下 或者使用vim编辑sources.list(不推荐 太慢了)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.更新 参考 3</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> apt update：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）</span></span><br><span class="line">sudo apt update </span><br><span class="line"><span class="meta">#</span><span class="bash"> apt upgrade：更新已安装的软件包具体可百度自行查找</span></span><br><span class="line">sudo apt upgrade 软件包名(不填则更新所有)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5.修改Ubuntu时区 参考 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看时间</span></span><br><span class="line">date -R</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改时区</span></span><br><span class="line">timedatectl set-timezone &quot;Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、安装docker"><a href="#三、安装docker" class="headerlink" title="三、安装docker"></a>三、安装docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装方法挺多的 我是直接按照官方方式安装的 下列命令的相关解释请查看 参考 4</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我是新环境无需执行卸载步骤 如果需要的自行卸载</span></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release</span><br><span class="line"></span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装成功</span></span><br><span class="line">sudo docker</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装成功在进行以下步骤，若未成功请自查原因 版本 Ubuntu Server 20.04.2 LTS</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改docker镜像源 按照下载的daemon.json配置 直接vim 我的是没有daemon.json这个配置文件的vim帮我自动创建了，若你有此文件 则进行修改 wq保存退出</span></span><br><span class="line">sudo vim /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123;&quot;registry-mirrors&quot;:[</span><br><span class="line">	&quot;https://registry.docker-cn.com&quot;,</span><br><span class="line">	&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><br><span class="line">]&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将当前用户 添加 Docker用户组 zne 用户名 尝试过重启docker但没起作用 因此直接 reboot</span></span><br><span class="line">sudo groupadd docker.service</span><br><span class="line">sudo usermod -aG docker zne</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker安装相关镜像及配置"><a href="#docker安装相关镜像及配置" class="headerlink" title="docker安装相关镜像及配置"></a>docker安装相关镜像及配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建相关文件 zne为我新创建的文件夹存放我的安装相关数据 此路径为之后安装镜像的相关配置路径 可按照个人习惯创建</span></span><br><span class="line">sudo mkdir -pv /zne/portainer/data</span><br><span class="line">sudo mkdir -pv /zne/mysql/&#123;conf,data,logs&#125; </span><br><span class="line">sudo mkdir -pv /zne/redis/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将下载的配置文件放置到对应的文件夹下 my.cnf --&gt; /zne/mysql/conf  redis.conf --&gt; /zne/redis/conf</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 下载相关镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> portainer/poratainer 已弃用 https://hub.docker.com/r/portainer/portainer</span></span><br><span class="line">docker pull portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 2.0 的所有新版本都将在 portainer/portainer-ce 中发布 推荐使用下面这个</span></span><br><span class="line">docker pull portainer/portainer-ce</span><br><span class="line">docker pull mysql</span><br><span class="line">docekr pull redis</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 运行镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可 废弃</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer-ce 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> MySQL</span></span><br><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /zne/mysql/data:/var/lib/mysql -v /zne/mysql/conf:/etc/mysql/conf.d -v /zne/mysql/logs:/logs -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL 密码为root 若想用123456的则不必执行下列命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p</span><br><span class="line">123456</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL8为简易密码</span></span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line"><span class="meta">#</span><span class="bash"> Redis</span></span><br><span class="line">docker run -it -v /zne/redis/data:/var/lib/redis -v /zne/redis/conf/redis.conf:/etc/redis/redis.conf -v /zne/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
+
+<h2 id="相关参考"><a href="#相关参考" class="headerlink" title="相关参考"></a>相关参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42118522/article/details/106069030">ubuntu20.04更改国内镜像源</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhjulia123/article/details/83479515">Ubuntu 中apt update和upgrade 的区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu | Docker Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cau_eric/article/details/90478798">ubuntu查看和修改时区</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/YRqISK4yJo9J9WzzTvD9CQ">Docker 图形化工具 Portainer</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/28/Win10%20WSL%20%E5%AE%89%E8%A3%85%20docker%20%E7%9B%B8%E5%85%B3%E6%B5%81%E7%A8%8B/" rel="prev" title="Win10 WSL 安装 docker 相关流程">
+                  <i class="fa fa-chevron-left"></i> Win10 WSL 安装 docker 相关流程
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zelentre</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:36</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

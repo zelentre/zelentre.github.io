@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="一、Java零散知识（之后可能会整理）http:&#x2F;&#x2F;hollischuang.gitee.io&#x2F;tobetopjavaer&#x2F;#&#x2F;basics&#x2F;object-oriented&#x2F;object-oriented-vs-procedure-oriented">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础">
+<meta property="og:url" content="http://example.com/2020/07/07/Java/index.html">
+<meta property="og:site_name" content="笔记">
+<meta property="og:description" content="一、Java零散知识（之后可能会整理）http:&#x2F;&#x2F;hollischuang.gitee.io&#x2F;tobetopjavaer&#x2F;#&#x2F;basics&#x2F;object-oriented&#x2F;object-oriented-vs-procedure-oriented">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-07T09:59:18.000Z">
+<meta property="article:modified_time" content="2020-09-03T09:52:12.000Z">
+<meta property="article:author" content="zelentre">
+<meta property="article:tag" content="Java基础">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/07/07/Java/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2020&#x2F;07&#x2F;07&#x2F;Java&#x2F;&quot;,&quot;path&quot;:&quot;2020&#x2F;07&#x2F;07&#x2F;Java&#x2F;&quot;,&quot;title&quot;:&quot;Java基础&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>Java基础 | 笔记</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">笔记</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Java%E9%9B%B6%E6%95%A3%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B9%8B%E5%90%8E%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%95%B4%E7%90%86%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一、Java零散知识（之后可能会整理）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VO-DTO-DO-PO"><span class="nav-number">1.1.</span> <span class="nav-text">VO DTO DO PO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">Java类的加载顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%9C%89%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、有继承关系的加载顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%B2%A1%E6%9C%89%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、没有继承关系的加载顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%B3%A8%E6%84%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E9%9D%9E%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.3.</span> <span class="nav-text">静态方法和非静态方法的区别是什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81BigDecimal%E8%AF%A6%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">二、BigDecimal详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E4%B9%8BBigDecimal%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">Java之BigDecimal详解</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zelentre</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/07/Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-07 17:59:18" itemprop="dateCreated datePublished" datetime="2020-07-07T17:59:18+08:00">2020-07-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-03 17:52:12" itemprop="dateModified" datetime="2020-09-03T17:52:12+08:00">2020-09-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">基础</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一、Java零散知识（之后可能会整理）"><a href="#一、Java零散知识（之后可能会整理）" class="headerlink" title="一、Java零散知识（之后可能会整理）"></a>一、Java零散知识（之后可能会整理）</h1><p><a target="_blank" rel="noopener" href="http://hollischuang.gitee.io/tobetopjavaer/#/basics/object-oriented/object-oriented-vs-procedure-oriented">http://hollischuang.gitee.io/tobetopjavaer/#/basics/object-oriented/object-oriented-vs-procedure-oriented</a></p>
+<span id="more"></span>
+
+<h2 id="VO-DTO-DO-PO"><a href="#VO-DTO-DO-PO" class="headerlink" title="VO DTO DO PO"></a>VO DTO DO PO</h2><ul>
+<li><p><strong>从前端传后端是VO，从后端传前端是DTO，表对应实体类是PO</strong></p>
+</li>
+<li><p>VO (View Object) :视图对象，用于展示层，它的作用是把某个指定页面(或组件)的所有数据封装起来。</p>
+</li>
+<li><p>DTO (Data Transfer Object) :数据传输对象,这个概念来源于J2EE的设计模式，原来的目的是为了EJB的分布式应用提供粗粒度的数据实体，以减少分布式调用的次数,从而提高分布式调用的性能和降低网络负载，但在这里，我泛指用于展示层与服务层之间的数据传输对象。</p>
+</li>
+<li><p>DO (Domain Object) :领域对象,就是从现实世界中抽象出来的有形或无形的业务实体。</p>
+</li>
+<li><p>PO (Persistent Object) :持久化对象，它跟持久层(通常是关系型数据库)的数据结构形成一一对应的映射关系，如果持久层是关系型数据库,那么,数据表中的每个字段(或若干个)就对应PO的一个(或若干个)属性。</p>
+</li>
+</ul>
+<h2 id="Java类的加载顺序"><a href="#Java类的加载顺序" class="headerlink" title="Java类的加载顺序"></a>Java类的加载顺序</h2><h3 id="1、有继承关系的加载顺序"><a href="#1、有继承关系的加载顺序" class="headerlink" title="1、有继承关系的加载顺序"></a>1、有继承关系的加载顺序</h3><p>关于关键字static，大家都知道它是静态的，相当于一个全局变量，也就是这个属性或者方法是可以通过类来访问，当class文件被加载进内存，开始初始化的时候，被static修饰的变量或者方法即被分配了内存，而其他变量是在对象被创建后，才被分配了内存的。</p>
+<p>所以在类中，加载顺序为：</p>
+<ol>
+<li><p>首先加载父类的静态字段或者静态语句块</p>
+</li>
+<li><p>子类的静态字段或静态语句块</p>
+</li>
+<li><p>父类普通变量以及语句块</p>
+</li>
+<li><p>父类构造方法被加载</p>
+</li>
+<li><p>子类变量或者语句块被加载</p>
+</li>
+<li><p>子类构造方法被加载</p>
+</li>
+</ol>
+<p>父类代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FuLei</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num  = <span class="number">5</span>;<span class="comment">//1.首先被加载</span></span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块已经被加载&quot;</span>+num); <span class="comment">//2.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">//5.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;普通语句块&quot;</span>+count++);<span class="comment">//6.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">FuLei</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;父类的构造方法在这时候加载count=&quot;</span>+count);<span class="comment">//7.被加载</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子类代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZiLei</span> <span class="keyword">extends</span> <span class="title">FuLei</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块和静态变量被初始化的顺序与代码先后顺序有关&quot;</span>); <span class="comment">//3.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">45</span>;<span class="comment">//4.被加载</span></span><br><span class="line"><span class="keyword">int</span> numre = <span class="number">0</span>; <span class="comment">//8.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    numre++;</span><br><span class="line">    System.out.println(<span class="string">&quot;numre&quot;</span>+numre);<span class="comment">//9.被加载</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ZiLei</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;子类构造方法&quot;</span>);<span class="comment">//10.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ZiLei ht = <span class="keyword">new</span> ZiLei();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>console打印：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">静态语句块已经被加载5</span><br><span class="line">静态语句块和静态变量被初始化的顺序与代码先后顺序有关</span><br><span class="line">普通语句块0</span><br><span class="line">父类的构造方法在这时候加载count=1</span><br><span class="line">numre1</span><br><span class="line">子类构造方法</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<p>当class文件被加载进内存，开始初始化的时候，被static修饰的变量或者方法即被分配了内存，而其他变量是在对象被创建后，才被分配了内存的。</p>
+<p>将子类代码中的创建对象注释掉</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ZiLei ht = new ZiLei();</span></span><br></pre></td></tr></table></figure>
+
+<p>console打印：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">静态语句块已经被加载5</span><br><span class="line">静态语句块和静态变量被初始化的顺序与代码先后顺序有关</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、没有继承关系的加载顺序"><a href="#2、没有继承关系的加载顺序" class="headerlink" title="2、没有继承关系的加载顺序"></a>2、没有继承关系的加载顺序</h3><p>代码示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Test();                         <span class="comment">//4.第四步，new一个类，但在new之前要处理匿名代码块</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">4</span>;                    <span class="comment">//2.第二步，静态变量和静态代码块的加载顺序由编写先后决定</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    num += <span class="number">3</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);           <span class="comment">//5.第五步，按照顺序加载匿名代码块，代码块中有打印</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;                             <span class="comment">//6.第六步，按照顺序加载变量</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">// 成员变量第三个</span></span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>);           <span class="comment">//7.第七步，按照顺序打印c</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test() &#123; <span class="comment">// 类的构造函数，第四个加载</span></span><br><span class="line">    System.out.println(<span class="string">&quot;d&quot;</span>);           <span class="comment">//8.第八步，最后加载构造函数，完成对象的建立</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;                              <span class="comment">// 3.第三步，静态块，然后执行静态代码块，因为有输出，故打印a</span></span><br><span class="line">    System.out.println(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span>                    <span class="comment">// 静态方法，调用的时候才加载// 注意看，e没有加载</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;e&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>console打印：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、注意"><a href="#3、注意" class="headerlink" title="3、注意"></a>3、注意</h3><ul>
+<li>静态代码块（只加载一次）</li>
+<li>构造方法（创建一个实例就加载一次）</li>
+<li>静态方法，调用的时候才会加载，不调用的时候不会加载</li>
+<li>静态语句块和静态变量被初始化的顺序与代码先后顺序有关</li>
+</ul>
+<h2 id="静态方法和非静态方法的区别是什么"><a href="#静态方法和非静态方法的区别是什么" class="headerlink" title="静态方法和非静态方法的区别是什么"></a>静态方法和非静态方法的区别是什么</h2><p>静态方法和非静态方法的区别总结如下：</p>
+<ol>
+<li>静态方法属于类所有，类实例化前即可使用； </li>
+<li>非静态方法可以访问类中的任何成员，静态方法只能访问类中的静态成员； </li>
+<li>因为静态方法在类实例化前就可以使用，而类中的非静态变量必须在实例化之后才能分配内存；    </li>
+<li>static内部只能出现static变量和其他static方法!而且static方法中还不能使用this等关键字，因为它是属于整个类；</li>
+<li>静态方法效率上要比实例化高，静态方法的缺点是不自动进行销毁，而实例化的则可以做销毁； </li>
+<li>静态方法和静态变量创建后始终使用同一块内存，而使用实例的方式会创建多个内存。</li>
+<li>主要区别：静态方法在创建对象前就可以使用了，非静态方法必须通过new出来的对象调用。</li>
+<li>静态方法与实例方法在性能和占用内存上没有明显的区别，是否声明为静态方法需要从类型的非静态字段、事件、面向对象扩展和多态这三方面来考虑。</li>
+</ol>
+<h1 id="二、BigDecimal详解"><a href="#二、BigDecimal详解" class="headerlink" title="二、BigDecimal详解"></a>二、BigDecimal详解</h1><ol>
+<li><p>BigDecimal所创建的是对象，故我们不能使用传统的+、-、*、/等算数运算符</p>
+</li>
+<li><p>创建 <code> BigDecimal a =new BigDecimal(0.1);//0.1可为 int double long String</code></p>
+</li>
+<li><p> add(+)、subtract(-)、multiply(*)、divide(/)、toString(转字符串)、doubleValue(转double。。)</p>
+</li>
+<li><p>compareTo比较大小 -1小于 0 等于 1 大于</p>
+</li>
+<li><h1 id="Java之BigDecimal详解"><a href="#Java之BigDecimal详解" class="headerlink" title="Java之BigDecimal详解"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangyinhua/p/11545305.html">Java之BigDecimal详解</a></h1></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag"># Java基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/07/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/" rel="next" title="同步/异步/多线程">
+                  同步/异步/多线程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zelentre</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:36</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
