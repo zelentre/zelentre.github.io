@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git相关</title>
-    <url>/2020/07/07/Git%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h1 id="Git相关"><a href="#Git相关" class="headerlink" title="Git相关"></a>Git相关</h1><!--  more  -->
-<ol>
-<li>用户名查看修改</li>
-</ol>
-<p><a href="https://blog.csdn.net/autoliuweijie/article/details/52230165">https://blog.csdn.net/autoliuweijie/article/details/52230165</a> </p>
-<p><a href="https://blog.csdn.net/lai1170137052/article/details/102974628">https://blog.csdn.net/lai1170137052/article/details/102974628</a> </p>
-<ol start="2">
-<li><p>git升级   <a href="https://segmentfault.com/q/1010000011704285">https://segmentfault.com/q/1010000011704285</a> </p>
-</li>
-<li><p>git config –global credential.helper store  </p>
-</li>
-<li><p>npm install</p>
-</li>
-<li><p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p>
-<p>使用上述命令后可使用cnpm 替换npm  </p>
-</li>
-<li><p>npm run dev </p>
-</li>
-<li><p>npm run build</p>
-<p>很多人也貌似出现了这个问题，参考了好几个帖子：<br><a href="https://segmentfault.com/q/1010000008223855">https://segmentfault.com/q/1010000008223855</a><br><a href="https://www.imooc.com/qadetail/177063">https://www.imooc.com/qadetail/177063</a><br>我参照改了源,也不确定这个是否有用<br>npm config set registry <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a>  </p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker学习</title>
     <url>/2020/07/08/Docker%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><span id="more"></span>
@@ -113,44 +80,36 @@
       </tags>
   </entry>
   <entry>
-    <title>Java 堆栈详解</title>
-    <url>/2020/10/07/Java%20%E5%A0%86%E6%A0%88%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Java-堆栈详解"><a href="#Java-堆栈详解" class="headerlink" title="Java 堆栈详解"></a>Java 堆栈详解</h1><span id="more"></span>
-
+    <title>Git相关</title>
+    <url>/2020/07/07/Git%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1 id="Git相关"><a href="#Git相关" class="headerlink" title="Git相关"></a>Git相关</h1><!--  more  -->
 <ol>
-<li>寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制.</li>
-<li>栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。）</li>
-<li>堆：存放所有new出来的对象。</li>
-<li>静态域：存放静态成员（static定义的）</li>
-<li>常量池：存放字符串常量和基本类型常量（public static final）。</li>
-<li>非RAM存储：硬盘等永久存储空间</li>
+<li>用户名查看修改</li>
 </ol>
-<p>这里我们主要关心栈，堆和常量池，对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。<br>对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> String s1 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">2.</span> String s2 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">3.</span> String s3 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">4.</span> String ss1 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">5.</span> String ss2 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">6.</span> String ss3 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20201007160913.png"></p>
-<p>这里解释一下黄色这3个箭头，对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。这也就是有道面试题：String s = new String(“xyz”);产生几个对象？一个或两个，如果常量池中原来没有”xyz”,就是两个。</p>
-<p>对于基础类型的变量和常量：变量和引用存储在栈中，常量存储在常量池中。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> <span class="keyword">int</span> i1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">2.</span> <span class="keyword">int</span> i2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">3.</span> <span class="keyword">int</span> i3 = <span class="number">9</span>;  </span><br><span class="line"><span class="number">4.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">5.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">6.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT3 = <span class="number">9</span>; </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/3968b51b-0a56-3ad6-a54e-b2b19e671526.png"><br>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。<br>形式参数是局部变量，局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。<br>成员变量存储在堆中的对象里面，由垃圾回收器负责回收。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BirthDate</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> day;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> month;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> year;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BirthDate</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> m, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">        day = d;   </span><br><span class="line">        month = m;   </span><br><span class="line">        year = y;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// 省略get,set方法………  </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;  </span><br><span class="line">		<span class="keyword">int</span> date = <span class="number">9</span>;  </span><br><span class="line">        Test test = <span class="keyword">new</span> Test();        </span><br><span class="line">        test.change(date);   </span><br><span class="line">        BirthDate d1= <span class="keyword">new</span> BirthDate(<span class="number">7</span>,<span class="number">7</span>,<span class="number">1970</span>);         </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change1</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;  </span><br><span class="line">        i = <span class="number">1234</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/5d8dee1f-ceb9-3705-8924-161dd7599f73.png"><br>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</p>
-<ol>
-<li>main方法开始执行：int date = 9;<br>date局部变量，基础类型，引用和值都存在栈中。</li>
-<li>Test test = new Test();<br>test为对象引用，存在栈中，对象(new Test())存在堆中</li>
-<li>test.change(date);<br>i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。</li>
-<li>BirthDate d1= new BirthDate(7,7,1970);<br>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</li>
-<li>main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</li>
+<p><a href="https://blog.csdn.net/autoliuweijie/article/details/52230165">https://blog.csdn.net/autoliuweijie/article/details/52230165</a> </p>
+<p><a href="https://blog.csdn.net/lai1170137052/article/details/102974628">https://blog.csdn.net/lai1170137052/article/details/102974628</a> </p>
+<ol start="2">
+<li><p>git升级   <a href="https://segmentfault.com/q/1010000011704285">https://segmentfault.com/q/1010000011704285</a> </p>
+</li>
+<li><p>git config –global credential.helper store  </p>
+</li>
+<li><p>npm install</p>
+</li>
+<li><p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p>
+<p>使用上述命令后可使用cnpm 替换npm  </p>
+</li>
+<li><p>npm run dev </p>
+</li>
+<li><p>npm run build</p>
+<p>很多人也貌似出现了这个问题，参考了好几个帖子：<br><a href="https://segmentfault.com/q/1010000008223855">https://segmentfault.com/q/1010000008223855</a><br><a href="https://www.imooc.com/qadetail/177063">https://www.imooc.com/qadetail/177063</a><br>我参照改了源,也不确定这个是否有用<br>npm config set registry <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a>  </p>
+</li>
 </ol>
 ]]></content>
       <categories>
-        <category>Java</category>
-        <category>堆栈</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>堆栈</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -248,27 +207,44 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL</title>
-    <url>/2020/07/08/MySQL/</url>
-    <content><![CDATA[<h3 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h3><ul>
-<li>粒度小，方便用于集群环境<h3 id="代码锁"><a href="#代码锁" class="headerlink" title="代码锁"></a>代码锁</h3></li>
-<li>粒度大，需要封装</li>
-</ul>
-<span id="more"></span>
+    <title>Java 堆栈详解</title>
+    <url>/2020/10/07/Java%20%E5%A0%86%E6%A0%88%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="Java-堆栈详解"><a href="#Java-堆栈详解" class="headerlink" title="Java 堆栈详解"></a>Java 堆栈详解</h1><span id="more"></span>
 
-<h2 id="微观"><a href="#微观" class="headerlink" title="微观"></a>微观</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="行锁-amp-表锁"><a href="#行锁-amp-表锁" class="headerlink" title="行锁 &amp; 表锁"></a>行锁 &amp; 表锁</h4><p>只有明确指定主键，才会执行行锁，否则执行表锁</p>
-<ul>
-<li>无锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">-1</span> <span class="keyword">for</span> update;</span><br><span class="line">#排它锁但自增主键一般从<span class="number">1</span>开始  主键不存在  因此不执行锁 </span><br></pre></td></tr></table></figure></li>
-<li>行锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">for</span> update ;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> update;</span><br><span class="line">#行级排它锁</span><br></pre></td></tr></table></figure></li>
-<li>表锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#主键不明确 锁住整张表</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> update;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&lt;&gt;</span> <span class="number">3</span> <span class="keyword">for</span> update;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<ol>
+<li>寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制.</li>
+<li>栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。）</li>
+<li>堆：存放所有new出来的对象。</li>
+<li>静态域：存放静态成员（static定义的）</li>
+<li>常量池：存放字符串常量和基本类型常量（public static final）。</li>
+<li>非RAM存储：硬盘等永久存储空间</li>
+</ol>
+<p>这里我们主要关心栈，堆和常量池，对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。<br>对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> String s1 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">2.</span> String s2 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">3.</span> String s3 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">4.</span> String ss1 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">5.</span> String ss2 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">6.</span> String ss3 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20201007160913.png"></p>
+<p>这里解释一下黄色这3个箭头，对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。这也就是有道面试题：String s = new String(“xyz”);产生几个对象？一个或两个，如果常量池中原来没有”xyz”,就是两个。</p>
+<p>对于基础类型的变量和常量：变量和引用存储在栈中，常量存储在常量池中。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> <span class="keyword">int</span> i1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">2.</span> <span class="keyword">int</span> i2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">3.</span> <span class="keyword">int</span> i3 = <span class="number">9</span>;  </span><br><span class="line"><span class="number">4.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">5.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">6.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT3 = <span class="number">9</span>; </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/3968b51b-0a56-3ad6-a54e-b2b19e671526.png"><br>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。<br>形式参数是局部变量，局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。<br>成员变量存储在堆中的对象里面，由垃圾回收器负责回收。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BirthDate</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> day;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> month;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> year;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BirthDate</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> m, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">        day = d;   </span><br><span class="line">        month = m;   </span><br><span class="line">        year = y;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// 省略get,set方法………  </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;  </span><br><span class="line">		<span class="keyword">int</span> date = <span class="number">9</span>;  </span><br><span class="line">        Test test = <span class="keyword">new</span> Test();        </span><br><span class="line">        test.change(date);   </span><br><span class="line">        BirthDate d1= <span class="keyword">new</span> BirthDate(<span class="number">7</span>,<span class="number">7</span>,<span class="number">1970</span>);         </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change1</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;  </span><br><span class="line">        i = <span class="number">1234</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/5d8dee1f-ceb9-3705-8924-161dd7599f73.png"><br>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</p>
+<ol>
+<li>main方法开始执行：int date = 9;<br>date局部变量，基础类型，引用和值都存在栈中。</li>
+<li>Test test = new Test();<br>test为对象引用，存在栈中，对象(new Test())存在堆中</li>
+<li>test.change(date);<br>i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。</li>
+<li>BirthDate d1= new BirthDate(7,7,1970);<br>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</li>
+<li>main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>DB</category>
-        <category>MySQL</category>
+        <category>Java</category>
+        <category>堆栈</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>堆栈</tag>
       </tags>
   </entry>
   <entry>
@@ -370,6 +346,30 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL</title>
+    <url>/2020/07/08/MySQL/</url>
+    <content><![CDATA[<h3 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h3><ul>
+<li>粒度小，方便用于集群环境<h3 id="代码锁"><a href="#代码锁" class="headerlink" title="代码锁"></a>代码锁</h3></li>
+<li>粒度大，需要封装</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="微观"><a href="#微观" class="headerlink" title="微观"></a>微观</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="行锁-amp-表锁"><a href="#行锁-amp-表锁" class="headerlink" title="行锁 &amp; 表锁"></a>行锁 &amp; 表锁</h4><p>只有明确指定主键，才会执行行锁，否则执行表锁</p>
+<ul>
+<li>无锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">-1</span> <span class="keyword">for</span> update;</span><br><span class="line">#排它锁但自增主键一般从<span class="number">1</span>开始  主键不存在  因此不执行锁 </span><br></pre></td></tr></table></figure></li>
+<li>行锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">for</span> update ;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> update;</span><br><span class="line">#行级排它锁</span><br></pre></td></tr></table></figure></li>
+<li>表锁<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#主键不明确 锁住整张表</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> update;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&lt;&gt;</span> <span class="number">3</span> <span class="keyword">for</span> update;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>DB</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL8在win10 docker上的相关安装</title>
     <url>/2020/08/18/MySQL8%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="MySQL8在win10-docker上的相关安装"><a href="#MySQL8在win10-docker上的相关安装" class="headerlink" title="MySQL8在win10 docker上的相关安装"></a>MySQL8在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建(路径自己随便) 随系统自动启动 (建议使用这条)</span></span><br><span class="line">docker run -it -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --restart=always --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不随系统自动启动</span></span><br><span class="line">docker run -it --rm  -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br></pre></td></tr></table></figure>
@@ -393,122 +393,6 @@
       <tags>
         <tag>Docker</tag>
         <tag>MySQL8</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RabbitMQ学习</title>
-    <url>/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="RabbitMQ学习"><a href="#RabbitMQ学习" class="headerlink" title="RabbitMQ学习"></a>RabbitMQ学习</h1><p><strong>核心概念</strong></p>
-<blockquote>
-<p>Server：又称Broker，接受客户端的连接，实现AMQP实体服务</p>
-<p>Connection：连接，应用程序与Broker的网络连接TCP/IP/三次握手四次挥手</p>
-<p>Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务</p>
-<p>Message：消息，服务与应用程之间传送的数据，有Properties和body组成，Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性，body就是消息体的内容</p>
-<p>Virtual Host：虚拟地址，用于进行逻辑隔离，最上层的消息路由，一个虚拟主机可以有若干个Exchange和Queue，同一个虚拟主机里面不能有相同名字的Exchange</p>
-<p>Exchange：交换机，接收消息，根据路由键发送消息到绑定的队列（不具备消息存储的能力）</p>
-<p>Bindings：Exchange和Queue之间的虚拟连接，binding中可以保护多个routing key</p>
-<p>Routing key：是一个路由规则，虚拟机可以用它来确定如何路由一个特定消息</p>
-<p>Queue：队列也就是Message Queue，消息队列，保存消息并将它们转发给消费者</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="一、模式"><a href="#一、模式" class="headerlink" title="一、模式"></a>一、模式</h2><p><strong>Work模式</strong></p>
-<blockquote>
-<p>主要有两种模式：</p>
-<ol>
-<li>轮询模式的分发：一个消费者一条，按均分配</li>
-<li>公平分发：根据消费者的消费能力进行公平分发，处理的快的处理的多，处理的慢的处理的少；按劳分配</li>
-</ol>
-</blockquote>
-<p><strong>RabbitMQ使用场景</strong></p>
-<blockquote>
-<ol>
-<li>同步异步问题（串行）：将订单信息写入数据库成功后，发送注册邮件，在发送注册短信。以上三个任务全部完成后，返回给客户端</li>
-</ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png" alt="image-20210721145751320"></p>
-<ol start="2">
-<li>同步异步问题（并行、异步线程池）：将订单写入数据库成功后，同时进行注册邮件、注册短信的发送，完成以上三个任务后，返回给客户端，与串行的差别是，并行的方式可以提高处理的时间</li>
-</ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png" alt="image-20210721172427071"></p>
-<p>  存在问题：</p>
-<ul>
-<li>耦合度高</li>
-<li>需要自己写线程池自己维护成本太高</li>
-<li>出现了消息可能丢失，需要做消息补全</li>
-<li>需要考虑如何保证消息的可靠性</li>
-<li>若服务器承载不了，需要自己去写高可用</li>
-</ul>
-<ol start="3">
-<li>异步消息队列的方式：</li>
-</ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png" alt="image-20210721173920110"></p>
-<p>  好处：</p>
-<ul>
-<li><p>完全解耦，用MQ简历桥接</p>
-</li>
-<li><p>有独立的线程池和运行模型</p>
-</li>
-<li><p>出现了消息可能丢失，MQ有持久化功能</p>
-</li>
-<li><p>如何保证消息的可靠性，死信队列和消息转移等</p>
-</li>
-<li><p>若服务器承载不了，HA镜像模型高可用，增加集群</p>
-<p>按照以上约定，用户的响应时间相当于是订单信息写入数据库的时间。注册邮件、短信发送写入消息队列后，直接返回（写入消息队列的速度很快，基本可以忽略）。因此架构改变后，系统的吞吐量提高到每秒20QPS，比串行提高了三倍，比并行提高了两倍</p>
-</li>
-</ul>
-<ol start="4">
-<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png" alt="image-20210721175005637"></p>
-</li>
-<li><p>流量削峰</p>
-</li>
-</ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png" alt="image-20210721175150300"></p>
-</blockquote>
-<p><strong>队列绑定关系声明（Configuration）在生产者还是消费者好，其他都可以但是为了防止项目启动报错建议声明在消费者</strong></p>
-<h2 id="二、过期时间TTL"><a href="#二、过期时间TTL" class="headerlink" title="二、过期时间TTL"></a>二、过期时间TTL</h2><ol>
-<li>什么是TTL<ul>
-<li>time to live 消息存活时间</li>
-<li>如果消息在存活时间内未被消费，则会被清除</li>
-<li>rabbitmq支持两种ttl设置<ul>
-<li>单独消息进行配置ttl</li>
-<li>整个队列进行配置ttl（居多）</li>
-<li>若上述两种方法同时使用，则消息的过期时间以两者之间TTL较小的那个数值为准。消息在队列的生存时间一旦超过设置的TTL值，就称为dead message被投递到死信队列，消费者将无法在收到改消息。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="三、死信队列"><a href="#三、死信队列" class="headerlink" title="三、死信队列"></a>三、死信队列</h2><p><strong>概念</strong>：没有被及时消费的消息存放队列</p>
-<p><strong>死信交换机：</strong>Dead Letter Exchange(缩写：DLX)当消息称为死信后，会被重新发送到另一个交换机，这个交换机就是DLX死信交换机。</p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png" alt="image-20210722170415668"></p>
-<p>消息变成死信，可能是由于以下的原因：</p>
-<ul>
-<li>消息被拒绝</li>
-<li>消息过期</li>
-<li>队列达到最大长度</li>
-</ul>
-<p>DLX也是一个正常的交换机，和一般的交换机没有区别，它能在任何的队列上被指定，实际上就是设置某一个队列的属性，当这个队列存在死信时，rabbitmq就会自动的将这个消息重新发布到设置的DLX上，进而被路由到另一个队列，即死信队列，想要使用死信队列，只需要在定义队列的时候设置队列参数<code> x-dead-letter-exchange</code>指定交换机即可。</p>
-<p><strong>过期时间+死信队列=延时队列</strong></p>
-<h2 id="四、集群"><a href="#四、集群" class="headerlink" title="四、集群"></a>四、集群</h2><p>​    RabbitMQ本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过通不过Erlang集群各节点的magic cookie来实现）。因此,rabbitmq天然支持clustering。这使得rabbitmq本身不需要像activemq、Kafka那样通过zookeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。在实际使用过程中多采用多机多实例部署方式。</p>
-<h2 id="五、面试题分析"><a href="#五、面试题分析" class="headerlink" title="五、面试题分析"></a>五、面试题分析</h2><p>1.　Rabbitmq为什么需要信道，为什么不是TCP直接通信？</p>
-<ul>
-<li>TCP的创建和销毁，开销大，创建要三次握手，销毁要四次分手</li>
-<li>如果不用信道，那应用程序就会TCP连接到RabbitMQ服务器，高峰时每秒成千上万连接就会造成资源的巨大浪费，而且<strong>底层操作系统每秒处理tcp连接数也是有限的，必定造成性能瓶颈</strong>。</li>
-<li>信道的原理时一条线程一条信道，多条线程多条信道用一条TCP连接，一条TCP连接可以容纳无限的信道，即使每秒成千上万的请求也不会称为性能瓶颈。</li>
-</ul>
-<p>2.　queue队列到底在消费者创建还是在生产者创建？</p>
-<ul>
-<li>一般建议实在rabbitmq操作面板创建，这是一种稳妥的做法。</li>
-<li>按照常理来说，确实应该消费者这边创建是最好，消息的消费是在这边。这样你承受一个后果，可能生产者的生产消息会丢失。</li>
-<li>在生产者创建队列也可以，这样稳妥的方法，消息是不会出现丢失。</li>
-<li>如果生产者和消费者都创建的队列，谁先启动谁先创建，后面启动的就会覆盖前面的</li>
-</ul>
-]]></content>
-      <categories>
-        <category>rabbitmq</category>
-      </categories>
-      <tags>
-        <tag>rabbitmq</tag>
       </tags>
   </entry>
   <entry>
@@ -638,6 +522,122 @@
       </tags>
   </entry>
   <entry>
+    <title>RabbitMQ学习</title>
+    <url>/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="RabbitMQ学习"><a href="#RabbitMQ学习" class="headerlink" title="RabbitMQ学习"></a>RabbitMQ学习</h1><p><strong>核心概念</strong></p>
+<blockquote>
+<p>Server：又称Broker，接受客户端的连接，实现AMQP实体服务</p>
+<p>Connection：连接，应用程序与Broker的网络连接TCP/IP/三次握手四次挥手</p>
+<p>Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务</p>
+<p>Message：消息，服务与应用程之间传送的数据，有Properties和body组成，Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性，body就是消息体的内容</p>
+<p>Virtual Host：虚拟地址，用于进行逻辑隔离，最上层的消息路由，一个虚拟主机可以有若干个Exchange和Queue，同一个虚拟主机里面不能有相同名字的Exchange</p>
+<p>Exchange：交换机，接收消息，根据路由键发送消息到绑定的队列（不具备消息存储的能力）</p>
+<p>Bindings：Exchange和Queue之间的虚拟连接，binding中可以保护多个routing key</p>
+<p>Routing key：是一个路由规则，虚拟机可以用它来确定如何路由一个特定消息</p>
+<p>Queue：队列也就是Message Queue，消息队列，保存消息并将它们转发给消费者</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一、模式"><a href="#一、模式" class="headerlink" title="一、模式"></a>一、模式</h2><p><strong>Work模式</strong></p>
+<blockquote>
+<p>主要有两种模式：</p>
+<ol>
+<li>轮询模式的分发：一个消费者一条，按均分配</li>
+<li>公平分发：根据消费者的消费能力进行公平分发，处理的快的处理的多，处理的慢的处理的少；按劳分配</li>
+</ol>
+</blockquote>
+<p><strong>RabbitMQ使用场景</strong></p>
+<blockquote>
+<ol>
+<li>同步异步问题（串行）：将订单信息写入数据库成功后，发送注册邮件，在发送注册短信。以上三个任务全部完成后，返回给客户端</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png" alt="image-20210721145751320"></p>
+<ol start="2">
+<li>同步异步问题（并行、异步线程池）：将订单写入数据库成功后，同时进行注册邮件、注册短信的发送，完成以上三个任务后，返回给客户端，与串行的差别是，并行的方式可以提高处理的时间</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png" alt="image-20210721172427071"></p>
+<p>  存在问题：</p>
+<ul>
+<li>耦合度高</li>
+<li>需要自己写线程池自己维护成本太高</li>
+<li>出现了消息可能丢失，需要做消息补全</li>
+<li>需要考虑如何保证消息的可靠性</li>
+<li>若服务器承载不了，需要自己去写高可用</li>
+</ul>
+<ol start="3">
+<li>异步消息队列的方式：</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png" alt="image-20210721173920110"></p>
+<p>  好处：</p>
+<ul>
+<li><p>完全解耦，用MQ简历桥接</p>
+</li>
+<li><p>有独立的线程池和运行模型</p>
+</li>
+<li><p>出现了消息可能丢失，MQ有持久化功能</p>
+</li>
+<li><p>如何保证消息的可靠性，死信队列和消息转移等</p>
+</li>
+<li><p>若服务器承载不了，HA镜像模型高可用，增加集群</p>
+<p>按照以上约定，用户的响应时间相当于是订单信息写入数据库的时间。注册邮件、短信发送写入消息队列后，直接返回（写入消息队列的速度很快，基本可以忽略）。因此架构改变后，系统的吞吐量提高到每秒20QPS，比串行提高了三倍，比并行提高了两倍</p>
+</li>
+</ul>
+<ol start="4">
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png" alt="image-20210721175005637"></p>
+</li>
+<li><p>流量削峰</p>
+</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png" alt="image-20210721175150300"></p>
+</blockquote>
+<p><strong>队列绑定关系声明（Configuration）在生产者还是消费者好，其他都可以但是为了防止项目启动报错建议声明在消费者</strong></p>
+<h2 id="二、过期时间TTL"><a href="#二、过期时间TTL" class="headerlink" title="二、过期时间TTL"></a>二、过期时间TTL</h2><ol>
+<li>什么是TTL<ul>
+<li>time to live 消息存活时间</li>
+<li>如果消息在存活时间内未被消费，则会被清除</li>
+<li>rabbitmq支持两种ttl设置<ul>
+<li>单独消息进行配置ttl</li>
+<li>整个队列进行配置ttl（居多）</li>
+<li>若上述两种方法同时使用，则消息的过期时间以两者之间TTL较小的那个数值为准。消息在队列的生存时间一旦超过设置的TTL值，就称为dead message被投递到死信队列，消费者将无法在收到改消息。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、死信队列"><a href="#三、死信队列" class="headerlink" title="三、死信队列"></a>三、死信队列</h2><p><strong>概念</strong>：没有被及时消费的消息存放队列</p>
+<p><strong>死信交换机：</strong>Dead Letter Exchange(缩写：DLX)当消息称为死信后，会被重新发送到另一个交换机，这个交换机就是DLX死信交换机。</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png" alt="image-20210722170415668"></p>
+<p>消息变成死信，可能是由于以下的原因：</p>
+<ul>
+<li>消息被拒绝</li>
+<li>消息过期</li>
+<li>队列达到最大长度</li>
+</ul>
+<p>DLX也是一个正常的交换机，和一般的交换机没有区别，它能在任何的队列上被指定，实际上就是设置某一个队列的属性，当这个队列存在死信时，rabbitmq就会自动的将这个消息重新发布到设置的DLX上，进而被路由到另一个队列，即死信队列，想要使用死信队列，只需要在定义队列的时候设置队列参数<code> x-dead-letter-exchange</code>指定交换机即可。</p>
+<p><strong>过期时间+死信队列=延时队列</strong></p>
+<h2 id="四、集群"><a href="#四、集群" class="headerlink" title="四、集群"></a>四、集群</h2><p>​    RabbitMQ本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过通不过Erlang集群各节点的magic cookie来实现）。因此,rabbitmq天然支持clustering。这使得rabbitmq本身不需要像activemq、Kafka那样通过zookeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。在实际使用过程中多采用多机多实例部署方式。</p>
+<h2 id="五、面试题分析"><a href="#五、面试题分析" class="headerlink" title="五、面试题分析"></a>五、面试题分析</h2><p>1.　Rabbitmq为什么需要信道，为什么不是TCP直接通信？</p>
+<ul>
+<li>TCP的创建和销毁，开销大，创建要三次握手，销毁要四次分手</li>
+<li>如果不用信道，那应用程序就会TCP连接到RabbitMQ服务器，高峰时每秒成千上万连接就会造成资源的巨大浪费，而且<strong>底层操作系统每秒处理tcp连接数也是有限的，必定造成性能瓶颈</strong>。</li>
+<li>信道的原理时一条线程一条信道，多条线程多条信道用一条TCP连接，一条TCP连接可以容纳无限的信道，即使每秒成千上万的请求也不会称为性能瓶颈。</li>
+</ul>
+<p>2.　queue队列到底在消费者创建还是在生产者创建？</p>
+<ul>
+<li>一般建议实在rabbitmq操作面板创建，这是一种稳妥的做法。</li>
+<li>按照常理来说，确实应该消费者这边创建是最好，消息的消费是在这边。这样你承受一个后果，可能生产者的生产消息会丢失。</li>
+<li>在生产者创建队列也可以，这样稳妥的方法，消息是不会出现丢失。</li>
+<li>如果生产者和消费者都创建的队列，谁先启动谁先创建，后面启动的就会覆盖前面的</li>
+</ul>
+]]></content>
+      <categories>
+        <category>rabbitmq</category>
+      </categories>
+      <tags>
+        <tag>rabbitmq</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redis在win10 docker上的相关安装</title>
     <url>/2020/08/18/Redis%20%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="Redis在win10-docker上的相关安装"><a href="#Redis在win10-docker上的相关安装" class="headerlink" title="Redis在win10 docker上的相关安装"></a>Redis在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull redis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建 随系统自动启动</span></span><br><span class="line">docker run -it -v E:/Docker/docker/redis/data:/var/lib/redis -v E:/Docker/docker/redis/config/redis.conf:/etc/redis/redis.conf --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
@@ -686,6 +686,32 @@
       </categories>
       <tags>
         <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Boot深度实践</title>
+    <url>/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<h1 id="Spring-Boot深度实践"><a href="#Spring-Boot深度实践" class="headerlink" title="Spring Boot深度实践"></a>Spring Boot深度实践</h1><h2 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h2><ol>
+<li>组件自动装配：Web MVC、Web Flux、JDBC</li>
+<li>嵌入式Web容器：Tomcat、Jetty以及Undertow</li>
+<li>生产准备特性：指标、健康检查、外部化配置等</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h2><ol>
+<li>激活：@EnableAutoConfiguration</li>
+<li>配置：/MATA-INF/spring.factories</li>
+<li>实现：XXXAutoConfiguration</li>
+</ol>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/web%E5%BA%94%E7%94%A8.png" alt="Web应用"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>spring boot</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>spring boot</tag>
       </tags>
   </entry>
   <entry>
@@ -986,32 +1012,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring Boot深度实践</title>
-    <url>/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<h1 id="Spring-Boot深度实践"><a href="#Spring-Boot深度实践" class="headerlink" title="Spring Boot深度实践"></a>Spring Boot深度实践</h1><h2 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h2><ol>
-<li>组件自动装配：Web MVC、Web Flux、JDBC</li>
-<li>嵌入式Web容器：Tomcat、Jetty以及Undertow</li>
-<li>生产准备特性：指标、健康检查、外部化配置等</li>
-</ol>
-<span id="more"></span>
-
-<h2 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h2><ol>
-<li>激活：@EnableAutoConfiguration</li>
-<li>配置：/MATA-INF/spring.factories</li>
-<li>实现：XXXAutoConfiguration</li>
-</ol>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/web%E5%BA%94%E7%94%A8.png" alt="Web应用"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>spring boot</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu安装docker</title>
     <url>/2021/05/01/Ubuntu%E5%AE%89%E8%A3%85docker/</url>
     <content><![CDATA[<h1 id="Ubuntu安装docker"><a href="#Ubuntu安装docker" class="headerlink" title="Ubuntu安装docker"></a>Ubuntu安装docker</h1><span id="more"></span> 
@@ -1078,88 +1078,6 @@
       </categories>
       <tags>
         <tag>win10激活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Win10 WSL 安装 docker 相关流程</title>
-    <url>/2021/03/28/Win10%20WSL%20%E5%AE%89%E8%A3%85%20docker%20%E7%9B%B8%E5%85%B3%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Win10-WSL-安装-docker-相关流程"><a href="#Win10-WSL-安装-docker-相关流程" class="headerlink" title="Win10 WSL 安装 docker 相关流程"></a>Win10 WSL 安装 docker 相关流程</h1><span id="more"></span>
-
-<h2 id="一、相关下载及配置"><a href="#一、相关下载及配置" class="headerlink" title="一、相关下载及配置"></a>一、相关下载及配置</h2><ol>
-<li><p><a href="https://www.docker.com/products/docker-desktop">下载docker desktop</a></p>
-</li>
-<li><p>微软商或者<a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual#installing-your-distro">网站</a>下载相应的win10 子系统</p>
-</li>
-<li><p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">开启 wsl2</a></p>
-</li>
-<li><p>下载 <a href="https://github.com/DDoSolitary/LxRunOffline/releases/tag/v3.5.0">LxRunOffline-vx.x.0-msvc</a> 此步骤为迁移子系统到D盘，若C盘足够可忽略此步骤</p>
-<ul>
-<li><p>在LxRunOffline下载目录按住SHIFT并右键鼠标，选择“在此处打开Powershell窗口”，进入界面后输入.\LxRunOffline.exe list即可查询目前本机有的子系统以及位置</p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328205752655.png" alt="image-20210328205752655"></p>
-</li>
-<li><p>子系统迁移  <strong>使用<code>lxrunoffline move</code>进行迁移 ， -n 指定你要迁移的系统名 ，-d 指定你新系统的迁移路径</strong></p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328210100012.png" alt="image-20210328210100012"></p>
-</li>
-<li><p>使用<code>LxRunOffline.exe get-dir</code>查询系统目录，查看是否迁移成功  <code>LxRunOffline.exe get-dir -n 子系统名称</code></p>
-</li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/145753804">参考链接</a></p>
-</li>
-</ul>
-</li>
-<li><p>安装 docker，若C盘足够同样忽略一下 步骤</p>
-<ul>
-<li><p>看似<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328211606211.png" alt="wsl开启"></p>
-</li>
-<li><p>镜像加速 <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">阿里云</a> 容器镜像服务–&gt;镜像工具–&gt;镜像加速器–&gt;加速地址<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328211652150.png" alt="image-20210328211652150"></p>
-</li>
-<li><p>将docker数据从C盘迁移出去</p>
-</li>
-<li><p>关闭docker</p>
-</li>
-<li><p>关闭所有发行版 <code>wsl --shutdown</code></p>
-</li>
-<li><p>将docker-desktop-data、docker-desktop导出 </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --export docker-desktop-data D:\wsl\docker-desktop-data\docker-desktop-data.tar</span><br><span class="line">wsl --export docker-desktop D:\wsl\docker-desktop\docker-desktop.tar</span><br></pre></td></tr></table></figure></li>
-<li><p>注销docker-desktop-data </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --unregister docker-desktop-data</span><br><span class="line">wsl --unregister docker-desktop</span><br></pre></td></tr></table></figure></li>
-<li><p>重新导入docker-desktop-data</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --import docker-desktop-data D:\wsl\docker-desktop-data\ D:\wsl\docker-desktop-data\docker-desktop-data.tar --version 2</span><br><span class="line">wsl --import docker-desktop D:\wsl\docker-desktop\ D:\wsl\docker-desktop\docker-desktop.tar --version 2</span><br></pre></td></tr></table></figure></li>
-<li><p>重启docker</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="二、docker-镜像下载及启动（以Ubuntu为例）"><a href="#二、docker-镜像下载及启动（以Ubuntu为例）" class="headerlink" title="二、docker 镜像下载及启动（以Ubuntu为例）"></a>二、docker 镜像下载及启动（以Ubuntu为例）</h2><h3 id="一、将配置文件挂载到Ubuntu"><a href="#一、将配置文件挂载到Ubuntu" class="headerlink" title="一、将配置文件挂载到Ubuntu"></a>一、将配置文件挂载到Ubuntu</h3><p><strong>访问Ubuntu文件 win+ r 在输入 \wsl$\Ubuntu-20.04\  注意替换自己的子系统名</strong></p>
-<ol>
-<li><p>创建 相关文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir -pv /usr/local/mysql/&#123;conf,data,logs&#125; </span><br><span class="line">sudo mkdir -pv /usr/local/redis/&#123;conf,data,logs&#125; </span><br></pre></td></tr></table></figure></li>
-<li><p>下载镜像</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 不指定版本 默认下载最新版本镜像</span></span><br><span class="line">docker pull mysql</span><br><span class="line">docker pull redis</span><br></pre></td></tr></table></figure></li>
-<li><p>镜像启动</p>
-<ol>
-<li><p>MySQL 配置文件<a href="https://zelen.lanzous.com/imB5Bnevqih">下载</a>将下载的文件放入到 <code>/usr/local/mysql/conf</code>也可自己重新指定文件路径</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/logs:/logs -d mysql</span><br></pre></td></tr></table></figure></li>
-<li><p>Redis配置文件<a href="https://zelen.lanzous.com/iektOil70vc">下载 </a> 文件放入路径<code>/usr/local/redis/conf/redis.conf</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -v /usr/local/redis/data:/var/lib/redis -v /usr/local/redis/conf/redis.conf:/etc/redis/redis.conf -v /usr/local/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="二、配置文件在docker容器中"><a href="#二、配置文件在docker容器中" class="headerlink" title="二、配置文件在docker容器中"></a>二、配置文件在docker容器中</h3><p><strong>若要修改配置文件需要到指定的容器中进行修改</strong></p>
-<ol>
-<li><p>镜像启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MySQL /usr/<span class="built_in">local</span>/mysql/conf为空文件</span></span><br><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/logs:/logs -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> Redis /usr/<span class="built_in">local</span>/redis/conf为空文件</span></span><br><span class="line">docker run -it -v /usr/local/redis/data:/var/lib/redis -v /usr/local/redis/conf:/etc/redis/redis.conf -v /usr/local/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="三、其他相关命令"><a href="#三、其他相关命令" class="headerlink" title="三、其他相关命令"></a>三、其他相关命令</h3><p><strong>修改配置文件、下载配置文件等操作</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker cp :用于容器与主机之间的数据拷贝。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 6bb94da8196e为容器id 可通过 docker ps 查看</span></span><br><span class="line">docker cp 6bb94da8196e:/etc/mysql/ D:\ZNE\1\</span><br><span class="line">docker cp D:\ZNE\1\ 6bb94da8196e:/etc/mysql/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改容器配置文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入指定容器</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 linux版本</span></span><br><span class="line">cat /etc/issue</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新 apt-get 若无法更新 尝试更换配置 /etc/apt/sources.list</span></span><br><span class="line">apt-get update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 vim</span></span><br><span class="line">apt-get install vim -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件路径 在启动镜像时已指定 也可通过 find 查找</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.runoob.com/linux/linux-comm-find.html">Linux find 命令</a></p>
-]]></content>
-      <categories>
-        <category>wsl</category>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>Win10 WSL 安装 docker 相关流程</tag>
       </tags>
   </entry>
   <entry>
@@ -1244,34 +1162,24 @@
       </tags>
   </entry>
   <entry>
-    <title>mongo在win10 docker上的相关安装</title>
-    <url>/2020/09/02/docker%E5%AE%89%E8%A3%85mongo/</url>
-    <content><![CDATA[<h1 id="mongo在win10-docker上的相关安装"><a href="#mongo在win10-docker上的相关安装" class="headerlink" title="mongo在win10 docker上的相关安装"></a>mongo在win10 docker上的相关安装</h1><span id="more"></span>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo</span><br><span class="line">docker volume create --name mongodb</span><br><span class="line">docker run -it -v mongodb:/data/db --name mongo -p 27017:27017 -d mongo</span><br></pre></td></tr></table></figure>
-
-<p><strong>简单创建</strong></p>
-<p><a href="http://www.moguf.com/post/windockerrunmongo">参考链接</a></p>
-<p><strong>其他相关命令</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除数据卷</span></span><br><span class="line">docker volume rm mongodb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看数据卷</span></span><br><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Docker</category>
-        <category>mongo</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>mongo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>application.yml的一些配置</title>
     <url>/2020/07/08/application.yml/</url>
     <content><![CDATA[<p><strong>application.yml的一些配置</strong></p>
 <span id="more"></span>
 
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">rabbitmq:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">addresses:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5672</span></span><br><span class="line">    <span class="attr">virtual-host:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">connection-timeout:</span> <span class="number">15000</span></span><br><span class="line">    <span class="comment">##开启Publisher Confirm机制 采用消息确认模式，消息发送后异步等待Broker响应</span></span><br><span class="line">    <span class="attr">publisher-confirms:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">##开启Publisher Return机制</span></span><br><span class="line">    <span class="attr">publisher-returns:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">encoding:</span></span><br><span class="line">      <span class="attr">charset:</span> <span class="string">utf-8</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="attr">default-property-inclusion:</span> <span class="string">non_null</span></span><br><span class="line">  <span class="comment"># 数据库访问配置</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/oms?useUnicode=true&amp;charaterEncoding=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">180C1AD83CA4F0C8E7D27294BBB97A1D</span></span><br><span class="line">    <span class="comment">######以下为druid增加的配置#######</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">    <span class="comment"># 初始化大小，最小，最大</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置获取连接等待超时的时间</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment"># 打开PSCache，并且指定每个连接上PSCache的大小</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&#x27;wall&#x27;用于防火墙，此处是filter修改的地方</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">logSlowSql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;password=$&#123;spring.datasource.password&#125;</span></span><br><span class="line">    <span class="comment"># 合并多个DruidDataSource的监控数据</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="comment">#mapper扫描路径</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath*:/mapper/**/*.xml</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="comment">#获取数据库自增主键值</span></span><br><span class="line">    <span class="attr">use-generated-keys:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">use-column-label:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8001</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>yaml</category>
+      </categories>
+      <tags>
+        <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yaml配置</title>
+    <url>/2020/07/08/makedown%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p><code>--- 放在开头是yaml配置文件</code></p>
+]]></content>
       <categories>
         <category>yaml</category>
       </categories>
@@ -1293,18 +1201,6 @@
       </categories>
       <tags>
         <tag>question</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yaml配置</title>
-    <url>/2020/07/08/makedown%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<p><code>--- 放在开头是yaml配置文件</code></p>
-]]></content>
-      <categories>
-        <category>yaml</category>
-      </categories>
-      <tags>
-        <tag>yaml</tag>
       </tags>
   </entry>
   <entry>
@@ -1391,44 +1287,6 @@
       </tags>
   </entry>
   <entry>
-    <title>修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</title>
-    <url>/2020/07/08/%E5%85%B3%E4%BA%8E%E4%BF%AE%E6%94%B9MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8CMYSQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"><a href="#关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案" class="headerlink" title="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"></a>关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</h1><span id="more"></span>
-
-<p>在修改MYSQL数据库存储文件路径期间，出现了一个问题：路径修改完，MYSQL再也启动不了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200531095408765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决方案：<br>1、检查你更改路径的my.ini文件。<em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em><br>如图所示：<br><img src="https://img-blog.csdnimg.cn/20200531095850291.png" alt="红色为原路径、绿色为新路径"><br>图中：红色为原路径、绿色为新路径。再说一次</em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em></p>
-<p>2、如果经过上述操作，还不能重启成功。那么继续：<br>右击 ” 我的电脑 ” 找到“ 管理 ”：<br><img src="https://img-blog.csdnimg.cn/20200531100116741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击 “工具” 找到 “计算机管理” 点击，找到 ”本地用户和组“<br><img src="https://img-blog.csdnimg.cn/20200531100143602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择“组”–&gt;双击Administrators–&gt;单击“添加”–&gt;单击“高级”–&gt;单击“立即查找”–&gt;在下面的列表中选择Network Service用户–&gt;两次单击“确定”–&gt;加入。<br><img src="https://img-blog.csdnimg.cn/20200531100207233.png" alt="在这里插入图片描述"><br>好了，然后在重启mysql服务就没问题了，MYSQL数据库存储路径就修改好了，在新建个数据库，就会存到我们修改的路径下了</p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>同步/异步/多线程</title>
-    <url>/2020/07/07/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/</url>
-    <content><![CDATA[<h3 id="同步-异步-多线程几个东西的区别："><a href="#同步-异步-多线程几个东西的区别：" class="headerlink" title="同步/异步/多线程几个东西的区别："></a>同步/异步/多线程几个东西的区别：</h3><p>一般情况：顺序结构，必须等待前面的操作完成（两个人说话，a把所有话说完，b才能继续说）</p>
-<span id="more"></span>
-<p><strong>并发</strong>：同一时间段处理多个任务的能力（两人说话，支持你一言我一语的交流，两人在一个时间段内都有说话，是基于时间段内的同时发生）</p>
-<p><strong>并发又有同步和互斥</strong></p>
-<p><strong>互斥</strong>：不能同时使用临界资源（有一个共享资源–话筒，两人必须用话筒说话，但同时只能有一个人用这个话筒，保证了只有一个人在说话）</p>
-<p><strong>同步</strong>：前一个处理的结果作为下一个处理的资源。大多数情况下，同步已经实现了互斥。（两人你一言我一语的交流，我必须知道你说了啥我才能接上你的话）</p>
-<p><strong>并行</strong>：同一时刻处理多个任务的能力（两人合唱，同时出声）</p>
-<p><strong>异步</strong>：不用等待一个结果出来，可以继续其他操作（两个人不说话了，寄信，a把信拿到邮局就不用管了，回家可以想干嘛就干嘛，等b回信到了，取邮局接收一下结果–b的回信就可以了）</p>
-<p><strong>多线程</strong>：如果说同步和异步是对如何处理事情的要求，那么多线程就是实现这些要求的方法。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>同步/异步/多线程</category>
-      </categories>
-      <tags>
-        <tag>Java基础</tag>
-        <tag>同步/异步/多线程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>oauth2</title>
     <url>/2020/07/07/oauth2/</url>
     <content><![CDATA[<p>任何的身份验证，本质上都是基于对请求方的不信任所产生的</p>
@@ -1455,32 +1313,123 @@
       </tags>
   </entry>
   <entry>
-    <title>零散记录 LINUX相关</title>
-    <url>/2021/01/28/%E9%9B%B6%E6%95%A3%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="零散记录-LINUX相关"><a href="#零散记录-LINUX相关" class="headerlink" title="零散记录 LINUX相关"></a>零散记录 LINUX相关</h1><!--  more  -->
+    <title>mongo在win10 docker上的相关安装</title>
+    <url>/2020/09/02/docker%E5%AE%89%E8%A3%85mongo/</url>
+    <content><![CDATA[<h1 id="mongo在win10-docker上的相关安装"><a href="#mongo在win10-docker上的相关安装" class="headerlink" title="mongo在win10 docker上的相关安装"></a>mongo在win10 docker上的相关安装</h1><span id="more"></span>
 
-<h2 id="centos7-安装Chrome"><a href="#centos7-安装Chrome" class="headerlink" title="centos7 安装Chrome"></a>centos7 安装Chrome</h2><ol>
-<li><p><strong>先打开你的终端，并使用wget下载最新的Chrome 64位.rpm软件包：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>用sudo权限或者root用户进行安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo</span></span><br><span class="line">sudo yum install ./google-chrome-stable_current_*.rpm -y</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">root</span></span><br><span class="line">yum install ./google-chrome-stable_current_*.rpm -y</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>确认是否安装成功, 以及检查安裝的版本:</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">google-chrome -version</span><br></pre></td></tr></table></figure></li>
-<li><p>查看浏览器路径</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> rpm -qal |grep chrome</span><br><span class="line"><span class="meta">#</span><span class="bash">正常路径</span></span><br><span class="line">/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Ubuntu-安装node"><a href="#Ubuntu-安装node" class="headerlink" title="Ubuntu 安装node"></a>Ubuntu 安装node</h2><p><strong>以下为root权限，权限不足自觉 sudo</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行检查可更新的软件</span></span><br><span class="line">apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装nodejs、npm</span></span><br><span class="line">apt install nodejs</span><br><span class="line">apt install npm</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更换淘宝镜像 外网环境请忽略</span> </span><br><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装更新版本的工具 N -g 全局安装</span></span><br><span class="line">npm install n -g</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新node版本 stable 稳定版  lts 长久支持版</span></span><br><span class="line">n stable</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重新服务器 防止 nodejs 与 npm 版本冲突</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo</span><br><span class="line">docker volume create --name mongodb</span><br><span class="line">docker run -it -v mongodb:/data/db --name mongo -p 27017:27017 -d mongo</span><br></pre></td></tr></table></figure>
 
-<h2 id="Ubuntu-安装-Chrome"><a href="#Ubuntu-安装-Chrome" class="headerlink" title="Ubuntu 安装 Chrome"></a>Ubuntu 安装 Chrome</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - </span><br><span class="line"></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google.list&#x27;</span><br><span class="line"></span><br><span class="line">sudo apt-get update </span><br><span class="line"></span><br><span class="line">sudo apt-get install google-chrome-stable</span><br></pre></td></tr></table></figure>
+<p><strong>简单创建</strong></p>
+<p><a href="http://www.moguf.com/post/windockerrunmongo">参考链接</a></p>
+<p><strong>其他相关命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除数据卷</span></span><br><span class="line">docker volume rm mongodb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看数据卷</span></span><br><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>Java</category>
-        <category>linux</category>
+        <category>Docker</category>
+        <category>mongo</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Docker</tag>
+        <tag>mongo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</title>
+    <url>/2020/07/08/%E5%85%B3%E4%BA%8E%E4%BF%AE%E6%94%B9MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8CMYSQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"><a href="#关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案" class="headerlink" title="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"></a>关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</h1><span id="more"></span>
+
+<p>在修改MYSQL数据库存储文件路径期间，出现了一个问题：路径修改完，MYSQL再也启动不了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200531095408765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决方案：<br>1、检查你更改路径的my.ini文件。<em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em><br>如图所示：<br><img src="https://img-blog.csdnimg.cn/20200531095850291.png" alt="红色为原路径、绿色为新路径"><br>图中：红色为原路径、绿色为新路径。再说一次</em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em></p>
+<p>2、如果经过上述操作，还不能重启成功。那么继续：<br>右击 ” 我的电脑 ” 找到“ 管理 ”：<br><img src="https://img-blog.csdnimg.cn/20200531100116741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击 “工具” 找到 “计算机管理” 点击，找到 ”本地用户和组“<br><img src="https://img-blog.csdnimg.cn/20200531100143602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择“组”–&gt;双击Administrators–&gt;单击“添加”–&gt;单击“高级”–&gt;单击“立即查找”–&gt;在下面的列表中选择Network Service用户–&gt;两次单击“确定”–&gt;加入。<br><img src="https://img-blog.csdnimg.cn/20200531100207233.png" alt="在这里插入图片描述"><br>好了，然后在重启mysql服务就没问题了，MYSQL数据库存储路径就修改好了，在新建个数据库，就会存到我们修改的路径下了</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Win10 WSL 安装 docker 相关流程</title>
+    <url>/2021/03/28/Win10%20WSL%20%E5%AE%89%E8%A3%85%20docker%20%E7%9B%B8%E5%85%B3%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Win10-WSL-安装-docker-相关流程"><a href="#Win10-WSL-安装-docker-相关流程" class="headerlink" title="Win10 WSL 安装 docker 相关流程"></a>Win10 WSL 安装 docker 相关流程</h1><span id="more"></span>
+
+<h2 id="一、相关下载及配置"><a href="#一、相关下载及配置" class="headerlink" title="一、相关下载及配置"></a>一、相关下载及配置</h2><ol>
+<li><p><a href="https://www.docker.com/products/docker-desktop">下载docker desktop</a></p>
+</li>
+<li><p>微软商或者<a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual#installing-your-distro">网站</a>下载相应的win10 子系统</p>
+</li>
+<li><p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">开启 wsl2</a></p>
+</li>
+<li><p>下载 <a href="https://github.com/DDoSolitary/LxRunOffline/releases/tag/v3.5.0">LxRunOffline-vx.x.0-msvc</a> 此步骤为迁移子系统到D盘，若C盘足够可忽略此步骤</p>
+<ul>
+<li><p>在LxRunOffline下载目录按住SHIFT并右键鼠标，选择“在此处打开Powershell窗口”，进入界面后输入.\LxRunOffline.exe list即可查询目前本机有的子系统以及位置</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328205752655.png" alt="image-20210328205752655"></p>
+</li>
+<li><p>子系统迁移  <strong>使用<code>lxrunoffline move</code>进行迁移 ， -n 指定你要迁移的系统名 ，-d 指定你新系统的迁移路径</strong></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328210100012.png" alt="image-20210328210100012"></p>
+</li>
+<li><p>使用<code>LxRunOffline.exe get-dir</code>查询系统目录，查看是否迁移成功  <code>LxRunOffline.exe get-dir -n 子系统名称</code></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/145753804">参考链接</a></p>
+</li>
+</ul>
+</li>
+<li><p>安装 docker，若C盘足够同样忽略一下 步骤</p>
+<ul>
+<li><p>看似<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328211606211.png" alt="wsl开启"></p>
+</li>
+<li><p>镜像加速 <a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">阿里云</a> 容器镜像服务–&gt;镜像工具–&gt;镜像加速器–&gt;加速地址<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210328211652150.png" alt="image-20210328211652150"></p>
+</li>
+<li><p>将docker数据从C盘迁移出去</p>
+</li>
+<li><p>关闭docker</p>
+</li>
+<li><p>关闭所有发行版 <code>wsl --shutdown</code></p>
+</li>
+<li><p>将docker-desktop-data、docker-desktop导出 </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --export docker-desktop-data D:\wsl\docker-desktop-data\docker-desktop-data.tar</span><br><span class="line">wsl --export docker-desktop D:\wsl\docker-desktop\docker-desktop.tar</span><br></pre></td></tr></table></figure></li>
+<li><p>注销docker-desktop-data </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --unregister docker-desktop-data</span><br><span class="line">wsl --unregister docker-desktop</span><br></pre></td></tr></table></figure></li>
+<li><p>重新导入docker-desktop-data</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --import docker-desktop-data D:\wsl\docker-desktop-data\ D:\wsl\docker-desktop-data\docker-desktop-data.tar --version 2</span><br><span class="line">wsl --import docker-desktop D:\wsl\docker-desktop\ D:\wsl\docker-desktop\docker-desktop.tar --version 2</span><br></pre></td></tr></table></figure></li>
+<li><p>重启docker</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="二、docker-镜像下载及启动（以Ubuntu为例）"><a href="#二、docker-镜像下载及启动（以Ubuntu为例）" class="headerlink" title="二、docker 镜像下载及启动（以Ubuntu为例）"></a>二、docker 镜像下载及启动（以Ubuntu为例）</h2><h3 id="一、将配置文件挂载到Ubuntu"><a href="#一、将配置文件挂载到Ubuntu" class="headerlink" title="一、将配置文件挂载到Ubuntu"></a>一、将配置文件挂载到Ubuntu</h3><p><strong>访问Ubuntu文件 win+ r 在输入 \wsl$\Ubuntu-20.04\  注意替换自己的子系统名</strong></p>
+<ol>
+<li><p>创建 相关文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir -pv /usr/local/mysql/&#123;conf,data,logs&#125; </span><br><span class="line">sudo mkdir -pv /usr/local/redis/&#123;conf,data,logs&#125; </span><br></pre></td></tr></table></figure></li>
+<li><p>下载镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 不指定版本 默认下载最新版本镜像</span></span><br><span class="line">docker pull mysql</span><br><span class="line">docker pull redis</span><br></pre></td></tr></table></figure></li>
+<li><p>镜像启动</p>
+<ol>
+<li><p>MySQL 配置文件<a href="https://zelen.lanzous.com/imB5Bnevqih">下载</a>将下载的文件放入到 <code>/usr/local/mysql/conf</code>也可自己重新指定文件路径</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/logs:/logs -d mysql</span><br></pre></td></tr></table></figure></li>
+<li><p>Redis配置文件<a href="https://zelen.lanzous.com/iektOil70vc">下载 </a> 文件放入路径<code>/usr/local/redis/conf/redis.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -v /usr/local/redis/data:/var/lib/redis -v /usr/local/redis/conf/redis.conf:/etc/redis/redis.conf -v /usr/local/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="二、配置文件在docker容器中"><a href="#二、配置文件在docker容器中" class="headerlink" title="二、配置文件在docker容器中"></a>二、配置文件在docker容器中</h3><p><strong>若要修改配置文件需要到指定的容器中进行修改</strong></p>
+<ol>
+<li><p>镜像启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MySQL /usr/<span class="built_in">local</span>/mysql/conf为空文件</span></span><br><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf:/etc/mysql/conf.d -v /usr/local/mysql/logs:/logs -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> Redis /usr/<span class="built_in">local</span>/redis/conf为空文件</span></span><br><span class="line">docker run -it -v /usr/local/redis/data:/var/lib/redis -v /usr/local/redis/conf:/etc/redis/redis.conf -v /usr/local/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="三、其他相关命令"><a href="#三、其他相关命令" class="headerlink" title="三、其他相关命令"></a>三、其他相关命令</h3><p><strong>修改配置文件、下载配置文件等操作</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker cp :用于容器与主机之间的数据拷贝。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 6bb94da8196e为容器id 可通过 docker ps 查看</span></span><br><span class="line">docker cp 6bb94da8196e:/etc/mysql/ D:\ZNE\1\</span><br><span class="line">docker cp D:\ZNE\1\ 6bb94da8196e:/etc/mysql/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改容器配置文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入指定容器</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 linux版本</span></span><br><span class="line">cat /etc/issue</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新 apt-get 若无法更新 尝试更换配置 /etc/apt/sources.list</span></span><br><span class="line">apt-get update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 vim</span></span><br><span class="line">apt-get install vim -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件路径 在启动镜像时已指定 也可通过 find 查找</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.runoob.com/linux/linux-comm-find.html">Linux find 命令</a></p>
+]]></content>
+      <categories>
+        <category>wsl</category>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Win10 WSL 安装 docker 相关流程</tag>
       </tags>
   </entry>
   <entry>
@@ -1623,6 +1572,57 @@
       </categories>
       <tags>
         <tag>多线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>同步/异步/多线程</title>
+    <url>/2020/07/07/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/</url>
+    <content><![CDATA[<h3 id="同步-异步-多线程几个东西的区别："><a href="#同步-异步-多线程几个东西的区别：" class="headerlink" title="同步/异步/多线程几个东西的区别："></a>同步/异步/多线程几个东西的区别：</h3><p>一般情况：顺序结构，必须等待前面的操作完成（两个人说话，a把所有话说完，b才能继续说）</p>
+<span id="more"></span>
+<p><strong>并发</strong>：同一时间段处理多个任务的能力（两人说话，支持你一言我一语的交流，两人在一个时间段内都有说话，是基于时间段内的同时发生）</p>
+<p><strong>并发又有同步和互斥</strong></p>
+<p><strong>互斥</strong>：不能同时使用临界资源（有一个共享资源–话筒，两人必须用话筒说话，但同时只能有一个人用这个话筒，保证了只有一个人在说话）</p>
+<p><strong>同步</strong>：前一个处理的结果作为下一个处理的资源。大多数情况下，同步已经实现了互斥。（两人你一言我一语的交流，我必须知道你说了啥我才能接上你的话）</p>
+<p><strong>并行</strong>：同一时刻处理多个任务的能力（两人合唱，同时出声）</p>
+<p><strong>异步</strong>：不用等待一个结果出来，可以继续其他操作（两个人不说话了，寄信，a把信拿到邮局就不用管了，回家可以想干嘛就干嘛，等b回信到了，取邮局接收一下结果–b的回信就可以了）</p>
+<p><strong>多线程</strong>：如果说同步和异步是对如何处理事情的要求，那么多线程就是实现这些要求的方法。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>同步/异步/多线程</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+        <tag>同步/异步/多线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>零散记录 LINUX相关</title>
+    <url>/2021/01/28/%E9%9B%B6%E6%95%A3%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="零散记录-LINUX相关"><a href="#零散记录-LINUX相关" class="headerlink" title="零散记录 LINUX相关"></a>零散记录 LINUX相关</h1><!--  more  -->
+
+<h2 id="centos7-安装Chrome"><a href="#centos7-安装Chrome" class="headerlink" title="centos7 安装Chrome"></a>centos7 安装Chrome</h2><ol>
+<li><p><strong>先打开你的终端，并使用wget下载最新的Chrome 64位.rpm软件包：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>用sudo权限或者root用户进行安装</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo</span></span><br><span class="line">sudo yum install ./google-chrome-stable_current_*.rpm -y</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">root</span></span><br><span class="line">yum install ./google-chrome-stable_current_*.rpm -y</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>确认是否安装成功, 以及检查安裝的版本:</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">google-chrome -version</span><br></pre></td></tr></table></figure></li>
+<li><p>查看浏览器路径</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> rpm -qal |grep chrome</span><br><span class="line"><span class="meta">#</span><span class="bash">正常路径</span></span><br><span class="line">/usr/bin/google-chrome</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Ubuntu-安装node"><a href="#Ubuntu-安装node" class="headerlink" title="Ubuntu 安装node"></a>Ubuntu 安装node</h2><p><strong>以下为root权限，权限不足自觉 sudo</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行检查可更新的软件</span></span><br><span class="line">apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装nodejs、npm</span></span><br><span class="line">apt install nodejs</span><br><span class="line">apt install npm</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更换淘宝镜像 外网环境请忽略</span> </span><br><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装更新版本的工具 N -g 全局安装</span></span><br><span class="line">npm install n -g</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新node版本 stable 稳定版  lts 长久支持版</span></span><br><span class="line">n stable</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重新服务器 防止 nodejs 与 npm 版本冲突</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ubuntu-安装-Chrome"><a href="#Ubuntu-安装-Chrome" class="headerlink" title="Ubuntu 安装 Chrome"></a>Ubuntu 安装 Chrome</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - </span><br><span class="line"></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google.list&#x27;</span><br><span class="line"></span><br><span class="line">sudo apt-get update </span><br><span class="line"></span><br><span class="line">sudo apt-get install google-chrome-stable</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
