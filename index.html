@@ -155,20 +155,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -198,6 +198,267 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/27/SSO%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/27/SSO%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-07-27 20:18:31 / 修改时间：20:17:21" itemprop="dateCreated datePublished" datetime="2021-07-27T20:18:31+08:00">2021-07-27</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>15k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="一、了解什么是跨域？"><a href="#一、了解什么是跨域？" class="headerlink" title="一、了解什么是跨域？"></a>一、了解什么是跨域？</h4><p>浏览器使用同源策略限制，同源策略会阻止javascript脚本在不同域上交互，而ip、端口、域名、主机名不同都会造成跨域。</p>
+<h4 id="二、Session与Token的区别"><a href="#二、Session与Token的区别" class="headerlink" title="二、Session与Token的区别"></a>二、Session与Token的区别</h4><h5 id="Session："><a href="#Session：" class="headerlink" title="Session："></a>Session：</h5><ol>
+<li>用户发送登录请求</li>
+<li>服务端创建session</li>
+<li>浏览器拿到返回的资源并且创建一个cookie存放<strong>jsessionid</strong></li>
+<li>浏览器再次请求携带cookie</li>
+<li>服务端根据cookie中的jsessionid查表，如果存在响应返回数据，如果不存在跳转登录</li>
+</ol>
+<h5 id="Token："><a href="#Token：" class="headerlink" title="Token："></a>Token：</h5><ol>
+<li>用户发送登录请求</li>
+<li>服务端校验用户名和密码，返回token</li>
+<li>浏览器将token存放到cookie、localstorage中</li>
+<li>浏览器再次请求携带token</li>
+<li>服务端校验token真实性并解析token校验用户名和密码是否正确，正确响应返回数据，错误返回错误信息。</li>
+</ol>
+<h5 id="Session与Token比较："><a href="#Session与Token比较：" class="headerlink" title="Session与Token比较："></a>Session与Token比较：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">采用cookie容易导致跨站请求伪造（攻击者通过伪造跳转信息，由于用户已在浏览器认证过，所以间接操作用户账号。），欺骗浏览器，以用户的名义操作。</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>session存放于服务器，占用一定资源session过多将会造成服务器压力，token属于无状态，存放于浏览器。</li>
+<li>cookie容易导致跨站请求伪造。</li>
+<li>分布式环境下，session只会存在一台服务器，导致session共享问题，而token则无这一问题。</li>
+<li>token比session扩展性更高</li>
+</ol>
+<h4 id="三、JWT是什么？"><a href="#三、JWT是什么？" class="headerlink" title="三、JWT是什么？"></a>三、JWT是什么？</h4><p>JWT全称JSON Web Token，以JSON对象的形式在各方之间安全地传输信息。由于该信息是数字签名的，因此可以对其进行验证和信任。jwt可以使用秘密(使用HMAC算法)签名，也可以使用RSA或ECDSA公钥/私钥对签名。</p>
+<p>虽然jwt也可以加密，以提供各方之间的保密，但我们将重点关注签名令牌。已签名的令牌可以验证其中包含的声明的完整性，而加密的令牌则对其他方隐藏这些声明。当使用公钥/私钥对对令牌进行签名时，签名还证明只有持有私钥的一方是签名方。</p>
+<ul>
+<li><p>Header 头部</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span>,	<span class="comment">//固定JWT</span></span><br><span class="line">    <span class="attr">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>	<span class="comment">//加密的算法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Payload 载荷</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;exp&quot;</span>: <span class="number">1627113081</span>,</span><br><span class="line">    <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;a&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">iss: jwt签发者</span><br><span class="line">sub: 面向的用户(jwt所面向的用户)</span><br><span class="line">aud: 接收jwt的一方</span><br><span class="line">exp: 过期时间戳(jwt的过期时间，这个过期时间必须要大于签发时间)</span><br><span class="line">nbf: 定义在什么时间之前，该jwt都是不可用的.</span><br><span class="line">iat: jwt的签发时间</span><br><span class="line">jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>Signature 令牌</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">包含三部分：</span><br><span class="line">header (base64后的)+</span><br><span class="line">payload (base64后的)+</span><br><span class="line">secret 盐</span><br><span class="line">(header+payload+secret) ---&gt;加密</span><br><span class="line">这个部分需要base64加密后的header和base64加密后的payload使用.连接组成的字符串，然后通过header中声明的加密方式进行加盐secret组合加密</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="四、SpirngBoot集成Shiro-JWT"><a href="#四、SpirngBoot集成Shiro-JWT" class="headerlink" title="四、SpirngBoot集成Shiro+JWT"></a>四、SpirngBoot集成Shiro+JWT</h4><p>由于Shiro采用session存储，jwt属于无状态的，二者结合可以做单点登录的认证和授权。</p>
+<h5 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Shiro--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;shiro-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">1.5</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--JWT--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">3.4</span><span class="number">.0</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>引入依赖后，接下来就是需要进行配置了，Shiro和JWT的整合所需要的配置和工具类有很多，主要分为下面两部分：</p>
+<ul>
+<li><p>和JWT相关：JwtUtil、JwtToken</p>
+</li>
+<li><p>和shiro相关：ShiroConfig、JWTFilter、MyRealm</p>
+</li>
+</ul>
+<h5 id="2、编写JWTUtils工具类"><a href="#2、编写JWTUtils工具类" class="headerlink" title="2、编写JWTUtils工具类"></a>2、编写JWTUtils工具类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.auth0.jwt.JWT;</span><br><span class="line"><span class="keyword">import</span> com.auth0.jwt.JWTVerifier;</span><br><span class="line"><span class="keyword">import</span> com.auth0.jwt.algorithms.Algorithm;</span><br><span class="line"><span class="keyword">import</span> com.auth0.jwt.exceptions.JWTDecodeException;</span><br><span class="line"><span class="keyword">import</span> com.auth0.jwt.interfaces.DecodedJWT;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * jwt工具，用来生成、校验token以及提取token中的信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtUtil</span> </span>&#123;</span><br><span class="line">    <span class="comment">//指定一个token过期时间（毫秒）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> EXPIRE_TIME = <span class="number">7</span> * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;  <span class="comment">//7天</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生成token</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//注意这里的sercet不是密码，而是进行三件套（salt+MD5+1024Hash）处理密码后得到的凭证</span></span><br><span class="line">    <span class="comment">//这里为什么要这么做，在controller中进行说明</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getJwtToken</span><span class="params">(String username, String secret)</span> </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> Date(System.currentTimeMillis() + EXPIRE_TIME);</span><br><span class="line">        Algorithm algorithm = Algorithm.HMAC256(secret);    <span class="comment">//使用密钥进行哈希</span></span><br><span class="line">        <span class="comment">// 附带username信息的token</span></span><br><span class="line">        <span class="keyword">return</span> JWT.create()</span><br><span class="line">                .withClaim(<span class="string">&quot;username&quot;</span>, username)</span><br><span class="line">                .withExpiresAt(date)  <span class="comment">//过期时间</span></span><br><span class="line">                .sign(algorithm);     <span class="comment">//签名算法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 校验token是否正确</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">verifyToken</span><span class="params">(String token, String username, String secret)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//根据密钥生成JWT效验器</span></span><br><span class="line">            Algorithm algorithm = Algorithm.HMAC256(secret);</span><br><span class="line">            JWTVerifier verifier = JWT.require(algorithm)</span><br><span class="line">                    .withClaim(<span class="string">&quot;username&quot;</span>, username)</span><br><span class="line">                    .build();</span><br><span class="line">            <span class="comment">//效验TOKEN（其实也就是比较两个token是否相同）</span></span><br><span class="line">            DecodedJWT jwt = verifier.verify(token);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在token中获取到username信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getUsername</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            DecodedJWT jwt = JWT.decode(token);</span><br><span class="line">            <span class="keyword">return</span> jwt.getClaim(<span class="string">&quot;username&quot;</span>).asString();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (JWTDecodeException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断是否过期</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isExpire</span><span class="params">(String token)</span></span>&#123;</span><br><span class="line">        DecodedJWT jwt = JWT.decode(token);</span><br><span class="line">        <span class="keyword">return</span> jwt.getExpiresAt().getTime() &lt; System.currentTimeMillis() ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3、编写JwtToken"><a href="#3、编写JwtToken" class="headerlink" title="3、编写JwtToken"></a>3、编写JwtToken</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.AuthenticationToken;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义的shiro接口token，可以通过这个类将string的token转型成AuthenticationToken，可供shiro使用</span></span><br><span class="line"><span class="comment"> * 注意：需要重写getPrincipal和getCredentials方法，因为是进行三件套处理的，没有特殊配置shiro无法通过这*两个方法获取到用户名和密码，需要直接返回token，之后交给JwtUtil去解析获取。（当然了，可以对realm进行配 置  *HashedCredentialsMatcher，这里就不这么处理了）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtToken</span> <span class="keyword">implements</span> <span class="title">AuthenticationToken</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String token;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JwtToken</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.token = token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getPrincipal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getCredentials</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4、自定义MyRealm"><a href="#4、自定义MyRealm" class="headerlink" title="4、自定义MyRealm"></a>4、自定义MyRealm</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authz.AuthorizationInfo;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.realm.AuthorizingRealm;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.subject.PrincipalCollection;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义Realm</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRealm</span> <span class="keyword">extends</span> <span class="title">AuthorizingRealm</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 限定这个realm只能处理JwtToken（不加的话会报错）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(AuthenticationToken token)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> token <span class="keyword">instanceof</span> JwtToken;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 授权(授权部分这里就省略了，先把重心放在认证上)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> AuthorizationInfo <span class="title">doGetAuthorizationInfo</span><span class="params">(PrincipalCollection principals)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取到用户名，查询用户权限</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 认证</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> AuthenticationInfo <span class="title">doGetAuthenticationInfo</span><span class="params">(AuthenticationToken auth)</span> </span>&#123;</span><br><span class="line">        String token = (String) auth.getCredentials();  <span class="comment">//JwtToken中重写了这个方法了</span></span><br><span class="line">        String username = JwtUtil.getUsername(token);   <span class="comment">// 获得username</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//用户不存在（这个在登录时不会进入，只有在token校验时才有可能进入）</span></span><br><span class="line">        <span class="keyword">if</span>(username == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UnknownAccountException();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//根据用户名，查询数据库获取到正确的用户信息</span></span><br><span class="line">        User user = userService.getUserInfoByName(username);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用户不存在（这个在登录时不会进入，只有在token校验时才有可能进入）</span></span><br><span class="line">        <span class="keyword">if</span>(user == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UnknownAccountException();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//密码错误(这里获取到password，就是3件套处理后的保存到数据库中的凭证，作为密钥)</span></span><br><span class="line">        <span class="keyword">if</span> (! JwtUtil.verifyToken(token, username, user.getPassword())) &#123; </span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IncorrectCredentialsException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//toke过期</span></span><br><span class="line">        <span class="keyword">if</span>(JwtUtil.isExpire(token))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ExpiredCredentialsException();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SimpleAuthenticationInfo(user, token, getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="5、编写JWTFilter进行token拦截"><a href="#5、编写JWTFilter进行token拦截" class="headerlink" title="5、编写JWTFilter进行token拦截"></a>5、编写JWTFilter进行token拦截</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.jwt.JwtToken;</span><br><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.ResultTemplate;</span><br><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.StatusCode;</span><br><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.jwt.JwtUtil;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.SecurityUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.ShiroException;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.subject.Subject;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.util.WebUtils;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: lhy</span></span><br><span class="line"><span class="comment"> *  jwt过滤器，作为shiro的过滤器，对请求进行拦截并处理</span></span><br><span class="line"><span class="comment">    跨域配置不在这里配了，我在另外的配置类进行配置了，这里把重心放在验证上</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtFilter</span> <span class="keyword">extends</span> <span class="title">BasicHttpAuthenticationFilter</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 进行token的验证</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">executeLogin</span><span class="params">(ServletRequest request, ServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//在请求头中获取token</span></span><br><span class="line">        HttpServletRequest httpServletRequest = (HttpServletRequest) request;</span><br><span class="line">        String token = httpServletRequest.getHeader(<span class="string">&quot;Authorization&quot;</span>); <span class="comment">//前端命名Authorization</span></span><br><span class="line">        <span class="comment">//token不存在</span></span><br><span class="line">        <span class="keyword">if</span>(token == <span class="keyword">null</span> || <span class="string">&quot;&quot;</span>.equals(token))&#123;</span><br><span class="line">            ResultTemplate&lt;Object&gt; res = <span class="keyword">new</span> ResultTemplate&lt;&gt;();</span><br><span class="line">            res.setCode(StatusCode.UNLOGIN.getCode()).setMessage(<span class="string">&quot;无token，无权访问，请先登录&quot;</span>);</span><br><span class="line">            out(response, res);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//token存在，进行验证</span></span><br><span class="line">        JwtToken jwtToken = <span class="keyword">new</span> JwtToken(token);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            SecurityUtils.getSubject().login(jwtToken);  <span class="comment">//通过subject，提交给myRealm进行登录验证</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;    </span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExpiredCredentialsException e)&#123;</span><br><span class="line">            ResultTemplate&lt;Object&gt; res = <span class="keyword">new</span> ResultTemplate&lt;&gt;();</span><br><span class="line">            res.setCode(StatusCode.TOKENEXPIRED.getCode()).setMessage(<span class="string">&quot;token过期，请重新登录&quot;</span>);</span><br><span class="line">            out(response,res);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ShiroException e)&#123;  </span><br><span class="line">            <span class="comment">// 其他情况抛出的异常统一处理，由于先前是登录进去的了，所以都可以看成是token被伪造造成的</span></span><br><span class="line">            ResultTemplate&lt;Object&gt; res = <span class="keyword">new</span> ResultTemplate&lt;&gt;();</span><br><span class="line">            res.etCode(StatusCode.FAKETOKEN.getCode()).setMessage(<span class="string">&quot;token被伪造，无效token&quot;</span>);</span><br><span class="line">            out(response,res);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * json形式返回结果token验证失败信息，无需转发</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">out</span><span class="params">(ServletResponse response, ResultTemplate&lt;Object&gt; res)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        HttpServletResponse httpServletResponse = WebUtils.toHttp(response);</span><br><span class="line">        ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">        String jsonRes = mapper.writeValueAsString(res);</span><br><span class="line">        httpServletResponse.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">        httpServletResponse.setContentType(<span class="string">&quot;application/json; charset=utf-8&quot;</span>);</span><br><span class="line">        httpServletResponse.getOutputStream().write(jsonRes.getBytes());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 过滤器拦截请求的入口方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">isAccessAllowed</span><span class="params">(ServletRequest request, ServletResponse response, Object mappedValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> executeLogin(request, response);  <span class="comment">//token验证</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * isAccessAllowed()方法返回false，即认证不通过时进入onAccessDenied方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">onAccessDenied</span><span class="params">(ServletRequest request, ServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * token认证executeLogin成功后，进入此方法，可以进行token更新过期时间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception &#123;</span></span><br><span class="line">			</span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、ShiroConfig配置"><a href="#6、ShiroConfig配置" class="headerlink" title="6、ShiroConfig配置"></a>6、ShiroConfig配置</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.shiro.JwtFilter;</span><br><span class="line"><span class="keyword">import</span> com.klane.smartwatersystem.common.shiro.MyRealm;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.mgt.DefaultSessionStorageEvaluator;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.mgt.DefaultSubjectDAO;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.spring.LifecycleBeanPostProcessor;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.spring.web.ShiroFilterFactoryBean;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.mgt.DefaultWebSecurityManager;</span><br><span class="line"><span class="keyword">import</span> org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.DependsOn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * shiro的配置类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShiroConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 由Spring管理 Shiro的生命周期</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LifecycleBeanPostProcessor <span class="title">lifecycleBeanPostProcessor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LifecycleBeanPostProcessor();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开启对 Shiro 注解的支持</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AuthorizationAttributeSourceAdvisor <span class="title">authorizationAttributeSourceAdvisor</span><span class="params">(DefaultWebSecurityManager securityManager)</span> </span>&#123;</span><br><span class="line">        AuthorizationAttributeSourceAdvisor advisor = <span class="keyword">new</span> AuthorizationAttributeSourceAdvisor();</span><br><span class="line">        advisor.setSecurityManager(securityManager);</span><br><span class="line">        <span class="keyword">return</span> advisor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@DependsOn(&quot;lifecycleBeanPostProcessor&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DefaultAdvisorAutoProxyCreator <span class="title">defaultAdvisorAutoProxyCreator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = <span class="keyword">new</span> DefaultAdvisorAutoProxyCreator();</span><br><span class="line">        <span class="comment">// 强制使用cglib，防止重复代理和可能引起代理出错的问题</span></span><br><span class="line">        defaultAdvisorAutoProxyCreator.setProxyTargetClass(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> defaultAdvisorAutoProxyCreator;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建ShiroFilter（用于拦截所有请求，对受限资源进行Shiro的认证和授权判断）</span></span><br><span class="line">    <span class="comment">//Shiro提供了丰富的过滤器（anon等），不过在这里就需要加入我们自定义的JwtFilter了</span></span><br><span class="line">    <span class="meta">@Bean(&quot;shiroFilter&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ShiroFilterFactoryBean <span class="title">getShiroFilterFactoryBean</span><span class="params">(DefaultWebSecurityManager defaultWebSecurityManager)</span></span>&#123;</span><br><span class="line">        ShiroFilterFactoryBean shiroFilterFactoryBean = <span class="keyword">new</span> ShiroFilterFactoryBean();</span><br><span class="line">        <span class="comment">//设置安全管理器</span></span><br><span class="line">        shiroFilterFactoryBean.setSecurityManager(defaultWebSecurityManager);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加自己的过滤器并且取名为jwt</span></span><br><span class="line">        Map&lt;String, Filter&gt; filterMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        filterMap.put(<span class="string">&quot;jwt&quot;</span>, <span class="keyword">new</span> JwtFilter());</span><br><span class="line">        shiroFilterFactoryBean.setFilters(filterMap);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//配置系统的受限资源以及对应的过滤器</span></span><br><span class="line">        Map&lt;String, String&gt; ruleMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        ruleMap.put(<span class="string">&quot;/user/login&quot;</span>, <span class="string">&quot;anon&quot;</span>); <span class="comment">//登录路径、注册路径都需要放行不进行拦截</span></span><br><span class="line">        ruleMap.put(<span class="string">&quot;/user/register&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">        ruleMap.put(<span class="string">&quot;/**&quot;</span>, <span class="string">&quot;jwt&quot;</span>);  <span class="comment">// /**，一般放在最下，表示对所有资源起作用，使用JwtFilter</span></span><br><span class="line">        shiroFilterFactoryBean.setFilterChainDefinitionMap(ruleMap);</span><br><span class="line">        <span class="keyword">return</span> shiroFilterFactoryBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建安全管理器（会自动设置到SecurityUtils中设置这个安全管理器）</span></span><br><span class="line">    <span class="comment">//SecurityUtils可以用来获取subject对象</span></span><br><span class="line">    <span class="meta">@Bean(&quot;securityManager&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DefaultWebSecurityManager <span class="title">getDefaultWebSecurityManager</span><span class="params">(MyRealm realm)</span></span>&#123;</span><br><span class="line">        DefaultWebSecurityManager securityManager = <span class="keyword">new</span> DefaultWebSecurityManager();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//给安全管理器设置realm</span></span><br><span class="line">        securityManager.setRealm(realm);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//关闭shiro的session（无状态的方式使用shiro）</span></span><br><span class="line">        DefaultSubjectDAO subjectDAO = <span class="keyword">new</span> DefaultSubjectDAO();</span><br><span class="line">        DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = <span class="keyword">new</span> DefaultSessionStorageEvaluator();</span><br><span class="line">        defaultSessionStorageEvaluator.setSessionStorageEnabled(<span class="keyword">false</span>);</span><br><span class="line">        subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);</span><br><span class="line">        securityManager.setSubjectDAO(subjectDAO);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> securityManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建自定义Realm，注入到spring容器中</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyRealm <span class="title">getRealm</span><span class="params">()</span></span>&#123;</span><br><span class="line">        MyRealm realm = <span class="keyword">new</span> MyRealm();</span><br><span class="line">        <span class="comment">//修改凭证校验匹配器（处理加密），只有使用了UsernamePasswordToken并且有对password进行加密的才需要</span></span><br><span class="line"><span class="comment">//        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();</span></span><br><span class="line"><span class="comment">//        hashedCredentialsMatcher.setHashAlgorithmName(&quot;MD5&quot;);</span></span><br><span class="line"><span class="comment">//        hashedCredentialsMatcher.setHashIterations(1024);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        realm.setCredentialsMatcher(hashedCredentialsMatcher);</span></span><br><span class="line">        <span class="keyword">return</span> realm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="7、测试"><a href="#7、测试" class="headerlink" title="7、测试"></a>7、测试</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/login&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResultTemplate&lt;String&gt; <span class="title">register</span><span class="params">(<span class="meta">@RequestBody</span> User loginUser,</span></span></span><br><span class="line"><span class="params"><span class="function">                                       HttpServletRequest request)</span></span>&#123;</span><br><span class="line">    ResultTemplate&lt;String&gt; res = <span class="keyword">new</span> ResultTemplate&lt;&gt;();</span><br><span class="line">    String username = loginUser.getUsername();</span><br><span class="line">    String password = loginUser.getPassword();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据用户名获取正确用户信息</span></span><br><span class="line">    User user = userService.getUserInfoByName(username);</span><br><span class="line">    <span class="keyword">if</span>(user == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> res.setCode(StatusCode.INVALIDUSER.getCode()).setMessage(<span class="string">&quot;无效用户，用户不存在&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//盐 + 输入的密码(注意不是用户的正确密码) + 1024次散列，作为token生成的密钥</span></span><br><span class="line">    String salt = user.getSalt();</span><br><span class="line">    Md5Hash md5Hash = <span class="keyword">new</span> Md5Hash(password, salt, <span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成token字符串</span></span><br><span class="line">    String token = JwtUtil.getJwtToken(username, md5Hash.toHex());   <span class="comment">//toHex转换成16进制，32为字符</span></span><br><span class="line">    JwtToken jwtToken = <span class="keyword">new</span> JwtToken(token);        <span class="comment">//转换成jwtToken（才可以被shiro识别）</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/**可能有人会问这里为什么不直接把passsword作为密钥，或者使用一个固定的密钥。</span></span><br><span class="line"><span class="comment">* 是因为在后面在subject.login进入到realm中，进行认证的时候，肯定需要和password相关的进行匹配校验。</span></span><br><span class="line"><span class="comment">* 因为下面不是用UsernamePasswordToken，不能直接获取到传入的password，所以：</span></span><br><span class="line"><span class="comment">*    1. 如果使用固定密钥，那么无法实现和密码相关的校验。</span></span><br><span class="line"><span class="comment">*    2. 如果使用password，则有可能两个人的password相同导致误判。</span></span><br><span class="line"><span class="comment">* 所以这里就需要在token中就将password相关信息包含进去，这里选择作为密钥</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 如果是使用UsernamePasswordToken，那么在realm中就可以获取到username和password，查数据库就很容易判断。</span></span><br><span class="line"><span class="comment">* 但是由于返回给前端jwtToken不是UsernamePasswordToken，就还需要另外一个realm对jwtToken进行解析。</span></span><br><span class="line"><span class="comment">* 使用UsernamePasswordToken的，可以参考    </span></span><br><span class="line"><span class="comment">  https://blog.csdn.net/pengjunlee/article/details/95600843#pom.xml。我觉得很清晰</span></span><br><span class="line"><span class="comment">* 使用密码加密作为密钥的这种处理，同一个realm就可以实现了，各有利弊。当然了，也可以使用redis来处理。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//拿到Subject对象</span></span><br><span class="line">    Subject subject = SecurityUtils.getSubject();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进行认证</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        subject.login(jwtToken);</span><br><span class="line">        res.setCode(StatusCode.SUCCESS.getCode()).setMessage(<span class="string">&quot;登录成功&quot;</span>).setData(token);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (UnknownAccountException e)&#123;</span><br><span class="line">        res.setCode(StatusCode.INVALIDUSER.getCode()).setMessage(<span class="string">&quot;无效用户，用户不存在&quot;</span>);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IncorrectCredentialsException e)&#123;</span><br><span class="line">        res.setCode(StatusCode.PASSWORDERROR.getCode()).setMessage(<span class="string">&quot;密码输入错误&quot;</span>);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ExpiredCredentialsException  e)&#123;</span><br><span class="line">        res.setCode(StatusCode.TOKENEXPIRED.getCode()).setMessage(<span class="string">&quot;token过期，请重新登录&quot;</span>);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">RabbitMQ学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-17 17:50:03" itemprop="dateCreated datePublished" datetime="2021-07-17T17:50:03+08:00">2021-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/rabbitmq/" itemprop="url" rel="index"><span itemprop="name">rabbitmq</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="RabbitMQ学习"><a href="#RabbitMQ学习" class="headerlink" title="RabbitMQ学习"></a>RabbitMQ学习</h1><p><strong>核心概念</strong></p>
+<blockquote>
+<p>Server：又称Broker，接受客户端的连接，实现AMQP实体服务</p>
+<p>Connection：连接，应用程序与Broker的网络连接TCP/IP/三次握手四次挥手</p>
+<p>Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务</p>
+<p>Message：消息，服务与应用程之间传送的数据，有Properties和body组成，Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性，body就是消息体的内容</p>
+<p>Virtual Host：虚拟地址，用于进行逻辑隔离，最上层的消息路由，一个虚拟主机可以有若干个Exchange和Queue，同一个虚拟主机里面不能有相同名字的Exchange</p>
+<p>Exchange：交换机，接收消息，根据路由键发送消息到绑定的队列（不具备消息存储的能力）</p>
+<p>Bindings：Exchange和Queue之间的虚拟连接，binding中可以保护多个routing key</p>
+<p>Routing key：是一个路由规则，虚拟机可以用它来确定如何路由一个特定消息</p>
+<p>Queue：队列也就是Message Queue，消息队列，保存消息并将它们转发给消费者</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -345,7 +606,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-19 21:20:01" itemprop="dateModified" datetime="2021-07-19T21:20:01+08:00">2021-07-19</time>
+        <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -365,7 +626,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.2k</span>
+      <span>5.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1056,222 +1317,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/07/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/07/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">多线程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-07 14:07:52" itemprop="dateCreated datePublished" datetime="2020-10-07T14:07:52+08:00">2020-10-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 16:34:25" itemprop="dateModified" datetime="2021-06-14T16:34:25+08:00">2021-06-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/07/%E5%A4%9A%E7%BA%BF%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/12/Redis%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/12/Redis%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Redis 常见问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-12 10:56:26" itemprop="dateCreated datePublished" datetime="2020-09-12T10:56:26+08:00">2020-09-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 16:28:52" itemprop="dateModified" datetime="2021-06-14T16:28:52+08:00">2021-06-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/DB/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>596</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Redis-常见问题"><a href="#Redis-常见问题" class="headerlink" title="Redis 常见问题"></a>Redis 常见问题</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/12/Redis%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1294,13 +1341,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">113k</span>
+    <span title="站点总字数">131k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:43</span>
+    <span title="站点阅读时长">1:59</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

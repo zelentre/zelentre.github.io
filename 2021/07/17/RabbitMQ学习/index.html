@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message：消息，服务与应用程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RabbitMQ学习">
+<meta property="og:url" content="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="笔记">
+<meta property="og:description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message：消息，服务与应用程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png">
+<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png">
+<meta property="article:published_time" content="2021-07-17T09:50:03.000Z">
+<meta property="article:modified_time" content="2021-07-27T12:17:21.858Z">
+<meta property="article:author" content="zelentre">
+<meta property="article:tag" content="rabbitmq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png">
+
+
+<link rel="canonical" href="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/","path":"2021/07/17/RabbitMQ学习/","title":"RabbitMQ学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>RabbitMQ学习 | 笔记</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">笔记</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RabbitMQ%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">RabbitMQ学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4TTL"><span class="nav-number">1.2.</span> <span class="nav-text">二、过期时间TTL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97"><span class="nav-number">1.3.</span> <span class="nav-text">三、死信队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%9B%86%E7%BE%A4"><span class="nav-number">1.4.</span> <span class="nav-text">四、集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">五、面试题分析</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zelentre</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zelentre">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RabbitMQ学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-17 17:50:03" itemprop="dateCreated datePublished" datetime="2021-07-17T17:50:03+08:00">2021-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/rabbitmq/" itemprop="url" rel="index"><span itemprop="name">rabbitmq</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="RabbitMQ学习"><a href="#RabbitMQ学习" class="headerlink" title="RabbitMQ学习"></a>RabbitMQ学习</h1><p><strong>核心概念</strong></p>
+<blockquote>
+<p>Server：又称Broker，接受客户端的连接，实现AMQP实体服务</p>
+<p>Connection：连接，应用程序与Broker的网络连接TCP/IP/三次握手四次挥手</p>
+<p>Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务</p>
+<p>Message：消息，服务与应用程之间传送的数据，有Properties和body组成，Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性，body就是消息体的内容</p>
+<p>Virtual Host：虚拟地址，用于进行逻辑隔离，最上层的消息路由，一个虚拟主机可以有若干个Exchange和Queue，同一个虚拟主机里面不能有相同名字的Exchange</p>
+<p>Exchange：交换机，接收消息，根据路由键发送消息到绑定的队列（不具备消息存储的能力）</p>
+<p>Bindings：Exchange和Queue之间的虚拟连接，binding中可以保护多个routing key</p>
+<p>Routing key：是一个路由规则，虚拟机可以用它来确定如何路由一个特定消息</p>
+<p>Queue：队列也就是Message Queue，消息队列，保存消息并将它们转发给消费者</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一、模式"><a href="#一、模式" class="headerlink" title="一、模式"></a>一、模式</h2><p><strong>Work模式</strong></p>
+<blockquote>
+<p>主要有两种模式：</p>
+<ol>
+<li>轮询模式的分发：一个消费者一条，按均分配</li>
+<li>公平分发：根据消费者的消费能力进行公平分发，处理的快的处理的多，处理的慢的处理的少；按劳分配</li>
+</ol>
+</blockquote>
+<p><strong>RabbitMQ使用场景</strong></p>
+<blockquote>
+<ol>
+<li>同步异步问题（串行）：将订单信息写入数据库成功后，发送注册邮件，在发送注册短信。以上三个任务全部完成后，返回给客户端</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png" alt="image-20210721145751320"></p>
+<ol start="2">
+<li>同步异步问题（并行、异步线程池）：将订单写入数据库成功后，同时进行注册邮件、注册短信的发送，完成以上三个任务后，返回给客户端，与串行的差别是，并行的方式可以提高处理的时间</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png" alt="image-20210721172427071"></p>
+<p>  存在问题：</p>
+<ul>
+<li>耦合度高</li>
+<li>需要自己写线程池自己维护成本太高</li>
+<li>出现了消息可能丢失，需要做消息补全</li>
+<li>需要考虑如何保证消息的可靠性</li>
+<li>若服务器承载不了，需要自己去写高可用</li>
+</ul>
+<ol start="3">
+<li>异步消息队列的方式：</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png" alt="image-20210721173920110"></p>
+<p>  好处：</p>
+<ul>
+<li><p>完全解耦，用MQ简历桥接</p>
+</li>
+<li><p>有独立的线程池和运行模型</p>
+</li>
+<li><p>出现了消息可能丢失，MQ有持久化功能</p>
+</li>
+<li><p>如何保证消息的可靠性，死信队列和消息转移等</p>
+</li>
+<li><p>若服务器承载不了，HA镜像模型高可用，增加集群</p>
+<p>按照以上约定，用户的响应时间相当于是订单信息写入数据库的时间。注册邮件、短信发送写入消息队列后，直接返回（写入消息队列的速度很快，基本可以忽略）。因此架构改变后，系统的吞吐量提高到每秒20QPS，比串行提高了三倍，比并行提高了两倍</p>
+</li>
+</ul>
+<ol start="4">
+<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png" alt="image-20210721175005637"></p>
+</li>
+<li><p>流量削峰</p>
+</li>
+</ol>
+<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png" alt="image-20210721175150300"></p>
+</blockquote>
+<p><strong>队列绑定关系声明（Configuration）在生产者还是消费者好，其他都可以但是为了防止项目启动报错建议声明在消费者</strong></p>
+<h2 id="二、过期时间TTL"><a href="#二、过期时间TTL" class="headerlink" title="二、过期时间TTL"></a>二、过期时间TTL</h2><ol>
+<li>什么是TTL<ul>
+<li>time to live 消息存活时间</li>
+<li>如果消息在存活时间内未被消费，则会被清除</li>
+<li>rabbitmq支持两种ttl设置<ul>
+<li>单独消息进行配置ttl</li>
+<li>整个队列进行配置ttl（居多）</li>
+<li>若上述两种方法同时使用，则消息的过期时间以两者之间TTL较小的那个数值为准。消息在队列的生存时间一旦超过设置的TTL值，就称为dead message被投递到死信队列，消费者将无法在收到改消息。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、死信队列"><a href="#三、死信队列" class="headerlink" title="三、死信队列"></a>三、死信队列</h2><p><strong>概念</strong>：没有被及时消费的消息存放队列</p>
+<p><strong>死信交换机：</strong>Dead Letter Exchange(缩写：DLX)当消息称为死信后，会被重新发送到另一个交换机，这个交换机就是DLX死信交换机。</p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png" alt="image-20210722170415668"></p>
+<p>消息变成死信，可能是由于以下的原因：</p>
+<ul>
+<li>消息被拒绝</li>
+<li>消息过期</li>
+<li>队列达到最大长度</li>
+</ul>
+<p>DLX也是一个正常的交换机，和一般的交换机没有区别，它能在任何的队列上被指定，实际上就是设置某一个队列的属性，当这个队列存在死信时，rabbitmq就会自动的将这个消息重新发布到设置的DLX上，进而被路由到另一个队列，即死信队列，想要使用死信队列，只需要在定义队列的时候设置队列参数<code> x-dead-letter-exchange</code>指定交换机即可。</p>
+<p><strong>过期时间+死信队列=延时队列</strong></p>
+<h2 id="四、集群"><a href="#四、集群" class="headerlink" title="四、集群"></a>四、集群</h2><p>​    RabbitMQ本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过通不过Erlang集群各节点的magic cookie来实现）。因此,rabbitmq天然支持clustering。这使得rabbitmq本身不需要像activemq、Kafka那样通过zookeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。在实际使用过程中多采用多机多实例部署方式。</p>
+<h2 id="五、面试题分析"><a href="#五、面试题分析" class="headerlink" title="五、面试题分析"></a>五、面试题分析</h2><p>1.　Rabbitmq为什么需要信道，为什么不是TCP直接通信？</p>
+<ul>
+<li>TCP的创建和销毁，开销大，创建要三次握手，销毁要四次分手</li>
+<li>如果不用信道，那应用程序就会TCP连接到RabbitMQ服务器，高峰时每秒成千上万连接就会造成资源的巨大浪费，而且<strong>底层操作系统每秒处理tcp连接数也是有限的，必定造成性能瓶颈</strong>。</li>
+<li>信道的原理时一条线程一条信道，多条线程多条信道用一条TCP连接，一条TCP连接可以容纳无限的信道，即使每秒成千上万的请求也不会称为性能瓶颈。</li>
+</ul>
+<p>2.　queue队列到底在消费者创建还是在生产者创建？</p>
+<ul>
+<li>一般建议实在rabbitmq操作面板创建，这是一种稳妥的做法。</li>
+<li>按照常理来说，确实应该消费者这边创建是最好，消息的消费是在这边。这样你承受一个后果，可能生产者的生产消息会丢失。</li>
+<li>在生产者创建队列也可以，这样稳妥的方法，消息是不会出现丢失。</li>
+<li>如果生产者和消费者都创建的队列，谁先启动谁先创建，后面启动的就会覆盖前面的</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/rabbitmq/" rel="tag"># rabbitmq</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/05/MySQL%E5%AD%A6%E4%B9%A0/" rel="prev" title="MySQL学习">
+                  <i class="fa fa-chevron-left"></i> MySQL学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/27/SSO%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zelentre</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">131k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:59</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
