@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker学习</title>
+    <url>/2020/07/08/Docker%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><span id="more"></span>
+
+<h2 id="Docker简述"><a href="#Docker简述" class="headerlink" title="Docker简述"></a>Docker简述</h2><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200505140751.png"></p>
+<ol>
+<li>Docker能干什么<ol>
+<li>简化配置</li>
+<li>整合服务器</li>
+<li>代码流水线管理</li>
+<li>调试能力</li>
+<li>提高开发效率</li>
+<li>多租户</li>
+<li>隔离应用</li>
+<li>快速部署</li>
+</ol>
+</li>
+</ol>
+<h2 id="一、容器技术和Docker简介"><a href="#一、容器技术和Docker简介" class="headerlink" title="一、容器技术和Docker简介"></a>一、容器技术和Docker简介</h2><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200505142429.png"></p>
+<ul>
+<li>虚拟化的优点<ul>
+<li>资源池：一个物理机的资源分配到了不同的虚拟机里</li>
+<li>容易扩展：加物理机器或者加虚拟机</li>
+<li>容易云化：亚马逊AWS，阿里云等</li>
+</ul>
+</li>
+<li>虚拟化的局限性<ul>
+<li>每一个虚拟机都是一个完整的操作性同，要给其分配资源，当虚拟机数量增多时，操作系统本身消耗的资源势必增多</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、Docker环境的各种搭建方法"><a href="#二、Docker环境的各种搭建方法" class="headerlink" title="二、Docker环境的各种搭建方法"></a>二、Docker环境的各种搭建方法</h2><h2 id="三、Docker的镜像和容器"><a href="#三、Docker的镜像和容器" class="headerlink" title="三、Docker的镜像和容器"></a>三、Docker的镜像和容器</h2><h2 id="四、Docker的网络"><a href="#四、Docker的网络" class="headerlink" title="四、Docker的网络"></a>四、Docker的网络</h2><h2 id="五、Docker的持久化存储和数据共享"><a href="#五、Docker的持久化存储和数据共享" class="headerlink" title="五、Docker的持久化存储和数据共享"></a>五、Docker的持久化存储和数据共享</h2><h2 id="六、Docker-Compose多容器部署"><a href="#六、Docker-Compose多容器部署" class="headerlink" title="六、Docker Compose多容器部署"></a>六、Docker Compose多容器部署</h2><h2 id="七、容器编排Docker-Swarm"><a href="#七、容器编排Docker-Swarm" class="headerlink" title="七、容器编排Docker Swarm"></a>七、容器编排Docker Swarm</h2><h2 id="八、DevOps初体验–Docker-Cloud-和Docker企业版"><a href="#八、DevOps初体验–Docker-Cloud-和Docker企业版" class="headerlink" title="八、DevOps初体验–Docker Cloud 和Docker企业版"></a>八、DevOps初体验–Docker Cloud 和Docker企业版</h2><h2 id="九、容器编排Kubernetes"><a href="#九、容器编排Kubernetes" class="headerlink" title="九、容器编排Kubernetes"></a>九、容器编排Kubernetes</h2><h2 id="十、容器的运维和监控"><a href="#十、容器的运维和监控" class="headerlink" title="十、容器的运维和监控"></a>十、容器的运维和监控</h2><h2 id="十一、Docker-DevOps实战–过程和工具"><a href="#十一、Docker-DevOps实战–过程和工具" class="headerlink" title="十一、Docker+DevOps实战–过程和工具"></a>十一、Docker+DevOps实战–过程和工具</h2><h2 id="十二、总结"><a href="#十二、总结" class="headerlink" title="十二、总结"></a>十二、总结</h2>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git相关</title>
+    <url>/2020/07/07/Git%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1 id="Git相关"><a href="#Git相关" class="headerlink" title="Git相关"></a>Git相关</h1><!--  more  -->
+<ol>
+<li>用户名查看修改</li>
+</ol>
+<p><a href="https://blog.csdn.net/autoliuweijie/article/details/52230165">https://blog.csdn.net/autoliuweijie/article/details/52230165</a> </p>
+<p><a href="https://blog.csdn.net/lai1170137052/article/details/102974628">https://blog.csdn.net/lai1170137052/article/details/102974628</a> </p>
+<ol start="2">
+<li><p>git升级   <a href="https://segmentfault.com/q/1010000011704285">https://segmentfault.com/q/1010000011704285</a> </p>
+</li>
+<li><p>git config –global credential.helper store  </p>
+</li>
+<li><p>npm install</p>
+</li>
+<li><p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p>
+<p>使用上述命令后可使用cnpm 替换npm  </p>
+</li>
+<li><p>npm run dev </p>
+</li>
+<li><p>npm run build</p>
+<p>很多人也貌似出现了这个问题，参考了好几个帖子：<br><a href="https://segmentfault.com/q/1010000008223855">https://segmentfault.com/q/1010000008223855</a><br><a href="https://www.imooc.com/qadetail/177063">https://www.imooc.com/qadetail/177063</a><br>我参照改了源,也不确定这个是否有用<br>npm config set registry <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a>  </p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HEXO相关</title>
     <url>/2020/07/08/HEXO/</url>
     <content><![CDATA[<h1 id="HEXO相关"><a href="#HEXO相关" class="headerlink" title="HEXO相关"></a>HEXO相关</h1><span id="more"></span>
@@ -40,43 +113,71 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker学习</title>
-    <url>/2020/07/08/Docker%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><span id="more"></span>
+    <title>Java 堆栈详解</title>
+    <url>/2020/10/07/Java%20%E5%A0%86%E6%A0%88%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="Java-堆栈详解"><a href="#Java-堆栈详解" class="headerlink" title="Java 堆栈详解"></a>Java 堆栈详解</h1><span id="more"></span>
 
-<h2 id="Docker简述"><a href="#Docker简述" class="headerlink" title="Docker简述"></a>Docker简述</h2><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200505140751.png"></p>
 <ol>
-<li>Docker能干什么<ol>
-<li>简化配置</li>
-<li>整合服务器</li>
-<li>代码流水线管理</li>
-<li>调试能力</li>
-<li>提高开发效率</li>
-<li>多租户</li>
-<li>隔离应用</li>
-<li>快速部署</li>
+<li>寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制.</li>
+<li>栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。）</li>
+<li>堆：存放所有new出来的对象。</li>
+<li>静态域：存放静态成员（static定义的）</li>
+<li>常量池：存放字符串常量和基本类型常量（public static final）。</li>
+<li>非RAM存储：硬盘等永久存储空间</li>
 </ol>
-</li>
+<p>这里我们主要关心栈，堆和常量池，对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。<br>对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> String s1 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">2.</span> String s2 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">3.</span> String s3 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">4.</span> String ss1 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">5.</span> String ss2 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">6.</span> String ss3 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20201007160913.png"></p>
+<p>这里解释一下黄色这3个箭头，对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。这也就是有道面试题：String s = new String(“xyz”);产生几个对象？一个或两个，如果常量池中原来没有”xyz”,就是两个。</p>
+<p>对于基础类型的变量和常量：变量和引用存储在栈中，常量存储在常量池中。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> <span class="keyword">int</span> i1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">2.</span> <span class="keyword">int</span> i2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">3.</span> <span class="keyword">int</span> i3 = <span class="number">9</span>;  </span><br><span class="line"><span class="number">4.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">5.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">6.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT3 = <span class="number">9</span>; </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/3968b51b-0a56-3ad6-a54e-b2b19e671526.png"><br>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。<br>形式参数是局部变量，局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。<br>成员变量存储在堆中的对象里面，由垃圾回收器负责回收。<br>如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BirthDate</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> day;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> month;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> year;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BirthDate</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> m, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">        day = d;   </span><br><span class="line">        month = m;   </span><br><span class="line">        year = y;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// 省略get,set方法………  </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;  </span><br><span class="line">		<span class="keyword">int</span> date = <span class="number">9</span>;  </span><br><span class="line">        Test test = <span class="keyword">new</span> Test();        </span><br><span class="line">        test.change(date);   </span><br><span class="line">        BirthDate d1= <span class="keyword">new</span> BirthDate(<span class="number">7</span>,<span class="number">7</span>,<span class="number">1970</span>);         </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change1</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;  </span><br><span class="line">        i = <span class="number">1234</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/5d8dee1f-ceb9-3705-8924-161dd7599f73.png"><br>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</p>
+<ol>
+<li>main方法开始执行：int date = 9;<br>date局部变量，基础类型，引用和值都存在栈中。</li>
+<li>Test test = new Test();<br>test为对象引用，存在栈中，对象(new Test())存在堆中</li>
+<li>test.change(date);<br>i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。</li>
+<li>BirthDate d1= new BirthDate(7,7,1970);<br>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</li>
+<li>main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</li>
 </ol>
-<h2 id="一、容器技术和Docker简介"><a href="#一、容器技术和Docker简介" class="headerlink" title="一、容器技术和Docker简介"></a>一、容器技术和Docker简介</h2><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200505142429.png"></p>
-<ul>
-<li>虚拟化的优点<ul>
-<li>资源池：一个物理机的资源分配到了不同的虚拟机里</li>
-<li>容易扩展：加物理机器或者加虚拟机</li>
-<li>容易云化：亚马逊AWS，阿里云等</li>
-</ul>
-</li>
-<li>虚拟化的局限性<ul>
-<li>每一个虚拟机都是一个完整的操作性同，要给其分配资源，当虚拟机数量增多时，操作系统本身消耗的资源势必增多</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、Docker环境的各种搭建方法"><a href="#二、Docker环境的各种搭建方法" class="headerlink" title="二、Docker环境的各种搭建方法"></a>二、Docker环境的各种搭建方法</h2><h2 id="三、Docker的镜像和容器"><a href="#三、Docker的镜像和容器" class="headerlink" title="三、Docker的镜像和容器"></a>三、Docker的镜像和容器</h2><h2 id="四、Docker的网络"><a href="#四、Docker的网络" class="headerlink" title="四、Docker的网络"></a>四、Docker的网络</h2><h2 id="五、Docker的持久化存储和数据共享"><a href="#五、Docker的持久化存储和数据共享" class="headerlink" title="五、Docker的持久化存储和数据共享"></a>五、Docker的持久化存储和数据共享</h2><h2 id="六、Docker-Compose多容器部署"><a href="#六、Docker-Compose多容器部署" class="headerlink" title="六、Docker Compose多容器部署"></a>六、Docker Compose多容器部署</h2><h2 id="七、容器编排Docker-Swarm"><a href="#七、容器编排Docker-Swarm" class="headerlink" title="七、容器编排Docker Swarm"></a>七、容器编排Docker Swarm</h2><h2 id="八、DevOps初体验–Docker-Cloud-和Docker企业版"><a href="#八、DevOps初体验–Docker-Cloud-和Docker企业版" class="headerlink" title="八、DevOps初体验–Docker Cloud 和Docker企业版"></a>八、DevOps初体验–Docker Cloud 和Docker企业版</h2><h2 id="九、容器编排Kubernetes"><a href="#九、容器编排Kubernetes" class="headerlink" title="九、容器编排Kubernetes"></a>九、容器编排Kubernetes</h2><h2 id="十、容器的运维和监控"><a href="#十、容器的运维和监控" class="headerlink" title="十、容器的运维和监控"></a>十、容器的运维和监控</h2><h2 id="十一、Docker-DevOps实战–过程和工具"><a href="#十一、Docker-DevOps实战–过程和工具" class="headerlink" title="十一、Docker+DevOps实战–过程和工具"></a>十一、Docker+DevOps实战–过程和工具</h2><h2 id="十二、总结"><a href="#十二、总结" class="headerlink" title="十二、总结"></a>十二、总结</h2>]]></content>
+]]></content>
       <categories>
-        <category>Docker</category>
+        <category>Java</category>
+        <category>堆栈</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
+        <tag>堆栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM相关</title>
+    <url>/2021/04/23/JVM%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h1><h2 id="一、JVM性能调优的6大步骤，及关键调优参数详解"><a href="#一、JVM性能调优的6大步骤，及关键调优参数详解" class="headerlink" title="一、JVM性能调优的6大步骤，及关键调优参数详解"></a>一、<a href="https://zhuanlan.zhihu.com/p/222718783">JVM性能调优的6大步骤，及关键调优参数详解</a></h2><h3 id="一、JVM内存调优"><a href="#一、JVM内存调优" class="headerlink" title="一、JVM内存调优"></a>一、JVM内存调优</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210423154342856.png" alt="image-20210423154342856"></p>
+<p><strong>对JVM内存的系统级的调优主要目的是减少GC的频率和Full GC的次数</strong></p>
+<ol>
+<li><p><strong>Full GC</strong></p>
+<p>会对整个堆进行整理，包括Yong、Tenured和Perm。Full GC需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数</p>
+</li>
+<li><p><strong>导致Full GC的原因</strong></p>
+<ul>
+<li><strong>年老代(Tenured)被写满</strong>  调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象 。</li>
+<li><strong>持久代Pemanet Generation空间不足</strong>  增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例</li>
+<li><strong>System.gc()被显示调用</strong>  垃圾回收不要手动触发，尽量依靠JVM自身的机制</li>
+</ul>
+<p><strong>在对JVM调优的过程中，很大一部分工作就是对于FullGC的调节</strong></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>jvm</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
       </tags>
   </entry>
   <entry>
@@ -171,106 +272,6 @@
       </categories>
       <tags>
         <tag>Java基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git相关</title>
-    <url>/2020/07/07/Git%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h1 id="Git相关"><a href="#Git相关" class="headerlink" title="Git相关"></a>Git相关</h1><!--  more  -->
-<ol>
-<li>用户名查看修改</li>
-</ol>
-<p><a href="https://blog.csdn.net/autoliuweijie/article/details/52230165">https://blog.csdn.net/autoliuweijie/article/details/52230165</a> </p>
-<p><a href="https://blog.csdn.net/lai1170137052/article/details/102974628">https://blog.csdn.net/lai1170137052/article/details/102974628</a> </p>
-<ol start="2">
-<li><p>git升级   <a href="https://segmentfault.com/q/1010000011704285">https://segmentfault.com/q/1010000011704285</a> </p>
-</li>
-<li><p>git config –global credential.helper store  </p>
-</li>
-<li><p>npm install</p>
-</li>
-<li><p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p>
-<p>使用上述命令后可使用cnpm 替换npm  </p>
-</li>
-<li><p>npm run dev </p>
-</li>
-<li><p>npm run build</p>
-<p>很多人也貌似出现了这个问题，参考了好几个帖子：<br><a href="https://segmentfault.com/q/1010000008223855">https://segmentfault.com/q/1010000008223855</a><br><a href="https://www.imooc.com/qadetail/177063">https://www.imooc.com/qadetail/177063</a><br>我参照改了源,也不确定这个是否有用<br>npm config set registry <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a>  </p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java 堆栈详解</title>
-    <url>/2020/10/07/Java%20%E5%A0%86%E6%A0%88%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="Java-堆栈详解"><a href="#Java-堆栈详解" class="headerlink" title="Java 堆栈详解"></a>Java 堆栈详解</h1><span id="more"></span>
-
-<ol>
-<li>寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制.</li>
-<li>栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。）</li>
-<li>堆：存放所有new出来的对象。</li>
-<li>静态域：存放静态成员（static定义的）</li>
-<li>常量池：存放字符串常量和基本类型常量（public static final）。</li>
-<li>非RAM存储：硬盘等永久存储空间</li>
-</ol>
-<p>这里我们主要关心栈，堆和常量池，对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。<br>对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> String s1 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">2.</span> String s2 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">3.</span> String s3 = <span class="string">&quot;china&quot;</span>; </span><br><span class="line"><span class="number">4.</span> String ss1 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">5.</span> String ss2 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br><span class="line"><span class="number">6.</span> String ss3 = <span class="keyword">new</span> String(<span class="string">&quot;china&quot;</span>); </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20201007160913.png"></p>
-<p>这里解释一下黄色这3个箭头，对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。这也就是有道面试题：String s = new String(“xyz”);产生几个对象？一个或两个，如果常量池中原来没有”xyz”,就是两个。</p>
-<p>对于基础类型的变量和常量：变量和引用存储在栈中，常量存储在常量池中。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Java代码</span></span><br><span class="line"><span class="number">1.</span> <span class="keyword">int</span> i1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">2.</span> <span class="keyword">int</span> i2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">3.</span> <span class="keyword">int</span> i3 = <span class="number">9</span>;  </span><br><span class="line"><span class="number">4.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT1 = <span class="number">9</span>; </span><br><span class="line"><span class="number">5.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT2 = <span class="number">9</span>; </span><br><span class="line"><span class="number">6.</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INT3 = <span class="number">9</span>; </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/3968b51b-0a56-3ad6-a54e-b2b19e671526.png"><br>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。<br>形式参数是局部变量，局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。<br>成员变量存储在堆中的对象里面，由垃圾回收器负责回收。<br>如以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BirthDate</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> day;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> month;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> year;      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BirthDate</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> m, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">        day = d;   </span><br><span class="line">        month = m;   </span><br><span class="line">        year = y;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// 省略get,set方法………  </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;  </span><br><span class="line">		<span class="keyword">int</span> date = <span class="number">9</span>;  </span><br><span class="line">        Test test = <span class="keyword">new</span> Test();        </span><br><span class="line">        test.change(date);   </span><br><span class="line">        BirthDate d1= <span class="keyword">new</span> BirthDate(<span class="number">7</span>,<span class="number">7</span>,<span class="number">1970</span>);         </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change1</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;  </span><br><span class="line">        i = <span class="number">1234</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/5d8dee1f-ceb9-3705-8924-161dd7599f73.png"><br>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</p>
-<ol>
-<li>main方法开始执行：int date = 9;<br>date局部变量，基础类型，引用和值都存在栈中。</li>
-<li>Test test = new Test();<br>test为对象引用，存在栈中，对象(new Test())存在堆中</li>
-<li>test.change(date);<br>i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。</li>
-<li>BirthDate d1= new BirthDate(7,7,1970);<br>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</li>
-<li>main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>堆栈</category>
-      </categories>
-      <tags>
-        <tag>堆栈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL8在win10 docker上的相关安装</title>
-    <url>/2020/08/18/MySQL8%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="MySQL8在win10-docker上的相关安装"><a href="#MySQL8在win10-docker上的相关安装" class="headerlink" title="MySQL8在win10 docker上的相关安装"></a>MySQL8在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建(路径自己随便) 随系统自动启动 (建议使用这条)</span></span><br><span class="line">docker run -it -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --restart=always --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不随系统自动启动</span></span><br><span class="line">docker run -it --rm  -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p><a href="https://zelen.lanzous.com/i9dxgfqvq6j">挂载文件</a>  <a href="https://my.oschina.net/summergao/blog/3066063">相关参考</a></p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200818094507.png"></p>
-<p><strong>将挂载文件所在目录开放给docker</strong></p>
-<p><strong>进入容器</strong></p>
-<p><code>docker exec -it mysql8 bash</code></p>
-<p><strong>修改MySQL8为简易密码</strong></p>
-<p><code> ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;</code></p>
-<p><code> ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root&#39;;</code></p>
-<p><a href="https://www.cnblogs.com/c-x-a/p/12632122.html">参考</a></p>
-]]></content>
-      <categories>
-        <category>Docker</category>
-        <category>MySQL8</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>MySQL8</tag>
       </tags>
   </entry>
   <entry>
@@ -498,6 +499,32 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL8在win10 docker上的相关安装</title>
+    <url>/2020/08/18/MySQL8%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="MySQL8在win10-docker上的相关安装"><a href="#MySQL8在win10-docker上的相关安装" class="headerlink" title="MySQL8在win10 docker上的相关安装"></a>MySQL8在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建(路径自己随便) 随系统自动启动 (建议使用这条)</span></span><br><span class="line">docker run -it -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --restart=always --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不随系统自动启动</span></span><br><span class="line">docker run -it --rm  -v E:/Docker/docker/mysql/data:/var/lib/mysql -v E:/Docker/docker/mysql/config/my.cnf:/etc/mysql/my.cnf --name mysql8 -e MYSQL_ROOT_PASSWORD=system123456 -p 3306:3306 -d mysql</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><a href="https://zelen.lanzous.com/i9dxgfqvq6j">挂载文件</a>  <a href="https://my.oschina.net/summergao/blog/3066063">相关参考</a></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200818094507.png"></p>
+<p><strong>将挂载文件所在目录开放给docker</strong></p>
+<p><strong>进入容器</strong></p>
+<p><code>docker exec -it mysql8 bash</code></p>
+<p><strong>修改MySQL8为简易密码</strong></p>
+<p><code> ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;</code></p>
+<p><code> ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;root&#39;;</code></p>
+<p><a href="https://www.cnblogs.com/c-x-a/p/12632122.html">参考</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>MySQL8</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>MySQL8</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL</title>
     <url>/2020/07/08/MySQL/</url>
     <content><![CDATA[<h3 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h3><ul>
@@ -638,24 +665,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis在win10 docker上的相关安装</title>
-    <url>/2020/08/18/Redis%20%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="Redis在win10-docker上的相关安装"><a href="#Redis在win10-docker上的相关安装" class="headerlink" title="Redis在win10 docker上的相关安装"></a>Redis在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull redis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建 随系统自动启动</span></span><br><span class="line">docker run -it -v E:/Docker/docker/redis/data:/var/lib/redis -v E:/Docker/docker/redis/config/redis.conf:/etc/redis/redis.conf --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
-
-<p>  <a href="https://www.cnblogs.com/chenlizhi/p/13654922.html">相关参考</a></p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200818094507.png"></p>
-<p><a href="https://blog.csdn.net/qq_37334135/article/details/77717248">参考</a></p>
-]]></content>
-      <categories>
-        <category>Docker</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Redis 常见问题</title>
     <url>/2020/09/12/Redis%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="Redis-常见问题"><a href="#Redis-常见问题" class="headerlink" title="Redis 常见问题"></a>Redis 常见问题</h1><span id="more"></span>
@@ -685,6 +694,24 @@
         <category>Redis</category>
       </categories>
       <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis在win10 docker上的相关安装</title>
+    <url>/2020/08/18/Redis%20%E5%9C%A8win10%20docker%E4%B8%8A%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="Redis在win10-docker上的相关安装"><a href="#Redis在win10-docker上的相关安装" class="headerlink" title="Redis在win10 docker上的相关安装"></a>Redis在win10 docker上的相关安装</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull redis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载本地磁盘路径需手动创建 随系统自动启动</span></span><br><span class="line">docker run -it -v E:/Docker/docker/redis/data:/var/lib/redis -v E:/Docker/docker/redis/config/redis.conf:/etc/redis/redis.conf --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>  <a href="https://www.cnblogs.com/chenlizhi/p/13654922.html">相关参考</a></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200818094507.png"></p>
+<p><a href="https://blog.csdn.net/qq_37334135/article/details/77717248">参考</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
         <tag>Redis</tag>
       </tags>
   </entry>
@@ -1012,6 +1039,81 @@
       </tags>
   </entry>
   <entry>
+    <title>WIN10 激活相关</title>
+    <url>/2021/01/18/WIN10%20%E6%BF%80%E6%B4%BB%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<span id="more"></span>
+<h1 id="WIN10-激活相关"><a href="#WIN10-激活相关" class="headerlink" title="WIN10 激活相关"></a>WIN10 激活相关</h1><p><a href="https://github.com/TGSAN/CMWTAT_Digital_Edition/releases/tag/2.5.0.0">最优解</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> WIN10 pro</span></span><br><span class="line">slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">slmgr /skms kms.03k.org # 公司可换成网关ip</span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
+
+<!-- more -->
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> office</span></span><br><span class="line">cd &quot;C:\Program Files\Microsoft Office\Office16&quot;</span><br><span class="line">cscript ospp.vbs /sethst:kms.03k.org</span><br><span class="line">cscript ospp.vbs /act</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除C盘临时文件</span></span><br><span class="line">del /s /q %temp%</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>win10激活</category>
+      </categories>
+      <tags>
+        <tag>win10激活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装docker</title>
+    <url>/2021/05/01/Ubuntu%E5%AE%89%E8%A3%85docker/</url>
+    <content><![CDATA[<h1 id="Ubuntu安装docker"><a href="#Ubuntu安装docker" class="headerlink" title="Ubuntu安装docker"></a>Ubuntu安装docker</h1><span id="more"></span> 
+
+<h2 id="一、准备工作下载相软件、镜像"><a href="#一、准备工作下载相软件、镜像" class="headerlink" title="一、准备工作下载相软件、镜像"></a>一、准备工作下载相软件、镜像</h2><ol>
+<li><a href="https://www.vmware.com/go/getworkstation-win">下载win10 VMware Workstation Pro</a>如果想下载其他版本请<a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">前往</a></li>
+<li><a href="https://releases.ubuntu.com/20.04.2/ubuntu-20.04.2-live-server-amd64.iso">下载Ubuntu服务器版镜像</a>如果想下载其他版本请<a href="https://cn.ubuntu.com/download">前往</a></li>
+<li>安装VMware Workstation Pro 激活密钥: <code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code>  安装镜像，此步骤如果不会请<a href="https://www.baidu.com/s?ie=UTF-8&wd=vmwareworkstationpro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85ubuntu%E9%95%9C%E5%83%8F">百度</a></li>
+</ol>
+<h2 id="二、修改Ubuntu相关配置"><a href="#二、修改Ubuntu相关配置" class="headerlink" title="二、修改Ubuntu相关配置"></a>二、修改Ubuntu相关配置</h2><p><strong><a href="https://zelen.lanzoui.com/inpInterbfg">相关配置文件下载 清华软件源、MySQL配置文件、redis配置文件、elasticsearch配置文件、docker镜像源配置文件</a></strong></p>
+<p><strong>切换软件源为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华源</a>根据自己的安装版本选择</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 简单来说就是：apt = apt-get、apt-cache 和 apt-config 中最常用命令选项的集合</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.安装lrzsz工具，方便windows和linux间的文件上传下载</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.备份镜像源 参考 2</span></span><br><span class="line">sudo cp -v /etc/apt/sources.list /etc/apt/sources.list.backup</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.更换镜像源</span></span><br><span class="line">sudo rm -ef /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上传已经编辑好的sources.list到 /etc/apt/ 目录下 或者使用vim编辑sources.list(不推荐 太慢了)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.更新 参考 3</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> apt update：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）</span></span><br><span class="line">sudo apt update </span><br><span class="line"><span class="meta">#</span><span class="bash"> apt upgrade：更新已安装的软件包具体可百度自行查找</span></span><br><span class="line">sudo apt upgrade 软件包名(不填则更新所有)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5.修改Ubuntu时区 参考 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看时间</span></span><br><span class="line">date -R</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改时区</span></span><br><span class="line">timedatectl set-timezone &quot;Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、安装docker"><a href="#三、安装docker" class="headerlink" title="三、安装docker"></a>三、安装docker</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装方法挺多的 我是直接按照官方方式安装的 可以根据脚本方式安装Install using the convenience script 下列命令的相关解释请查看 参考 4</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我是新环境无需执行卸载步骤 如果需要的自行卸载</span></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release</span><br><span class="line"></span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装成功</span></span><br><span class="line">sudo docker</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装成功在进行以下步骤，若未成功请自查原因 版本 Ubuntu Server 20.04.2 LTS</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改docker镜像源 按照下载的daemon.json配置 直接vim 我的是没有daemon.json这个配置文件的vim帮我自动创建了，若你有此文件 则进行修改 wq保存退出</span></span><br><span class="line">sudo vim /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123;&quot;registry-mirrors&quot;:[</span><br><span class="line">	&quot;https://registry.docker-cn.com&quot;,</span><br><span class="line">	&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><br><span class="line">]&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将当前用户 添加 Docker用户组 zne 用户名 尝试过重启docker但没起作用 因此直接 reboot</span></span><br><span class="line">sudo groupadd docker.service</span><br><span class="line">sudo usermod -aG docker zne</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、docker安装相关镜像及配置"><a href="#四、docker安装相关镜像及配置" class="headerlink" title="四、docker安装相关镜像及配置"></a>四、docker安装相关镜像及配置</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建相关文件 zne为我新创建的文件夹存放我的安装相关数据 此路径为之后安装镜像的相关配置路径 可按照个人习惯创建</span></span><br><span class="line">sudo mkdir -pv /zne/portainer/data</span><br><span class="line">sudo mkdir -pv /zne/mysql/&#123;conf,data,logs&#125; </span><br><span class="line">sudo mkdir -pv /zne/redis/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将下载的配置文件放置到对应的文件夹下 my.cnf --&gt; /zne/mysql/conf  redis.conf --&gt; /zne/redis/conf</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 下载相关镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> portainer/poratainer 已弃用 https://hub.docker.com/r/portainer/portainer</span></span><br><span class="line">docker pull portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 2.0 的所有新版本都将在 portainer/portainer-ce 中发布 推荐使用下面这个</span></span><br><span class="line">docker pull portainer/portainer-ce</span><br><span class="line">docker pull mysql</span><br><span class="line">docekr pull redis</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 运行镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可 废弃</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer-ce 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> MySQL</span></span><br><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /zne/mysql/data:/var/lib/mysql -v /zne/mysql/conf:/etc/mysql/conf.d -v /zne/mysql/logs:/logs -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL 密码为root 若想用123456的则不必执行下列命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p</span><br><span class="line">123456</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL8为简易密码</span></span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line"><span class="meta">#</span><span class="bash"> Redis</span></span><br><span class="line">docker run -it -v /zne/redis/data:/var/lib/redis -v /zne/redis/conf/redis.conf:/etc/redis/redis.conf -v /zne/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装rabbitmq"><a href="#安装rabbitmq" class="headerlink" title="安装rabbitmq"></a>安装rabbitmq</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> https://hub.docker.com/_/rabbitmq 查找rabbitmq镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此方法需要手动开启它的管理后台(我使用的这种)</span></span><br><span class="line">docker pull rabbitmq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 拉取带web管理界面的</span></span><br><span class="line">docker pull rabbitmq:3.8.19-management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 带图形化界面（推荐使用这个）</span></span><br><span class="line">docker pull rabbitmq:management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/rabbitmq/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 图像化镜像启动</span></span><br><span class="line">docker run -p 15672:15672 -p 5672:5672 --name rabbitmq --restart=always -v /zne/rabbitmq/data:/var/lib/rabbitmq/mnesia -v /zne/rabbitmq/logs:/var/log/rabbitmq/log -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -d rabbitmq:management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run -p 15672:15672 -p 5672:5672 --name rabbitmq --restart=always -v /zne/rabbitmq/data:/var/lib/rabbitmq/mnesia -v /zne/rabbitmq/logs:/var/log/rabbitmq/log -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -d rabbitmq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器并开启web管理界面</span></span><br><span class="line">docker exec -it rabbitmq bash</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装MongoDB"><a href="#安装MongoDB" class="headerlink" title="安装MongoDB"></a>安装MongoDB</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/mongo/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 /zne/mongo/conf目录下创建mongo配置文件，内容在下面</span></span><br><span class="line">touch mongodb.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span></span><br><span class="line">docker pull mongo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像 参考 8</span></span><br><span class="line">docker run --name mongo --restart=always -p 27017:27017 -v /zne/mongo/data:/data/db -v /zne/mongo/conf:/data/conf -v /zne/mongo/logs:/data/log -d mongo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">端口</span></span><br><span class="line">port=27017</span><br><span class="line"><span class="meta">#</span><span class="bash">数据库文件存放目录</span></span><br><span class="line">dbpath=/data/mongo/data</span><br><span class="line"><span class="meta">#</span><span class="bash">日志文件存放路径</span></span><br><span class="line">logpath=/data/mongo/log</span><br><span class="line"><span class="meta">#</span><span class="bash">使用追加方式写日志</span></span><br><span class="line">logappend=true</span><br><span class="line"><span class="meta">#</span><span class="bash">以守护线程的方式运行，创建服务器进程</span></span><br><span class="line">fork=true</span><br><span class="line"><span class="meta">#</span><span class="bash">最大同时连接数</span></span><br><span class="line">maxConns=100</span><br><span class="line"><span class="meta">#</span><span class="bash">不启用验证</span></span><br><span class="line"><span class="meta">#</span><span class="bash">noauth=<span class="literal">true</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">每次写入会记录一条操作日志</span></span><br><span class="line">journal=true</span><br><span class="line"><span class="meta">#</span><span class="bash">存储引擎有mmapv1、wiredTiger、mongorocks</span></span><br><span class="line">storageEngine=wiredTiger</span><br><span class="line"><span class="meta">#</span><span class="bash">访问IP</span></span><br><span class="line">bind_ip=0.0.0.0</span><br><span class="line"><span class="meta">#</span><span class="bash">用户验证</span></span><br><span class="line"><span class="meta">#</span><span class="bash">auth=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装MinIO"><a href="#安装MinIO" class="headerlink" title="安装MinIO"></a>安装MinIO</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 相关参考 9</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/minio/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span></span><br><span class="line">docker pull minio/minio</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run -p 9090:9000 -p 9001:9001 --name minio --restart=always -v /zne/minio/data:/data -e MINIO_ROOT_USER=minioadmin -e MINIO_ROOT_PASSWORD=minioadmin -d minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="安装elasticsearch"><a href="#安装elasticsearch" class="headerlink" title="安装elasticsearch"></a>安装elasticsearch</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 相关参考 10（主要） 11（辅助）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/elk/elasticsearch/&#123;config,data,logs,plugins&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span> </span><br><span class="line">docker pull elasticsearch:7.14.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 先最简启动一个elasticsearch 容器 复制他的相关配置文件</span></span><br><span class="line">docker run --name elasticsearch -d -e ES_JAVA_OPTS=&quot;-Xms256m -Xmx256m&quot; -e &quot;discovery.type=single-node&quot; -p 9200:9200 -p 9300:9300 elasticsearch:7.14.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 复制配置文件</span></span><br><span class="line">docker cp elasticsearch:/usr/share/elasticsearch/config /zne/elk/elasticsearch/</span><br><span class="line">docker cp elasticsearch:/usr/share/elasticsearch/plugins /zne/elk/elasticsearch/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换身份为root 先将原配置文件重命名，在将配置文件elasticsearch.yml复制到config下(直接在xshell中拖动即可，注意一定要用root)</span></span><br><span class="line">mv elasticsearch.yml elasticsearch.yml.old</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改目录权限</span></span><br><span class="line">sudo chmod -vR 777 /zne/elk/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除容器并重新启动</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run --name elasticsearch --restart=always -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&quot;-Xms512m -Xmx512m&quot; -e &quot;discovery.type=single-node&quot; -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /zne/elk/elasticsearch/config/:/usr/share/elasticsearch/config -v /zne/elk/elasticsearch/data:/usr/share/elasticsearch/data -v /zne/elk/elasticsearch/logs:/usr/share/elasticsearch/logs -v /zne/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d elasticsearch:7.14.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker相关命令"><a href="#docker相关命令" class="headerlink" title="docker相关命令"></a>docker相关命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开机启动</span></span><br><span class="line">systemctl enable docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 找镜像 替换mysql</span></span><br><span class="line">docker search mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载镜像 此处为指定版本5.7 可直接mysql（下载最新版mysql）</span></span><br><span class="line">docker pull mysql:5.7</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除镜像   f6509bac4980为IMAGE ID</span></span><br><span class="line">docker rmi f6509bac4980</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看容器列表  -a 查看所有容器</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止运行的容器  使用容器名或者容器id</span></span><br><span class="line">docker stop container-name/container-id</span><br><span class="line">docker start container-name/container-id</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除容器</span></span><br><span class="line">docker rm container-id</span><br><span class="line"><span class="meta">#</span><span class="bash">容器日志</span></span><br><span class="line">docker logs container-name/container-id</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2020043011175696.png" alt="docker"></p>
+<blockquote>
+<p>-i：表示运行容器<br>-d：在run后面加上-d参数,则会创建一个守护式容器在后台运行（这样创建容器后不会自动登录容器，如果只加-it两个参数，创建后就会自动进去容器）。<br>-di：后台运行容器；<br>–name：指定容器名；<br>-p：指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；<br>-v：映射目录或文件（文件共享），格式 宿主机目录：容器目录<br>–hostname：主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；<br>-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</p>
+</blockquote>
+<h2 id="相关参考"><a href="#相关参考" class="headerlink" title="相关参考"></a>相关参考</h2><ol>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></li>
+<li><a href="https://blog.csdn.net/weixin_42118522/article/details/106069030">ubuntu20.04更改国内镜像源</a></li>
+<li><a href="https://blog.csdn.net/zhjulia123/article/details/83479515">Ubuntu 中apt update和upgrade 的区别</a></li>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu | Docker Documentation</a></li>
+<li><a href="https://blog.csdn.net/cau_eric/article/details/90478798">ubuntu查看和修改时区</a></li>
+<li><a href="https://mp.weixin.qq.com/s/YRqISK4yJo9J9WzzTvD9CQ">Docker 图形化工具 Portainer</a></li>
+<li><a href="https://blog.csdn.net/weixin_44763595/article/details/109528165">为什么用docker安装rabbitmq打不开管理页面呢</a></li>
+<li><a href="https://blog.csdn.net/weixin_45345374/article/details/116271582">docker安装mongo容器并挂载外部配置文件及目录</a></li>
+<li><a href="https://mp.weixin.qq.com/s/qHjOEeQ3CaA0U4a2YBi3Pw">Github标星28K+！MinIO这款可视化的对象存储服务真香！</a></li>
+<li><a href="https://github.com/Weasley-J/lejing-mall/blob/main/shell/run_elk_install_v7.13.2.sh">lejing-mall/run_elk_install_v7.13.2.sh</a></li>
+<li><a href="https://blog.csdn.net/qq_40942490/article/details/111594267">docker安装elasticsearch（最详细版）</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Win10 WSL 安装 docker 相关流程</title>
     <url>/2021/03/28/Win10%20WSL%20%E5%AE%89%E8%A3%85%20docker%20%E7%9B%B8%E5%85%B3%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="Win10-WSL-安装-docker-相关流程"><a href="#Win10-WSL-安装-docker-相关流程" class="headerlink" title="Win10 WSL 安装 docker 相关流程"></a>Win10 WSL 安装 docker 相关流程</h1><span id="more"></span>
@@ -1094,94 +1196,17 @@
       </tags>
   </entry>
   <entry>
-    <title>WIN10 激活相关</title>
-    <url>/2021/01/18/WIN10%20%E6%BF%80%E6%B4%BB%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<span id="more"></span>
-<h1 id="WIN10-激活相关"><a href="#WIN10-激活相关" class="headerlink" title="WIN10 激活相关"></a>WIN10 激活相关</h1><p><a href="https://github.com/TGSAN/CMWTAT_Digital_Edition/releases/tag/2.5.0.0">最优解</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> WIN10 pro</span></span><br><span class="line">slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">slmgr /skms kms.03k.org # 公司可换成网关ip</span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
-
-<!-- more -->
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> office</span></span><br><span class="line">cd &quot;C:\Program Files\Microsoft Office\Office16&quot;</span><br><span class="line">cscript ospp.vbs /sethst:kms.03k.org</span><br><span class="line">cscript ospp.vbs /act</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除C盘临时文件</span></span><br><span class="line">del /s /q %temp%</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>win10激活</category>
-      </categories>
-      <tags>
-        <tag>win10激活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu安装docker</title>
-    <url>/2021/05/01/Ubuntu%E5%AE%89%E8%A3%85docker/</url>
-    <content><![CDATA[<h1 id="Ubuntu安装docker"><a href="#Ubuntu安装docker" class="headerlink" title="Ubuntu安装docker"></a>Ubuntu安装docker</h1><span id="more"></span> 
-
-<h2 id="一、准备工作下载相软件、镜像"><a href="#一、准备工作下载相软件、镜像" class="headerlink" title="一、准备工作下载相软件、镜像"></a>一、准备工作下载相软件、镜像</h2><ol>
-<li><a href="https://www.vmware.com/go/getworkstation-win">下载win10 VMware Workstation Pro</a>如果想下载其他版本请<a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">前往</a></li>
-<li><a href="https://releases.ubuntu.com/20.04.2/ubuntu-20.04.2-live-server-amd64.iso">下载Ubuntu服务器版镜像</a>如果想下载其他版本请<a href="https://cn.ubuntu.com/download">前往</a></li>
-<li>安装VMware Workstation Pro 激活密钥: <code>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</code>  安装镜像，此步骤如果不会请<a href="https://www.baidu.com/s?ie=UTF-8&wd=vmwareworkstationpro%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85ubuntu%E9%95%9C%E5%83%8F">百度</a></li>
-</ol>
-<h2 id="二、修改Ubuntu相关配置"><a href="#二、修改Ubuntu相关配置" class="headerlink" title="二、修改Ubuntu相关配置"></a>二、修改Ubuntu相关配置</h2><p><strong><a href="https://zelen.lanzoui.com/inpInterbfg">相关配置文件下载 清华软件源、MySQL配置文件、redis配置文件、elasticsearch配置文件、docker镜像源配置文件</a></strong></p>
-<p><strong>切换软件源为<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华源</a>根据自己的安装版本选择</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 简单来说就是：apt = apt-get、apt-cache 和 apt-config 中最常用命令选项的集合</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1.安装lrzsz工具，方便windows和linux间的文件上传下载</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2.备份镜像源 参考 2</span></span><br><span class="line">sudo cp -v /etc/apt/sources.list /etc/apt/sources.list.backup</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3.更换镜像源</span></span><br><span class="line">sudo rm -ef /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上传已经编辑好的sources.list到 /etc/apt/ 目录下 或者使用vim编辑sources.list(不推荐 太慢了)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4.更新 参考 3</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> apt update：只检查，不更新（已安装的软件包是否有可用的更新，给出汇总报告）</span></span><br><span class="line">sudo apt update </span><br><span class="line"><span class="meta">#</span><span class="bash"> apt upgrade：更新已安装的软件包具体可百度自行查找</span></span><br><span class="line">sudo apt upgrade 软件包名(不填则更新所有)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5.修改Ubuntu时区 参考 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看时间</span></span><br><span class="line">date -R</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改时区</span></span><br><span class="line">timedatectl set-timezone &quot;Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、安装docker"><a href="#三、安装docker" class="headerlink" title="三、安装docker"></a>三、安装docker</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装方法挺多的 我是直接按照官方方式安装的 可以根据脚本方式安装Install using the convenience script 下列命令的相关解释请查看 参考 4</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 我是新环境无需执行卸载步骤 如果需要的自行卸载</span></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release</span><br><span class="line"></span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看是否安装成功</span></span><br><span class="line">sudo docker</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装成功在进行以下步骤，若未成功请自查原因 版本 Ubuntu Server 20.04.2 LTS</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改docker镜像源 按照下载的daemon.json配置 直接vim 我的是没有daemon.json这个配置文件的vim帮我自动创建了，若你有此文件 则进行修改 wq保存退出</span></span><br><span class="line">sudo vim /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123;&quot;registry-mirrors&quot;:[</span><br><span class="line">	&quot;https://registry.docker-cn.com&quot;,</span><br><span class="line">	&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><br><span class="line">]&#125;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将当前用户 添加 Docker用户组 zne 用户名 尝试过重启docker但没起作用 因此直接 reboot</span></span><br><span class="line">sudo groupadd docker.service</span><br><span class="line">sudo usermod -aG docker zne</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、docker安装相关镜像及配置"><a href="#四、docker安装相关镜像及配置" class="headerlink" title="四、docker安装相关镜像及配置"></a>四、docker安装相关镜像及配置</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建相关文件 zne为我新创建的文件夹存放我的安装相关数据 此路径为之后安装镜像的相关配置路径 可按照个人习惯创建</span></span><br><span class="line">sudo mkdir -pv /zne/portainer/data</span><br><span class="line">sudo mkdir -pv /zne/mysql/&#123;conf,data,logs&#125; </span><br><span class="line">sudo mkdir -pv /zne/redis/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将下载的配置文件放置到对应的文件夹下 my.cnf --&gt; /zne/mysql/conf  redis.conf --&gt; /zne/redis/conf</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 下载相关镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> portainer/poratainer 已弃用 https://hub.docker.com/r/portainer/portainer</span></span><br><span class="line">docker pull portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 2.0 的所有新版本都将在 portainer/portainer-ce 中发布 推荐使用下面这个</span></span><br><span class="line">docker pull portainer/portainer-ce</span><br><span class="line">docker pull mysql</span><br><span class="line">docekr pull redis</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 运行镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可 废弃</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer</span><br><span class="line"><span class="meta">#</span><span class="bash"> Portainer-ce 参考 6 直接浏览器 运行 Ubuntu IP:9000 创建新的用户即可</span></span><br><span class="line">docker run -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /zne/portainer/data:/data -d portainer/portainer-ce</span><br><span class="line"><span class="meta">#</span><span class="bash"> MySQL</span></span><br><span class="line">docker run --name mysql --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /zne/mysql/data:/var/lib/mysql -v /zne/mysql/conf:/etc/mysql/conf.d -v /zne/mysql/logs:/logs -d mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL 密码为root 若想用123456的则不必执行下列命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器</span></span><br><span class="line">docker exec -it mysql bash</span><br><span class="line">mysql -uroot -p</span><br><span class="line">123456</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改MySQL8为简易密码</span></span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;root&#x27;;</span><br><span class="line"><span class="meta">#</span><span class="bash"> Redis</span></span><br><span class="line">docker run -it -v /zne/redis/data:/var/lib/redis -v /zne/redis/conf/redis.conf:/etc/redis/redis.conf -v /zne/redis/logs:/logs --restart=always --name redis -p 6379:6379 -d redis redis-server /etc/redis/redis.conf --appendonly yes</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装rabbitmq"><a href="#安装rabbitmq" class="headerlink" title="安装rabbitmq"></a>安装rabbitmq</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> https://hub.docker.com/_/rabbitmq 查找rabbitmq镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 此方法需要手动开启它的管理后台(我使用的这种)</span></span><br><span class="line">docker pull rabbitmq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 拉取带web管理界面的</span></span><br><span class="line">docker pull rabbitmq:3.8.19-management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 带图形化界面（推荐使用这个）</span></span><br><span class="line">docker pull rabbitmq:management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/rabbitmq/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 图像化镜像启动</span></span><br><span class="line">docker run -p 15672:15672 -p 5672:5672 --name rabbitmq --restart=always -v /zne/rabbitmq/data:/var/lib/rabbitmq/mnesia -v /zne/rabbitmq/logs:/var/log/rabbitmq/log -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -d rabbitmq:management</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run -p 15672:15672 -p 5672:5672 --name rabbitmq --restart=always -v /zne/rabbitmq/data:/var/lib/rabbitmq/mnesia -v /zne/rabbitmq/logs:/var/log/rabbitmq/log -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -d rabbitmq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入容器并开启web管理界面</span></span><br><span class="line">docker exec -it rabbitmq bash</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装MongoDB"><a href="#安装MongoDB" class="headerlink" title="安装MongoDB"></a>安装MongoDB</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/mongo/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 /zne/mongo/conf目录下创建mongo配置文件，内容在下面</span></span><br><span class="line">touch mongodb.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span></span><br><span class="line">docker pull mongo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像 参考 8</span></span><br><span class="line">docker run --name mongo --restart=always -p 27017:27017 -v /zne/mongo/data:/data/db -v /zne/mongo/conf:/data/conf -v /zne/mongo/logs:/data/log -d mongo</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">端口</span></span><br><span class="line">port=27017</span><br><span class="line"><span class="meta">#</span><span class="bash">数据库文件存放目录</span></span><br><span class="line">dbpath=/data/mongo/data</span><br><span class="line"><span class="meta">#</span><span class="bash">日志文件存放路径</span></span><br><span class="line">logpath=/data/mongo/log</span><br><span class="line"><span class="meta">#</span><span class="bash">使用追加方式写日志</span></span><br><span class="line">logappend=true</span><br><span class="line"><span class="meta">#</span><span class="bash">以守护线程的方式运行，创建服务器进程</span></span><br><span class="line">fork=true</span><br><span class="line"><span class="meta">#</span><span class="bash">最大同时连接数</span></span><br><span class="line">maxConns=100</span><br><span class="line"><span class="meta">#</span><span class="bash">不启用验证</span></span><br><span class="line"><span class="meta">#</span><span class="bash">noauth=<span class="literal">true</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">每次写入会记录一条操作日志</span></span><br><span class="line">journal=true</span><br><span class="line"><span class="meta">#</span><span class="bash">存储引擎有mmapv1、wiredTiger、mongorocks</span></span><br><span class="line">storageEngine=wiredTiger</span><br><span class="line"><span class="meta">#</span><span class="bash">访问IP</span></span><br><span class="line">bind_ip=0.0.0.0</span><br><span class="line"><span class="meta">#</span><span class="bash">用户验证</span></span><br><span class="line"><span class="meta">#</span><span class="bash">auth=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="安装MinIO"><a href="#安装MinIO" class="headerlink" title="安装MinIO"></a>安装MinIO</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 相关参考 9</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/minio/&#123;conf,data,logs&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span></span><br><span class="line">docker pull minio/minio</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run -p 9090:9000 -p 9001:9001 --name minio --restart=always -v /zne/minio/data:/data -e MINIO_ROOT_USER=minioadmin -e MINIO_ROOT_PASSWORD=minioadmin -d minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="安装elasticsearch"><a href="#安装elasticsearch" class="headerlink" title="安装elasticsearch"></a>安装elasticsearch</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 相关参考 10（主要） 11（辅助）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建相关挂载目录</span></span><br><span class="line">sudo mkdir -pv /zne/elk/elasticsearch/&#123;config,data,logs,plugins&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取镜像</span> </span><br><span class="line">docker pull elasticsearch:7.14.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 先最简启动一个elasticsearch 容器 复制他的相关配置文件</span></span><br><span class="line">docker run --name elasticsearch -d -e ES_JAVA_OPTS=&quot;-Xms256m -Xmx256m&quot; -e &quot;discovery.type=single-node&quot; -p 9200:9200 -p 9300:9300 elasticsearch:7.14.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 复制配置文件</span></span><br><span class="line">docker cp elasticsearch:/usr/share/elasticsearch/config /zne/elk/elasticsearch/</span><br><span class="line">docker cp elasticsearch:/usr/share/elasticsearch/plugins /zne/elk/elasticsearch/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换身份为root 先将原配置文件重命名，在将配置文件elasticsearch.yml复制到config下(直接在xshell中拖动即可，注意一定要用root)</span></span><br><span class="line">mv elasticsearch.yml elasticsearch.yml.old</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改目录权限</span></span><br><span class="line">sudo chmod -vR 777 /zne/elk/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除容器并重新启动</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动镜像</span></span><br><span class="line">docker run --name elasticsearch --restart=always -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&quot;-Xms512m -Xmx512m&quot; -e &quot;discovery.type=single-node&quot; -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime -v /zne/elk/elasticsearch/config/:/usr/share/elasticsearch/config -v /zne/elk/elasticsearch/data:/usr/share/elasticsearch/data -v /zne/elk/elasticsearch/logs:/usr/share/elasticsearch/logs -v /zne/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d elasticsearch:7.14.0</span><br></pre></td></tr></table></figure>
-
-<h3 id="docker相关命令"><a href="#docker相关命令" class="headerlink" title="docker相关命令"></a>docker相关命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开机启动</span></span><br><span class="line">systemctl enable docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 找镜像 替换mysql</span></span><br><span class="line">docker search mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载镜像 此处为指定版本5.7 可直接mysql（下载最新版mysql）</span></span><br><span class="line">docker pull mysql:5.7</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除镜像   f6509bac4980为IMAGE ID</span></span><br><span class="line">docker rmi f6509bac4980</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看容器列表  -a 查看所有容器</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止运行的容器  使用容器名或者容器id</span></span><br><span class="line">docker stop container-name/container-id</span><br><span class="line">docker start container-name/container-id</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除容器</span></span><br><span class="line">docker rm container-id</span><br><span class="line"><span class="meta">#</span><span class="bash">容器日志</span></span><br><span class="line">docker logs container-name/container-id</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020043011175696.png" alt="docker"></p>
-<blockquote>
-<p>-i：表示运行容器<br>-d：在run后面加上-d参数,则会创建一个守护式容器在后台运行（这样创建容器后不会自动登录容器，如果只加-it两个参数，创建后就会自动进去容器）。<br>-di：后台运行容器；<br>–name：指定容器名；<br>-p：指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；<br>-v：映射目录或文件（文件共享），格式 宿主机目录：容器目录<br>–hostname：主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；<br>-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）</p>
-</blockquote>
-<h2 id="相关参考"><a href="#相关参考" class="headerlink" title="相关参考"></a>相关参考</h2><ol>
-<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></li>
-<li><a href="https://blog.csdn.net/weixin_42118522/article/details/106069030">ubuntu20.04更改国内镜像源</a></li>
-<li><a href="https://blog.csdn.net/zhjulia123/article/details/83479515">Ubuntu 中apt update和upgrade 的区别</a></li>
-<li><a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu | Docker Documentation</a></li>
-<li><a href="https://blog.csdn.net/cau_eric/article/details/90478798">ubuntu查看和修改时区</a></li>
-<li><a href="https://mp.weixin.qq.com/s/YRqISK4yJo9J9WzzTvD9CQ">Docker 图形化工具 Portainer</a></li>
-<li><a href="https://blog.csdn.net/weixin_44763595/article/details/109528165">为什么用docker安装rabbitmq打不开管理页面呢</a></li>
-<li><a href="https://blog.csdn.net/weixin_45345374/article/details/116271582">docker安装mongo容器并挂载外部配置文件及目录</a></li>
-<li><a href="https://mp.weixin.qq.com/s/qHjOEeQ3CaA0U4a2YBi3Pw">Github标星28K+！MinIO这款可视化的对象存储服务真香！</a></li>
-<li><a href="https://github.com/Weasley-J/lejing-mall/blob/main/shell/run_elk_install_v7.13.2.sh">lejing-mall/run_elk_install_v7.13.2.sh</a></li>
-<li><a href="https://blog.csdn.net/qq_40942490/article/details/111594267">docker安装elasticsearch（最详细版）</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub打不开图片</title>
-    <url>/2020/07/08/github-img/</url>
-    <content><![CDATA[<h2 id="GitHub打不开图片"><a href="#GitHub打不开图片" class="headerlink" title="GitHub打不开图片"></a>GitHub打不开图片</h2><p><a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>   查看IP地址替换下面</p>
-<p>hosts<br>路径：C:\Windows\System32\drivers\etc\hosts<br><strong>谨慎使用</strong></p>
+    <title>application.yml的一些配置</title>
+    <url>/2020/07/08/application.yml/</url>
+    <content><![CDATA[<p><strong>application.yml的一些配置</strong></p>
 <span id="more"></span>
 
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GitHub Start</span> </span><br><span class="line">140.82.113.3    github.com</span><br><span class="line">140.82.114.20    gist.github.com</span><br><span class="line">185.199.108.153    assets-cdn.github.com</span><br><span class="line">185.199.109.153    assets-cdn.github.com</span><br><span class="line">185.199.110.153    assets-cdn.github.com</span><br><span class="line">185.199.111.153    assets-cdn.github.com</span><br><span class="line">199.232.68.133    raw.githubusercontent.com</span><br><span class="line">199.232.28.133    gist.githubusercontent.com</span><br><span class="line">199.232.28.133    cloud.githubusercontent.com</span><br><span class="line">199.232.28.133    camo.githubusercontent.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> GitHub End</span></span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">rabbitmq:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">addresses:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5672</span></span><br><span class="line">    <span class="attr">virtual-host:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">connection-timeout:</span> <span class="number">15000</span></span><br><span class="line">    <span class="comment">##开启Publisher Confirm机制 采用消息确认模式，消息发送后异步等待Broker响应</span></span><br><span class="line">    <span class="attr">publisher-confirms:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">##开启Publisher Return机制</span></span><br><span class="line">    <span class="attr">publisher-returns:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">encoding:</span></span><br><span class="line">      <span class="attr">charset:</span> <span class="string">utf-8</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="attr">default-property-inclusion:</span> <span class="string">non_null</span></span><br><span class="line">  <span class="comment"># 数据库访问配置</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/oms?useUnicode=true&amp;charaterEncoding=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">180C1AD83CA4F0C8E7D27294BBB97A1D</span></span><br><span class="line">    <span class="comment">######以下为druid增加的配置#######</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">    <span class="comment"># 初始化大小，最小，最大</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置获取连接等待超时的时间</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment"># 打开PSCache，并且指定每个连接上PSCache的大小</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&#x27;wall&#x27;用于防火墙，此处是filter修改的地方</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">logSlowSql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;password=$&#123;spring.datasource.password&#125;</span></span><br><span class="line">    <span class="comment"># 合并多个DruidDataSource的监控数据</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="comment">#mapper扫描路径</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath*:/mapper/**/*.xml</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="comment">#获取数据库自增主键值</span></span><br><span class="line">    <span class="attr">use-generated-keys:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">use-column-label:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8001</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>question</category>
+        <category>yaml</category>
       </categories>
       <tags>
-        <tag>question</tag>
+        <tag>yaml</tag>
       </tags>
   </entry>
   <entry>
@@ -1266,28 +1291,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mongo在win10 docker上的相关安装</title>
-    <url>/2020/09/02/docker%E5%AE%89%E8%A3%85mongo/</url>
-    <content><![CDATA[<h1 id="mongo在win10-docker上的相关安装"><a href="#mongo在win10-docker上的相关安装" class="headerlink" title="mongo在win10 docker上的相关安装"></a>mongo在win10 docker上的相关安装</h1><span id="more"></span>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo</span><br><span class="line">docker volume create --name mongodb</span><br><span class="line">docker run -it -v mongodb:/data/db --name mongo -p 27017:27017 -d mongo</span><br></pre></td></tr></table></figure>
-
-<p><strong>简单创建</strong></p>
-<p><a href="http://www.moguf.com/post/windockerrunmongo">参考链接</a></p>
-<p><strong>其他相关命令</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除数据卷</span></span><br><span class="line">docker volume rm mongodb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看数据卷</span></span><br><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Docker</category>
-        <category>mongo</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>mongo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker</title>
     <url>/2020/07/08/docker/</url>
     <content><![CDATA[<p><strong>简介</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化,容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
@@ -1323,46 +1326,6 @@
       </tags>
   </entry>
   <entry>
-    <title>application.yml的一些配置</title>
-    <url>/2020/07/08/application.yml/</url>
-    <content><![CDATA[<p><strong>application.yml的一些配置</strong></p>
-<span id="more"></span>
-
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">rabbitmq:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">addresses:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5672</span></span><br><span class="line">    <span class="attr">virtual-host:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">connection-timeout:</span> <span class="number">15000</span></span><br><span class="line">    <span class="comment">##开启Publisher Confirm机制 采用消息确认模式，消息发送后异步等待Broker响应</span></span><br><span class="line">    <span class="attr">publisher-confirms:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">##开启Publisher Return机制</span></span><br><span class="line">    <span class="attr">publisher-returns:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">encoding:</span></span><br><span class="line">      <span class="attr">charset:</span> <span class="string">utf-8</span></span><br><span class="line">  <span class="attr">jackson:</span></span><br><span class="line">    <span class="attr">date-format:</span> <span class="string">yyyy-MM-dd</span> <span class="string">HH:mm:ss</span></span><br><span class="line">    <span class="attr">time-zone:</span> <span class="string">GMT+8</span></span><br><span class="line">    <span class="attr">default-property-inclusion:</span> <span class="string">non_null</span></span><br><span class="line">  <span class="comment"># 数据库访问配置</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/oms?useUnicode=true&amp;charaterEncoding=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">180C1AD83CA4F0C8E7D27294BBB97A1D</span></span><br><span class="line">    <span class="comment">######以下为druid增加的配置#######</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">    <span class="comment"># 初始化大小，最小，最大</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置获取连接等待超时的时间</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment"># 打开PSCache，并且指定每个连接上PSCache的大小</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="comment"># 配置监控统计拦截的filters，去掉后监控界面sql无法统计，&#x27;wall&#x27;用于防火墙，此处是filter修改的地方</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">logSlowSql:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># 通过connectProperties属性来打开mergeSql功能；慢SQL记录</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;password=$&#123;spring.datasource.password&#125;</span></span><br><span class="line">    <span class="comment"># 合并多个DruidDataSource的监控数据</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="comment">#mapper扫描路径</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath*:/mapper/**/*.xml</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="comment">#获取数据库自增主键值</span></span><br><span class="line">    <span class="attr">use-generated-keys:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">use-column-label:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#开启驼峰命名转换</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8001</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>yaml</category>
-      </categories>
-      <tags>
-        <tag>yaml</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>oauth2</title>
-    <url>/2020/07/07/oauth2/</url>
-    <content><![CDATA[<p>任何的身份验证，本质上都是基于对请求方的不信任所产生的</p>
-<hr>
-<span id="more"></span>
-
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2.png" alt="理解oauth2"></p>
-<ol>
-<li>资源所有者（resource owner）即用户本身</li>
-<li>客户端/第三方应用（client）即你将要访问的网站BLOGI</li>
-<li>资源服务器（resource server）例如 GitHub</li>
-<li>授权服务器（authorization server）可以与资源服务器放到一起 </li>
-</ol>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2-1.png" alt="oauth2协议"></p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2-2.png" alt="oauth2协议角色与流程"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>oauth2</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>oauth2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>yaml配置</title>
     <url>/2020/07/08/makedown%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<p><code>--- 放在开头是yaml配置文件</code></p>
@@ -1372,6 +1335,44 @@
       </categories>
       <tags>
         <tag>yaml</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mongo在win10 docker上的相关安装</title>
+    <url>/2020/09/02/docker%E5%AE%89%E8%A3%85mongo/</url>
+    <content><![CDATA[<h1 id="mongo在win10-docker上的相关安装"><a href="#mongo在win10-docker上的相关安装" class="headerlink" title="mongo在win10 docker上的相关安装"></a>mongo在win10 docker上的相关安装</h1><span id="more"></span>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo</span><br><span class="line">docker volume create --name mongodb</span><br><span class="line">docker run -it -v mongodb:/data/db --name mongo -p 27017:27017 -d mongo</span><br></pre></td></tr></table></figure>
+
+<p><strong>简单创建</strong></p>
+<p><a href="http://www.moguf.com/post/windockerrunmongo">参考链接</a></p>
+<p><strong>其他相关命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除数据卷</span></span><br><span class="line">docker volume rm mongodb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看数据卷</span></span><br><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Docker</category>
+        <category>mongo</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>mongo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub打不开图片</title>
+    <url>/2020/07/08/github-img/</url>
+    <content><![CDATA[<h2 id="GitHub打不开图片"><a href="#GitHub打不开图片" class="headerlink" title="GitHub打不开图片"></a>GitHub打不开图片</h2><p><a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a>   查看IP地址替换下面</p>
+<p>hosts<br>路径：C:\Windows\System32\drivers\etc\hosts<br><strong>谨慎使用</strong></p>
+<span id="more"></span>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GitHub Start</span> </span><br><span class="line">140.82.113.3    github.com</span><br><span class="line">140.82.114.20    gist.github.com</span><br><span class="line">185.199.108.153    assets-cdn.github.com</span><br><span class="line">185.199.109.153    assets-cdn.github.com</span><br><span class="line">185.199.110.153    assets-cdn.github.com</span><br><span class="line">185.199.111.153    assets-cdn.github.com</span><br><span class="line">199.232.68.133    raw.githubusercontent.com</span><br><span class="line">199.232.28.133    gist.githubusercontent.com</span><br><span class="line">199.232.28.133    cloud.githubusercontent.com</span><br><span class="line">199.232.28.133    camo.githubusercontent.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> GitHub End</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>question</category>
+      </categories>
+      <tags>
+        <tag>question</tag>
       </tags>
   </entry>
   <entry>
@@ -1423,6 +1424,32 @@
       </tags>
   </entry>
   <entry>
+    <title>oauth2</title>
+    <url>/2020/07/07/oauth2/</url>
+    <content><![CDATA[<p>任何的身份验证，本质上都是基于对请求方的不信任所产生的</p>
+<hr>
+<span id="more"></span>
+
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2.png" alt="理解oauth2"></p>
+<ol>
+<li>资源所有者（resource owner）即用户本身</li>
+<li>客户端/第三方应用（client）即你将要访问的网站BLOGI</li>
+<li>资源服务器（resource server）例如 GitHub</li>
+<li>授权服务器（authorization server）可以与资源服务器放到一起 </li>
+</ol>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2-1.png" alt="oauth2协议"></p>
+<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/oauth2-2.png" alt="oauth2协议角色与流程"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>oauth2</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>oauth2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</title>
     <url>/2020/07/08/%E5%85%B3%E4%BA%8E%E4%BF%AE%E6%94%B9MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8CMYSQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h1 id="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"><a href="#关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案" class="headerlink" title="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"></a>关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</h1><span id="more"></span>
@@ -1436,6 +1463,28 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>同步/异步/多线程</title>
+    <url>/2020/07/07/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/</url>
+    <content><![CDATA[<h3 id="同步-异步-多线程几个东西的区别："><a href="#同步-异步-多线程几个东西的区别：" class="headerlink" title="同步/异步/多线程几个东西的区别："></a>同步/异步/多线程几个东西的区别：</h3><p>一般情况：顺序结构，必须等待前面的操作完成（两个人说话，a把所有话说完，b才能继续说）</p>
+<span id="more"></span>
+<p><strong>并发</strong>：同一时间段处理多个任务的能力（两人说话，支持你一言我一语的交流，两人在一个时间段内都有说话，是基于时间段内的同时发生）</p>
+<p><strong>并发又有同步和互斥</strong></p>
+<p><strong>互斥</strong>：不能同时使用临界资源（有一个共享资源–话筒，两人必须用话筒说话，但同时只能有一个人用这个话筒，保证了只有一个人在说话）</p>
+<p><strong>同步</strong>：前一个处理的结果作为下一个处理的资源。大多数情况下，同步已经实现了互斥。（两人你一言我一语的交流，我必须知道你说了啥我才能接上你的话）</p>
+<p><strong>并行</strong>：同一时刻处理多个任务的能力（两人合唱，同时出声）</p>
+<p><strong>异步</strong>：不用等待一个结果出来，可以继续其他操作（两个人不说话了，寄信，a把信拿到邮局就不用管了，回家可以想干嘛就干嘛，等b回信到了，取邮局接收一下结果–b的回信就可以了）</p>
+<p><strong>多线程</strong>：如果说同步和异步是对如何处理事情的要求，那么多线程就是实现这些要求的方法。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>同步/异步/多线程</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+        <tag>同步/异步/多线程</tag>
       </tags>
   </entry>
   <entry>
@@ -1607,28 +1656,6 @@
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>同步/异步/多线程</title>
-    <url>/2020/07/07/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5/</url>
-    <content><![CDATA[<h3 id="同步-异步-多线程几个东西的区别："><a href="#同步-异步-多线程几个东西的区别：" class="headerlink" title="同步/异步/多线程几个东西的区别："></a>同步/异步/多线程几个东西的区别：</h3><p>一般情况：顺序结构，必须等待前面的操作完成（两个人说话，a把所有话说完，b才能继续说）</p>
-<span id="more"></span>
-<p><strong>并发</strong>：同一时间段处理多个任务的能力（两人说话，支持你一言我一语的交流，两人在一个时间段内都有说话，是基于时间段内的同时发生）</p>
-<p><strong>并发又有同步和互斥</strong></p>
-<p><strong>互斥</strong>：不能同时使用临界资源（有一个共享资源–话筒，两人必须用话筒说话，但同时只能有一个人用这个话筒，保证了只有一个人在说话）</p>
-<p><strong>同步</strong>：前一个处理的结果作为下一个处理的资源。大多数情况下，同步已经实现了互斥。（两人你一言我一语的交流，我必须知道你说了啥我才能接上你的话）</p>
-<p><strong>并行</strong>：同一时刻处理多个任务的能力（两人合唱，同时出声）</p>
-<p><strong>异步</strong>：不用等待一个结果出来，可以继续其他操作（两个人不说话了，寄信，a把信拿到邮局就不用管了，回家可以想干嘛就干嘛，等b回信到了，取邮局接收一下结果–b的回信就可以了）</p>
-<p><strong>多线程</strong>：如果说同步和异步是对如何处理事情的要求，那么多线程就是实现这些要求的方法。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>同步/异步/多线程</category>
-      </categories>
-      <tags>
-        <tag>Java基础</tag>
-        <tag>同步/异步/多线程</tag>
       </tags>
   </entry>
   <entry>
@@ -4522,33 +4549,6 @@
       </categories>
       <tags>
         <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JVM相关</title>
-    <url>/2021/04/23/JVM%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<h1 id="JVM相关"><a href="#JVM相关" class="headerlink" title="JVM相关"></a>JVM相关</h1><h2 id="一、JVM性能调优的6大步骤，及关键调优参数详解"><a href="#一、JVM性能调优的6大步骤，及关键调优参数详解" class="headerlink" title="一、JVM性能调优的6大步骤，及关键调优参数详解"></a>一、<a href="https://zhuanlan.zhihu.com/p/222718783">JVM性能调优的6大步骤，及关键调优参数详解</a></h2><h3 id="一、JVM内存调优"><a href="#一、JVM内存调优" class="headerlink" title="一、JVM内存调优"></a>一、JVM内存调优</h3><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210423154342856.png" alt="image-20210423154342856"></p>
-<p><strong>对JVM内存的系统级的调优主要目的是减少GC的频率和Full GC的次数</strong></p>
-<ol>
-<li><p><strong>Full GC</strong></p>
-<p>会对整个堆进行整理，包括Yong、Tenured和Perm。Full GC需要对整个堆进行回收，所以比较慢，因此应该尽可能减少Full GC的次数</p>
-</li>
-<li><p><strong>导致Full GC的原因</strong></p>
-<ul>
-<li><strong>年老代(Tenured)被写满</strong>  调优时尽量让对象在新生代GC时被回收、让对象在新生代多存活一段时间和不要创建过大的对象及数组避免直接在旧生代创建对象 。</li>
-<li><strong>持久代Pemanet Generation空间不足</strong>  增大Perm Gen空间，避免太多静态对象 ， 控制好新生代和旧生代的比例</li>
-<li><strong>System.gc()被显示调用</strong>  垃圾回收不要手动触发，尽量依靠JVM自身的机制</li>
-</ul>
-<p><strong>在对JVM调优的过程中，很大一部分工作就是对于FullGC的调节</strong></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>jvm</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
       </tags>
   </entry>
 </search>
