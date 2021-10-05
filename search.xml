@@ -569,31 +569,6 @@
     
     
     <entry>
-      <title>Docker</title>
-      <link href="/2020/07/08/docker/"/>
-      <url>/2020/07/08/docker/</url>
-      
-        <content type="html"><![CDATA[<p><strong>简介</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化,容器是完全使用沙箱机制，相互之间不会有任何接口。</p><span id="more"></span><p>一个完整的Docker有以下几个部分组成：</p><ol><li>DockerClient客户端</li><li>Docker Daemon守护进程</li><li>Docker Image镜像</li><li>DockerContainer容器</li><li><a href="https://blog.csdn.net/qq_38503329/article/details/97147797">一些docker命令</a></li></ol><p><strong>docker 安装 mysql（其他类似）</strong></p><ol><li><p>拉取镜像  指定自己需要的版本，后续启动容器时也需要指定版本（最新版默认不需要）</p><p><code> docker pull mysql:5.7</code></p></li><li><p>运行容器  -p 3306:3306 指定ip、指定宿主机port、指定容器port ip不指定 默认0.0.0.0</p><p><code> docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></p></li><li><p>其他后续 包括修改配置文件</p><p><code>dockerexec -it f7bbac /bin/bash </code>  // f7bbac 是容器ID docker ps 可查</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim -y</span><br><span class="line">cd /etc/mysql/mysql.conf.d</span><br><span class="line">vim mysqld.cnf</span><br><span class="line">lower_case_table_names=1 //末尾添加 是MySQL不区分大小写 重启后生效</span><br><span class="line">show variables like &#x27;%table_names&#x27;;  //查看是否区分大小写</span><br></pre></td></tr></table></figure></li></ol><p><strong>docker安装最新版MySQL（后两条 修改密码格式 方便 Navicat 连接 MySQL8 以上的版本  本地<code> &#39;root&#39;@&#39;localhost&#39;</code>  远程  <code>&#39;root&#39;@&#39;%&#39;</code>）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql</span><br><span class="line">dockerexec -it f7bbac /bin/bash</span><br><span class="line">select host, user, authentication_string, plugin from user;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>GitHub打不开图片</title>
       <link href="/2020/07/08/github-img/"/>
       <url>/2020/07/08/github-img/</url>
@@ -611,6 +586,31 @@
         <tags>
             
             <tag> question </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker</title>
+      <link href="/2020/07/08/docker/"/>
+      <url>/2020/07/08/docker/</url>
+      
+        <content type="html"><![CDATA[<p><strong>简介</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化,容器是完全使用沙箱机制，相互之间不会有任何接口。</p><span id="more"></span><p>一个完整的Docker有以下几个部分组成：</p><ol><li>DockerClient客户端</li><li>Docker Daemon守护进程</li><li>Docker Image镜像</li><li>DockerContainer容器</li><li><a href="https://blog.csdn.net/qq_38503329/article/details/97147797">一些docker命令</a></li></ol><p><strong>docker 安装 mysql（其他类似）</strong></p><ol><li><p>拉取镜像  指定自己需要的版本，后续启动容器时也需要指定版本（最新版默认不需要）</p><p><code> docker pull mysql:5.7</code></p></li><li><p>运行容器  -p 3306:3306 指定ip、指定宿主机port、指定容器port ip不指定 默认0.0.0.0</p><p><code> docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></p></li><li><p>其他后续 包括修改配置文件</p><p><code>dockerexec -it f7bbac /bin/bash </code>  // f7bbac 是容器ID docker ps 可查</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim -y</span><br><span class="line">cd /etc/mysql/mysql.conf.d</span><br><span class="line">vim mysqld.cnf</span><br><span class="line">lower_case_table_names=1 //末尾添加 是MySQL不区分大小写 重启后生效</span><br><span class="line">show variables like &#x27;%table_names&#x27;;  //查看是否区分大小写</span><br></pre></td></tr></table></figure></li></ol><p><strong>docker安装最新版MySQL（后两条 修改密码格式 方便 Navicat 连接 MySQL8 以上的版本  本地<code> &#39;root&#39;@&#39;localhost&#39;</code>  远程  <code>&#39;root&#39;@&#39;%&#39;</code>）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql</span><br><span class="line">dockerexec -it f7bbac /bin/bash</span><br><span class="line">select host, user, authentication_string, plugin from user;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
             
         </tags>
       
