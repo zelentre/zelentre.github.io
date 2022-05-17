@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,11 +15,12 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="RedisTemplate常用方法总结Redis常用的数据类型： String Hash List Set zSet Sorted set  原文">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="RedisTemplate常用方法总结Redis常用的数据类型： String Hash List Set zSet Sorted set  原文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RedisTemplate常用方法总结">
 <meta property="og:url" content="http://example.com/2020/11/19/RedisTemplate%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
@@ -43,6 +43,7 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>RedisTemplate常用方法总结 | 笔记</title>
   
+
 
 
 
@@ -70,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -85,11 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -159,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -214,11 +211,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="RedisTemplate常用方法总结 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -298,34 +300,34 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.dump(key)</span><br></pre></td></tr></table></figure>
 
 <p>设置过期时间</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">expire</span><span class="params">(String key, <span class="keyword">long</span> timeout, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.expire(key, timeout, unit);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> Boolean <span class="title">expireAt</span><span class="params">(String key, Date date)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.expireAt(key, date);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">expire</span><span class="params">(String key, <span class="type">long</span> timeout, TimeUnit unit)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.expire(key, timeout, unit);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">public</span> Boolean <span class="title function_">expireAt</span><span class="params">(String key, Date date)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.expireAt(key, date);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 <p>查找匹配的key值，返回一个Set集合类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Set&lt;String&gt; <span class="title">getPatternKey</span><span class="params">(String pattern)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.keys(pattern);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Set&lt;String&gt; <span class="title function_">getPatternKey</span><span class="params">(String pattern)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.keys(pattern);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>修改redis中key的名称</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">renameKey</span><span class="params">(String oldKey, String newKey)</span> </span>&#123;</span><br><span class="line">    redisTemplate.rename(oldKey, newKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">renameKey</span><span class="params">(String oldKey, String newKey)</span> &#123;</span><br><span class="line">    redisTemplate.rename(oldKey, newKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回传入key所存储的值的类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> DataType <span class="title">getKeyType</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.type(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> DataType <span class="title function_">getKeyType</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.type(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果旧值存在时，将旧值改为新值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">renameOldKeyIfAbsent</span><span class="params">(String oldKey, String newKey)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.renameIfAbsent(oldKey, newKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">renameOldKeyIfAbsent</span><span class="params">(String oldKey, String newKey)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.renameIfAbsent(oldKey, newKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>从redis中随机取出一个key</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.randomKey()</span><br></pre></td></tr></table></figure>
 
 <p>返回当前key所对应的剩余过期时间</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> Long <span class="title">getExpire</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.getExpire(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> Long <span class="title function_">getExpire</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.getExpire(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回剩余过期时间并且指定时间单位</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">getExpire</span><span class="params">(String key, TimeUnit unit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.getExpire(key, unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Long <span class="title function_">getExpire</span><span class="params">(String key, TimeUnit unit)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.getExpire(key, unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>将key持久化保存</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">persistKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.persist(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">persistKey</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.persist(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>将当前数据库的key移动到指定redis中数据库当中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">moveToDbIndex</span><span class="params">(String key, <span class="keyword">int</span> dbIndex)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.move(key, dbIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">moveToDbIndex</span><span class="params">(String key, <span class="type">int</span> dbIndex)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.move(key, dbIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>设置当前的key以及value值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForValue().set(key, value)</span><br></pre></td></tr></table></figure>
@@ -334,28 +336,28 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForValue().set(key, value, timeout, unit)</span><br></pre></td></tr></table></figure>
 
 <p>返回key中字符串的子字符</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getCharacterRange</span><span class="params">(String key, <span class="keyword">long</span> start, <span class="keyword">long</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().get(key, start, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getCharacterRange</span><span class="params">(String key, <span class="type">long</span> start, <span class="type">long</span> end)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().get(key, start, end);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>将旧的key设置为value，并且返回旧的key</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">setKeyAsValue</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().getAndSet(key, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">setKeyAsValue</span><span class="params">(String key, String value)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().getAndSet(key, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>批量获取值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">multiGet</span><span class="params">(Collection&lt;String&gt; keys)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> redisTemplate.opsForValue().multiGet(keys);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;String&gt; <span class="title function_">multiGet</span><span class="params">(Collection&lt;String&gt; keys)</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> redisTemplate.opsForValue().multiGet(keys);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在原有的值基础上新增字符串到末尾</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForValue().append(key, value)</span><br></pre></td></tr></table></figure>
 
 <p>以增量的方式将double值存储在变量中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Double <span class="title">incrByDouble</span><span class="params">(String key, <span class="keyword">double</span> increment)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> redisTemplate.opsForValue().increment(key, increment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Double <span class="title function_">incrByDouble</span><span class="params">(String key, <span class="type">double</span> increment)</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> redisTemplate.opsForValue().increment(key, increment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过increment(K key, long delta)方法以增量方式存储long值（正值则自增，负值则自减）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">incrBy</span><span class="params">(String key, <span class="keyword">long</span> increment)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().increment(key, increment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Long <span class="title function_">incrBy</span><span class="params">(String key, <span class="type">long</span> increment)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForValue().increment(key, increment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果对应的map集合名称不存在，则添加否则不做修改</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map valueMap = <span class="keyword">new</span> HashMap();  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap1&quot;</span>,<span class="string">&quot;map1&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap2&quot;</span>,<span class="string">&quot;map2&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap3&quot;</span>,<span class="string">&quot;map3&quot;</span>);  </span><br><span class="line">redisTemplate.opsForValue().multiSetIfAbsent(valueMap); </span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Map</span> <span class="variable">valueMap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap1&quot;</span>,<span class="string">&quot;map1&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap2&quot;</span>,<span class="string">&quot;map2&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap3&quot;</span>,<span class="string">&quot;map3&quot;</span>);  </span><br><span class="line">redisTemplate.opsForValue().multiSetIfAbsent(valueMap); </span><br></pre></td></tr></table></figure>
 
 <p>设置map集合到redis</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map valueMap = <span class="keyword">new</span> HashMap();  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap1&quot;</span>,<span class="string">&quot;map1&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap2&quot;</span>,<span class="string">&quot;map2&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap3&quot;</span>,<span class="string">&quot;map3&quot;</span>);  </span><br><span class="line">redisTemplate.opsForValue().multiSet(valueMap);  </span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Map</span> <span class="variable">valueMap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap1&quot;</span>,<span class="string">&quot;map1&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap2&quot;</span>,<span class="string">&quot;map2&quot;</span>);  </span><br><span class="line">valueMap.put(<span class="string">&quot;valueMap3&quot;</span>,<span class="string">&quot;map3&quot;</span>);  </span><br><span class="line">redisTemplate.opsForValue().multiSet(valueMap);  </span><br></pre></td></tr></table></figure>
 
 <p>获取字符串的长度</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForValue().size(key)</span><br></pre></td></tr></table></figure>
@@ -380,25 +382,25 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForHash().get(key, field)</span><br></pre></td></tr></table></figure>
 
 <p>获取变量中的键值对</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;Object, Object&gt; <span class="title">hGetAll</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().entries(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Map&lt;Object, Object&gt; <span class="title function_">hGetAll</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().entries(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>新增hashMap值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForHash().put(key, hashKey, value)</span><br></pre></td></tr></table></figure>
 
 <p>以map集合的形式添加键值对</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hPutAll</span><span class="params">(String key, Map&lt;String, String&gt; maps)</span> </span>&#123;</span><br><span class="line">    redisTemplate.opsForHash().putAll(key, maps);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hPutAll</span><span class="params">(String key, Map&lt;String, String&gt; maps)</span> &#123;</span><br><span class="line">    redisTemplate.opsForHash().putAll(key, maps);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>仅当hashKey不存在时才设置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Boolean <span class="title">hashPutIfAbsent</span><span class="params">(String key, String hashKey, String value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().putIfAbsent(key, hashKey, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">hashPutIfAbsent</span><span class="params">(String key, String hashKey, String value)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().putIfAbsent(key, hashKey, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>删除一个或者多个hash表字段</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">hashDelete</span><span class="params">(String key, Object... fields)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().delete(key, fields);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Long <span class="title function_">hashDelete</span><span class="params">(String key, Object... fields)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().delete(key, fields);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>查看hash表中指定字段是否存在</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hashExists</span><span class="params">(String key, String field)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().hasKey(key, field);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">hashExists</span><span class="params">(String key, String field)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().hasKey(key, field);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>给哈希表key中的指定字段的整数值加上增量increment</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Long <span class="title">hashIncrBy</span><span class="params">(String key, Object field, <span class="keyword">long</span> increment)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().increment(key, field, increment);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> Double <span class="title">hIncrByDouble</span><span class="params">(String key, Object field, <span class="keyword">double</span> delta)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().increment(key, field, delta);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Long <span class="title function_">hashIncrBy</span><span class="params">(String key, Object field, <span class="type">long</span> increment)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().increment(key, field, increment);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> Double <span class="title function_">hIncrByDouble</span><span class="params">(String key, Object field, <span class="type">double</span> delta)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().increment(key, field, delta);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>获取所有hash表中字段</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForHash().keys(key)</span><br></pre></td></tr></table></figure>
@@ -407,10 +409,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForHash().size(key)</span><br></pre></td></tr></table></figure>
 
 <p>获取hash表中存在的所有的值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Object&gt; <span class="title">hValues</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().values(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Object&gt; <span class="title function_">hValues</span><span class="params">(String key)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().values(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>匹配获取键值对，ScanOptions.NONE为获取全部键对</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Cursor&lt;Entry&lt;Object, Object&gt;&gt; hashScan(String key, ScanOptions options) &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().scan(key, options);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Cursor&lt;Entry&lt;Object, Object&gt;&gt; <span class="title function_">hashScan</span><span class="params">(String key, ScanOptions options)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> redisTemplate.opsForHash().scan(key, options);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="List类型"><a href="#List类型" class="headerlink" title="List类型"></a>List类型</h2><p>通过索引获取列表中的元素</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForList().index(key, index)</span><br></pre></td></tr></table></figure>
@@ -448,7 +450,7 @@
 <p>从一个队列的右边弹出一个元素并将这个元素放入另一个指定队列的最左边</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForList().rightPopAndLeftPush(sourceKey, destinationKey)</span><br><span class="line">redisTemplate.opsForList().rightPopAndLeftPush(sourceKey, destinationKey, timeout, unit)</span><br></pre></td></tr></table></figure>
 
-<p>删除集合中值等于value的元素(index=0, 删除所有值等于value的元素; index&gt;0, 从头部开始删除第一个值等于value的元素; index&lt;0, 从尾部开始删除第一个值等于value的元素)</p>
+<p>删除集合中值等于value的元素(index&#x3D;0, 删除所有值等于value的元素; index&gt;0, 从头部开始删除第一个值等于value的元素; index&lt;0, 从尾部开始删除第一个值等于value的元素)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisTemplate.opsForList().remove(key, index, value)</span><br></pre></td></tr></table></figure>
 
 <p>将List列表进行剪裁</p>
@@ -601,7 +603,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -612,13 +614,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

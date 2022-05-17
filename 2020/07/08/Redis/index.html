@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,11 +15,12 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Redis">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习">
 <meta property="og:url" content="http://example.com/2020/07/08/Redis/index.html">
@@ -314,6 +314,7 @@
 
 
 
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -337,7 +338,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -352,11 +353,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -426,7 +423,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -481,11 +478,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Redis学习 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -502,13 +504,13 @@
 
       <time title="创建时间：2020-07-08 18:01:31" itemprop="dateCreated datePublished" datetime="2020-07-08T18:01:31+08:00">2020-07-08</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 16:29:58" itemprop="dateModified" datetime="2021-06-14T16:29:58+08:00">2021-06-14</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-06-14 16:29:58" itemprop="dateModified" datetime="2021-06-14T16:29:58+08:00">2021-06-14</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -624,7 +626,7 @@
 <li><p>redis安装</p>
 <ul>
 <li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304094433.png" alt="安装"></li>
-<li><strong>创建redis的软连接，方便以后升级</strong>     <code> ln -s redis-3.0.7 redis</code> </li>
+<li><strong>创建redis的软连接，方便以后升级</strong>     <code> ln -s redis-3.0.7 redis</code></li>
 </ul>
 </li>
 <li><p>可执行文件说明</p>
@@ -688,12 +690,12 @@
 </li>
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304173232.png" alt="img"></p>
 </li>
-<li><p> <strong>keys命令一般不再生产环境使用</strong> <strong>keys*怎么用 1.热备从节点 2.scan</strong></p>
+<li><p><strong>keys命令一般不再生产环境使用</strong> <strong>keys*怎么用 1.热备从节点 2.scan</strong></p>
 </li>
 <li><p>dbsize（计算数据库大小） </p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304105824.png" alt="img"></p>
 </li>
-<li><p>exists key（键是否存在） </p>
+<li><p>exists key（键是否存在）</p>
 </li>
 </ul>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200304110033.png" alt="img"></p>
@@ -743,9 +745,10 @@
 <li><p>快速实战</p>
 <ul>
 <li><p>实现：记录网址每个用户个人主页的访问量？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr userid:pageview（单线程无竞争）</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr userid:pageview（单线程无竞争）</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> VideoInfo <span class="title">get</span><span class="params">(<span class="keyword">long</span> id)</span></span>&#123;</span><br><span class="line">    String redisKey = redisPrefix + id;</span><br><span class="line">    VideoInfo videoInfo = redis.get(redisKey);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="keyword">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//序列化</span></span><br><span class="line">        redis.set(redisKey,serialize(videoInfo));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> VideoInfo <span class="title function_">get</span><span class="params">(<span class="type">long</span> id)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> redisPrefix + id;</span><br><span class="line">    <span class="type">VideoInfo</span> <span class="variable">videoInfo</span> <span class="operator">=</span> redis.get(redisKey);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="literal">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//序列化</span></span><br><span class="line">        redis.set(redisKey,serialize(videoInfo));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>实现：分布式id生成器 <img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162534.png" alt="img"><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304162814.png" alt="img"></p>
 </li>
 </ul>
@@ -778,13 +781,17 @@
 <li><p>重要API</p>
 <ul>
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200304180239.png" alt="img"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset user:1:info age 23</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt;  hget user:1:info age</span><br><span class="line">&quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hset user:1:info name ronaldo</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;23&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; hdel user:1:info age</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset user:1:info age 23</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt;  hget user:1:info age</span><br><span class="line">&quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hset user:1:info name ronaldo</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;23&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; hdel user:1:info age</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103327.png" alt="img"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hexists user:1:info name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hlen user:1:info</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hexists user:1:info name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hlen user:1:info</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200305103100.png" alt="img"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:2:info age 30 name kaka page 50</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hlen user:2:info</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; hmget user:2:info age name</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:2:info age 30 name kaka page 50</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hlen user:2:info</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; hmget user:2:info age name</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305112446.png" alt="img"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;30&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;kaka&quot;</span><br><span class="line">5) &quot;page&quot;</span><br><span class="line">6) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hvals user:2:info</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br><span class="line">3) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hkeys user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;name&quot;</span><br><span class="line">3) &quot;page&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;30&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;kaka&quot;</span><br><span class="line">5) &quot;page&quot;</span><br><span class="line">6) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hvals user:2:info</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br><span class="line">3) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hkeys user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;name&quot;</span><br><span class="line">3) &quot;page&quot;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><strong>小心使用hgetall，牢记redis是单线程（耗时问题）</strong></p>
 </li>
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305114023.png" alt="img"></p>
@@ -792,7 +799,8 @@
 <li><p>实现：记录网站每个用户个人主页的访问量<code>hincrby user:1:info pageview count</code></p>
 </li>
 <li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> VideoInfo <span class="title">get</span><span class="params">(<span class="keyword">long</span> id)</span></span>&#123;</span><br><span class="line">    String redisKey = redisPrefix + id;</span><br><span class="line">    Map&lt;String,String&gt; hashMap = redis.hgetAll(redisKey);</span><br><span class="line">    VideoInfo videoInfo = transferMapToVideo(hashMap);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="keyword">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        redis.hmset(redisKey,transferVideoToMap(hashMap));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> VideoInfo <span class="title function_">get</span><span class="params">(<span class="type">long</span> id)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> redisPrefix + id;</span><br><span class="line">    Map&lt;String,String&gt; hashMap = redis.hgetAll(redisKey);</span><br><span class="line">    <span class="type">VideoInfo</span> <span class="variable">videoInfo</span> <span class="operator">=</span> transferMapToVideo(hashMap);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="literal">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        redis.hmset(redisKey,transferVideoToMap(hashMap));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135110.png" alt="img"></p>
 <p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135214.png" alt="img"></p>
 <p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200305135306.png" alt="img"></p>
@@ -871,7 +879,8 @@
 <li><p><strong>smembers：无序、小心使用</strong></p>
 </li>
 <li><p><strong>srandmember和spop：spop从集合弹出、srandmember不会破坏集合</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd user:1:follow it news his sports</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;news&quot;</span><br><span class="line">4) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; spop user:1:follow </span><br><span class="line">&quot;news&quot;</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; scard user:1:follow</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sismember user:1:follow entertainment</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd user:1:follow it news his sports</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;news&quot;</span><br><span class="line">4) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; spop user:1:follow </span><br><span class="line">&quot;news&quot;</span><br><span class="line">127.0.0.1:6379&gt; smembers user:1:follow</span><br><span class="line">1) &quot;sports&quot;</span><br><span class="line">2) &quot;his&quot;</span><br><span class="line">3) &quot;it&quot;</span><br><span class="line">127.0.0.1:6379&gt; scard user:1:follow</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; sismember user:1:follow entertainment</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>实现：抽奖系统（can be spop）</p>
 </li>
 <li><p>实现：Like、赞、踩</p>
@@ -945,7 +954,7 @@
 <li><p><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306103935.png"></p>
 </li>
 <li><p>Jedis直连</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.生成一个Jedis对象，这个对象负责和指定redis节点进行通信</span></span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="comment">// 2.jedis执行set操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 3.jedis执行get操作，value=&quot;world&quot;</span></span><br><span class="line">    String value = jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.生成一个Jedis对象，这个对象负责和指定redis节点进行通信</span></span><br><span class="line">    <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="comment">// 2.jedis执行set操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 3.jedis执行get操作，value=&quot;world&quot;</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>Jedis(String host, int port, int connectionTimeout, int soTimeout)</strong></p>
 <ul>
@@ -958,7 +967,8 @@
 </ul>
 </li>
 <li><p>jedis的基本使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.String</span></span><br><span class="line"><span class="comment">// 输出结果：ok</span></span><br><span class="line">jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：world</span></span><br><span class="line">jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：1</span></span><br><span class="line">jedis.incr(<span class="string">&quot;counter&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.hash</span></span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f1&quot;</span>,<span class="string">&quot;v1&quot;</span>);</span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f2&quot;</span>,<span class="string">&quot;v2&quot;</span>)；</span><br><span class="line"><span class="comment">// 输出结果：&#123;f1=v1, f2=v2&#125;</span></span><br><span class="line">jedis.hgetall(<span class="string">&quot;myhash&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.list</span></span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;1&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;2&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;3&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[1,2,3]</span></span><br><span class="line">jedis.lrange(<span class="string">&quot;mylist&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.set</span></span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[b, a]</span></span><br><span class="line">jedis.smembers(<span class="string">&quot;myset&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.zset</span></span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">99</span>,<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">66</span>,<span class="string">&quot;peter&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">33</span>,<span class="string">&quot;james&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[[[&quot;james&quot;],33.0],[[&quot;peter&quot;],66.0],[[&quot;tom&quot;],99.0]]</span></span><br><span class="line">jedis.zrangeWithScores(<span class="string">&quot;myzset&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.String</span></span><br><span class="line"><span class="comment">// 输出结果：ok</span></span><br><span class="line">jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：world</span></span><br><span class="line">jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：1</span></span><br><span class="line">jedis.incr(<span class="string">&quot;counter&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.hash</span></span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f1&quot;</span>,<span class="string">&quot;v1&quot;</span>);</span><br><span class="line">jedis.hset(<span class="string">&quot;myhash&quot;</span>,<span class="string">&quot;f2&quot;</span>,<span class="string">&quot;v2&quot;</span>)；</span><br><span class="line"><span class="comment">// 输出结果：&#123;f1=v1, f2=v2&#125;</span></span><br><span class="line">jedis.hgetall(<span class="string">&quot;myhash&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.list</span></span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;1&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;2&quot;</span>);</span><br><span class="line">jedis.rpush(<span class="string">&quot;mylist&quot;</span>,<span class="string">&quot;3&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[1,2,3]</span></span><br><span class="line">jedis.lrange(<span class="string">&quot;mylist&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.set</span></span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line">jedis.sadd(<span class="string">&quot;myset&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[b, a]</span></span><br><span class="line">jedis.smembers(<span class="string">&quot;myset&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5.zset</span></span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">99</span>,<span class="string">&quot;tom&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">66</span>,<span class="string">&quot;peter&quot;</span>);</span><br><span class="line">jedis.zadd(<span class="string">&quot;myzset&quot;</span>,<span class="number">33</span>,<span class="string">&quot;james&quot;</span>);</span><br><span class="line"><span class="comment">// 输出结果：[[[&quot;james&quot;],33.0],[[&quot;peter&quot;],66.0],[[&quot;tom&quot;],99.0]]</span></span><br><span class="line">jedis.zrangeWithScores(<span class="string">&quot;myzset&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>jedis连接池使用</p>
 <ul>
 <li><p>Jedis直连</p>
@@ -979,7 +989,7 @@
 <li><p>JedisPool使用</p>
 <ul>
 <li><p>初始化Jedis连接池，通常来讲JedisPool是单例的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">GenericObjectPoolConfig poolConfig = <span class="keyword">new</span> GenericObjectPoolConfig();</span><br><span class="line">JedisPool jedisPool = <span class="keyword">new</span> JedisPool(poolConfig,<span class="string">&quot;127.0.0.1&quot;</span>,<span class="string">&quot;6379&quot;</span>);</span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 1.从连接池获取jedis对象</span></span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">// 2.执行操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="comment">// Logger logger = LoggerFactory.getLogger(getClass().getName());</span></span><br><span class="line">    <span class="comment">//logger.error(e.getMessage(),e);</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)</span><br><span class="line">        <span class="comment">// 如果使用JedisPool，close操作不是关闭连接，代表归还连接池</span></span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">GenericObjectPoolConfig</span> <span class="variable">poolConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GenericObjectPoolConfig</span>();</span><br><span class="line"><span class="type">JedisPool</span> <span class="variable">jedisPool</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JedisPool</span>(poolConfig,<span class="string">&quot;127.0.0.1&quot;</span>,<span class="string">&quot;6379&quot;</span>);</span><br><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// 1.从连接池获取jedis对象</span></span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">// 2.执行操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    <span class="comment">// Logger logger = LoggerFactory.getLogger(getClass().getName());</span></span><br><span class="line">    <span class="comment">//logger.error(e.getMessage(),e);</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="literal">null</span>)</span><br><span class="line">        <span class="comment">// 如果使用JedisPool，close操作不是关闭连接，代表归还连接池</span></span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>Jedis配置优化</p>
@@ -987,9 +997,9 @@
 <li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306141709.png"></li>
 <li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200306142536.png"></li>
 <li>适合的maxTotal（比较难确定）<ul>
-<li>命令平均执行时间 0.1ms = 0.001s。</li>
+<li>命令平均执行时间 0.1ms &#x3D; 0.001s。</li>
 <li>业务需要50000 QPS。</li>
-<li>maxTotal理论值 = 0.001*50000 = 50个。实际值要偏大一些。</li>
+<li>maxTotal理论值 &#x3D; 0.001*50000 &#x3D; 50个。实际值要偏大一些。</li>
 </ul>
 </li>
 <li>maxTotal（需要考虑）<ul>
@@ -999,7 +1009,7 @@
 </ul>
 </li>
 <li>适合的maxIdle和minIdle<ul>
-<li>建议maxIdle = maxTotal<ul>
+<li>建议maxIdle &#x3D; maxTotal<ul>
 <li>减少创建新连接的开销</li>
 </ul>
 </li>
@@ -1042,7 +1052,7 @@
 </li>
 <li>slowlog-log-slower-than<ol>
 <li>慢查询阈值（单位：微秒）</li>
-<li>slowlog-log-slower-than=0，记录所有命令</li>
+<li>slowlog-log-slower-than&#x3D;0，记录所有命令</li>
 <li>slowlog-log-slower-than&lt;0，不记录任何命令</li>
 </ol>
 </li>
@@ -1094,9 +1104,10 @@
 <li><p>客户端使用</p>
 <ul>
 <li><p>没有pipeline</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    jedis.hset(<span class="string">&quot;hashKey:&quot;</span>+i, <span class="string">&quot;field&quot;</span>+i, <span class="string">&quot;value&quot;</span>+i);</span><br><span class="line">    <span class="comment">// 1W hset ---&gt; 50s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++)&#123;</span><br><span class="line">    jedis.hset(<span class="string">&quot;hashKey:&quot;</span>+i, <span class="string">&quot;field&quot;</span>+i, <span class="string">&quot;value&quot;</span>+i);</span><br><span class="line">    <span class="comment">// 1W hset ---&gt; 50s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>使用pipeline</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    Pipeline pipeline = jedis.pipelined();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i*<span class="number">100</span>; j &lt; (i+<span class="number">1</span>)*<span class="number">100</span>; j++)&#123;</span><br><span class="line">        pipeline.hset(<span class="string">&quot;hashKey:&quot;</span>+j, <span class="string">&quot;field&quot;</span>+j, <span class="string">&quot;value&quot;</span>+j);</span><br><span class="line">    &#125;</span><br><span class="line">    pipeline.syncAndReturnAll();</span><br><span class="line">    <span class="comment">//1W hset ---&gt; 0.7s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">    <span class="type">Pipeline</span> <span class="variable">pipeline</span> <span class="operator">=</span> jedis.pipelined();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i*<span class="number">100</span>; j &lt; (i+<span class="number">1</span>)*<span class="number">100</span>; j++)&#123;</span><br><span class="line">        pipeline.hset(<span class="string">&quot;hashKey:&quot;</span>+j, <span class="string">&quot;field&quot;</span>+j, <span class="string">&quot;value&quot;</span>+j);</span><br><span class="line">    &#125;</span><br><span class="line">    pipeline.syncAndReturnAll();</span><br><span class="line">    <span class="comment">//1W hset ---&gt; 0.7s（预估）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>与原生操作对比</p>
@@ -1180,7 +1191,7 @@
 <li><img src="https://gitee.com/zelentre/IMG/raw/master/PicGo/20200309144651.png"></li>
 <li><strong>使用经验</strong><ul>
 <li><ol>
-<li>type=string，最大512MB</li>
+<li>type&#x3D;string，最大512MB</li>
 <li>注意setbit时的偏移量，可能有较大耗时</li>
 <li>位图不是绝对好。</li>
 </ol>
@@ -1245,7 +1256,7 @@
 <li><p>相关说明</p>
 <ol>
 <li>since 3.2+</li>
-<li>type geoKey = zset</li>
+<li>type geoKey &#x3D; zset</li>
 <li>没有删除API：zrem key member</li>
 </ol>
 </li>
@@ -1287,7 +1298,7 @@
 <ul>
 <li><p><strong>自动生成RDB</strong></p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165036.png"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置文件</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line">dir ./</span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">rdbchecksum yes</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line">dir ./</span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">rdbchecksum yes</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200309165940.png"></p>
 </li>
 </ul>
@@ -1438,7 +1449,7 @@
 <li>改善fork<ol>
 <li>优先使用物理机或者高效支持fork操作的虚拟化技术</li>
 <li>控制Redis实例最大可用内存：maxmemory</li>
-<li>合理配置Linux内存分配策略：vm.overcommit_memory = 1</li>
+<li>合理配置Linux内存分配策略：vm.overcommit_memory &#x3D; 1</li>
 <li>降低fork频率：例如放宽AOF重写自动触发时机，不必要的全量复制</li>
 </ol>
 </li>
@@ -1451,14 +1462,14 @@
 </li>
 <li>内存<ul>
 <li>开销：fork内存开销，copy-on-write</li>
-<li>优化：echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</li>
+<li>优化：echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</li>
 </ul>
 </li>
 <li>硬盘<ul>
 <li>开销：AOF和RDB文件写入，可以结合iostat，iotop分析</li>
 <li>优化：<ol>
 <li>不要和高硬盘负载服务部署一起：存储服务、消息队列等</li>
-<li>no-appendfsync-on-rewrite = yes</li>
+<li>no-appendfsync-on-rewrite &#x3D; yes</li>
 <li>根据写入量决定磁盘类型：例如ssd</li>
 <li>单机多实例持久化文件目录可以考虑分盘</li>
 </ol>
@@ -1515,7 +1526,8 @@
 </ul>
 </li>
 <li><p>配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof ip port</span><br><span class="line">slave-read-only yes</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof ip port</span><br><span class="line">slave-read-only yes</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><strong>比较</strong></p>
 <table>
 <thead>
@@ -1676,7 +1688,7 @@
 </ul>
 </li>
 <li><p>jedis</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">JedisSentinelPool sentinelPool = <span class="keyword">new</span> JedisSentinelPool(masterName,sentinelSet,poolConfig,timeout);</span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// jedis command</span></span><br><span class="line">    jedis = sentinelPool.getResource();</span><br><span class="line">&#125; <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    logger.error(e.getMessage(),e);</span><br><span class="line">&#125; <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)&#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">JedisSentinelPool</span> <span class="variable">sentinelPool</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JedisSentinelPool</span>(masterName,sentinelSet,poolConfig,timeout);</span><br><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// jedis command</span></span><br><span class="line">    jedis = sentinelPool.getResource();</span><br><span class="line">&#125; <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    logger.error(e.getMessage(),e);</span><br><span class="line">&#125; <span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jedis != <span class="literal">null</span>)&#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><ul>
 <li><p>故障转移演练</p>
@@ -1684,7 +1696,7 @@
 <li><p>客户端高可用观察</p>
 </li>
 <li><p>服务端日志分析：数据节点和sentinel节点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Logger logger =</span><br><span class="line">        LoggerFactory.getLogger(RedisSentinelTest.class);</span><br><span class="line"></span><br><span class="line">    String masterName = <span class="string">&quot;myMaster&quot;</span>;</span><br><span class="line">    Set&lt;String&gt; sentinels = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26379&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26380&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26381&quot;</span>);</span><br><span class="line"></span><br><span class="line">    JedisSentinelPool jedisSentinelPool = <span class="keyword">new</span></span><br><span class="line">        JedisSentinelPool(masterName,sentinels);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">        counter++;</span><br><span class="line">        Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            jedis = jedisSentinelPool.getResource();</span><br><span class="line">            <span class="keyword">int</span> index = <span class="keyword">new</span> Random().nextInt(<span class="number">100000</span>);</span><br><span class="line">            String key = <span class="string">&quot;k-&quot;</span> + index;</span><br><span class="line">            String value = <span class="string">&quot;v-&quot;</span> + index;</span><br><span class="line">            jedis.set(key,value);</span><br><span class="line">            <span class="keyword">if</span>(counter % <span class="number">100</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                logger.info(<span class="string">&quot;&#123;&#125; value is &#123;&#125;&quot;</span>, key, jedis.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">            TimeUnit.MILLISECONDS.sleep(<span class="number">10</span>);</span><br><span class="line">         &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            logger.error(e.getMessage(),e);</span><br><span class="line">         &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(jedis != <span class="keyword">null</span>)&#123;</span><br><span class="line">                jedis.close();&#125;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span></span><br><span class="line">        LoggerFactory.getLogger(RedisSentinelTest.class);</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">masterName</span> <span class="operator">=</span> <span class="string">&quot;myMaster&quot;</span>;</span><br><span class="line">    Set&lt;String&gt; sentinels = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26379&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26380&quot;</span>);</span><br><span class="line">    sentinels.add(<span class="string">&quot;127.0.0.1:26381&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">JedisSentinelPool</span> <span class="variable">jedisSentinelPool</span> <span class="operator">=</span> <span class="keyword">new</span></span><br><span class="line">        <span class="title class_">JedisSentinelPool</span>(masterName,sentinels);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> <span class="variable">counter</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">        counter++;</span><br><span class="line">        <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            jedis = jedisSentinelPool.getResource();</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">100000</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> <span class="string">&quot;k-&quot;</span> + index;</span><br><span class="line">            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> <span class="string">&quot;v-&quot;</span> + index;</span><br><span class="line">            jedis.set(key,value);</span><br><span class="line">            <span class="keyword">if</span>(counter % <span class="number">100</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                logger.info(<span class="string">&quot;&#123;&#125; value is &#123;&#125;&quot;</span>, key, jedis.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">            TimeUnit.MILLISECONDS.sleep(<span class="number">10</span>);</span><br><span class="line">         &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            logger.error(e.getMessage(),e);</span><br><span class="line">         &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(jedis != <span class="literal">null</span>)&#123;</span><br><span class="line">                jedis.close();&#125;</span><br><span class="line">         &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>三个定时任务</p>
@@ -1696,7 +1708,7 @@
 </ul>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200312113712.png"></p>
 </li>
-<li><p>每2秒每个sentinel通过master节点的channel交换信息（pub/sub）</p>
+<li><p>每2秒每个sentinel通过master节点的channel交换信息（pub&#x2F;sub）</p>
 <ul>
 <li>通过 <code>_sentinel_:hello</code>频道交换</li>
 <li>交换对节点的“看法”和自身信息</li>
@@ -1711,7 +1723,8 @@
 <li><p>主观下线和客观下线</p>
 <ul>
 <li><p>配置示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor &lt;masterName&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br><span class="line">sentinel monitor myMaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds &lt;masterName&gt; &lt;timeout&gt;</span><br><span class="line">sentinel down-after-milliseconds myMaster 30000</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor &lt;masterName&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br><span class="line">sentinel monitor myMaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds &lt;masterName&gt; &lt;timeout&gt;</span><br><span class="line">sentinel down-after-milliseconds myMaster 30000</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>主观下线：每个sentinel节点对Redis节点失败的“偏见”</p>
 </li>
 <li><p>客观下线：所有sentinel节点对Redis节点失败“达成共识”（超过quorum个统一）</p>
@@ -1810,7 +1823,7 @@
 </li>
 <li><p>使用集群原因：</p>
 <ol>
-<li>并发量：最大10W/s，业务需求更多呢</li>
+<li>并发量：最大10W&#x2F;s，业务需求更多呢</li>
 <li>数据量：机器内存有限，业务需求大呢</li>
 </ol>
 </li>
@@ -2095,7 +2108,7 @@
 <li><p>smart客户端使用：JedisCluster</p>
 <ul>
 <li><p>JedisCluster基本使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;HostAndPort&gt; nodeList = <span class="keyword">new</span> HashSet&lt;HostAndPort&gt;();</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT1));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT2));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT3));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT4));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT5));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> HostAndPort(HOST1,PORT6));</span><br><span class="line">JedisCluster redisCluster = <span class="keyword">new</span> JedisCluster(nodeList,timeout,poolConfig);</span><br><span class="line">redisCluster.command ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;HostAndPort&gt; nodeList = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;HostAndPort&gt;();</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT1));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT2));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT3));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT4));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT5));</span><br><span class="line">nodeList.add(<span class="keyword">new</span> <span class="title class_">HostAndPort</span>(HOST1,PORT6));</span><br><span class="line"><span class="type">JedisCluster</span> <span class="variable">redisCluster</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JedisCluster</span>(nodeList,timeout,poolConfig);</span><br><span class="line">redisCluster.command ...</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>使用技巧：<ol>
@@ -2112,7 +2125,8 @@
 </ul>
 </li>
 <li><p>多节点命令实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, JedisPool&gt; jedisPoolMap = jedisCluster.getClusterNodes();</span><br><span class="line"><span class="keyword">for</span>(Entry&lt;String,JedisPool&gt; entry : jedisPoolMap.entrySet())&#123;</span><br><span class="line">    <span class="comment">//获取每个节点的Jedis连接</span></span><br><span class="line">    Jedis jedis = entry.getValue.getResource();</span><br><span class="line">    <span class="comment">//只删除主节点数据</span></span><br><span class="line">    <span class="keyword">if</span>(!isMaster(jedis))&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//finally close</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, JedisPool&gt; jedisPoolMap = jedisCluster.getClusterNodes();</span><br><span class="line"><span class="keyword">for</span>(Entry&lt;String,JedisPool&gt; entry : jedisPoolMap.entrySet())&#123;</span><br><span class="line">    <span class="comment">//获取每个节点的Jedis连接</span></span><br><span class="line">    <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> entry.getValue.getResource();</span><br><span class="line">    <span class="comment">//只删除主节点数据</span></span><br><span class="line">    <span class="keyword">if</span>(!isMaster(jedis))&#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//finally close</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>批量命令实现</p>
 <ul>
 <li><p>mget mset必须在一个槽上</p>
@@ -2186,7 +2200,7 @@
 </ul>
 <h3 id="故障转移"><a href="#故障转移" class="headerlink" title="故障转移"></a>故障转移</h3><ul>
 <li>故障发现<ul>
-<li>通过ping/pong消息实现故障发现：不需要sentinel</li>
+<li>通过ping&#x2F;pong消息实现故障发现：不需要sentinel</li>
 <li>主观下线<ul>
 <li>定义：某个节点认为另一个节点不可用，“偏见”</li>
 <li>流程：<img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317091147.png"></li>
@@ -2220,7 +2234,7 @@
 </ul>
 </li>
 <li>替换主节点<ol>
-<li> 当前从节点取消复制变为主节点（slave no one）</li>
+<li>当前从节点取消复制变为主节点（slave no one）</li>
 <li>执行clusterDelSlot撤销故障主节点负责的槽，并执行clusterAddSlot把这些槽分配给自己</li>
 <li>向集群广播自己的pong消息，表明已经替换了故障从节点</li>
 </ol>
@@ -2248,13 +2262,13 @@
 </li>
 <li>带宽消耗<ul>
 <li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317104154.png"></li>
-<li>消息发送频率：节点发现与其他节点最后通信时间超过cluster-node-timeout/2时会直接发送ping消息</li>
-<li>消息数据量：slots槽数组（2KB空间）和整个集群1/10的状态数据（10个节点状态数据约1KB）</li>
+<li>消息发送频率：节点发现与其他节点最后通信时间超过cluster-node-timeout&#x2F;2时会直接发送ping消息</li>
+<li>消息数据量：slots槽数组（2KB空间）和整个集群1&#x2F;10的状态数据（10个节点状态数据约1KB）</li>
 <li>节点部署的机器规模：集群分布的机器越多且每台机器划分的节点数越均匀，则集群内整体的可用带宽越高</li>
 <li>例子：<ul>
 <li>规模：节点200个、20台物理机（每台10个节点）</li>
-<li>cluster-node-timeout = 15000，ping/pong带宽为25ＭB</li>
-<li>cluster-node-timeout = 20000，ping/pong带宽为25ＭB</li>
+<li>cluster-node-timeout &#x3D; 15000，ping&#x2F;pong带宽为25ＭB</li>
+<li>cluster-node-timeout &#x3D; 20000，ping&#x2F;pong带宽为25ＭB</li>
 </ul>
 </li>
 <li>优化：<ul>
@@ -2265,7 +2279,7 @@
 </li>
 </ul>
 </li>
-<li>Pub/Sub广播<ul>
+<li>Pub&#x2F;Sub广播<ul>
 <li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200317112845.png"></li>
 <li>问题：publish在集群每个节点广播：加重宽带</li>
 <li>解决：单独“走”一套Redis Sentinel</li>
@@ -2322,7 +2336,7 @@
 </li>
 </ul>
 </li>
-<li>数据迁移（在线/离线）<ul>
+<li>数据迁移（在线&#x2F;离线）<ul>
 <li>官方迁移工具：redis-trib.rb import<ul>
 <li>只能从单机迁移到集群</li>
 <li>不支持在线迁移：source需要停写</li>
@@ -2370,12 +2384,12 @@
 </li>
 <li>使用smart客户端操作集群达到通信效率最大化，客户端内部负责计算维护键 -&gt; 槽 -&gt; 节点的映射，用于快速定位到目标节点</li>
 <li>集群自动故障转移过程分为故障发现和节点恢复。节点下线分为主观下线和客观下线，当超过半数主节点认为故障节点为主观下线时标记他为客观下线状态。从节点负责对客观下线的主节点触发故障恢复流程，保证集群的可用性</li>
-<li>开发运维常见问题包括：超大规模集群带宽消耗，pub/sub广播问题，集群倾斜问题，单机和集群对比等</li>
+<li>开发运维常见问题包括：超大规模集群带宽消耗，pub&#x2F;sub广播问题，集群倾斜问题，单机和集群对比等</li>
 </ul>
 <h2 id="十、缓存设计与优化"><a href="#十、缓存设计与优化" class="headerlink" title="十、缓存设计与优化"></a>十、缓存设计与优化</h2><h3 id="缓存的受益与成本"><a href="#缓存的受益与成本" class="headerlink" title="缓存的受益与成本"></a>缓存的受益与成本</h3><ul>
 <li>受益<ol>
 <li>加速读写<ul>
-<li>通过缓存加速读写速度：CPU L1/L2/L3 Cache、Linux page Cache加速硬盘读写、浏览器缓存、Ehcache缓存数据库结果</li>
+<li>通过缓存加速读写速度：CPU L1&#x2F;L2&#x2F;L3 Cache、Linux page Cache加速硬盘读写、浏览器缓存、Ehcache缓存数据库结果</li>
 </ul>
 </li>
 <li>降低后端负载<ul>
@@ -2392,11 +2406,11 @@
 </li>
 <li>使用场景<ol>
 <li>降低后端负载<ul>
-<li>对高消耗的SQL：join结果集/分组统计结果缓存</li>
+<li>对高消耗的SQL：join结果集&#x2F;分组统计结果缓存</li>
 </ul>
 </li>
 <li>加速请求响应<ul>
-<li>利用Redis/Memcache优化IO响应时间</li>
+<li>利用Redis&#x2F;Memcache优化IO响应时间</li>
 </ul>
 </li>
 <li>大量写合并为批量写<ul>
@@ -2407,7 +2421,7 @@
 </li>
 </ul>
 <h3 id="缓存跟新策略"><a href="#缓存跟新策略" class="headerlink" title="缓存跟新策略"></a>缓存跟新策略</h3><ol>
-<li><p>LRU/LFU/FIFO算法剔除：例如：maxmemory-policy</p>
+<li><p>LRU&#x2F;LFU&#x2F;FIFO算法剔除：例如：maxmemory-policy</p>
 </li>
 <li><p>超时剔除：例如expire</p>
 </li>
@@ -2423,7 +2437,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">LRU/LIRS算法剔除</td>
+<td align="center">LRU&#x2F;LIRS算法剔除</td>
 <td align="center">最差</td>
 <td align="center">低</td>
 </tr>
@@ -2487,7 +2501,7 @@
 </ol>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassThrough</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">    String cacheValue = cache.get(key);</span><br><span class="line">    <span class="keyword">if</span>(StringUtils.isBlink(cacheValue))&#123;</span><br><span class="line">        String storageValue = storage.get(key);</span><br><span class="line">        cache.set(key,storageValue);</span><br><span class="line">        <span class="comment">//如果存储数据为空，需要设置一个过期时间（300秒）</span></span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlink(storageValue))&#123;</span><br><span class="line">            cache.expire(key,<span class="number">60</span>*<span class="number">5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storageValue;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getPassThrough</span><span class="params">(String key)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">cacheValue</span> <span class="operator">=</span> cache.get(key);</span><br><span class="line">    <span class="keyword">if</span>(StringUtils.isBlink(cacheValue))&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">storageValue</span> <span class="operator">=</span> storage.get(key);</span><br><span class="line">        cache.set(key,storageValue);</span><br><span class="line">        <span class="comment">//如果存储数据为空，需要设置一个过期时间（300秒）</span></span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlink(storageValue))&#123;</span><br><span class="line">            cache.expire(key,<span class="number">60</span>*<span class="number">5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storageValue;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318165903.png"></li>
@@ -2502,7 +2516,7 @@
 <li>优化IO的几种方法<ol>
 <li>命令本身优化：例如慢查询keys、hgetall bigkey</li>
 <li>减少网络通信次数</li>
-<li>降低接入成本：例如客户端长连接/连接池、NIO等</li>
+<li>降低接入成本：例如客户端长连接&#x2F;连接池、NIO等</li>
 </ol>
 </li>
 </ul>
@@ -2528,7 +2542,7 @@
 <li><p>互斥锁（mutex key）</p>
 <ul>
 <li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318175933.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">get</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">    String value = redis.get(key);</span><br><span class="line">    <span class="keyword">if</span>(value == <span class="keyword">null</span>)&#123;</span><br><span class="line">        String mutexKey = <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            value = db.get(key);</span><br><span class="line">            redis.set(key,value);</span><br><span class="line">            redis.delete(mutexKey);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//其他线程休息50毫秒后重试</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">get</span><span class="params">(String key)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="keyword">if</span>(value == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">mutexKey</span> <span class="operator">=</span> <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            value = db.get(key);</span><br><span class="line">            redis.set(key,value);</span><br><span class="line">            redis.delete(mutexKey);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//其他线程休息50毫秒后重试</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>永远不过期</p>
@@ -2537,7 +2551,7 @@
 </li>
 <li><p>功能层面：为每个value添加逻辑过期时间，但发现超过逻辑过期时间后，会使用单独的线程去构建缓存</p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200318180917.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">get</span><span class="params">(<span class="keyword">final</span> String key)</span></span>&#123;</span><br><span class="line">    V v = redis.get(key);</span><br><span class="line">    String value = redis.get(key);</span><br><span class="line">    <span class="keyword">long</span> logicTimeout = v.getLogicTimeout();</span><br><span class="line">    <span class="keyword">if</span>(logicTimeout &gt;= System.currentTimeMillis())&#123;</span><br><span class="line">        String mutexKey = <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            <span class="comment">//异步更新后台异常执行</span></span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                    String dbValue = db.get(key);</span><br><span class="line">            		redis.set(key,(dbValue,newLogicTimeout));</span><br><span class="line">            		redis.delete(keyMutex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">get</span><span class="params">(<span class="keyword">final</span> String key)</span>&#123;</span><br><span class="line">    <span class="type">V</span> <span class="variable">v</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="type">long</span> <span class="variable">logicTimeout</span> <span class="operator">=</span> v.getLogicTimeout();</span><br><span class="line">    <span class="keyword">if</span>(logicTimeout &gt;= System.currentTimeMillis())&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">mutexKey</span> <span class="operator">=</span> <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            <span class="comment">//异步更新后台异常执行</span></span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> <span class="title class_">Runnable</span>()&#123;</span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">                    <span class="type">String</span> <span class="variable">dbValue</span> <span class="operator">=</span> db.get(key);</span><br><span class="line">            		redis.set(key,(dbValue,newLogicTimeout));</span><br><span class="line">            		redis.delete(keyMutex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>对比</p>
@@ -2582,7 +2596,7 @@
 <li>一键开启Redis（Standalone、Sentinel、Cluster）</li>
 <li>机器、应用、实例监控和报警</li>
 <li>客户端：透明使用、性能上报</li>
-<li>可视化运维：配置、扩容、Failover、机器/应用/实例上下线</li>
+<li>可视化运维：配置、扩容、Failover、机器&#x2F;应用&#x2F;实例上下线</li>
 <li>已存在Redis直接接入和数据迁移</li>
 </ol>
 </li>
@@ -2641,12 +2655,12 @@
 <h3 id="布隆过滤器误差率"><a href="#布隆过滤器误差率" class="headerlink" title="布隆过滤器误差率"></a>布隆过滤器误差率</h3><ul>
 <li><p>肯定存在误差：恰好都命中了</p>
 </li>
-<li><p>直观因素：m/n的比率，hash函数的个数</p>
+<li><p>直观因素：m&#x2F;n的比率，hash函数的个数</p>
 </li>
 <li><p>实际误差率公式</p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200325164844.png"></p>
 <ul>
-<li>m/n与误差率成反比，k与误差率成反比</li>
+<li>m&#x2F;n与误差率成反比，k与误差率成反比</li>
 </ul>
 </li>
 </ul>
@@ -2772,7 +2786,8 @@
 </tbody></table>
 </li>
 <li><p>redis4.0：lazy delete（unlink命令）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bigkey 删除方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delBigHash</span><span class="params">(String host, <span class="keyword">int</span> port, String password, String bigHashKey)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(host, port);</span><br><span class="line">        <span class="keyword">if</span> (password != <span class="keyword">null</span> &amp;&amp; <span class="string">&quot;&quot;</span>.equals(password)) &#123;</span><br><span class="line">            jedis.auth(password);</span><br><span class="line">        &#125;</span><br><span class="line">        ScanParams scanParams = <span class="keyword">new</span> ScanParams().count(<span class="number">100</span>);</span><br><span class="line">        String cursor = <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            ScanResult&lt;Map.Entry&lt;String, String&gt;&gt; scanResult = jedis.hscan(bigHashKey, cursor, scanParams);</span><br><span class="line">            List&lt;Map.Entry&lt;String, String&gt;&gt; entryList = scanResult.getResult();</span><br><span class="line">            <span class="keyword">if</span> (entryList != <span class="keyword">null</span> &amp;&amp; !entryList.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : entryList) &#123;</span><br><span class="line">                    jedis.hdel(bigHashKey,entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//cursor = scanResult.getStringCursor();  估计是个老方法  没找到</span></span><br><span class="line">            cursor = scanResult.getCursor();</span><br><span class="line">        &#125; <span class="keyword">while</span> (!<span class="string">&quot;0&quot;</span>.equals(cursor));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除bigkey</span></span><br><span class="line">        jedis.del(bigHashKey);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bigkey 删除方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delBigHash</span><span class="params">(String host, <span class="type">int</span> port, String password, String bigHashKey)</span> &#123;</span><br><span class="line">        <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(host, port);</span><br><span class="line">        <span class="keyword">if</span> (password != <span class="literal">null</span> &amp;&amp; <span class="string">&quot;&quot;</span>.equals(password)) &#123;</span><br><span class="line">            jedis.auth(password);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ScanParams</span> <span class="variable">scanParams</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ScanParams</span>().count(<span class="number">100</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">cursor</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            ScanResult&lt;Map.Entry&lt;String, String&gt;&gt; scanResult = jedis.hscan(bigHashKey, cursor, scanParams);</span><br><span class="line">            List&lt;Map.Entry&lt;String, String&gt;&gt; entryList = scanResult.getResult();</span><br><span class="line">            <span class="keyword">if</span> (entryList != <span class="literal">null</span> &amp;&amp; !entryList.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : entryList) &#123;</span><br><span class="line">                    jedis.hdel(bigHashKey,entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//cursor = scanResult.getStringCursor();  估计是个老方法  没找到</span></span><br><span class="line">            cursor = scanResult.getCursor();</span><br><span class="line">        &#125; <span class="keyword">while</span> (!<span class="string">&quot;0&quot;</span>.equals(cursor));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除bigkey</span></span><br><span class="line">        jedis.del(bigHashKey);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>bigkey预防</p>
 <ul>
 <li>优化数据结构：例如二级拆分</li>
@@ -2801,7 +2816,7 @@
 <li>正例：<code>hmset user:1 name tom age 19 favor football</code></li>
 </ul>
 </li>
-<li><p>需求：picId =&gt;userId(100万)</p>
+<li><p>需求：picId &#x3D;&gt;userId(100万)</p>
 <ul>
 <li><p>方案：</p>
 <ul>
@@ -2809,7 +2824,7 @@
 </li>
 <li><p>一个hash：hset allPics picId userId</p>
 </li>
-<li><p>若干个小hash：hset picId/100 pic%100 userId</p>
+<li><p>若干个小hash：hset picId&#x2F;100 pic%100 userId</p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/20200406165541.png"></p>
 </li>
 <li><p>三种方案内存分析</p>
@@ -2896,7 +2911,7 @@
 <li><p>【推荐】redis集群版本在使用Lua上有特殊要求</p>
 <ul>
 <li>所有key，必须在1个slot上，否则直接返回error</li>
-<li><strong>“-ERR eval/evalsha command keys must in same slot\r\n”</strong></li>
+<li><strong>“-ERR eval&#x2F;evalsha command keys must in same slot\r\n”</strong></li>
 </ul>
 </li>
 <li><p>【建议】必要情况下使用monitor命令时，要注意不要长时间使用</p>
@@ -2913,7 +2928,7 @@
 <li><p>【推荐】</p>
 <ul>
 <li><p>使用连接池，标准使用方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//redisHost为实例的IP，redisPort为实例端口，redisPassword为实例的密码，timeout既是连接超时又是读写超时</span></span><br><span class="line">JedisPool jedisPool = <span class="keyword">new</span> JedisPool(jedisPoolConfig, redisHost, redisPort, timeout, redisPasswor<span class="comment">//d);</span></span><br><span class="line"><span class="comment">//执命令如下</span></span><br><span class="line">Jedis jedis = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">//具体的命令</span></span><br><span class="line">    jedis.executeCommand()</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(e.getMessage(), e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//在JedisPool模式下，Jedis会被归还给资源池</span></span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) </span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//redisHost为实例的IP，redisPort为实例端口，redisPassword为实例的密码，timeout既是连接超时又是读写超时</span></span><br><span class="line"><span class="type">JedisPool</span> <span class="variable">jedisPool</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JedisPool</span>(jedisPoolConfig, redisHost, redisPort, timeout, redisPasswor<span class="comment">//d);</span></span><br><span class="line"><span class="comment">//执命令如下</span></span><br><span class="line"><span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    <span class="comment">//具体的命令</span></span><br><span class="line">    jedis.executeCommand()</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(e.getMessage(), e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">//在JedisPool模式下，Jedis会被归还给资源池</span></span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="literal">null</span>) </span><br><span class="line">        jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -2943,7 +2958,7 @@
 <td align="center">3</td>
 <td align="center">minEvictableIdleTimeMillis</td>
 <td align="center">资源池中资源最小空闲时间（单位为毫秒），达到此值后空闲资源将被移除</td>
-<td align="center">1000 60 30 =30分钟</td>
+<td align="center">1000 60 30 &#x3D;30分钟</td>
 <td align="center">可根据自身业务决定，大部分默认即可，也可以考虑使用JedisPoolConfig中的配置</td>
 </tr>
 <tr>
@@ -2955,10 +2970,10 @@
 </tr>
 </tbody></table>
 <p><strong>其中JedisPoolConfig对一些参数的默认设置如下：</strong></p>
-<p><strong>testWhileIdle=true</strong></p>
-<p><strong>minEvictableIdleTimeMills=60000</strong></p>
-<p><strong>timeBetweenEvictionRunsMillis=30000</strong>·</p>
-<p><strong>numTestsPerEvictionRun=-1</strong></p>
+<p><strong>testWhileIdle&#x3D;true</strong></p>
+<p><strong>minEvictableIdleTimeMills&#x3D;60000</strong></p>
+<p><strong>timeBetweenEvictionRunsMillis&#x3D;30000</strong>·</p>
+<p><strong>numTestsPerEvictionRun&#x3D;-1</strong></p>
 </li>
 <li><p>如何预估最大连接池</p>
 <ul>
@@ -2973,7 +2988,7 @@
 <li>例子<ul>
 <li>一次命令时间（borrow|return resource + Jedis执行命令（含网络））的平均耗时约为1ms，一个连接的QPS大约是1000</li>
 <li>业务期望的QPS是50000</li>
-<li>理论的maxTotal = 50000/1000 = 50 个，可以适当伸缩</li>
+<li>理论的maxTotal &#x3D; 50000&#x2F;1000 &#x3D; 50 个，可以适当伸缩</li>
 </ul>
 </li>
 </ol>
@@ -3018,7 +3033,7 @@
 </tr>
 <tr>
 <td align="left"><strong>mem_fragmentation_ratio</strong></td>
-<td align="left"><strong>used_memory_rss/used_memory比值，表示内存碎片率</strong></td>
+<td align="left"><strong>used_memory_rss&#x2F;used_memory比值，表示内存碎片率</strong></td>
 </tr>
 <tr>
 <td align="left">mem_allocator</td>
@@ -3096,7 +3111,7 @@
 <li>优化方式：<ul>
 <li>去掉THP特性：2.6.38增加的特性</li>
 <li>观察写入量：copy-on-write</li>
-<li>overcommit_memory=1</li>
+<li>overcommit_memory&#x3D;1</li>
 </ul>
 </li>
 </ol>
@@ -3238,7 +3253,7 @@
 <ol>
 <li>Redis设置合理的maxmemory，保证机器有20%~30%的闲置内存</li>
 <li>集中化管理AOF重写和RDB的bgsave</li>
-<li>设置vm.overcommit_memory=1,防止极端情况下会造成fork失败</li>
+<li>设置vm.overcommit_memory&#x3D;1,防止极端情况下会造成fork失败</li>
 </ol>
 </li>
 </ul>
@@ -3292,14 +3307,14 @@
 <li><p>设置方法：<code>echo never&gt;/sys/kernel/mm/transparent_hugepage/enabled</code></p>
 </li>
 <li><p>坑：源码中是绝对路径，注意不同发行版本的区别</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FILE*fp = fopen(<span class="string">&quot;/sys/kernel/mm/transparent_hugepage/enabled&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fb) <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FILE*fp = <span class="title function_ invoke__">fopen</span>(<span class="string">&quot;/sys/kernel/mm/transparent_hugepage/enabled&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fb) <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 </ul>
 </li>
 <li><p>OOM killer</p>
 <ul>
-<li>该机制会监控那些占用内存过大，尤其是瞬间占用内存很快的进程，然后防止内存耗尽而自动把该进程杀掉。内核检测到系统内存不足、挑选并杀掉某个进程的过程可以参考内核源代码linux/mm/oom_kill.c，当系统内存不足的时候，out_of_memory()被触发，然后调用select_bad_process()选择一个”bad”进程杀掉。如何判断和选择一个”bad进程呢？linux选择”bad”进程是通过调用oom_badness()，挑选的算法和想法都很简单很朴实：最bad的那个进程就是那个最占用内存的进程</li>
+<li>该机制会监控那些占用内存过大，尤其是瞬间占用内存很快的进程，然后防止内存耗尽而自动把该进程杀掉。内核检测到系统内存不足、挑选并杀掉某个进程的过程可以参考内核源代码linux&#x2F;mm&#x2F;oom_kill.c，当系统内存不足的时候，out_of_memory()被触发，然后调用select_bad_process()选择一个”bad”进程杀掉。如何判断和选择一个”bad进程呢？linux选择”bad”进程是通过调用oom_badness()，挑选的算法和想法都很简单很朴实：最bad的那个进程就是那个最占用内存的进程</li>
 </ul>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iloli/article/details/6431757">NTP(Net Time Protocol)</a></p>
@@ -3458,7 +3473,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -3469,13 +3484,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

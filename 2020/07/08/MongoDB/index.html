@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,11 +15,12 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="MongoDB（有点乱 之后整理）">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MongoDB（有点乱 之后整理）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB">
 <meta property="og:url" content="http://example.com/2020/07/08/MongoDB/index.html">
@@ -43,6 +43,7 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MongoDB | 笔记</title>
   
+
 
 
 
@@ -70,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -85,11 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -159,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -214,11 +211,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MongoDB | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -235,13 +237,13 @@
 
       <time title="创建时间：2020-07-08 18:01:31" itemprop="dateCreated datePublished" datetime="2020-07-08T18:01:31+08:00">2020-07-08</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 16:27:26" itemprop="dateModified" datetime="2021-06-14T16:27:26+08:00">2021-06-14</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-06-14 16:27:26" itemprop="dateModified" datetime="2021-06-14T16:27:26+08:00">2021-06-14</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -304,8 +306,8 @@
 <li>业务应用场景<ul>
 <li>传统的关系型数据库（如MySQL），在数据操作的“三高”需求以及应对Web2.0的网站需求面前，显得力不从心。 </li>
 <li>解释：“三高”需求： <ul>
-<li> High performance - 对数据库高并发读写的需求。</li>
-<li> Huge Storage - 对海量数据的高效率存储和访问的需求。 </li>
+<li>High performance - 对数据库高并发读写的需求。</li>
+<li>Huge Storage - 对海量数据的高效率存储和访问的需求。 </li>
 <li>High Scalability &amp;&amp; High Availability- 对数据库的高可扩展性和高可用性的需求。 而MongoDB可应对“三高”需求。</li>
 </ul>
 </li>
@@ -359,10 +361,11 @@
 </li>
 <li><p>docker安装MongoDB：</p>
 <ul>
-<li><p>```shell<br>docker pull mongo<br>docker run -itd –name mongo -p 27017:27017 mongo –auth<br>docker exec -it 2c79 mongo admin<br>db.createUser({user: ‘root’, pwd: ‘root’, roles:[{ role: “root”, db:”admin” }]});<br>db.auth(“root”,”root”);</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **其中 2c79 是 CONTAINER ID，即容器ID**</span><br><span class="line"></span><br><span class="line">## 四、MongoDB技术优势总结</span><br><span class="line"></span><br><span class="line">- JSON结构和对象模型接近，开发代码量低</span><br><span class="line"></span><br><span class="line">- JSON的动态模型意味着更容易响应新的业务需求</span><br><span class="line">- 复制集提供99.99%高可用</span><br><span class="line">- 分片架构支持海量数据和无缝扩容</span><br><span class="line"></span><br><span class="line">## 五、简单使用</span><br><span class="line"></span><br><span class="line">### 使用insert 完成插入操作</span><br><span class="line"></span><br><span class="line">1. 操作格式：</span><br><span class="line"></span><br><span class="line">   - db.&lt;集合&gt;.insertOne(&lt;JSON对象&gt;)</span><br><span class="line"></span><br><span class="line">   - db.&lt;集合&gt;.insertMany([&lt;JSON1&gt;, &lt;JSON2&gt;, ...&lt;JSON3&gt;])</span><br><span class="line"></span><br><span class="line">2. 实例：</span><br><span class="line"></span><br><span class="line">   - db.fruit.insertOne(&#123;name:&quot;apple&quot;&#125;)</span><br><span class="line">   - db.fruit.insertMany([&#123;name:&quot;apple&quot;&#125;,&#123;name:&quot;pear&quot;&#125;,&#123;name:&quot;orange&quot;&#125;])</span><br><span class="line"></span><br><span class="line">### 使用find查询文档</span><br><span class="line"></span><br><span class="line">1. 关于find</span><br><span class="line"></span><br><span class="line">   - find是MongoDB中查询数据的基本指令，相当于SQL中的SELECT</span><br><span class="line">   - find返回的是游标</span><br><span class="line"></span><br><span class="line">2. find示例</span><br><span class="line"></span><br><span class="line">   - db.movies.find(&#123;&quot;year&quot;:1975&#125;)  //单条件查询</span><br><span class="line">   - db.movies.find(&#123;&quot;year&quot;:1989,&quot;title&quot;:&quot;Batman&quot;&#125;)  //多条件and查询</span><br><span class="line">   - db.movies.find(&#123;$and:[&#123;&quot;title&quot;:&quot;Batman&quot;&#125;,&#123;&quot;category&quot;:&quot;action&quot;&#125;]&#125;) //and的另一种形式</span><br><span class="line">   - db.movies.find(&#123;$or:[&#123;&quot;year&quot;:1989&#125;,&#123;&quot;title&quot;:&quot;Batman&quot;&#125;]&#125;)  //多条件or查询</span><br><span class="line">   - db.movies.find(&#123;&quot;title&quot;:/^B/&#125;) //按正则表达式查找</span><br><span class="line"></span><br><span class="line">3. 对照表</span><br><span class="line"></span><br><span class="line">   |     SQL      |               MQL               |</span><br><span class="line">   | :----------: | :-----------------------------: |</span><br><span class="line">   |     a=1      |              &#123;a:1&#125;              |</span><br><span class="line">   |     a&lt;&gt;1     |           &#123;a:&#123;$ne:1&#125;&#125;           |</span><br><span class="line">   |     a&gt;1      |           &#123;a:&#123;$gt:1&#125;&#125;           |</span><br><span class="line">   |     a&gt;=1     |          &#123;a:&#123;$gte:1&#125;&#125;           |</span><br><span class="line">   |     a&lt;1      |           &#123;a:&#123;$lt:1&#125;&#125;           |</span><br><span class="line">   |     a&lt;=1     |          &#123;a:&#123;$lte:1&#125;&#125;           |</span><br><span class="line">   | a=1 AND b=1  | &#123;a:1,b:1&#125;或&#123;$and:[&#123;a:1&#125;,&#123;b:1&#125;]&#125; |</span><br><span class="line">   |  a=1 OR b=1  |       &#123;$or:[&#123;a:1&#125;,&#123;b:1&#125;]&#125;       |</span><br><span class="line">   |  a IS NULL   |       &#123;a:&#123;$exists:false&#125;&#125;       |</span><br><span class="line">   | a IN (1,2,3) |        &#123;a:&#123;$in:[1,2,3]&#125;&#125;        |</span><br><span class="line"></span><br><span class="line">4.   ![image-20200608180446313](https://gitee.com/zelen/IMG/raw/master/PicGo/20200608180434.png)</span><br><span class="line"></span><br><span class="line">5.    ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104401.png)</span><br><span class="line"></span><br><span class="line">6.   ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104633.png)</span><br><span class="line"></span><br><span class="line">7. ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609105123.png)</span><br><span class="line"></span><br><span class="line">8. ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104914.png)</span><br><span class="line"></span><br><span class="line">9. 使用drop删除集合</span><br><span class="line"></span><br><span class="line">   - 使用db.&lt;集合&gt;.drop()来删除一个集合</span><br><span class="line">   - 集合中的全部文档都会被删除</span><br><span class="line">   - 集合相关的索引也会被删除</span><br><span class="line">   - `db.colTOBeDropped.drop()`</span><br><span class="line"></span><br><span class="line">10. 使用dropDatabase删除数据库</span><br><span class="line"></span><br><span class="line">    - 使用db.dropDatabase()来删除数据库</span><br><span class="line"></span><br><span class="line">    - 数据库相应文件也会被删除，磁盘空间将被释放</span><br><span class="line"></span><br><span class="line">    -   ```shell</span><br><span class="line">      use tempDB</span><br><span class="line">      db.dropDatabase()</span><br><span class="line">      show collections // No collectios</span><br><span class="line">      show dbs // The db is gone</span><br></pre></td></tr></table></figure>
+<li>&#96;&#96;&#96;shell<br>docker pull mongo<br>docker run -itd –name mongo -p 27017:27017 mongo –auth<br>docker exec -it 2c79 mongo admin<br>db.createUser({user: ‘root’, pwd: ‘root’, roles:[{ role: “root”, db:”admin” }]});<br>db.auth(“root”,”root”);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **其中 2c79 是 CONTAINER ID，即容器ID**</span><br><span class="line"></span><br><span class="line">## 四、MongoDB技术优势总结</span><br><span class="line"></span><br><span class="line">- JSON结构和对象模型接近，开发代码量低</span><br><span class="line"></span><br><span class="line">- JSON的动态模型意味着更容易响应新的业务需求</span><br><span class="line">- 复制集提供99.99%高可用</span><br><span class="line">- 分片架构支持海量数据和无缝扩容</span><br><span class="line"></span><br><span class="line">## 五、简单使用</span><br><span class="line"></span><br><span class="line">### 使用insert 完成插入操作</span><br><span class="line"></span><br><span class="line">1. 操作格式：</span><br><span class="line"></span><br><span class="line">   - db.&lt;集合&gt;.insertOne(&lt;JSON对象&gt;)</span><br><span class="line"></span><br><span class="line">   - db.&lt;集合&gt;.insertMany([&lt;JSON1&gt;, &lt;JSON2&gt;, ...&lt;JSON3&gt;])</span><br><span class="line"></span><br><span class="line">2. 实例：</span><br><span class="line"></span><br><span class="line">   - db.fruit.insertOne(&#123;name:&quot;apple&quot;&#125;)</span><br><span class="line">   - db.fruit.insertMany([&#123;name:&quot;apple&quot;&#125;,&#123;name:&quot;pear&quot;&#125;,&#123;name:&quot;orange&quot;&#125;])</span><br><span class="line"></span><br><span class="line">### 使用find查询文档</span><br><span class="line"></span><br><span class="line">1. 关于find</span><br><span class="line"></span><br><span class="line">   - find是MongoDB中查询数据的基本指令，相当于SQL中的SELECT</span><br><span class="line">   - find返回的是游标</span><br><span class="line"></span><br><span class="line">2. find示例</span><br><span class="line"></span><br><span class="line">   - db.movies.find(&#123;&quot;year&quot;:1975&#125;)  //单条件查询</span><br><span class="line">   - db.movies.find(&#123;&quot;year&quot;:1989,&quot;title&quot;:&quot;Batman&quot;&#125;)  //多条件and查询</span><br><span class="line">   - db.movies.find(&#123;$and:[&#123;&quot;title&quot;:&quot;Batman&quot;&#125;,&#123;&quot;category&quot;:&quot;action&quot;&#125;]&#125;) //and的另一种形式</span><br><span class="line">   - db.movies.find(&#123;$or:[&#123;&quot;year&quot;:1989&#125;,&#123;&quot;title&quot;:&quot;Batman&quot;&#125;]&#125;)  //多条件or查询</span><br><span class="line">   - db.movies.find(&#123;&quot;title&quot;:/^B/&#125;) //按正则表达式查找</span><br><span class="line"></span><br><span class="line">3. 对照表</span><br><span class="line"></span><br><span class="line">   |     SQL      |               MQL               |</span><br><span class="line">   | :----------: | :-----------------------------: |</span><br><span class="line">   |     a=1      |              &#123;a:1&#125;              |</span><br><span class="line">   |     a&lt;&gt;1     |           &#123;a:&#123;$ne:1&#125;&#125;           |</span><br><span class="line">   |     a&gt;1      |           &#123;a:&#123;$gt:1&#125;&#125;           |</span><br><span class="line">   |     a&gt;=1     |          &#123;a:&#123;$gte:1&#125;&#125;           |</span><br><span class="line">   |     a&lt;1      |           &#123;a:&#123;$lt:1&#125;&#125;           |</span><br><span class="line">   |     a&lt;=1     |          &#123;a:&#123;$lte:1&#125;&#125;           |</span><br><span class="line">   | a=1 AND b=1  | &#123;a:1,b:1&#125;或&#123;$and:[&#123;a:1&#125;,&#123;b:1&#125;]&#125; |</span><br><span class="line">   |  a=1 OR b=1  |       &#123;$or:[&#123;a:1&#125;,&#123;b:1&#125;]&#125;       |</span><br><span class="line">   |  a IS NULL   |       &#123;a:&#123;$exists:false&#125;&#125;       |</span><br><span class="line">   | a IN (1,2,3) |        &#123;a:&#123;$in:[1,2,3]&#125;&#125;        |</span><br><span class="line"></span><br><span class="line">4.   ![image-20200608180446313](https://gitee.com/zelen/IMG/raw/master/PicGo/20200608180434.png)</span><br><span class="line"></span><br><span class="line">5.    ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104401.png)</span><br><span class="line"></span><br><span class="line">6.   ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104633.png)</span><br><span class="line"></span><br><span class="line">7. ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609105123.png)</span><br><span class="line"></span><br><span class="line">8. ![](https://gitee.com/zelen/IMG/raw/master/PicGo/20200609104914.png)</span><br><span class="line"></span><br><span class="line">9. 使用drop删除集合</span><br><span class="line"></span><br><span class="line">   - 使用db.&lt;集合&gt;.drop()来删除一个集合</span><br><span class="line">   - 集合中的全部文档都会被删除</span><br><span class="line">   - 集合相关的索引也会被删除</span><br><span class="line">   - `db.colTOBeDropped.drop()`</span><br><span class="line"></span><br><span class="line">10. 使用dropDatabase删除数据库</span><br><span class="line"></span><br><span class="line">    - 使用db.dropDatabase()来删除数据库</span><br><span class="line"></span><br><span class="line">    - 数据库相应文件也会被删除，磁盘空间将被释放</span><br><span class="line"></span><br><span class="line">    -   ```shell</span><br><span class="line">      use tempDB</span><br><span class="line">      db.dropDatabase()</span><br><span class="line">      show collections // No collectios</span><br><span class="line">      show dbs // The db is gone</span><br></pre></td></tr></table></figure>
 
-<p>- </p>
+<ul>
+<li></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -388,8 +391,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/07/08/HEXO/" rel="next" title="HEXO相关">
-                  HEXO相关 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/07/08/Docker%E5%AD%A6%E4%B9%A0/" rel="next" title="Docker学习">
+                  Docker学习 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -411,7 +414,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -422,13 +425,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

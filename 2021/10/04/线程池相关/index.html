@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,16 +15,17 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="线程池相关一、初识线程池​    线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以降低资源的消耗，还可以提高响应速度。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以提高线程的可管理性，避免">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="线程池相关一、初识线程池​	线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以降低资源的消耗，还可以提高响应速度。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以提高线程的可管理性，避免了无限">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线程池相关">
 <meta property="og:url" content="http://example.com/2021/10/04/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="笔记">
-<meta property="og:description" content="线程池相关一、初识线程池​    线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以降低资源的消耗，还可以提高响应速度。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以提高线程的可管理性，避免">
+<meta property="og:description" content="线程池相关一、初识线程池​	线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以降低资源的消耗，还可以提高响应速度。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以提高线程的可管理性，避免了无限">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20211005165003614.png">
 <meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20211004151759966.png">
@@ -46,6 +46,7 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>线程池相关 | 笔记</title>
   
+
 
 
 
@@ -73,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -88,11 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -162,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,11 +214,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="线程池相关 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -238,13 +240,13 @@
 
       <time title="创建时间：2021-10-04 15:12:12" itemprop="dateCreated datePublished" datetime="2021-10-04T15:12:12+08:00">2021-10-04</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-05 19:53:52" itemprop="dateModified" datetime="2021-10-05T19:53:52+08:00">2021-10-05</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-10-05 19:53:52" itemprop="dateModified" datetime="2021-10-05T19:53:52+08:00">2021-10-05</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -280,13 +282,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="线程池相关"><a href="#线程池相关" class="headerlink" title="线程池相关"></a>线程池相关</h1><h2 id="一、初识线程池"><a href="#一、初识线程池" class="headerlink" title="一、初识线程池"></a>一、初识线程池</h2><p>​    线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以<font color=red>降低资源的消耗</font>，还可以<font color=red>提高响应速度</font>。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以<font color=red>提高线程的可管理性</font>，避免了无限制地创建线程导致系统崩溃。</p>
+        <h1 id="线程池相关"><a href="#线程池相关" class="headerlink" title="线程池相关"></a>线程池相关</h1><h2 id="一、初识线程池"><a href="#一、初识线程池" class="headerlink" title="一、初识线程池"></a>一、初识线程池</h2><p>​	线程池所实现的就是线程的服用。先准备若干线程放在线程池中备用，如果有新任务来了，就从线程池里取出一个线程处理，处理完在放回线程池，这样就提高了线程的利用率，避免不必要的开销，当新任务来的时候直接取出线程就能用，不用等待线程的创建。所以线程池不仅可以<font color=red>降低资源的消耗</font>，还可以<font color=red>提高响应速度</font>。最关键的是，我们用线程池对线程进行统一的管理和分配，就可以<font color=red>提高线程的可管理性</font>，避免了无限制地创建线程导致系统崩溃。</p>
 <p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20211005165003614.png" alt="image-20211005165003614"></p>
 <span id="more"></span>
 
 <h2 id="二、线程池是怎么处理任务的"><a href="#二、线程池是怎么处理任务的" class="headerlink" title="二、线程池是怎么处理任务的"></a>二、线程池是怎么处理任务的</h2><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20211004151759966.png" alt="线程池处理任务"></p>
 <ul>
-<li>核心线程池中的线程默认情况下是当有任务提交的时候才开始创建，而且就算空闲的线程足以处理新任务，他仍然会创建新的线程去处理，直到核心线程数达到最大，如果调用了<font color='red'>prestartAllCoreThreads()</font>方法则会事先创建所有核心线程。正常情况下，核心线程池中的线程一但创建了就不会自动被销毁，除非设置了<font color='red'>allowCoreThreadTimeOut=true</font>，或者是线程在执行任务的时候报了异常。</li>
+<li>核心线程池中的线程默认情况下是当有任务提交的时候才开始创建，而且就算空闲的线程足以处理新任务，他仍然会创建新的线程去处理，直到核心线程数达到最大，如果调用了<font color='red'>prestartAllCoreThreads()</font>方法则会事先创建所有核心线程。正常情况下，核心线程池中的线程一但创建了就不会自动被销毁，除非设置了<font color='red'>allowCoreThreadTimeOut&#x3D;true</font>，或者是线程在执行任务的时候报了异常。</li>
 <li>如果核心线程池的线程已经满了并且都在执行任务的话，新任务就会暂时被存放在任务队列中，当核心线程池中有空闲的线程后就会从任务队列中去取一个任务处理。</li>
 <li>那么核心线程池中的线程都在工作，并且任务队列已经排满了，这时候就会创建新的线程去处理任务，这些线程我将其称为<strong>临时工</strong>，临时工线程在线程池中但不在核心线程池中。当临时工线程在指定的时间内没有处理任务就会被<strong>辞退</strong>，也就是销毁，不想核心线程池中的线程那样不干活也可以长期驻留。</li>
 <li>当线程池中的线程都在工作，并且任务队列也满了，那么新的任务就会交给饱和策略去处理。</li>
@@ -294,7 +296,7 @@
 <blockquote>
 <p>总结：任务会优先交给核心线程处理，核心线程处理不过来会放在任务队列，任务队列排满了才会去启用临时工线程。</p>
 </blockquote>
-<h2 id="三、线程池的创建与使用"><a href="#三、线程池的创建与使用" class="headerlink" title="三、线程池的创建与使用"></a>三、线程池的创建与使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executorService = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">4</span>,<span class="number">6</span>,<span class="number">1L</span>,TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> ArrayBlockingQueue&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">                <span class="keyword">new</span> ThreadPoolExecutor.AbortPolicy());</span><br><span class="line">        executorService.execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="三、线程池的创建与使用"><a href="#三、线程池的创建与使用" class="headerlink" title="三、线程池的创建与使用"></a>三、线程池的创建与使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>(<span class="number">4</span>,<span class="number">6</span>,<span class="number">1L</span>,TimeUnit.SECONDS,</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ArrayBlockingQueue</span>&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>.AbortPolicy());</span><br><span class="line">        executorService.execute(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>直接new一个<strong>ThreadPoolExecutor</strong>就可以创建一个线程池。里面有几个参数：</p>
 <ul>
@@ -306,7 +308,7 @@
 <li><strong>handle</strong>：饱和策略</li>
 </ul>
 <p>要执行任务的话就调用<font color='red'>execute</font>方法，传入一个Runnable对象，任务逻辑写在run方法里。</p>
-<h2 id="四、任务队列"><a href="#四、任务队列" class="headerlink" title="四、任务队列"></a>四、任务队列</h2><p>​    当线程池中的线程处理不过来的时候，就会将任务暂时放入任务队列中，任务队列也有好几种：</p>
+<h2 id="四、任务队列"><a href="#四、任务队列" class="headerlink" title="四、任务队列"></a>四、任务队列</h2><p>​	当线程池中的线程处理不过来的时候，就会将任务暂时放入任务队列中，任务队列也有好几种：</p>
 <ul>
 <li><font color='red'>ArrayBlockingQueue</font>：基于数组实现的有界阻塞队列，按照先进先出的顺序对元素进行排列</li>
 <li><font color='red'>LinkedBlockingDeque</font>：基于链表实现的阻塞队列，初始化的时候不指定容量的话，默认容量是<strong>Integer.MAX_VALUE</strong>，相当于无界队列，也是按照先进先出的规则排序元素</li>
@@ -323,7 +325,7 @@
 <li><font color='red'>DiscardPolicy</font>：不处理，丢弃。</li>
 </ul>
 <h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/f641385712/article/details/105270194">一文搞懂Executor执行器和线程池的关系，整体介绍其任务执行/调度体系：ThreadPoolExecutor、ScheduledExecutorService</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/f641385712/article/details/105270194">一文搞懂Executor执行器和线程池的关系，整体介绍其任务执行&#x2F;调度体系：ThreadPoolExecutor、ScheduledExecutorService</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a1173537204/article/details/89852613">java并发编程（十九）- 线程池（ScheduledThreadPoolExecutor ）详细使用</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zouhong/p/13206920.html">ThreadPoolTaskExecutor和ThreadPoolExecutor</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/w605283073/article/details/89930497">Java ThreadPoolExecutor的拒绝策略CallerRunsPolicy的一个潜在的大坑</a></li>
@@ -351,6 +353,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/04/06/MySQL%E7%B4%A2%E5%BC%95/" rel="next" title="MySQL">
+                  MySQL <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -371,7 +376,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -382,13 +387,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

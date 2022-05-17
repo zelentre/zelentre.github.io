@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,11 +15,12 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="一、Java零散知识（之后可能会整理）http:&#x2F;&#x2F;hollischuang.gitee.io&#x2F;tobetopjavaer&#x2F;#&#x2F;basics&#x2F;object-oriented&#x2F;object-oriented-vs-procedure-oriented">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、Java零散知识（之后可能会整理）http:&#x2F;&#x2F;hollischuang.gitee.io&#x2F;tobetopjavaer&#x2F;#&#x2F;basics&#x2F;object-oriented&#x2F;object-oriented-vs-procedure-oriented">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础">
 <meta property="og:url" content="http://example.com/2020/07/07/Java/index.html">
@@ -43,6 +43,7 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Java基础 | 笔记</title>
   
+
 
 
 
@@ -70,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -85,11 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -159,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -214,11 +211,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java基础 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -235,13 +237,13 @@
 
       <time title="创建时间：2020-07-07 17:59:18" itemprop="dateCreated datePublished" datetime="2020-07-07T17:59:18+08:00">2020-07-07</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-03 17:52:12" itemprop="dateModified" datetime="2020-09-03T17:52:12+08:00">2020-09-03</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2020-09-03 17:52:12" itemprop="dateModified" datetime="2020-09-03T17:52:12+08:00">2020-09-03</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -313,10 +315,10 @@
 </li>
 </ol>
 <p>父类代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FuLei</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num  = <span class="number">5</span>;<span class="comment">//1.首先被加载</span></span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块已经被加载&quot;</span>+num); <span class="comment">//2.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">//5.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;普通语句块&quot;</span>+count++);<span class="comment">//6.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">FuLei</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;父类的构造方法在这时候加载count=&quot;</span>+count);<span class="comment">//7.被加载</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FuLei</span> &#123;</span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span>  <span class="operator">=</span> <span class="number">5</span>;<span class="comment">//1.首先被加载</span></span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块已经被加载&quot;</span>+num); <span class="comment">//2.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">//5.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;普通语句块&quot;</span>+count++);<span class="comment">//6.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">FuLei</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;父类的构造方法在这时候加载count=&quot;</span>+count);<span class="comment">//7.被加载</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>子类代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZiLei</span> <span class="keyword">extends</span> <span class="title">FuLei</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块和静态变量被初始化的顺序与代码先后顺序有关&quot;</span>); <span class="comment">//3.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">45</span>;<span class="comment">//4.被加载</span></span><br><span class="line"><span class="keyword">int</span> numre = <span class="number">0</span>; <span class="comment">//8.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    numre++;</span><br><span class="line">    System.out.println(<span class="string">&quot;numre&quot;</span>+numre);<span class="comment">//9.被加载</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ZiLei</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;子类构造方法&quot;</span>);<span class="comment">//10.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ZiLei ht = <span class="keyword">new</span> ZiLei();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ZiLei</span> <span class="keyword">extends</span> <span class="title class_">FuLei</span> &#123;</span><br><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态语句块和静态变量被初始化的顺序与代码先后顺序有关&quot;</span>); <span class="comment">//3.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">45</span>;<span class="comment">//4.被加载</span></span><br><span class="line"><span class="type">int</span> <span class="variable">numre</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">//8.被加载</span></span><br><span class="line">&#123;</span><br><span class="line">    numre++;</span><br><span class="line">    System.out.println(<span class="string">&quot;numre&quot;</span>+numre);<span class="comment">//9.被加载</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">ZiLei</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;子类构造方法&quot;</span>);<span class="comment">//10.被加载</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">    <span class="type">ZiLei</span> <span class="variable">ht</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZiLei</span>();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>console打印：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">静态语句块已经被加载5</span><br><span class="line">静态语句块和静态变量被初始化的顺序与代码先后顺序有关</span><br><span class="line">普通语句块0</span><br><span class="line">父类的构造方法在这时候加载count=1</span><br><span class="line">numre1</span><br><span class="line">子类构造方法</span><br></pre></td></tr></table></figure>
@@ -330,7 +332,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">静态语句块已经被加载5</span><br><span class="line">静态语句块和静态变量被初始化的顺序与代码先后顺序有关</span><br></pre></td></tr></table></figure>
 
 <h3 id="2、没有继承关系的加载顺序"><a href="#2、没有继承关系的加载顺序" class="headerlink" title="2、没有继承关系的加载顺序"></a>2、没有继承关系的加载顺序</h3><p>代码示例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Test();                         <span class="comment">//4.第四步，new一个类，但在new之前要处理匿名代码块</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">4</span>;                    <span class="comment">//2.第二步，静态变量和静态代码块的加载顺序由编写先后决定</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    num += <span class="number">3</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);           <span class="comment">//5.第五步，按照顺序加载匿名代码块，代码块中有打印</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;                             <span class="comment">//6.第六步，按照顺序加载变量</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">// 成员变量第三个</span></span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>);           <span class="comment">//7.第七步，按照顺序打印c</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test() &#123; <span class="comment">// 类的构造函数，第四个加载</span></span><br><span class="line">    System.out.println(<span class="string">&quot;d&quot;</span>);           <span class="comment">//8.第八步，最后加载构造函数，完成对象的建立</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;                              <span class="comment">// 3.第三步，静态块，然后执行静态代码块，因为有输出，故打印a</span></span><br><span class="line">    System.out.println(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span>                    <span class="comment">// 静态方法，调用的时候才加载// 注意看，e没有加载</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;e&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Test</span>();                         <span class="comment">//4.第四步，new一个类，但在new之前要处理匿名代码块</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">4</span>;                    <span class="comment">//2.第二步，静态变量和静态代码块的加载顺序由编写先后决定</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    num += <span class="number">3</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);           <span class="comment">//5.第五步，按照顺序加载匿名代码块，代码块中有打印</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>;                             <span class="comment">//6.第六步，按照顺序加载变量</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">// 成员变量第三个</span></span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>);           <span class="comment">//7.第七步，按照顺序打印c</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test() &#123; <span class="comment">// 类的构造函数，第四个加载</span></span><br><span class="line">    System.out.println(<span class="string">&quot;d&quot;</span>);           <span class="comment">//8.第八步，最后加载构造函数，完成对象的建立</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> &#123;                              <span class="comment">// 3.第三步，静态块，然后执行静态代码块，因为有输出，故打印a</span></span><br><span class="line">    System.out.println(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>                    <span class="comment">// 静态方法，调用的时候才加载// 注意看，e没有加载</span></span><br><span class="line">&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;e&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>console打印：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
@@ -353,11 +355,11 @@
 <li>静态方法与实例方法在性能和占用内存上没有明显的区别，是否声明为静态方法需要从类型的非静态字段、事件、面向对象扩展和多态这三方面来考虑。</li>
 </ol>
 <h1 id="二、BigDecimal详解"><a href="#二、BigDecimal详解" class="headerlink" title="二、BigDecimal详解"></a>二、BigDecimal详解</h1><ol>
-<li><p>BigDecimal所创建的是对象，故我们不能使用传统的+、-、*、/等算数运算符</p>
+<li><p>BigDecimal所创建的是对象，故我们不能使用传统的+、-、*、&#x2F;等算数运算符</p>
 </li>
 <li><p>创建 <code> BigDecimal a =new BigDecimal(0.1);//0.1可为 int double long String</code></p>
 </li>
-<li><p> add(+)、subtract(-)、multiply(*)、divide(/)、toString(转字符串)、doubleValue(转double。。)</p>
+<li><p>add(+)、subtract(-)、multiply(*)、divide(&#x2F;)、toString(转字符串)、doubleValue(转double。。)</p>
 </li>
 <li><p>compareTo比较大小 -1小于 0 等于 1 大于</p>
 </li>
@@ -404,7 +406,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -415,13 +417,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

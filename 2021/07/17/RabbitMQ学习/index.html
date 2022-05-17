@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,16 +15,17 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message：消息，服务与应用程">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ学习">
 <meta property="og:url" content="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="笔记">
-<meta property="og:description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message：消息，服务与应用程">
+<meta property="og:description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png">
 <meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png">
@@ -54,6 +54,7 @@
 
 
 
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -77,7 +78,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -92,11 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -166,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,11 +218,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="RabbitMQ学习 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -242,13 +244,13 @@
 
       <time title="创建时间：2021-07-17 17:50:03" itemprop="dateCreated datePublished" datetime="2021-07-17T17:50:03+08:00">2021-07-17</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -287,7 +289,7 @@
         <h1 id="RabbitMQ学习"><a href="#RabbitMQ学习" class="headerlink" title="RabbitMQ学习"></a>RabbitMQ学习</h1><p><strong>核心概念</strong></p>
 <blockquote>
 <p>Server：又称Broker，接受客户端的连接，实现AMQP实体服务</p>
-<p>Connection：连接，应用程序与Broker的网络连接TCP/IP/三次握手四次挥手</p>
+<p>Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手</p>
 <p>Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务</p>
 <p>Message：消息，服务与应用程之间传送的数据，有Properties和body组成，Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性，body就是消息体的内容</p>
 <p>Virtual Host：虚拟地址，用于进行逻辑隔离，最上层的消息路由，一个虚拟主机可以有若干个Exchange和Queue，同一个虚拟主机里面不能有相同名字的Exchange</p>
@@ -374,16 +376,13 @@
 <li>队列达到最大长度</li>
 </ul>
 <p>DLX也是一个正常的交换机，和一般的交换机没有区别，它能在任何的队列上被指定，实际上就是设置某一个队列的属性，当这个队列存在死信时，rabbitmq就会自动的将这个消息重新发布到设置的DLX上，进而被路由到另一个队列，即死信队列，想要使用死信队列，只需要在定义队列的时候设置队列参数<code> x-dead-letter-exchange</code>指定交换机即可。</p>
-<p><strong>过期时间+死信队列=延时队列</strong></p>
-<h2 id="四、集群"><a href="#四、集群" class="headerlink" title="四、集群"></a>四、集群</h2><p>​    RabbitMQ本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过通不过Erlang集群各节点的magic cookie来实现）。因此,rabbitmq天然支持clustering。这使得rabbitmq本身不需要像activemq、Kafka那样通过zookeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。在实际使用过程中多采用多机多实例部署方式。</p>
+<p><strong>过期时间+死信队列&#x3D;延时队列</strong></p>
+<h2 id="四、集群"><a href="#四、集群" class="headerlink" title="四、集群"></a>四、集群</h2><p>​	RabbitMQ本身是基于Erlang编写，Erlang语言天生具备分布式特性（通过通不过Erlang集群各节点的magic cookie来实现）。因此,rabbitmq天然支持clustering。这使得rabbitmq本身不需要像activemq、Kafka那样通过zookeeper分别来实现HA方案和保存集群的元数据。集群是保证可靠性的一种方式，同时可以通过水平扩展以达到增加消息吞吐量能力的目的。在实际使用过程中多采用多机多实例部署方式。</p>
 <h2 id="五、面试题分析"><a href="#五、面试题分析" class="headerlink" title="五、面试题分析"></a>五、面试题分析</h2><p>1.　Rabbitmq为什么需要信道，为什么不是TCP直接通信？</p>
 <ul>
 <li>TCP的创建和销毁，开销大，创建要三次握手，销毁要四次分手</li>
 <li>如果不用信道，那应用程序就会TCP连接到RabbitMQ服务器，高峰时每秒成千上万连接就会造成资源的巨大浪费，而且<strong>底层操作系统每秒处理tcp连接数也是有限的，必定造成性能瓶颈</strong>。</li>
-<li>信道的原理时一条线程一条信道，多条线程多条信道用一条TCP连接，一条TCP连接可以容纳无限的信道，即使每秒成千上万的请求也不会称为性能瓶颈。</li>
-</ul>
-<p>2.　queue队列到底在消费者创建还是在生产者创建？</p>
-<ul>
+<li>信道的原理时一条线程一条信道，多条线程多条信道用一条TCP连接，一条TCP连接可以容纳无限的信道，即使每秒成千上万的请求也不会称为性能瓶颈。<br>2.　queue队列到底在消费者创建还是在生产者创建？</li>
 <li>一般建议实在rabbitmq操作面板创建，这是一种稳妥的做法。</li>
 <li>按照常理来说，确实应该消费者这边创建是最好，消息的消费是在这边。这样你承受一个后果，可能生产者的生产消息会丢失。</li>
 <li>在生产者创建队列也可以，这样稳妥的方法，消息是不会出现丢失。</li>
@@ -433,7 +432,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -444,13 +443,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

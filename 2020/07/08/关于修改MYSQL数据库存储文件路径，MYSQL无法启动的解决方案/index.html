@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,11 +15,12 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案">
 <meta property="og:url" content="http://example.com/2020/07/08/%E5%85%B3%E4%BA%8E%E4%BF%AE%E6%94%B9MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8CMYSQL%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
@@ -53,6 +53,7 @@
 
 
 
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -76,7 +77,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">笔记</h1>
+      <p class="site-title">笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -91,11 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -165,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,11 +217,16 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="zelentre">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案 | 笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -241,13 +243,13 @@
 
       <time title="创建时间：2020-07-08 18:01:31" itemprop="dateCreated datePublished" datetime="2020-07-08T18:01:31+08:00">2020-07-08</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 16:35:04" itemprop="dateModified" datetime="2021-06-14T16:35:04+08:00">2021-06-14</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-06-14 16:35:04" itemprop="dateModified" datetime="2021-06-14T16:35:04+08:00">2021-06-14</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -265,7 +267,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>432</span>
+      <span>442</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -286,7 +288,7 @@
         <h1 id="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"><a href="#关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案" class="headerlink" title="关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案"></a>关于修改MYSQL数据库存储文件路径，MYSQL无法启动的解决方案</h1><span id="more"></span>
 
 <p>在修改MYSQL数据库存储文件路径期间，出现了一个问题：路径修改完，MYSQL再也启动不了。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200531095408765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决方案：<br>1、检查你更改路径的my.ini文件。<em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em><br>如图所示：<br><img src="https://img-blog.csdnimg.cn/20200531095850291.png" alt="红色为原路径、绿色为新路径"><br>图中：红色为原路径、绿色为新路径。再说一次</em><em><strong>注意你的新路径使用的是“\”而不是“/”*！！！！！！！！！！！</strong></em></p>
+<p><img src="https://img-blog.csdnimg.cn/20200531095408765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>解决方案：<br>1、检查你更改路径的my.ini文件。<em><em><strong>注意你的新路径使用的是“\”而不是“&#x2F;”*！！！！！！！！！！！</strong></em><br>如图所示：<br><img src="https://img-blog.csdnimg.cn/20200531095850291.png" alt="红色为原路径、绿色为新路径"><br>图中：红色为原路径、绿色为新路径。再说一次</em><em><strong>注意你的新路径使用的是“\”而不是“&#x2F;”*！！！！！！！！！！！</strong></em></p>
 <p>2、如果经过上述操作，还不能重启成功。那么继续：<br>右击 ” 我的电脑 ” 找到“ 管理 ”：<br><img src="https://img-blog.csdnimg.cn/20200531100116741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击 “工具” 找到 “计算机管理” 点击，找到 ”本地用户和组“<br><img src="https://img-blog.csdnimg.cn/20200531100143602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTEyNzgx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择“组”–&gt;双击Administrators–&gt;单击“添加”–&gt;单击“高级”–&gt;单击“立即查找”–&gt;在下面的列表中选择Network Service用户–&gt;两次单击“确定”–&gt;加入。<br><img src="https://img-blog.csdnimg.cn/20200531100207233.png" alt="在这里插入图片描述"><br>好了，然后在重启mysql服务就没问题了，MYSQL数据库存储路径就修改好了，在新建个数据库，就会存到我们修改的路径下了</p>
 
     </div>
@@ -309,8 +311,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/07/08/makedown%E7%9B%B8%E5%85%B3/" rel="next" title="yaml配置">
-                  yaml配置 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/07/08/github-img/" rel="next" title="GitHub打不开图片">
+                  GitHub打不开图片 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -332,7 +334,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -343,13 +345,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">121k</span>
+    <span title="站点总字数">126k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:50</span>
+    <span title="站点阅读时长">1:55</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
