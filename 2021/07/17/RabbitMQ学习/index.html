@@ -27,18 +27,18 @@
 <meta property="og:site_name" content="笔记">
 <meta property="og:description" content="RabbitMQ学习核心概念  Server：又称Broker，接受客户端的连接，实现AMQP实体服务 Connection：连接，应用程序与Broker的网络连接TCP&#x2F;IP&#x2F;三次握手四次挥手 Channel：网络通道，几乎所有操作都在Channel中进行，Channel是进行消息读写的通道，客户端可以建立对应Channel，每个Channel代表一个会话任务 Message">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png">
-<meta property="og:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721145751320.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721172427071.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721173920110.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721175005637.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721175150300.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210722170415668.png">
 <meta property="article:published_time" content="2021-07-17T09:50:03.000Z">
-<meta property="article:modified_time" content="2021-07-27T12:17:21.858Z">
+<meta property="article:modified_time" content="2022-05-30T05:00:31.219Z">
 <meta property="article:author" content="zelentre">
 <meta property="article:tag" content="rabbitmq">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721145751320.png">
 
 
 <link rel="canonical" href="http://example.com/2021/07/17/RabbitMQ%E5%AD%A6%E4%B9%A0/">
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-07-27 20:17:21" itemprop="dateModified" datetime="2021-07-27T20:17:21+08:00">2021-07-27</time>
+      <time title="修改时间：2022-05-30 13:00:31" itemprop="dateModified" datetime="2022-05-30T13:00:31+08:00">2022-05-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -313,11 +313,11 @@
 <ol>
 <li>同步异步问题（串行）：将订单信息写入数据库成功后，发送注册邮件，在发送注册短信。以上三个任务全部完成后，返回给客户端</li>
 </ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721145751320.png" alt="image-20210721145751320"></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721145751320.png" alt="image-20210721145751320"></p>
 <ol start="2">
 <li>同步异步问题（并行、异步线程池）：将订单写入数据库成功后，同时进行注册邮件、注册短信的发送，完成以上三个任务后，返回给客户端，与串行的差别是，并行的方式可以提高处理的时间</li>
 </ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721172427071.png" alt="image-20210721172427071"></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721172427071.png" alt="image-20210721172427071"></p>
 <p>  存在问题：</p>
 <ul>
 <li>耦合度高</li>
@@ -329,7 +329,7 @@
 <ol start="3">
 <li>异步消息队列的方式：</li>
 </ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721173920110.png" alt="image-20210721173920110"></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721173920110.png" alt="image-20210721173920110"></p>
 <p>  好处：</p>
 <ul>
 <li><p>完全解耦，用MQ简历桥接</p>
@@ -345,12 +345,12 @@
 </li>
 </ul>
 <ol start="4">
-<li><p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175005637.png" alt="image-20210721175005637"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721175005637.png" alt="image-20210721175005637"></p>
 </li>
 <li><p>流量削峰</p>
 </li>
 </ol>
-<p>  <img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210721175150300.png" alt="image-20210721175150300"></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210721175150300.png" alt="image-20210721175150300"></p>
 </blockquote>
 <p><strong>队列绑定关系声明（Configuration）在生产者还是消费者好，其他都可以但是为了防止项目启动报错建议声明在消费者</strong></p>
 <h2 id="二、过期时间TTL"><a href="#二、过期时间TTL" class="headerlink" title="二、过期时间TTL"></a>二、过期时间TTL</h2><ol>
@@ -368,7 +368,7 @@
 </ol>
 <h2 id="三、死信队列"><a href="#三、死信队列" class="headerlink" title="三、死信队列"></a>三、死信队列</h2><p><strong>概念</strong>：没有被及时消费的消息存放队列</p>
 <p><strong>死信交换机：</strong>Dead Letter Exchange(缩写：DLX)当消息称为死信后，会被重新发送到另一个交换机，这个交换机就是DLX死信交换机。</p>
-<p><img src="https://gitee.com/zelen/IMG/raw/master/PicGo/image-20210722170415668.png" alt="image-20210722170415668"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/znej/pic/picgo/image-20210722170415668.png" alt="image-20210722170415668"></p>
 <p>消息变成死信，可能是由于以下的原因：</p>
 <ul>
 <li>消息被拒绝</li>
