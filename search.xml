@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>HEXO相关问题</title>
+      <link href="/2022/05/31/HEXO/"/>
+      <url>/2022/05/31/HEXO/</url>
+      
+        <content type="html"><![CDATA[<h1 id="HEXO相关"><a href="#HEXO相关" class="headerlink" title="HEXO相关"></a>HEXO相关</h1><span id="more"></span><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://www.jianshu.com/p/bad24beeb51e">https://www.jianshu.com/p/bad24beeb51e</a> </p><p> npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p><p>使用上述命令后可使用cnpm 替换npm </p><p>cnpm install -g hexo-cli</p><p>hexo -v</p><p>hexo init</p><p>cnpm install</p><p>hexo clean</p><p>git clone <a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a> themes&#x2F;next</p><p>zh-CN</p><p>Asia&#x2F;Shanghai</p><p>cnpm install hexo-deployer-git –save</p><p>hexo g -d</p><h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p><code>npm install hexo-generator-search --save</code></p><p><code>npm install hexo-generator-searchdb --save</code></p><p>GitHub文档下显示只需要第二条 </p><p>在站点配置文件 _config.yml 中添加如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Search </span><br><span class="line">search:</span><br><span class="line">  path: ./public/search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure><p>path：索引文件的路径，相对于站点根目录<br>field：搜索范围，默认是 post，还可以选择 page、all，设置成 all 表示搜索所有页面<br>limit：限制搜索的条目数</p><p>在主题配置文件 _config.yml 中找到如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  trigger: auto</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure><p>确保 enable 设成 true</p><p>[参考](<a href="https://www.imczw.com/post/tech/hexo5-next8-updated.html">Hexo-5.x 与 NexT-8.x 跨版本升级 | 第 25 小时随想 (imczw.com)</a>)</p><h2 id="jsdelivr被墙-hexo-next切换为自定义CDN（重要）"><a href="#jsdelivr被墙-hexo-next切换为自定义CDN（重要）" class="headerlink" title="jsdelivr被墙,hexo-next切换为自定义CDN（重要）"></a>jsdelivr被墙,hexo-next切换为自定义CDN（重要）</h2><h3 id="1-版本-NexT-version-8-11-1"><a href="#1-版本-NexT-version-8-11-1" class="headerlink" title="1. 版本 NexT version 8.11.1"></a>1. 版本 NexT version 8.11.1</h3><h3 id="2-使用-cdn-jsdelivr-net-未受污染的子域"><a href="#2-使用-cdn-jsdelivr-net-未受污染的子域" class="headerlink" title="2. 使用 cdn.jsdelivr.net 未受污染的子域"></a>2. 使用 <code>cdn.jsdelivr.net</code> 未受污染的子域</h3><ul><li><code>fastly.jsdelivr.net</code>，由 Fastly 提供</li><li><code>gcore.jsdelivr.net</code>，由 G-Core 提供</li><li><code>testingcf.jsdelivr.net</code>，由 CloudFlare 提供</li><li><a href="https://zhajiman.github.io/post/jsdelivr_problem/">参考</a></li></ul><h3 id="3-切换为自定义CDN"><a href="#3-切换为自定义CDN" class="headerlink" title="3. 切换为自定义CDN"></a>3. 切换为自定义CDN</h3><ul><li><p>修改本地<code>_config.next.yml</code></p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="comment"># The CDN provider of NexT internal scripts.</span></span><br><span class="line">  <span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs</span></span><br><span class="line">  <span class="comment"># Warning: If you are using the latest master branch of NexT, please set `internal: local`</span></span><br><span class="line">  <span class="attr">internal:</span> <span class="string">local</span></span><br><span class="line">  <span class="comment"># The default CDN provider of third-party plugins.</span></span><br><span class="line">  <span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs</span></span><br><span class="line">  <span class="comment"># Dependencies for `plugins: local`: https://github.com/next-theme/plugins</span></span><br><span class="line">  <span class="comment"># plugins: jsdelivr</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">plugins:</span> <span class="string">custom</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Custom CDN URL</span></span><br><span class="line">  <span class="comment"># For example:</span></span><br><span class="line">  <span class="attr">custom_cdn_url:</span> <span class="string">https://fastly.jsdelivr.net/npm/$&#123;npm_name&#125;@$&#123;version&#125;/$&#123;minified&#125;</span></span><br><span class="line">  <span class="comment"># custom_cdn_url: https://lib.baomitu.com/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br></pre></td></tr></table></figure></li><li><p><a href="https://blog.csdn.net/tsvico/article/details/124852417">jsdelivr被墙,hexo-next切换为自定义CDN</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> next </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL索引</title>
       <link href="/2022/04/06/MySQL%E7%B4%A2%E5%BC%95/"/>
       <url>/2022/04/06/MySQL%E7%B4%A2%E5%BC%95/</url>
@@ -124,9 +151,9 @@
       
         <tags>
             
-            <tag> Ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -207,11 +234,11 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> win10 </tag>
             
             <tag> wsl </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -490,25 +517,25 @@
     
     
     <entry>
-      <title>HEXO相关</title>
-      <link href="/2020/07/08/HEXO/"/>
-      <url>/2020/07/08/HEXO/</url>
+      <title>MySQL</title>
+      <link href="/2020/07/08/MySQL/"/>
+      <url>/2020/07/08/MySQL/</url>
       
-        <content type="html"><![CDATA[<h1 id="HEXO相关"><a href="#HEXO相关" class="headerlink" title="HEXO相关"></a>HEXO相关</h1><span id="more"></span><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://www.jianshu.com/p/bad24beeb51e">https://www.jianshu.com/p/bad24beeb51e</a> </p><p> npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> cnpm install</p><p>使用上述命令后可使用cnpm 替换npm </p><p>cnpm install -g hexo-cli</p><p>hexo -v</p><p>hexo init</p><p>cnpm install</p><p>hexo clean</p><p>git clone <a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a> themes&#x2F;next</p><p>zh-CN</p><p>Asia&#x2F;Shanghai</p><p>cnpm install hexo-deployer-git –save</p><p>hexo g -d</p><h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p><code>npm install hexo-generator-search --save</code></p><p><code>npm install hexo-generator-searchdb --save</code></p><p>GitHub文档下显示只需要第二条 </p><p>在站点配置文件 _config.yml 中添加如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Search </span><br><span class="line">search:</span><br><span class="line">  path: ./public/search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure><p>path：索引文件的路径，相对于站点根目录<br>field：搜索范围，默认是 post，还可以选择 page、all，设置成 all 表示搜索所有页面<br>limit：限制搜索的条目数</p><p>在主题配置文件 _config.yml 中找到如下内容：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  trigger: auto</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure><p>确保 enable 设成 true</p><p>[参考](<a href="https://www.imczw.com/post/tech/hexo5-next8-updated.html">Hexo-5.x 与 NexT-8.x 跨版本升级 | 第 25 小时随想 (imczw.com)</a>)</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h3><ul><li>粒度小，方便用于集群环境<h3 id="代码锁"><a href="#代码锁" class="headerlink" title="代码锁"></a>代码锁</h3></li><li>粒度大，需要封装</li></ul><span id="more"></span><h2 id="微观"><a href="#微观" class="headerlink" title="微观"></a>微观</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="行锁-amp-表锁"><a href="#行锁-amp-表锁" class="headerlink" title="行锁 &amp; 表锁"></a>行锁 &amp; 表锁</h4><p>只有明确指定主键，才会执行行锁，否则执行表锁</p><ul><li>无锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">-1</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line">#排它锁但自增主键一般从<span class="number">1</span>开始  主键不存在  因此不执行锁 </span><br></pre></td></tr></table></figure></li><li>行锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">for</span> <span class="keyword">update</span> ;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line">#行级排它锁</span><br></pre></td></tr></table></figure></li><li>表锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#主键不明确 锁住整张表</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&lt;&gt;</span> <span class="number">3</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
       
       
       <categories>
           
-          <category> hexo </category>
+          <category> DB </category>
+          
+          <category> MySQL </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> hexo </tag>
-            
-            <tag> next </tag>
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -544,25 +571,23 @@
     
     
     <entry>
-      <title>MySQL</title>
-      <link href="/2020/07/08/MySQL/"/>
-      <url>/2020/07/08/MySQL/</url>
+      <title>Docker</title>
+      <link href="/2020/07/08/docker/"/>
+      <url>/2020/07/08/docker/</url>
       
-        <content type="html"><![CDATA[<h3 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h3><ul><li>粒度小，方便用于集群环境<h3 id="代码锁"><a href="#代码锁" class="headerlink" title="代码锁"></a>代码锁</h3></li><li>粒度大，需要封装</li></ul><span id="more"></span><h2 id="微观"><a href="#微观" class="headerlink" title="微观"></a>微观</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="行锁-amp-表锁"><a href="#行锁-amp-表锁" class="headerlink" title="行锁 &amp; 表锁"></a>行锁 &amp; 表锁</h4><p>只有明确指定主键，才会执行行锁，否则执行表锁</p><ul><li>无锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">-1</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line">#排它锁但自增主键一般从<span class="number">1</span>开始  主键不存在  因此不执行锁 </span><br></pre></td></tr></table></figure></li><li>行锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">for</span> <span class="keyword">update</span> ;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line">#行级排它锁</span><br></pre></td></tr></table></figure></li><li>表锁<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#主键不明确 锁住整张表</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="operator">=</span> <span class="string">&#x27;kk&#x27;</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&lt;&gt;</span> <span class="number">3</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+        <content type="html"><![CDATA[<p><strong>简介</strong><br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化,容器是完全使用沙箱机制，相互之间不会有任何接口。</p><span id="more"></span><p>一个完整的Docker有以下几个部分组成：</p><ol><li>DockerClient客户端</li><li>Docker Daemon守护进程</li><li>Docker Image镜像</li><li>DockerContainer容器</li><li><a href="https://blog.csdn.net/qq_38503329/article/details/97147797">一些docker命令</a></li></ol><p><strong>docker 安装 mysql（其他类似）</strong></p><ol><li><p>拉取镜像  指定自己需要的版本，后续启动容器时也需要指定版本（最新版默认不需要）</p><p><code> docker pull mysql:5.7</code></p></li><li><p>运行容器  -p 3306:3306 指定ip、指定宿主机port、指定容器port ip不指定 默认0.0.0.0</p><p><code> docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></p></li><li><p>其他后续 包括修改配置文件</p><p><code>dockerexec -it f7bbac /bin/bash </code>  &#x2F;&#x2F; f7bbac 是容器ID docker ps 可查</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim -y</span><br><span class="line">cd /etc/mysql/mysql.conf.d</span><br><span class="line">vim mysqld.cnf</span><br><span class="line">lower_case_table_names=1 //末尾添加 是MySQL不区分大小写 重启后生效</span><br><span class="line">show variables like &#x27;%table_names&#x27;;  //查看是否区分大小写</span><br></pre></td></tr></table></figure></li></ol><p><strong>docker安装最新版MySQL（后两条 修改密码格式 方便 Navicat 连接 MySQL8 以上的版本  本地<code> &#39;root&#39;@&#39;localhost&#39;</code>  远程  <code>&#39;root&#39;@&#39;%&#39;</code>）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql</span><br><span class="line">dockerexec -it f7bbac /bin/bash</span><br><span class="line">select host, user, authentication_string, plugin from user;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> DB </category>
-          
-          <category> MySQL </category>
+          <category> Docker </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MySQL </tag>
+            <tag> Docker </tag>
             
         </tags>
       
@@ -596,23 +621,23 @@
     
     
     <entry>
-      <title>Docker</title>
-      <link href="/2020/07/08/docker/"/>
-      <url>/2020/07/08/docker/</url>
+      <title>yaml配置</title>
+      <link href="/2020/07/08/makedown%E7%9B%B8%E5%85%B3/"/>
+      <url>/2020/07/08/makedown%E7%9B%B8%E5%85%B3/</url>
       
-        <content type="html"><![CDATA[<p><strong>简介</strong><br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化,容器是完全使用沙箱机制，相互之间不会有任何接口。</p><span id="more"></span><p>一个完整的Docker有以下几个部分组成：</p><ol><li>DockerClient客户端</li><li>Docker Daemon守护进程</li><li>Docker Image镜像</li><li>DockerContainer容器</li><li><a href="https://blog.csdn.net/qq_38503329/article/details/97147797">一些docker命令</a></li></ol><p><strong>docker 安装 mysql（其他类似）</strong></p><ol><li><p>拉取镜像  指定自己需要的版本，后续启动容器时也需要指定版本（最新版默认不需要）</p><p><code> docker pull mysql:5.7</code></p></li><li><p>运行容器  -p 3306:3306 指定ip、指定宿主机port、指定容器port ip不指定 默认0.0.0.0</p><p><code> docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.7</code></p></li><li><p>其他后续 包括修改配置文件</p><p><code>dockerexec -it f7bbac /bin/bash </code>  &#x2F;&#x2F; f7bbac 是容器ID docker ps 可查</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim -y</span><br><span class="line">cd /etc/mysql/mysql.conf.d</span><br><span class="line">vim mysqld.cnf</span><br><span class="line">lower_case_table_names=1 //末尾添加 是MySQL不区分大小写 重启后生效</span><br><span class="line">show variables like &#x27;%table_names&#x27;;  //查看是否区分大小写</span><br></pre></td></tr></table></figure></li></ol><p><strong>docker安装最新版MySQL（后两条 修改密码格式 方便 Navicat 连接 MySQL8 以上的版本  本地<code> &#39;root&#39;@&#39;localhost&#39;</code>  远程  <code>&#39;root&#39;@&#39;%&#39;</code>）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql</span><br><span class="line">dockerexec -it f7bbac /bin/bash</span><br><span class="line">select host, user, authentication_string, plugin from user;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p><code>--- 放在开头是yaml配置文件</code></p>]]></content>
       
       
       <categories>
           
-          <category> Docker </category>
+          <category> yaml </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Docker </tag>
+            <tag> yaml </tag>
             
         </tags>
       
@@ -638,31 +663,6 @@
         <tags>
             
             <tag> question </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>yaml配置</title>
-      <link href="/2020/07/08/makedown%E7%9B%B8%E5%85%B3/"/>
-      <url>/2020/07/08/makedown%E7%9B%B8%E5%85%B3/</url>
-      
-        <content type="html"><![CDATA[<p><code>--- 放在开头是yaml配置文件</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> yaml </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> yaml </tag>
             
         </tags>
       
