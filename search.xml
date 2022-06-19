@@ -4821,7 +4821,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>Redis热Key</title>
     <url>/2022/06/19/Redis%E7%83%ADKey/</url>
     <content><![CDATA[<h1 id="Redis热Key"><a href="#Redis热Key" class="headerlink" title="Redis热Key"></a>Redis热Key</h1><h2 id="一、什么是热Key"><a href="#一、什么是热Key" class="headerlink" title="一、什么是热Key"></a>一、什么是热Key</h2><blockquote>
 <p>在Redis中，我们把访问频率高的key,称为热key。比如突然 有几十万的请求去访问redis中某个特定的key,那么这样会造成redis服务器短时间流量过于集中，很可能导致redis的服务器宕机。那么接下来对这个key的请求，都会直接请求到我们的后端数据库中，从而可能导致后端服务不可用。</p>
