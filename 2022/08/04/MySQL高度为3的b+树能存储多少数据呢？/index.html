@@ -20,33 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="任何的身份验证，本质上都是基于对请求方的不信任所产生的">
+    <meta name="description" content="MySQL高度为3的b+树能存储多少数据呢？InnoDB的页的概念 ​	MySQL的设计者为了避免每条数据都从磁盘中进行读取，所以设计了一个页结构，用于磁盘与内存之间的交互单元。存放表中数据记录的页，称为索引页或者数据页。数据页就是实际数据（一般是叶子节点）。索引页由索引键值和索引指针组成（一般为非叶子节点）。 ​	一个页通常是16KB的大小。磁盘存储数据的最小单元是扇区，一个扇区是512字节。因">
 <meta property="og:type" content="article">
-<meta property="og:title" content="oauth2">
-<meta property="og:url" content="http://example.com/2020/07/07/oauth2/index.html">
+<meta property="og:title" content="MySQL高度为3的b+树能存储多少数据呢？">
+<meta property="og:url" content="http://example.com/2022/08/04/MySQL%E9%AB%98%E5%BA%A6%E4%B8%BA3%E7%9A%84b+%E6%A0%91%E8%83%BD%E5%AD%98%E5%82%A8%E5%A4%9A%E5%B0%91%E6%95%B0%E6%8D%AE%E5%91%A2%EF%BC%9F/index.html">
 <meta property="og:site_name" content="笔记">
-<meta property="og:description" content="任何的身份验证，本质上都是基于对请求方的不信任所产生的">
+<meta property="og:description" content="MySQL高度为3的b+树能存储多少数据呢？InnoDB的页的概念 ​	MySQL的设计者为了避免每条数据都从磁盘中进行读取，所以设计了一个页结构，用于磁盘与内存之间的交互单元。存放表中数据记录的页，称为索引页或者数据页。数据页就是实际数据（一般是叶子节点）。索引页由索引键值和索引指针组成（一般为非叶子节点）。 ​	一个页通常是16KB的大小。磁盘存储数据的最小单元是扇区，一个扇区是512字节。因">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2.png">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2-1.png">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2-2.png">
-<meta property="article:published_time" content="2020-07-07T10:53:59.000Z">
-<meta property="article:modified_time" content="2022-06-09T03:43:17.815Z">
+<meta property="article:published_time" content="2022-08-04T11:35:13.000Z">
+<meta property="article:modified_time" content="2022-08-04T11:35:46.645Z">
 <meta property="article:author" content="zelentre">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="oauth2">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2.png">
 
 
-<link rel="canonical" href="http://example.com/2020/07/07/oauth2/">
+<link rel="canonical" href="http://example.com/2022/08/04/MySQL%E9%AB%98%E5%BA%A6%E4%B8%BA3%E7%9A%84b+%E6%A0%91%E8%83%BD%E5%AD%98%E5%82%A8%E5%A4%9A%E5%B0%91%E6%95%B0%E6%8D%AE%E5%91%A2%EF%BC%9F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/07/07/oauth2/","path":"2020/07/07/oauth2/","title":"oauth2"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/04/MySQL%E9%AB%98%E5%BA%A6%E4%B8%BA3%E7%9A%84b+%E6%A0%91%E8%83%BD%E5%AD%98%E5%82%A8%E5%A4%9A%E5%B0%91%E6%95%B0%E6%8D%AE%E5%91%A2%EF%BC%9F/","path":"2022/08/04/MySQL高度为3的b+树能存储多少数据呢？/","title":"MySQL高度为3的b+树能存储多少数据呢？"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>oauth2 | 笔记</title>
+<title>MySQL高度为3的b+树能存储多少数据呢？ | 笔记</title>
   
 
 
@@ -135,7 +130,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -148,6 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E9%AB%98%E5%BA%A6%E4%B8%BA3%E7%9A%84b-%E6%A0%91%E8%83%BD%E5%AD%98%E5%82%A8%E5%A4%9A%E5%B0%91%E6%95%B0%E6%8D%AE%E5%91%A2%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">MySQL高度为3的b+树能存储多少数据呢？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -210,7 +206,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/07/oauth2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/04/MySQL%E9%AB%98%E5%BA%A6%E4%B8%BA3%E7%9A%84b+%E6%A0%91%E8%83%BD%E5%AD%98%E5%82%A8%E5%A4%9A%E5%B0%91%E6%95%B0%E6%8D%AE%E5%91%A2%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -223,12 +219,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="oauth2 | 笔记">
+      <meta itemprop="name" content="MySQL高度为3的b+树能存储多少数据呢？ | 笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          oauth2
+          MySQL高度为3的b+树能存储多少数据呢？
         </h1>
 
         <div class="post-meta-container">
@@ -238,15 +234,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-07-07 18:53:59" itemprop="dateCreated datePublished" datetime="2020-07-07T18:53:59+08:00">2020-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-09 11:43:17" itemprop="dateModified" datetime="2022-06-09T11:43:17+08:00">2022-06-09</time>
+      <time title="创建时间：2022-08-04 19:35:13 / 修改时间：19:35:46" itemprop="dateCreated datePublished" datetime="2022-08-04T19:35:13+08:00">2022-08-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,11 +244,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/oauth2/" itemprop="url" rel="index"><span itemprop="name">oauth2</span></a>
+          <a href="/categories/DB/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
         </span>
     </span>
 
@@ -269,7 +259,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>155</span>
+      <span>778</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -287,19 +277,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>任何的身份验证，本质上都是基于对请求方的不信任所产生的</p>
-<hr>
+        <h1 id="MySQL高度为3的b-树能存储多少数据呢？"><a href="#MySQL高度为3的b-树能存储多少数据呢？" class="headerlink" title="MySQL高度为3的b+树能存储多少数据呢？"></a>MySQL高度为3的b+树能存储多少数据呢？</h1><p><strong>InnoDB的页的概念</strong></p>
+<p>​	MySQL的设计者为了避免每条数据都从磁盘中进行读取，所以设计了一个页结构，用于磁盘与内存之间的交互单元。存放表中数据记录的页，称为索引页或者数据页。数据页就是实际数据（一般是叶子节点）。索引页由索引键值和索引指针组成（一般为非叶子节点）。</p>
+<p>​	一个页通常是16KB的大小。磁盘存储数据的最小单元是扇区，一个扇区是512字节。因此InnoDB的所有数据文件（后缀为.ibd的文件），它的大小始终都是16384B（16K）的整数倍。</p>
+<p>​	MySQL采取的b+树的结构，b+数上的每个节点都是一个页。叶子节点存放了<strong>整张表的所有行数据</strong>，非叶子节点存储的是索引值以及页偏移量。</p>
 <span id="more"></span>
 
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2.png" alt="理解oauth2"></p>
-<ol>
-<li>资源所有者（resource owner）即用户本身</li>
-<li>客户端&#x2F;第三方应用（client）即你将要访问的网站BLOGI</li>
-<li>资源服务器（resource server）例如 GitHub</li>
-<li>授权服务器（authorization server）可以与资源服务器放到一起</li>
-</ol>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2-1.png" alt="oauth2协议"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/oauth2-2.png" alt="oauth2协议角色与流程"></p>
+<p><strong>假设高度为2</strong></p>
+<p>由于b+树的结构，那么我们认为高度为2的时候，我们存在一个根节点和若干个叶子节点。那么我们就得到了第一个公式，高度为2的时候，等于我们根节点指针数*单个叶子节点记录行数。就是我们能存储的数据量。假设我们有一个表，主键的id是bigint,bigint长度为8字节。指针的大小在mysql中是6字节。那么8+6等于14字节。一个索引页用16×1024&#x3D;16384。16384&#x2F;14~&#x3D;1170。那么我们一个索引页就有1170个索引。那么再假设我们的一行数据是1kb，那么一个页就是16行数据。我们用刚才的1170乘以16,那么就是18720记录。</p>
+<p><strong>高度为3</strong></p>
+<p>那么同理高度为3的时候，我们b+树的构成是根节点+一堆非叶子节点+<br>一堆叶子节点。非叶子节点和根节点都是我们的索引页。和之前讲的同<br>理一个页就是1170数据。那么我们做一个乘法1170×1170×16 &#x3D; 21902400 条数据。千万级的数据。<br>那么我们可以得到一个结论，千万级的数据，我们进行1~3次io就可以查<br>找到我们要的数据啦!</p>
 
     </div>
 
@@ -309,22 +296,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/oauth2/" rel="tag"># oauth2</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/07/07/Git%E7%9B%B8%E5%85%B3/" rel="prev" title="Git相关">
-                  <i class="fa fa-chevron-left"></i> Git相关
+                <a href="/2022/06/19/Redis%E7%83%ADKey/" rel="prev" title="Redis热Key">
+                  <i class="fa fa-chevron-left"></i> Redis热Key
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/07/08/Redis/" rel="next" title="Redis学习">
-                  Redis学习 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
