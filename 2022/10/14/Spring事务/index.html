@@ -20,31 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Spring Boot深度实践三大特性 组件自动装配：Web MVC、Web Flux、JDBC 嵌入式Web容器：Tomcat、Jetty以及Undertow 生产准备特性：指标、健康检查、外部化配置等">
+    <meta name="description" content="事务其实是一个并发控制单位，是用户定义的一个操作序列，这些操作要么全部完成，要不全部不完成，是一个不可分割的工作单位。事务有ACID四个特性，即：  Atomicity（原子性）：事务中的所有操作，或者全部完成，或者全部不完成，不会结束在中间某个环节。 一致性（Consistency）：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。 事务隔离（Isolation）：多个事务之间是独立的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot深度实践">
-<meta property="og:url" content="http://example.com/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="Spring事务">
+<meta property="og:url" content="http://example.com/2022/10/14/Spring%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="笔记">
-<meta property="og:description" content="Spring Boot深度实践三大特性 组件自动装配：Web MVC、Web Flux、JDBC 嵌入式Web容器：Tomcat、Jetty以及Undertow 生产准备特性：指标、健康检查、外部化配置等">
+<meta property="og:description" content="事务其实是一个并发控制单位，是用户定义的一个操作序列，这些操作要么全部完成，要不全部不完成，是一个不可分割的工作单位。事务有ACID四个特性，即：  Atomicity（原子性）：事务中的所有操作，或者全部完成，或者全部不完成，不会结束在中间某个环节。 一致性（Consistency）：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。 事务隔离（Isolation）：多个事务之间是独立的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530165833.png">
-<meta property="article:published_time" content="2020-07-07T10:50:53.000Z">
-<meta property="article:modified_time" content="2022-06-09T03:43:17.810Z">
+<meta property="article:published_time" content="2022-10-14T08:47:54.000Z">
+<meta property="article:modified_time" content="2022-10-14T08:47:57.195Z">
 <meta property="article:author" content="zelentre">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="spring boot">
+<meta property="article:tag" content="spring事务">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530165833.png">
 
 
-<link rel="canonical" href="http://example.com/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/">
+<link rel="canonical" href="http://example.com/2022/10/14/Spring%E4%BA%8B%E5%8A%A1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/","path":"2020/07/07/Spring Boot深度实践/","title":"Spring Boot深度实践"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/14/Spring%E4%BA%8B%E5%8A%A1/","path":"2022/10/14/Spring事务/","title":"Spring事务"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Spring Boot深度实践 | 笔记</title>
+<title>Spring事务 | 笔记</title>
   
 
 
@@ -147,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot深度实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">三大特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">核心特性</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">事务传播类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUIRED"><span class="nav-number">1.1.</span> <span class="nav-text">REQUIRED</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REQUIRES-NEW"><span class="nav-number">1.2.</span> <span class="nav-text">REQUIRES_NEW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NESTED"><span class="nav-number">1.3.</span> <span class="nav-text">NESTED</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%BC%9A%E5%A4%B1%E6%95%88"><span class="nav-number">2.</span> <span class="nav-text">事务什么情况会失效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">相关参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -210,7 +207,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/07/Spring%20Boot%E6%B7%B1%E5%BA%A6%E5%AE%9E%E8%B7%B5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/14/Spring%E4%BA%8B%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -223,12 +220,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Spring Boot深度实践 | 笔记">
+      <meta itemprop="name" content="Spring事务 | 笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Spring Boot深度实践
+          Spring事务
         </h1>
 
         <div class="post-meta-container">
@@ -238,15 +235,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-07-07 18:50:53" itemprop="dateCreated datePublished" datetime="2020-07-07T18:50:53+08:00">2020-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-09 11:43:17" itemprop="dateModified" datetime="2022-06-09T11:43:17+08:00">2022-06-09</time>
+      <time title="创建时间：2022-10-14 16:47:54 / 修改时间：16:47:57" itemprop="dateCreated datePublished" datetime="2022-10-14T16:47:54+08:00">2022-10-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,11 +245,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring boot</span></a>
+          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
         </span>
     </span>
 
@@ -269,7 +256,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>189</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -287,19 +274,77 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Spring-Boot深度实践"><a href="#Spring-Boot深度实践" class="headerlink" title="Spring Boot深度实践"></a>Spring Boot深度实践</h1><h2 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h2><ol>
-<li>组件自动装配：Web MVC、Web Flux、JDBC</li>
-<li>嵌入式Web容器：Tomcat、Jetty以及Undertow</li>
-<li>生产准备特性：指标、健康检查、外部化配置等</li>
+        <blockquote>
+<p>事务其实是一个并发控制单位，是用户定义的一个操作序列，这些操作要么全部完成，要不全部不完成，是一个不可分割的工作单位。事务有ACID四个特性，即：</p>
+<ol>
+<li>Atomicity（原子性）：事务中的所有操作，或者全部完成，或者全部不完成，不会结束在中间某个环节。</li>
+<li>一致性（Consistency）：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。</li>
+<li>事务隔离（Isolation）：多个事务之间是独立的，不互相影响的。</li>
+<li>持久性（Durability）：事务处理结束后，对数据的修改就是永久的，即使系统故障也不会丢失。</li>
 </ol>
+</blockquote>
 <span id="more"></span>
 
-<h2 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h2><ol>
-<li>激活：@EnableAutoConfiguration</li>
-<li>配置：&#x2F;MATA-INF&#x2F;spring.factories</li>
-<li>实现：XXXAutoConfiguration</li>
+<blockquote>
+<p>MySQL默认情况下，对于所有的单条语句都作为一个单独的事务来执行。我们要使用MySQL事务的时候，可以通过手动提交事务来控制事务范围。<strong>Spring事务的本质，其实就是通过 Spring AOP 切面技术，在合适的地方开启事务，接着在合适的地方提交事务或回滚事务，从而实现了业务编程层面的事务操作。</strong></p>
+</blockquote>
+<h2 id="事务传播类型"><a href="#事务传播类型" class="headerlink" title="事务传播类型"></a>事务传播类型</h2><p>事务传播类型，指的是事务与事务之间的交互策略。Spring事务中定义了7种事务传播类型，分别是：REQUIRED、SUPPORTS、MANDATORY、REQUIRES_NEW、NOT_SUPPORTED、NEVER、NESTED。其中最常用的只有 3 种，即：REQUIRED、REQUIRES_NEW、NESTED。</p>
+<p>针对事务传播类型，我们要弄明白的是 4 个点：</p>
+<ol>
+<li>子事务与父事务的关系，是否会启动一个新的事务？</li>
+<li>子事务异常时，父事务是否会回滚？</li>
+<li>父事务异常时，子事务是否会回滚？</li>
+<li>父事务捕捉异常后，父事务是否还会回滚？</li>
 </ol>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530165833.png"></p>
+<h3 id="REQUIRED"><a href="#REQUIRED" class="headerlink" title="REQUIRED"></a>REQUIRED</h3><blockquote>
+<p>REQUIRED是Spring默认的事务传播类型，该传播类型的特点是：<strong>当前方法存在事务时，子方法加入该事务。此时父子方法共用一个事务，无论父子方法那个发生异常回滚，整个事务都回滚。即使父方法捕获了异常也是会回滚。而当前方法不存在事务时，子方法新建一个事务。</strong></p>
+</blockquote>
+<h3 id="REQUIRES-NEW"><a href="#REQUIRES-NEW" class="headerlink" title="REQUIRES_NEW"></a>REQUIRES_NEW</h3><blockquote>
+<p>REQUIRES_NEW也是常用的一个事务传播类型，该类型的特点是：<strong>无论当前方法是否存在事务，子事务都会新建一个事务。此时父子方法的事务是独立的，它们都不会互相影响。但父方法需要注意子方法抛出的异常，避免因子方法抛出异常，而导致的父方法回滚。</strong></p>
+</blockquote>
+<h3 id="NESTED"><a href="#NESTED" class="headerlink" title="NESTED"></a>NESTED</h3><blockquote>
+<p> 该方法的特性与REQUIRED非常相似，其特性是：<strong>当前方法存在事务时，子方法加入在嵌套事务执行。当父方法事务回滚时，子方法事务也跟着回滚。当子方法事务发生回滚时，父方法事务是否回滚取决于是否捕获了异常。如果捕获了异常，那么就不会滚，否则回滚。</strong></p>
+</blockquote>
+<p>总结：</p>
+<table>
+<thead>
+<tr>
+<th>事务传播类型</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REQUIRED</td>
+<td>当前方法存在事务时，子方法加入该事务。此时父子方法共用一个事务，无论父子方法哪个发生异常回滚，整个事务都回滚。即使父方法捕捉了异常，也是会回滚。而当前方法不存在事务时，子方法新建一个事务。</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>无论当前方法是否存在事务，子方法都新建一个事务。此时父子方法的事务时独立的，它们都不会相互影响。但父方法需要注意子方法抛出的异常，避免因子方法抛出异常，而导致父方法回滚。</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>当前方法存在事务时，子方法加入在嵌套事务执行。当父方法事务回滚时，子方法事务也跟着回滚。当子方法事务发送回滚时，父事务是否回滚取决于是否捕捉了异常。如果捕捉了异常，那么就不回滚，否则回滚。</td>
+</tr>
+</tbody></table>
+<h2 id="事务什么情况会失效"><a href="#事务什么情况会失效" class="headerlink" title="事务什么情况会失效"></a>事务什么情况会失效</h2><ol>
+<li><p>内部调用</p>
+<ul>
+<li>使用一个没有事务的方法调用一个有事务的方法，失败后不会进行回滚</li>
+</ul>
+</li>
+<li><p>没有指定监听的Exception</p>
+<ul>
+<li>如果抛出非 RuntimeException 和非 Error 错误的其他异常，不能正常捕获，也就不会回滚。</li>
+</ul>
+</li>
+<li><p>内部异常被catch</p>
+</li>
+<li><p>方法非public</p>
+</li>
+</ol>
+<h2 id="相关参考"><a href="#相关参考" class="headerlink" title="相关参考"></a>相关参考</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7f7VvAK-A3ab2HSCATm-Fw">深入理解 Spring 事务：入门、使用、原理</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22795957/article/details/108157179">springboot事务什么情况会失效</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FVPe4OrC33px02ldqzkTaQ">springboot事务什么情况会失效</a></p>
 
     </div>
 
@@ -309,22 +354,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/spring-boot/" rel="tag"># spring boot</a>
+              <a href="/tags/spring%E4%BA%8B%E5%8A%A1/" rel="tag"># spring事务</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/07/07/mybatis%E7%9B%B8%E5%85%B3/" rel="prev" title="Mybatis转义">
-                  <i class="fa fa-chevron-left"></i> Mybatis转义
+                <a href="/2022/10/09/%E4%B8%9A%E5%8A%A1%E4%B8%BB%E8%A1%A8%E8%AF%BB%E5%86%99%E7%BC%93%E6%85%A2%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96/" rel="prev" title="业务主表读写缓慢如何优化">
+                  <i class="fa fa-chevron-left"></i> 业务主表读写缓慢如何优化
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/07/07/Git%E7%9B%B8%E5%85%B3/" rel="next" title="Git相关">
-                  Git相关 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
