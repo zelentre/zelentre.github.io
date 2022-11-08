@@ -16,14 +16,17 @@
 
 <link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://lib.baomitu.com/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="//gcore.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//gcore.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.min.css">
+  <script src="https://lib.baomitu.com/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.zelentre.vip","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习">
-<meta property="og:url" content="http://example.com/2020/07/08/Redis/index.html">
-<meta property="og:site_name" content="笔记">
+<meta property="og:url" content="https://blog.zelentre.vip/2020/07/08/Redis/index.html">
+<meta property="og:site_name" content="ZNE Blog">
 <meta property="og:description" content="Redis">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303174922.png">
@@ -294,20 +297,20 @@
 <meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100750.png">
 <meta property="article:published_time" content="2020-07-08T10:01:31.000Z">
 <meta property="article:modified_time" content="2022-06-09T03:43:17.815Z">
-<meta property="article:author" content="zelentre">
+<meta property="article:author" content="ZNE">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303174922.png">
 
 
-<link rel="canonical" href="http://example.com/2020/07/08/Redis/">
+<link rel="canonical" href="https://blog.zelentre.vip/2020/07/08/Redis/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2020/07/08/Redis/","path":"2020/07/08/Redis/","title":"Redis学习"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.zelentre.vip/2020/07/08/Redis/","path":"2020/07/08/Redis/","title":"Redis学习"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Redis学习 | 笔记</title>
+<title>Redis学习 | ZNE Blog</title>
   
 
 
@@ -338,7 +341,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">笔记</p>
+      <p class="site-title">ZNE Blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -416,14 +419,14 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">zelentre</p>
-  <div class="site-description" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">ZNE</p>
+  <div class="site-description" itemprop="description">ZNE的博客</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,7 +437,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -456,6 +459,10 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zelentre" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -473,20 +480,20 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/08/Redis/">
+    <link itemprop="mainEntityOfPage" href="https://blog.zelentre.vip/2020/07/08/Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zelentre">
+      <meta itemprop="name" content="ZNE">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="笔记">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="ZNE Blog">
+      <meta itemprop="description" content="ZNE的博客">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Redis学习 | 笔记">
+      <meta itemprop="name" content="Redis学习 | ZNE Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -526,6 +533,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -554,7 +568,7 @@
 
 <h2 id="一、Redis初始"><a href="#一、Redis初始" class="headerlink" title="一、Redis初始"></a>一、Redis初始</h2><h3 id="redis特性"><a href="#redis特性" class="headerlink" title="redis特性"></a>redis特性</h3><ol>
 <li><p>速度快</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303174922.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303174922.png"></p>
 <ul>
 <li>10W OPS（每秒可以实现10万次读写 官方数字）</li>
 <li>数据存在内存中</li>
@@ -568,7 +582,7 @@
 </ul>
 </li>
 <li><p>多种数据结构</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303180006.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200303180006.png"></p>
 <ul>
 <li>BitMaps：位图</li>
 <li>HyperLogLog：超小内存唯一值计数</li>
@@ -604,17 +618,17 @@
 </ol>
 <h3 id="Redis典型应用场景"><a href="#Redis典型应用场景" class="headerlink" title="Redis典型应用场景"></a>Redis典型应用场景</h3><ol>
 <li>缓存系统<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304092708.png"> 当redis中有data时直接返回data，当redis中无data–&gt;storage,storage–&gt;appserver、storage–&gt;redis,以便下次访问直接走redis</li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304092708.png"> 当redis中有data时直接返回data，当redis中无data–&gt;storage,storage–&gt;appserver、storage–&gt;redis,以便下次访问直接走redis</li>
 </ul>
 </li>
 <li>计数器<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304093255.png">转发数、评论数用缓存计数，还有视频播放数等等</li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304093255.png">转发数、评论数用缓存计数，还有视频播放数等等</li>
 </ul>
 </li>
 <li>消息队列系统</li>
 <li>排行榜</li>
 <li>社交网络<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304093712.png"> 粉丝数、共同关注数。。</li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304093712.png"> 粉丝数、共同关注数。。</li>
 </ul>
 </li>
 <li>实时系统<ul>
@@ -625,7 +639,7 @@
 <h3 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h3><ol>
 <li><p>redis安装</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304094433.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304094433.png"></li>
 <li><strong>创建redis的软连接，方便以后升级</strong>     <code> ln -s redis-3.0.7 redis</code></li>
 </ul>
 </li>
@@ -667,13 +681,13 @@
 </li>
 <li><p>简单的客户端连接</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304100658.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304100658.png"></li>
 </ul>
 </li>
 <li><p>redis客户端返回值</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304100959.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304101031.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304100959.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304101031.png"></li>
 </ul>
 </li>
 </ol>
@@ -686,59 +700,59 @@
 <h2 id="二、API的理解和使用"><a href="#二、API的理解和使用" class="headerlink" title="二、API的理解和使用"></a>二、API的理解和使用</h2><h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><ul>
 <li><p>通用命令</p>
 <ul>
-<li><p>keys（redis里的所有的键）<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304105306.png"></p>
+<li><p>keys（redis里的所有的键）<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304105306.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530130939.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530130939.png"></p>
 </li>
 <li><p><strong>keys命令一般不再生产环境使用</strong> <strong>keys*怎么用 1.热备从节点 2.scan</strong></p>
 </li>
 <li><p>dbsize（计算数据库大小） </p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304105824.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304105824.png"></p>
 </li>
 <li><p>exists key（键是否存在）</p>
 </li>
 </ul>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110033.png" alt="img"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110033.png" alt="img"></p>
 <ul>
 <li><p>del key [key …]（删除key，可以多个） </p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110033.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110033.png"></p>
 </li>
-<li><p>expire key seconds（设置过期时间） <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110526.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110712.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110829.png"></p>
+<li><p>expire key seconds（设置过期时间） <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110526.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110712.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304110829.png"></p>
 </li>
-<li><p>type key（key类型） <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304111007.png"><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304111055.png"></p>
+<li><p>type key（key类型） <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304111007.png"><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304111055.png"></p>
 </li>
 <li><p><strong>时间复杂度大部分是O(1)</strong></p>
 </li>
 </ul>
 </li>
 <li><p>数据结构和内部编码</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304112932.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304140640.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304112932.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304140640.png"></p>
 </li>
-<li><p>单线程架构 <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304141413.png" alt="redis同一时间只会执行一个命令"><strong>单线程快的原因</strong></p>
+<li><p>单线程架构 <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304141413.png" alt="redis同一时间只会执行一个命令"><strong>单线程快的原因</strong></p>
 <ul>
 <li>纯内存</li>
-<li>非阻塞IO<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304141813.png"></li>
-<li>避免线程切换和竞态消耗 <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304142116.png"></li>
+<li>非阻塞IO<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304141813.png"></li>
+<li>避免线程切换和竞态消耗 <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304142116.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ul>
 <li><p>结构和命令</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304142451.png"><strong>建议在100KB以内</strong></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304142451.png"><strong>建议在100KB以内</strong></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131522.png"><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304143346.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131522.png"><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304143346.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304143927.png">)<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131643.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304143927.png">)<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131643.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131719.png"><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131750.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131719.png"><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131750.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131841.png"><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131952.png"></p>
-<p> <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132039.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132132.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131841.png"><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530131952.png"></p>
+<p> <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132039.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132132.png"></p>
 </li>
 </ul>
 </li>
@@ -749,7 +763,7 @@
 </li>
 <li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> VideoInfo <span class="title function_">get</span><span class="params">(<span class="type">long</span> id)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> redisPrefix + id;</span><br><span class="line">    <span class="type">VideoInfo</span> <span class="variable">videoInfo</span> <span class="operator">=</span> redis.get(redisKey);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="literal">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//序列化</span></span><br><span class="line">        redis.set(redisKey,serialize(videoInfo));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>实现：分布式id生成器 <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132212.png"><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132242.png"></p>
+<li><p>实现：分布式id生成器 <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132212.png"><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530132242.png"></p>
 </li>
 </ul>
 </li>
@@ -757,13 +771,13 @@
 </li>
 <li><p>查漏补缺</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153215.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153316.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153215.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153316.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153335.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153356.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153335.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153356.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153417.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153417.png"></p>
 </li>
 </ul>
 </li>
@@ -771,40 +785,40 @@
 <h3 id="哈希类型"><a href="#哈希类型" class="headerlink" title="哈希类型"></a>哈希类型</h3><ul>
 <li><p>特点</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153436.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153511.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153436.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153511.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153534.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153534.png"></p>
 </li>
 </ul>
 </li>
 <li><p>重要API</p>
 <ul>
-<li><p>​     <img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153809.png"></p>
+<li><p>​     <img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153809.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset user:1:info age 23</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt;  hget user:1:info age</span><br><span class="line">&quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hset user:1:info name ronaldo</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;23&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; hdel user:1:info age</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153641.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153641.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:1:info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;23&quot;</span><br><span class="line">127.0.0.1:6379&gt; hexists user:1:info name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hlen user:1:info</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153840.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153840.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:2:info age 30 name kaka page 50</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hlen user:2:info</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; hmget user:2:info age name</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153859.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153859.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;30&quot;</span><br><span class="line">3) &quot;name&quot;</span><br><span class="line">4) &quot;kaka&quot;</span><br><span class="line">5) &quot;page&quot;</span><br><span class="line">6) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hvals user:2:info</span><br><span class="line">1) &quot;30&quot;</span><br><span class="line">2) &quot;kaka&quot;</span><br><span class="line">3) &quot;50&quot;</span><br><span class="line">127.0.0.1:6379&gt; hkeys user:2:info</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;name&quot;</span><br><span class="line">3) &quot;page&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>小心使用hgetall，牢记redis是单线程（耗时问题）</strong></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153926.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153926.png"></p>
 </li>
 <li><p>实现：记录网站每个用户个人主页的访问量<code>hincrby user:1:info pageview count</code></p>
 </li>
 <li><p>实现：缓存视频的基本信息（数据源在MySQL中）伪代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> VideoInfo <span class="title function_">get</span><span class="params">(<span class="type">long</span> id)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> redisPrefix + id;</span><br><span class="line">    Map&lt;String,String&gt; hashMap = redis.hgetAll(redisKey);</span><br><span class="line">    <span class="type">VideoInfo</span> <span class="variable">videoInfo</span> <span class="operator">=</span> transferMapToVideo(hashMap);</span><br><span class="line">    <span class="keyword">if</span>(videoInfo == <span class="literal">null</span>)&#123;</span><br><span class="line">        videoInf = mysql.get(id);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        redis.hmset(redisKey,transferVideoToMap(hashMap));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> videoInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153943.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154007.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154023.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154055.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530153943.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154007.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154023.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154055.png"></p>
 </li>
 </ul>
 </li>
@@ -812,8 +826,8 @@
 </li>
 <li><p>查漏补缺</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154114.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154136.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154114.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154136.png"></li>
 </ul>
 </li>
 </ul>
@@ -825,46 +839,46 @@
 </li>
 <li><p>重要API</p>
 <ul>
-<li><p><strong>增</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154205.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154220.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154238.png"></p>
+<li><p><strong>增</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154205.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154220.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154238.png"></p>
 </li>
-<li><p><strong>删</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154300.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154318.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154339.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154356.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154413.png"></p>
+<li><p><strong>删</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154300.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154318.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154339.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154356.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154413.png"></p>
 </li>
-<li><p><strong>查</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154430.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154446.png"></p>
+<li><p><strong>查</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154430.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154446.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154515.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154515.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154539.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154539.png"></p>
 </li>
-<li><p><strong>改</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154554.png"></p>
+<li><p><strong>改</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154554.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush listkey a b c</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;a&quot;</span><br><span class="line">2) &quot;b&quot;</span><br><span class="line">3) &quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; lpush listkey 0</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;a&quot;</span><br><span class="line">3) &quot;b&quot;</span><br><span class="line">4) &quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop listkey</span><br><span class="line">&quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange listkey 0 -1</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;a&quot;</span><br><span class="line">3) &quot;b&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>实战</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154626.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154657.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154626.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154657.png"></p>
 </li>
 </ul>
 </li>
 <li><p>查漏补缺</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154713.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154728.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154713.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154728.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h3><ul>
 <li><p>特点</p>
 <ul>
-<li><strong>不能插入重复元素，<code> srem key music</code>删除元素</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154816.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154840.png"></li>
+<li><strong>不能插入重复元素，<code> srem key music</code>删除元素</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154816.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154840.png"></li>
 <li><strong>无序、无重复、集合间操作</strong></li>
 </ul>
 </li>
@@ -872,9 +886,9 @@
 <ul>
 <li><p><strong>S开头</strong></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154923.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154923.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154940.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530154940.png"></p>
 </li>
 <li><p><strong>smembers：无序、小心使用</strong></p>
 </li>
@@ -886,61 +900,61 @@
 <li><p>实现：Like、赞、踩</p>
 </li>
 <li><p>实现：标签（同事务）</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530155001.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530155001.png"></p>
 </li>
 </ul>
 </li>
 <li><p>集合间API</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170220.png" alt="img"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170220.png" alt="img"></li>
 <li>实现：共同关注（sinter）</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170414.png" alt="img"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170414.png" alt="img"></li>
 </ul>
 </li>
 </ul>
 <h3 id="有序集合类型"><a href="#有序集合类型" class="headerlink" title="有序集合类型"></a>有序集合类型</h3><ul>
 <li><p>特点</p>
 <ul>
-<li>结构<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170705.png" alt="img"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170743.png" alt="img"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170840.png" alt="img"></li>
+<li>结构<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170705.png" alt="img"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170743.png" alt="img"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305170840.png" alt="img"></li>
 </ul>
 </li>
 <li><p>重要API</p>
 <ul>
 <li><p><strong>以Z开头</strong></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174533.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174533.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174633.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174633.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171233.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171233.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171320.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171320.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171437.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305171437.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172209.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172209.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172314.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172314.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172429.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305172429.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174255.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174255.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174339.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305174339.png" alt="img"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zadd player:rank 1000 ronaldo 900 messi 800 c-ronaldo 600 kaka</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; zscore player:rank kaka</span><br><span class="line">&quot;600&quot;</span><br><span class="line">127.0.0.1:6379&gt; zcard player:rank</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; zrank player:rank ronaldo</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; zrem player:rank messi</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange player:rank 0 -1 withscores</span><br><span class="line">1) &quot;kaka&quot;</span><br><span class="line">2) &quot;600&quot;</span><br><span class="line">3) &quot;c-ronaldo&quot;</span><br><span class="line">4) &quot;800&quot;</span><br><span class="line">5) &quot;ronaldo&quot;</span><br><span class="line">6) &quot;1000&quot;</span><br><span class="line">127.0.0.1:6379&gt; zadd player:rank 800 c-ronaldo</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; zadd player:rank 900 messi</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange player:rank 0 -1</span><br><span class="line">1) &quot;kaka&quot;</span><br><span class="line">2) &quot;c-ronaldo&quot;</span><br><span class="line">3) &quot;messi&quot;</span><br><span class="line">4) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; zcount player:rank 700 901</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore player:rank 700 901</span><br><span class="line">1) &quot;c-ronaldo&quot;</span><br><span class="line">2) &quot;messi&quot;</span><br><span class="line">127.0.0.1:6379&gt; zremrangebyrank player:rank 0 1</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; zrange player:rank 0 -1</span><br><span class="line">1) &quot;messi&quot;</span><br><span class="line">2) &quot;ronaldo&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrange player:rank 0 -1 withscores</span><br><span class="line">1) &quot;messi&quot;</span><br><span class="line">2) &quot;900&quot;</span><br><span class="line">3) &quot;ronaldo&quot;</span><br><span class="line">4) &quot;1000&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>实战</p>
 <ul>
-<li>实现：排行榜<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173811.png" alt="img"></li>
+<li>实现：排行榜<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173811.png" alt="img"></li>
 </ul>
 </li>
 <li><p>查漏补缺</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173929.png" alt="img"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173949.png" alt="img"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173929.png" alt="img"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200305173949.png" alt="img"></p>
 </li>
 </ul>
 </li>
@@ -949,9 +963,9 @@
 <li><p>获取jedis</p>
 <ul>
 <li><p>shell（redis-cli）  Java（jedis）</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306103814.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306103814.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306103935.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306103935.png"></p>
 </li>
 <li><p>Jedis直连</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.生成一个Jedis对象，这个对象负责和指定redis节点进行通信</span></span><br><span class="line">    <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">6379</span>);</span><br><span class="line"><span class="comment">// 2.jedis执行set操作</span></span><br><span class="line">    jedis.set(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="comment">// 3.jedis执行get操作，value=&quot;world&quot;</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> jedis.get(<span class="string">&quot;hello&quot;</span>);</span><br></pre></td></tr></table></figure>
@@ -973,17 +987,17 @@
 <ul>
 <li><p>Jedis直连</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306113555.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306113555.png"></li>
 </ul>
 </li>
 <li><p>Jedis连接池</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306113844.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306113844.png"></li>
 </ul>
 </li>
 <li><p>方案对比</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306134849.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306134849.png"></li>
 </ul>
 </li>
 <li><p>JedisPool使用</p>
@@ -994,8 +1008,8 @@
 </li>
 <li><p>Jedis配置优化</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306141709.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306142536.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306141709.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306142536.png"></li>
 <li>适合的maxTotal（比较难确定）<ul>
 <li>命令平均执行时间 0.1ms &#x3D; 0.001s。</li>
 <li>业务需要50000 QPS。</li>
@@ -1020,7 +1034,7 @@
 </ul>
 </li>
 <li>常见问题<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306144528.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200306144528.png"></li>
 </ul>
 </li>
 <li>解决思路<ul>
@@ -1038,11 +1052,11 @@
 <h2 id="四、Redis其他功能"><a href="#四、Redis其他功能" class="headerlink" title="四、Redis其他功能"></a>四、Redis其他功能</h2><h3 id="慢查询"><a href="#慢查询" class="headerlink" title="慢查询"></a>慢查询</h3><ol>
 <li><p>生命周期</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309095118.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309095118.png"></li>
 </ul>
 </li>
 <li><p>两个配置</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309095543.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309095543.png"></p>
 <ul>
 <li>slowlog-max-len<ol>
 <li>先进先出队列</li>
@@ -1091,13 +1105,13 @@
 <h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h3><ul>
 <li><p>什么是流水线</p>
 <ul>
-<li><p><strong>一次网路命令通信模型</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304171244.png" alt="img"></p>
+<li><p><strong>一次网路命令通信模型</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304171244.png" alt="img"></p>
 </li>
-<li><p><strong>批量网络命令通信模型</strong><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304171152.png" alt="img"></p>
+<li><p><strong>批量网络命令通信模型</strong><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200304171152.png" alt="img"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309103325.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309103325.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309103738.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309103738.png"></p>
 </li>
 </ul>
 </li>
@@ -1133,7 +1147,7 @@
 </li>
 <li><p>模型</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309111739.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309111739.png"></li>
 <li><strong>订阅这可以订阅多个频道</strong></li>
 </ul>
 </li>
@@ -1141,44 +1155,44 @@
 <ul>
 <li><p>publish</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112125.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112125.png"></li>
 </ul>
 </li>
 <li><p>subscribe</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112203.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112203.png"></li>
 </ul>
 </li>
 <li><p>unsubscribe</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112241.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112241.png"></li>
 </ul>
 </li>
 <li><p>其他</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112346.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112346.png"></p>
 </li>
 </ul>
 </li>
 <li><p>发布订阅与消息队列</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112429.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112608.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112429.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309112608.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="Bitmap"><a href="#Bitmap" class="headerlink" title="Bitmap"></a>Bitmap</h3><ul>
 <li><p>位图</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309113011.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309113011.png"></li>
 </ul>
 </li>
 <li><p>相关命令</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143205.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143831.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143926.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144012.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144120.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143205.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143831.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309143926.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144012.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144120.png"></li>
 </ul>
 </li>
 <li><p>独立用户统计</p>
@@ -1187,8 +1201,8 @@
 <li>1亿用户，5千万独立</li>
 </ol>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144549.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144651.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144549.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309144651.png"></li>
 <li><strong>使用经验</strong><ul>
 <li><ol>
 <li>type&#x3D;string，最大512MB</li>
@@ -1219,37 +1233,37 @@
 </li>
 <li><p>内存消耗</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151432.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151432.png"></li>
 </ul>
 </li>
 <li><p>使用经验</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151656.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151656.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3><ul>
 <li><p>GEO是什么</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151922.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152004.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309151922.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152004.png"></li>
 </ul>
 </li>
 <li><p>5个城市经纬度</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152029.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152029.png"></li>
 </ul>
 </li>
 <li><p>相关命令</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152309.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152309.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152422.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152422.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152513.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152513.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152538.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152646.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152538.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309152646.png"></p>
 </li>
 </ul>
 </li>
@@ -1267,39 +1281,39 @@
 </ul>
 </li>
 <li>持久化的实现方式<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309154132.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309154132.png"></li>
 </ul>
 </li>
 </ul>
 <h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3><ul>
 <li><p>什么是RDB</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309154714.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309154714.png"></li>
 </ul>
 </li>
 <li><p>触发机制-主要三种方式</p>
 <ul>
 <li><p>save（同步）</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155136.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155204.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155246.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155136.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155204.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309155246.png"></li>
 </ul>
 </li>
 <li><p>bgsave（异步）</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530160629.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164246.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164333.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164353.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20220530160629.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164246.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164333.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309164353.png"></li>
 </ul>
 </li>
 <li><p>自动</p>
 <ul>
 <li><p><strong>自动生成RDB</strong></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309165036.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309165036.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line">dir ./</span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">rdbchecksum yes</span><br></pre></td></tr></table></figure>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309165940.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309165940.png"></p>
 </li>
 </ul>
 </li>
@@ -1325,38 +1339,38 @@
 <h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><ul>
 <li>RDB现存问题<ul>
 <li>耗时、耗性能<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173446.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173446.png"></li>
 </ul>
 </li>
 <li>不可控、丢失数据<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173612.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173612.png"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>什么是AOF<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173720.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173807.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173720.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309173807.png"></li>
 </ul>
 </li>
 <li>AOF三种策略<ul>
 <li>always<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174020.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174020.png"></li>
 </ul>
 </li>
 <li>everysec<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174135.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174135.png"></li>
 </ul>
 </li>
 <li>no<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174219.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174219.png"></li>
 </ul>
 </li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174304.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174304.png"></li>
 </ul>
 </li>
 <li>AOF重写<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174657.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309174657.png"></li>
 <li>作用：<ul>
 <li>减少硬盘占用量</li>
 <li>加速恢复速度</li>
@@ -1364,15 +1378,15 @@
 </li>
 <li>AOF重写实现两种方式<ul>
 <li>bgrewriteaof<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309175535.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309175535.png"></li>
 </ul>
 </li>
 <li>AOF重写配置<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309175607.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180145.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180238.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180304.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180622.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309175607.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180145.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180238.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180304.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200309180622.png"></li>
 </ul>
 </li>
 </ul>
@@ -1478,11 +1492,11 @@
 </li>
 </ol>
 <h3 id="AOF追加阻塞"><a href="#AOF追加阻塞" class="headerlink" title="AOF追加阻塞"></a>AOF追加阻塞</h3><ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310114122.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310114122.png"></li>
 <li>AOF阻塞定位<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134905.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134922.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134939.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134905.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134922.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310134939.png"></li>
 </ul>
 </li>
 </ul>
@@ -1497,10 +1511,10 @@
 <li><p>主从复制的作用</p>
 <ul>
 <li><p><strong>一主一从</strong></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310140307.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310140307.png"></p>
 </li>
 <li><p><strong>一主多从</strong></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310140451.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310140451.png"></p>
 </li>
 <li><p><strong>作用</strong></p>
 <ul>
@@ -1521,8 +1535,8 @@
 <h3 id="复制的配置"><a href="#复制的配置" class="headerlink" title="复制的配置"></a>复制的配置</h3><ul>
 <li><p>slaveof命令</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310141243.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310141458.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310141243.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310141458.png"></li>
 </ul>
 </li>
 <li><p>配置</p>
@@ -1552,7 +1566,7 @@
 </ul>
 <h3 id="全量复制和部分复制"><a href="#全量复制和部分复制" class="headerlink" title="全量复制和部分复制"></a>全量复制和部分复制</h3><ul>
 <li><p><strong>全量复制</strong></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310152018.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310152018.png"></p>
 </li>
 <li><p><strong>全量复制开销</strong></p>
 <ol>
@@ -1564,24 +1578,24 @@
 </ol>
 </li>
 <li><p><strong>部分复制</strong></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160012.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160012.png"></p>
 </li>
 </ul>
 <h3 id="故障处理"><a href="#故障处理" class="headerlink" title="故障处理"></a>故障处理</h3><ul>
 <li><p><strong>主从结构-故障转移</strong></p>
 <ul>
 <li><p>slave宕掉</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160740.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160740.png"></p>
 </li>
 <li><p>master宕掉</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160902.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160902.png"></p>
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="开发运维常见问题"><a href="#开发运维常见问题" class="headerlink" title="开发运维常见问题"></a>开发运维常见问题</h3><ol>
 <li><p>读写分离</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310161840.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310161840.png"></p>
 <ol>
 <li>读流量分摊到从节点</li>
 <li>可能遇到的问题：<ul>
@@ -1627,14 +1641,14 @@
 <li><p>规避复制风暴</p>
 <ol>
 <li><p>单主节点复制风暴：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310173149.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310173149.png"></p>
 <ul>
 <li>问题：主节点重启，多从节点复制</li>
 <li>解决：更换复制拓扑</li>
 </ul>
 </li>
 <li><p>单机器复制风暴</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310173236.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310173236.png"></p>
 <ul>
 <li>机器宕机后，大量全量复制</li>
 <li>主节点分散多机器</li>
@@ -1645,26 +1659,26 @@
 </ol>
 <h2 id="八、Redis-Sentinel"><a href="#八、Redis-Sentinel" class="headerlink" title="八、Redis Sentinel"></a>八、Redis Sentinel</h2><h3 id="主从复制高可用？"><a href="#主从复制高可用？" class="headerlink" title="主从复制高可用？"></a>主从复制高可用？</h3><ul>
 <li><p>手动故障转移</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160902.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200310160902.png"></p>
 </li>
 <li><p>写能力和存储能力受限</p>
 </li>
 </ul>
 <h3 id="架构说明"><a href="#架构说明" class="headerlink" title="架构说明"></a>架构说明</h3><ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311092857.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311092857.png"></p>
 </li>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311093130.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311093208.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311093130.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311093208.png"></p>
 </li>
 </ul>
 <h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><ol>
 <li>配置开启主从节点<ul>
 <li>主节点</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162522.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162522.png"></li>
 <li>从节点</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162637.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162637.png"></li>
 <li>主要配置</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162829.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311162829.png"></li>
 </ul>
 </li>
 <li>配置开启sentinel监控主节点。（sentinel是特殊的redis）</li>
@@ -1674,11 +1688,11 @@
 <h3 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h3><ul>
 <li><p>请求流程</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165122.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165212.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165229.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165336.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165359.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165122.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165212.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165229.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165336.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200311165359.png"></li>
 <li><strong>客户端接入流程：</strong><ol>
 <li>Sentinel地址集合</li>
 <li>masterName</li>
@@ -1706,17 +1720,17 @@
 <li>发现slave节点</li>
 <li>确认主从关系</li>
 </ul>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312113712.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312113712.png"></p>
 </li>
 <li><p>每2秒每个sentinel通过master节点的channel交换信息（pub&#x2F;sub）</p>
 <ul>
 <li>通过 <code>_sentinel_:hello</code>频道交换</li>
 <li>交换对节点的“看法”和自身信息</li>
 </ul>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312134718.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312134718.png"></p>
 </li>
 <li><p>每1秒每个sentinel对其他sentinel和redis执行ping</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312153224.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312153224.png"></p>
 </li>
 </ol>
 </li>
@@ -1767,7 +1781,7 @@
 <ul>
 <li><p>主节点</p>
 <p><code>sentinel failover &lt;masterName&gt;</code></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312165933.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200312165933.png"></p>
 </li>
 <li><p>从节点：临时下线还是永久下线，例如是否做一些清理工作，但是要考虑读写分离的情况</p>
 </li>
@@ -1841,15 +1855,15 @@
 </li>
 </ul>
 <h3 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h3><ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313101436.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313101436.png"></p>
 </li>
 <li><p>顺序分布和哈希分布</p>
 <ul>
 <li><p>顺序分布</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313110955.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313110955.png"></p>
 </li>
 <li><p>哈希分布（例如节点取模）</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313111241.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313111241.png"></p>
 </li>
 </ul>
 </li>
@@ -1877,9 +1891,9 @@
 <li><p>哈希分布</p>
 <ul>
 <li><p>节点取余分区：hash(Key)%nodes</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313111241.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313134742.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313135502.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313111241.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313134742.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313135502.png"></p>
 </li>
 <li><p>节点取余：</p>
 <ul>
@@ -1889,10 +1903,10 @@
 </ul>
 </li>
 <li><p>一致性哈希分区</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313140707.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313140707.png"></p>
 <ul>
 <li><p>n1 和 n2之间的key的数据将偏移到n5</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313141030.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313141030.png"></p>
 </li>
 <li><p>一致性哈希</p>
 <ul>
@@ -1912,7 +1926,7 @@
 <li><p>服务端管理节点、槽、数据：例如Redis Cluster</p>
 </li>
 <li><p>虚拟槽分配</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142046.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142046.png"></p>
 </li>
 </ul>
 </li>
@@ -1922,8 +1936,8 @@
 <h3 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h3><ul>
 <li><p>基本架构</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142530.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142550.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142530.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142550.png"></li>
 </ul>
 </li>
 <li><p>Redis Cluster架构</p>
@@ -1931,20 +1945,20 @@
 <li><p>节点</p>
 <ul>
 <li><p>cluster-enabled:yes  即集群启动</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142550.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313142550.png"></p>
 </li>
 </ul>
 </li>
 <li><p>meet</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151106.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151106.png"></p>
 </li>
 <li><p>指派槽</p>
 <ul>
 <li><p>客户端与指派槽</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151255.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151255.png"></p>
 </li>
 </ul>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151145.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313151145.png"></p>
 </li>
 <li><p>复制</p>
 </li>
@@ -1971,19 +1985,19 @@
 </li>
 <li><p>meet</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313161429.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313161429.png"></li>
 </ul>
 </li>
 <li><p>指派槽</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313161916.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313161916.png"></li>
 </ul>
 </li>
 <li><p>主从</p>
 <ul>
 <li><p>设置主从</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313162242.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200313162242.png"></li>
 </ul>
 </li>
 </ul>
@@ -2015,7 +2029,7 @@
 <h3 id="集群伸缩"><a href="#集群伸缩" class="headerlink" title="集群伸缩"></a>集群伸缩</h3><ul>
 <li><p>伸缩原理</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316135757.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316135757.png"></li>
 </ul>
 </li>
 <li><p>扩容集群</p>
@@ -2034,7 +2048,7 @@
 </li>
 <li><p>加入集群</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316140616.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316140616.png"></li>
 <li>作用：<ul>
 <li>为它迁移槽和数据实习扩容</li>
 <li>作为从节点负责故障转移</li>
@@ -2051,7 +2065,7 @@
 <li><p>迁移槽和数据</p>
 <ul>
 <li>槽迁移计划<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316143153.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316143153.png"></li>
 </ul>
 </li>
 <li>迁移数据<ol>
@@ -2061,7 +2075,7 @@
 <li>在源节点上执行<code>migrate &#123;targetId&#125; &#123;targetPort&#125; key 0 &#123;timeout&#125;</code>命令把指定key迁移</li>
 <li>重复执行步骤3~4知道槽下所有的键数据迁移到目标节点</li>
 <li>向集群内所有主节点发送<code>cluster setslot &#123;slot&#125; node &#123;tartgetNodeId&#125;</code>命令，通知槽分配给目标节点 </li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316144823.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316144823.png"></li>
 </ol>
 </li>
 <li>添加从节点</li>
@@ -2075,16 +2089,16 @@
 <h3 id="客户端路由"><a href="#客户端路由" class="headerlink" title="客户端路由"></a>客户端路由</h3><ul>
 <li><p>moved重定向</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152159.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152247.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152428.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152657.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152159.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152247.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152428.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152657.png"></li>
 </ul>
 </li>
 <li><p>ask重定向</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152940.png"></li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316153110.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316152940.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316153110.png"></li>
 <li>moved和ask<ul>
 <li>两者都是客户单重定向</li>
 <li>moved：槽已经确定迁移</li>
@@ -2100,7 +2114,7 @@
 <li>从集群中选一个可运行节点，使用cluster slots初始化槽和节点映射</li>
 <li>将cluster slots的结果映射到本地，为每个节点创建JedisPool</li>
 <li>准备执行命令<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316154352.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316154352.png"></li>
 </ul>
 </li>
 </ol>
@@ -2135,22 +2149,22 @@
 <ol>
 <li><p>串行mget</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171442.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171442.png"></li>
 </ul>
 </li>
 <li><p>串行IO</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171622.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171622.png"></li>
 </ul>
 </li>
 <li><p>并行IO</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171711.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316171711.png"></li>
 </ul>
 </li>
 <li><p>hash_tag</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316172031.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200316172031.png"></li>
 </ul>
 </li>
 <li><p>总结</p>
@@ -2203,13 +2217,13 @@
 <li>通过ping&#x2F;pong消息实现故障发现：不需要sentinel</li>
 <li>主观下线<ul>
 <li>定义：某个节点认为另一个节点不可用，“偏见”</li>
-<li>流程：<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091147.png"></li>
+<li>流程：<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091147.png"></li>
 </ul>
 </li>
 <li>客观下线<ul>
 <li>定义：当半数以上持有槽的主节点都标记某几点主观下线</li>
-<li>逻辑流程：<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091350.png"></li>
-<li>流程：<img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091506.png"><ul>
+<li>逻辑流程：<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091350.png"></li>
+<li>流程：<img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317091506.png"><ul>
 <li>通知集群内所有节点标记故障节点为客观下线</li>
 <li>通知故障节点的从节点触发故障转移流程</li>
 </ul>
@@ -2226,11 +2240,11 @@
 </ul>
 </li>
 <li>准备选举时间<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317094316.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317094316.png"></li>
 </ul>
 </li>
 <li>选举投票<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317094419.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317094419.png"></li>
 </ul>
 </li>
 <li>替换主节点<ol>
@@ -2261,7 +2275,7 @@
 </ul>
 </li>
 <li>带宽消耗<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317104154.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317104154.png"></li>
 <li>消息发送频率：节点发现与其他节点最后通信时间超过cluster-node-timeout&#x2F;2时会直接发送ping消息</li>
 <li>消息数据量：slots槽数组（2KB空间）和整个集群1&#x2F;10的状态数据（10个节点状态数据约1KB）</li>
 <li>节点部署的机器规模：集群分布的机器越多且每台机器划分的节点数越均匀，则集群内整体的可用带宽越高</li>
@@ -2280,7 +2294,7 @@
 </ul>
 </li>
 <li>Pub&#x2F;Sub广播<ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317112845.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200317112845.png"></li>
 <li>问题：publish在集群每个节点广播：加重宽带</li>
 <li>解决：单独“走”一套Redis Sentinel</li>
 </ul>
@@ -2460,7 +2474,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="缓存粒度控制"><a href="#缓存粒度控制" class="headerlink" title="缓存粒度控制"></a>缓存粒度控制</h3><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318155735.png"></p>
+<h3 id="缓存粒度控制"><a href="#缓存粒度控制" class="headerlink" title="缓存粒度控制"></a>缓存粒度控制</h3><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318155735.png"></p>
 <ol>
 <li>从MySQL获取用户信息：<code>select * from user where id=&#123;id&#125;</code></li>
 <li>设置用户信息缓存：<code>set user:&#123;id&#125;</code> <code> select * from user where id=&#123;id&#125;</code></li>
@@ -2476,7 +2490,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="缓存穿透优化"><a href="#缓存穿透优化" class="headerlink" title="缓存穿透优化"></a>缓存穿透优化</h3><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318161322.png"></p>
+<h3 id="缓存穿透优化"><a href="#缓存穿透优化" class="headerlink" title="缓存穿透优化"></a>缓存穿透优化</h3><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318161322.png"></p>
 <ul>
 <li><p>原因：</p>
 <ol>
@@ -2492,7 +2506,7 @@
 </ol>
 </li>
 <li><p>解决</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318164417.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318164417.png"></p>
 </li>
 <li><p>问题：</p>
 <ol>
@@ -2504,7 +2518,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getPassThrough</span><span class="params">(String key)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">cacheValue</span> <span class="operator">=</span> cache.get(key);</span><br><span class="line">    <span class="keyword">if</span>(StringUtils.isBlink(cacheValue))&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">storageValue</span> <span class="operator">=</span> storage.get(key);</span><br><span class="line">        cache.set(key,storageValue);</span><br><span class="line">        <span class="comment">//如果存储数据为空，需要设置一个过期时间（300秒）</span></span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlink(storageValue))&#123;</span><br><span class="line">            cache.expire(key,<span class="number">60</span>*<span class="number">5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> storageValue;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318165903.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318165903.png"></li>
 </ul>
 <h3 id="无底洞问题优化"><a href="#无底洞问题优化" class="headerlink" title="无底洞问题优化"></a>无底洞问题优化</h3><ul>
 <li>问题：<ul>
@@ -2512,7 +2526,7 @@
 <li>发现问题：“加”机器性能没能提升，反而下降</li>
 </ul>
 </li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318174658.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318174658.png"></li>
 <li>优化IO的几种方法<ol>
 <li>命令本身优化：例如慢查询keys、hgetall bigkey</li>
 <li>减少网络通信次数</li>
@@ -2528,7 +2542,7 @@
 </li>
 </ul>
 <h3 id="热点key重建优化"><a href="#热点key重建优化" class="headerlink" title="热点key重建优化"></a>热点key重建优化</h3><ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318175519.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318175519.png"></p>
 </li>
 <li><p>三个目标</p>
 <ul>
@@ -2541,7 +2555,7 @@
 <ul>
 <li><p>互斥锁（mutex key）</p>
 <ul>
-<li><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318175933.png"></p>
+<li><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318175933.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">get</span><span class="params">(String key)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="keyword">if</span>(value == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">mutexKey</span> <span class="operator">=</span> <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            value = db.get(key);</span><br><span class="line">            redis.set(key,value);</span><br><span class="line">            redis.delete(mutexKey);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//其他线程休息50毫秒后重试</span></span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">            get(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -2550,7 +2564,7 @@
 <li><p>缓存层面：没有设置过期时间（没有用expire）</p>
 </li>
 <li><p>功能层面：为每个value添加逻辑过期时间，但发现超过逻辑过期时间后，会使用单独的线程去构建缓存</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318180917.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200318180917.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">get</span><span class="params">(<span class="keyword">final</span> String key)</span>&#123;</span><br><span class="line">    <span class="type">V</span> <span class="variable">v</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> redis.get(key);</span><br><span class="line">    <span class="type">long</span> <span class="variable">logicTimeout</span> <span class="operator">=</span> v.getLogicTimeout();</span><br><span class="line">    <span class="keyword">if</span>(logicTimeout &gt;= System.currentTimeMillis())&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">mutexKey</span> <span class="operator">=</span> <span class="string">&quot;mutex:key:&quot;</span>+key;</span><br><span class="line">        <span class="keyword">if</span>(redis.set(mutexKey,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;ex 180&quot;</span>,<span class="string">&quot;nx&quot;</span>))&#123;</span><br><span class="line">            <span class="comment">//异步更新后台异常执行</span></span><br><span class="line">            threadPool.execute(<span class="keyword">new</span> <span class="title class_">Runnable</span>()&#123;</span><br><span class="line">                <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">                    <span class="type">String</span> <span class="variable">dbValue</span> <span class="operator">=</span> db.get(key);</span><br><span class="line">            		redis.set(key,(dbValue,newLogicTimeout));</span><br><span class="line">            		redis.delete(keyMutex);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
@@ -2613,8 +2627,8 @@
 <li>机器添加部署脚本：ssh账号、Redis安装部署</li>
 <li>Cachecloud添加机器</li>
 </ol>
-<h3 id="应用接入"><a href="#应用接入" class="headerlink" title="应用接入"></a>应用接入</h3><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200320115804.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200320120059.png"></p>
+<h3 id="应用接入"><a href="#应用接入" class="headerlink" title="应用接入"></a>应用接入</h3><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200320115804.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200320120059.png"></p>
 <h2 id="十二、小结"><a href="#十二、小结" class="headerlink" title="十二、小结"></a>十二、小结</h2><ol>
 <li>Redis初识：单机安装部署（版本选择），边界（使用场景）</li>
 <li>API理解和使用：单线程、5种数据结构使用和选择</li>
@@ -2658,7 +2672,7 @@
 <li><p>直观因素：m&#x2F;n的比率，hash函数的个数</p>
 </li>
 <li><p>实际误差率公式</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200325164844.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200325164844.png"></p>
 <ul>
 <li>m&#x2F;n与误差率成反比，k与误差率成反比</li>
 </ul>
@@ -2673,7 +2687,7 @@
 </li>
 </ul>
 <h3 id="Redis单机布隆过滤器"><a href="#Redis单机布隆过滤器" class="headerlink" title="Redis单机布隆过滤器"></a>Redis单机布隆过滤器</h3><ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200325171234.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200325171234.png"></li>
 <li>实现方法<ul>
 <li>定义布隆过滤器构造参数：m、n、k、误差概率</li>
 <li>定义布隆过滤器操作函数：add和contain</li>
@@ -2689,8 +2703,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="十四、Redis开发规范"><a href="#十四、Redis开发规范" class="headerlink" title="十四、Redis开发规范"></a>十四、Redis开发规范</h2><h3 id="Key名设计"><a href="#Key名设计" class="headerlink" title="Key名设计"></a>Key名设计</h3><p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200327170152.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200327171733.png"></p>
+<h2 id="十四、Redis开发规范"><a href="#十四、Redis开发规范" class="headerlink" title="十四、Redis开发规范"></a>十四、Redis开发规范</h2><h3 id="Key名设计"><a href="#Key名设计" class="headerlink" title="Key名设计"></a>Key名设计</h3><p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200327170152.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200327171733.png"></p>
 <h3 id="Value设计"><a href="#Value设计" class="headerlink" title="Value设计"></a>Value设计</h3><ul>
 <li><p>拒绝bigkey</p>
 <ul>
@@ -2719,7 +2733,7 @@
 <li><p>bigkey发现</p>
 <ul>
 <li><p>应用异常</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200406111455.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200406111455.png"></p>
 </li>
 <li><p>redis-cli –bigkeys  <code>redis-cli -h your.ip -p xxx --bigkeys</code></p>
 </li>
@@ -2825,7 +2839,7 @@
 <li><p>一个hash：hset allPics picId userId</p>
 </li>
 <li><p>若干个小hash：hset picId&#x2F;100 pic%100 userId</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200406165541.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200406165541.png"></p>
 </li>
 <li><p>三种方案内存分析</p>
 <ul>
@@ -2915,7 +2929,7 @@
 </ul>
 </li>
 <li><p>【建议】必要情况下使用monitor命令时，要注意不要长时间使用</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200414141528.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200414141528.png"></p>
 </li>
 </ol>
 <h3 id="Java客户端优化"><a href="#Java客户端优化" class="headerlink" title="Java客户端优化"></a>Java客户端优化</h3><ol>
@@ -3040,17 +3054,17 @@
 <td align="left">Redis所使用的内存分配器。默认：jemalloc</td>
 </tr>
 </tbody></table>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416101537.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416101537.png"></p>
 </li>
 <li><p>内存消耗划分</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416105846.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416110647.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416105846.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416110647.png"></p>
 </li>
 </ul>
 <h3 id="内存缓冲"><a href="#内存缓冲" class="headerlink" title="内存缓冲"></a>内存缓冲</h3><ul>
 <li><p>缓冲内存-客户端缓冲区</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112157.png"></p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112353.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112157.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112353.png"></p>
 <ul>
 <li><p>普通客户端</p>
 <ol>
@@ -3059,7 +3073,7 @@
 <li><p>默认：没有限制客户端缓冲</p>
 </li>
 <li><p>注意：防止大的命令或者monitor</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112914.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416112914.png"></p>
 </li>
 </ol>
 </li>
@@ -3081,10 +3095,10 @@
 </li>
 <li><p>缓冲内存-复制缓冲区</p>
 <ul>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416134820.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416134820.png"></li>
 <li>缓冲内存-AOF缓冲区<ul>
 <li>注意：AOF重写期间，AOF的缓冲区，没有容量限制</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416135534.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416135534.png"></li>
 </ul>
 </li>
 </ul>
@@ -3121,7 +3135,7 @@
 <li><p>设置内存上限</p>
 <ul>
 <li><p>注意：定义实例最大内存，便于管理机器内存，一般要预留30%</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420154633.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420154633.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis &gt; config set maxmemory 6GB</span><br><span class="line">redis &gt; config set maxmemory 2GB</span><br><span class="line">redis &gt; config rewrite</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -3134,7 +3148,7 @@
 <li><p>惰性删除：访问key -&gt; expired dict -&gt; del key</p>
 </li>
 <li><p>定时删除：每秒运行10次，采样删除</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420155255.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420155255.png"></p>
 </li>
 </ol>
 </li>
@@ -3156,13 +3170,13 @@
 </ul>
 <h3 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h3><ul>
 <li><p>内存分布</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416110647.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200416110647.png"></p>
 </li>
 <li><p>合理选择优化数据结构</p>
 <ul>
 <li>需求：计算网站每天独立用户数</li>
 <li>选择：集合、bitmaps、hyperloglog</li>
-<li><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420172448.png"></li>
+<li><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420172448.png"></li>
 </ul>
 </li>
 <li><p>客户端内存优化</p>
@@ -3292,7 +3306,7 @@
 </ol>
 </li>
 <li><p>最佳实践</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420184749.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200420184749.png"></p>
 </li>
 </ul>
 </li>
@@ -3388,16 +3402,16 @@
 </ul>
 <h3 id="热点key发现"><a href="#热点key发现" class="headerlink" title="热点key发现"></a>热点key发现</h3><ul>
 <li><p>客户端</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100545.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100545.png"></p>
 </li>
 <li><p>代理端</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100624.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100624.png"></p>
 </li>
 <li><p>服务端</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100655.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100655.png"></p>
 </li>
 <li><p>机器收集</p>
-<p><img src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100750.png"></p>
+<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20200421100750.png"></p>
 </li>
 </ul>
 <h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><table>
@@ -3437,6 +3451,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ZNE
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.zelentre.vip/2020/07/08/Redis/" title="Redis学习">https://blog.zelentre.vip/2020/07/08/Redis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/Redis/" rel="tag"># Redis</a>
           </div>
@@ -3445,13 +3476,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/07/08/application.yml/" rel="prev" title="application.yml的一些配置">
-                  <i class="fa fa-chevron-left"></i> application.yml的一些配置
+                <a href="/2020/07/08/docker/" rel="prev" title="Docker">
+                  <i class="fa fa-chevron-left"></i> Docker
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/07/08/MySQL/" rel="next" title="MySQL">
-                  MySQL <i class="fa fa-chevron-right"></i>
+                <a href="/2020/07/08/application.yml/" rel="next" title="application.yml的一些配置">
+                  application.yml的一些配置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -3464,6 +3495,7 @@
 
 
 
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -3477,21 +3509,39 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">zelentre</span>
+  <span class="author" itemprop="copyrightHolder">ZNE</span>
 </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">137k</span>
+    <span title="站点总字数">139k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:04</span>
+    <span title="站点阅读时长">2:06</span>
   </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -3501,7 +3551,11 @@
 
   
   <script src="https://lib.baomitu.com/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://lib.baomitu.com/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://lib.baomitu.com/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://lib.baomitu.com/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
 <script src="https://lib.baomitu.com/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
@@ -3509,13 +3563,20 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
+  <script src="/js/third-party/pace.js"></script>
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
+<link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"zelentre","repo":"zelentre.github.io","client_id":"f3b702638f55f84ebd9e","client_secret":"90c33e1833c64098cbe7b4949cf9060025c172f5","admin_user":"zelentre","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"201a849e237df3696969b09686843d2c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>
