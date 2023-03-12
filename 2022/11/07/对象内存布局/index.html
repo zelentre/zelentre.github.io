@@ -16,8 +16,8 @@
 
 <link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://lib.baomitu.com/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="//gcore.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="//gcore.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.min.css">
+  <link rel="stylesheet" href="//testingcf.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="//testingcf.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.min.css">
   <script src="https://lib.baomitu.com/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.zelentre.vip","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
@@ -29,15 +29,15 @@
 <meta property="og:site_name" content="ZNE Blog">
 <meta property="og:description" content="在HotSpot虚拟机中，对象在内存中存储的布局可以分为三块区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/image-20221107230635813.png">
-<meta property="og:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/image-20221107224649664.png">
+<meta property="og:image" content="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png">
+<meta property="og:image" content="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/image-20221107230635813.png">
+<meta property="og:image" content="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/image-20221107224649664.png">
 <meta property="article:published_time" content="2022-11-07T13:43:44.000Z">
-<meta property="article:modified_time" content="2022-11-07T15:06:46.124Z">
+<meta property="article:modified_time" content="2023-03-12T14:13:33.468Z">
 <meta property="article:author" content="ZNE">
 <meta property="article:tag" content="对象内存">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png">
+<meta name="twitter:image" content="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png">
 
 
 <link rel="canonical" href="https://blog.zelentre.vip/2022/11/07/%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/">
@@ -225,9 +225,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-11-07 21:43:44 / 修改时间：23:06:46" itemprop="dateCreated datePublished" datetime="2022-11-07T21:43:44+08:00">2022-11-07</time>
+      <time title="创建时间：2022-11-07 21:43:44" itemprop="dateCreated datePublished" datetime="2022-11-07T21:43:44+08:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-12 22:13:33" itemprop="dateModified" datetime="2023-03-12T22:13:33+08:00">2023-03-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,7 +278,7 @@
 <h2 id="一、对象头"><a href="#一、对象头" class="headerlink" title="一、对象头"></a>一、对象头</h2><p>Java对象的对象头由三部分组成：</p>
 <h3 id="1、Mark-Word"><a href="#1、Mark-Word" class="headerlink" title="1、Mark Word"></a>1、Mark Word</h3><p>Mark Word用于存储对象自身的运行时数据， 如哈希码（HashCode）、GC分代年龄、同步锁信息、偏向锁标识等。Mark Word在32位JVM中的长度是32bit，在64位JVM中长度是64bit。</p>
 <p>通常我们都是使用64位的JVM，Mark Word在64位JVM内部结构如下图：</p>
-<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png"></p>
+<p><img data-src="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/20221107215922.png"></p>
 <h3 id="2、类型指针"><a href="#2、类型指针" class="headerlink" title="2、类型指针"></a>2、类型指针</h3><p>类型指针指向对象的类元数据，虚拟机通过这个指针确定该对象是那个类的实例。Java对象的类数据保存在方法区。</p>
 <h3 id="3、数组长度（只有数组对象才有）"><a href="#3、数组长度（只有数组对象才有）" class="headerlink" title="3、数组长度（只有数组对象才有）"></a>3、数组长度（只有数组对象才有）</h3><p>如果对象是一个数组，那么对象头还需要由额外的空间用于存储数组的长度。如果对象是数组类型，因为JVM虚拟机可以通过Java对象的元数据信息确定Java对象的大小，但是无法从数组的元数据来确定数据的大小，所以用一块空间来记录数组长度。</p>
 <h2 id="二、实例数据"><a href="#二、实例数据" class="headerlink" title="二、实例数据"></a>二、实例数据</h2><p>实例数据是对象真正存储的有效信息，包括程序代码中定义的各种类型的字段(包括从父类继承下来的和本身拥有的字段) 。</p>
@@ -280,7 +286,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">studentA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">studentB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>JVM结构图如下所示：</p>
-<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/image-20221107230635813.png" alt="image-20221107230635813"></p>
+<p><img data-src="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/image-20221107230635813.png" alt="image-20221107230635813"></p>
 <h2 id="三、对齐填充"><a href="#三、对齐填充" class="headerlink" title="三、对齐填充"></a>三、对齐填充</h2><p>由于虚拟机要求对象起始地址必须是8字节的整数倍，所以后面有几个字节用于把对象的大小补齐至8字节的整数倍，没有特别的功能，对齐填充不是必须存在的，仅仅是为了字节对齐。</p>
 <blockquote>
 <p><strong>为什么必须是8个字节?</strong></p>
@@ -305,7 +311,7 @@
 <li>VALUE是TYPE在内存中的值；</li>
 </ul>
 <p>从上图可以看出<code>Object obj = new Object()；</code>在内存中占16个字节，注意最后面的(loss due to the next object alignment)其实就是对齐填充的字节数，这里由于<code>Object obj = new Object()；</code>没有实例数据，对象头总共占用了12个字节（默认开启了指针压缩<code>-XX:+UseCompressedOops</code>），由于虚拟机要求对象起始地址必须是8字节的整数倍，所以还需要对齐填充4个字节，达到2倍的8bit。</p>
-<p><img data-src="https://gcore.jsdelivr.net/gh/znej/pic/picgo/image-20221107224649664.png" alt="image-20221107224649664"></p>
+<p><img data-src="https://testingcf.jsdelivr.net/gh/znej/pic/picgo/image-20221107224649664.png" alt="image-20221107224649664"></p>
 
     </div>
 
